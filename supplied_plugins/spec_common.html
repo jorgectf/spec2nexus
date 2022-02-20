@@ -1,117 +1,61 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SPEC standard plugin &mdash; spec2nexus 54.g7273e4c documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="../_static/js/theme.js"></script>
+
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>SPEC standard plugin &#8212; spec2nexus 56.g494d3e4 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="UIM plugin" href="uim.html" />
-    <link rel="prev" title="Fallback plugin" href="fallback.html" /> 
-</head>
+    <link rel="prev" title="Fallback plugin" href="fallback.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="uim.html" title="UIM plugin"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="fallback.html" title="Fallback plugin"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">spec2nexus 56.g494d3e4 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../contents.html" >Contents</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../plugin.html" accesskey="U"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.plugin</span></code></a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">SPEC standard plugin</a></li> 
+      </ul>
+    </div>  
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> spec2nexus
-          </a>
-              <div class="version">
-                2021.1.8
-              </div>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../contents.html">Contents</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../spec2nexus.html">spec2nexus</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../extractSpecScan.html">extractSpecScan</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../specplot.html">specplot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../specplot_gallery.html">specplot_gallery</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../spec.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../charts.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.charts</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../specplot_custom_scan_macro.html">How to write a custom scan handling for <em>specplot</em></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../eznx.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.eznx</span></code></a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../plugin.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.plugin</span></code></a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="../plugin.html#supplied-spec-plugin-modules">Supplied <strong>spec</strong> plugin modules</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="XPCS.html">XPCS plugin</a></li>
-<li class="toctree-l4"><a class="reference internal" href="apstools_specwriter.html">apstools SpecWriterCallback metadata plugin</a></li>
-<li class="toctree-l4"><a class="reference internal" href="fallback.html">Fallback plugin</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">SPEC standard plugin</a></li>
-<li class="toctree-l4"><a class="reference internal" href="uim.html">UIM plugin</a></li>
-<li class="toctree-l4"><a class="reference internal" href="unicat.html">unicat plugin</a></li>
-<li class="toctree-l4"><a class="reference internal" href="uxml.html">#UXML: UXML metadata plugin</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../plugin.html#writing-a-custom-plugin">Writing a custom plugin</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../plugin.html#overview-of-the-supplied-spec-plugins">Overview of the supplied <strong>spec</strong> plugins</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../plugin.html#module-spec2nexus.plugin">source code documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../utils.html">Common Methods: <code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../scanf.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.scanf</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../singletons.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.singletons</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../writer.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../install.html">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../install.html#required-libraries">Required Libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../install.html#optional-libraries">Optional Libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../unit_testing.html">Unit Testing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../example_data.html">Example data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changes.html">Change History</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../license.html">License</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../contents.html#indices-and-tables">Indices and tables</a></li>
-</ul>
-
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">spec2nexus</a>
-      </nav>
-
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../contents.html">Contents</a> &raquo;</li>
-          <li><a href="../plugin.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.plugin</span></code></a> &raquo;</li>
-      <li>SPEC standard plugin</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/supplied_plugins/spec_common.rst.txt" rel="nofollow"> View page source</a>
-      </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
   <section id="module-spec2nexus.plugins.spec_common">
-<span id="spec-standard-plugin"></span><span id="spec-plugin"></span><h1>SPEC standard plugin<a class="headerlink" href="#module-spec2nexus.plugins.spec_common" title="Permalink to this headline"></a></h1>
+<span id="spec-standard-plugin"></span><span id="spec-plugin"></span><h1>SPEC standard plugin<a class="headerlink" href="#module-spec2nexus.plugins.spec_common" title="Permalink to this headline">¶</a></h1>
 <p>SPEC data file standard control lines</p>
 <dl class="field-list simple">
 <dt class="field-odd">see</dt>
@@ -121,7 +65,7 @@
 </dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_Comment">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_Comment</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Comment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Comment" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_Comment</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Comment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Comment" title="Permalink to this definition">¶</a></dt>
 <dd><p><strong>#C</strong> – any comment either in the scan header or somewhere in the scan</p>
 <p>IN-MEMORY REPRESENTATION</p>
 <ul class="simple">
@@ -137,13 +81,13 @@ string array of all comments from this scan block</p></li>
 </ul>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_Comment.process">
-<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Comment.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Comment.process" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Comment.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Comment.process" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>required:</em> handle this line from a SPEC data file</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_Comment.writer">
-<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Comment.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Comment.writer" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Comment.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Comment.writer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Describe how to store this data in an HDF5 NeXus file</p>
 </dd></dl>
 
@@ -151,7 +95,7 @@ string array of all comments from this scan block</p></li>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_CountTime">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_CountTime</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_CountTime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_CountTime" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_CountTime</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_CountTime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_CountTime" title="Permalink to this definition">¶</a></dt>
 <dd><p><strong>#T</strong> – counting against this constant number of seconds (see #M)</p>
 <p>IN-MEMORY REPRESENTATION</p>
 <ul class="simple">
@@ -165,13 +109,13 @@ value <em>SPEC scan with constant counting time</em>, such as <em>/S1/counting_b
 </ul>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_CountTime.process">
-<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_CountTime.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_CountTime.process" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_CountTime.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_CountTime.process" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>required:</em> handle this line from a SPEC data file</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_CountTime.writer">
-<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_CountTime.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_CountTime.writer" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_CountTime.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_CountTime.writer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Describe how to store this data in an HDF5 NeXus file</p>
 </dd></dl>
 
@@ -179,7 +123,7 @@ value <em>SPEC scan with constant counting time</em>, such as <em>/S1/counting_b
 
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_CounterMnemonics">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_CounterMnemonics</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_CounterMnemonics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_CounterMnemonics" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_CounterMnemonics</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_CounterMnemonics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_CounterMnemonics" title="Permalink to this definition">¶</a></dt>
 <dd><p><strong>#j</strong> – mnemonics of counter  (new with SPEC v6)</p>
 <p>IN-MEMORY REPRESENTATION</p>
 <ul class="simple">
@@ -195,19 +139,19 @@ value <em>SPEC scan with constant counting time</em>, such as <em>/S1/counting_b
 </ul>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_CounterMnemonics.postprocess">
-<span class="sig-name descname"><span class="pre">postprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_CounterMnemonics.postprocess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_CounterMnemonics.postprocess" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">postprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_CounterMnemonics.postprocess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_CounterMnemonics.postprocess" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>optional:</em> additional processing deferred until <em>after</em> data file has been read</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_CounterMnemonics.process">
-<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_CounterMnemonics.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_CounterMnemonics.process" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_CounterMnemonics.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_CounterMnemonics.process" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>required:</em> handle this line from a SPEC data file</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_CounterMnemonics.writer">
-<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_CounterMnemonics.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_CounterMnemonics.writer" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_CounterMnemonics.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_CounterMnemonics.writer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Describe how to store this data in an HDF5 NeXus file</p>
 </dd></dl>
 
@@ -215,7 +159,7 @@ value <em>SPEC scan with constant counting time</em>, such as <em>/S1/counting_b
 
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_CounterNames">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_CounterNames</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_CounterNames"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_CounterNames" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_CounterNames</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_CounterNames"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_CounterNames" title="Permalink to this definition">¶</a></dt>
 <dd><p><strong>#J</strong> – names of counters (each separated by two spaces) (new with SPEC v6)</p>
 <p>IN-MEMORY REPRESENTATION</p>
 <ul class="simple">
@@ -231,19 +175,19 @@ value <em>SPEC scan with constant counting time</em>, such as <em>/S1/counting_b
 </ul>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_CounterNames.postprocess">
-<span class="sig-name descname"><span class="pre">postprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_CounterNames.postprocess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_CounterNames.postprocess" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">postprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_CounterNames.postprocess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_CounterNames.postprocess" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>optional:</em> additional processing deferred until <em>after</em> data file has been read</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_CounterNames.process">
-<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_CounterNames.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_CounterNames.process" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_CounterNames.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_CounterNames.process" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>required:</em> handle this line from a SPEC data file</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_CounterNames.writer">
-<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_CounterNames.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_CounterNames.writer" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_CounterNames.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_CounterNames.writer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Describe how to store this data in an HDF5 NeXus file</p>
 </dd></dl>
 
@@ -251,7 +195,7 @@ value <em>SPEC scan with constant counting time</em>, such as <em>/S1/counting_b
 
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_DataLine">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_DataLine</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_DataLine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_DataLine" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_DataLine</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_DataLine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_DataLine" title="Permalink to this definition">¶</a></dt>
 <dd><p><strong>(scan_data)</strong> – scan data line</p>
 <p>Scan data could include interspersed MCA data or
 even describe 2-D or 3-D data.  T
@@ -272,19 +216,19 @@ collected in <strong>data_lines</strong></p></li>
 </ul>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_DataLine.match_key">
-<span class="sig-name descname"><span class="pre">match_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_DataLine.match_key"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_DataLine.match_key" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">match_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_DataLine.match_key"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_DataLine.match_key" title="Permalink to this definition">¶</a></dt>
 <dd><p>Easier to try conversion to number than construct complicated regexp</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_DataLine.postprocess">
-<span class="sig-name descname"><span class="pre">postprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_DataLine.postprocess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_DataLine.postprocess" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">postprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_DataLine.postprocess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_DataLine.postprocess" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>optional:</em> additional processing deferred until <em>after</em> data file has been read</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_DataLine.process">
-<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_DataLine.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_DataLine.process" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_DataLine.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_DataLine.process" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>required:</em> handle this line from a SPEC data file</p>
 </dd></dl>
 
@@ -292,7 +236,7 @@ collected in <strong>data_lines</strong></p></li>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_Date">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_Date</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Date"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Date" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_Date</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Date"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Date" title="Permalink to this definition">¶</a></dt>
 <dd><p><strong>#D</strong> – date/time stamp</p>
 <p>IN-MEMORY REPRESENTATION</p>
 <ul class="simple">
@@ -304,13 +248,13 @@ collected in <strong>data_lines</strong></p></li>
 </ul>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_Date.process">
-<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sdf_object</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Date.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Date.process" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sdf_object</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Date.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Date.process" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>required:</em> handle this line from a SPEC data file</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_Date.writer">
-<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sdf_object</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Date.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Date.writer" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sdf_object</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Date.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Date.writer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Describe how to store this data in an HDF5 NeXus file</p>
 </dd></dl>
 
@@ -318,7 +262,7 @@ collected in <strong>data_lines</strong></p></li>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_Epoch">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_Epoch</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Epoch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Epoch" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_Epoch</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Epoch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Epoch" title="Permalink to this definition">¶</a></dt>
 <dd><p><strong>#E</strong> – the UNIX epoch (seconds from 00:00 GMT 1/1/70)</p>
 <p>In SPEC data files, the <code class="docutils literal notranslate"><span class="pre">#E</span></code> control line indicates the
 start of a <em>header</em> block.</p>
@@ -332,7 +276,7 @@ start of a <em>header</em> block.</p>
 </ul>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_Epoch.process">
-<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">buf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sdf_object</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Epoch.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Epoch.process" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">buf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sdf_object</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Epoch.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Epoch.process" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>required:</em> handle this line from a SPEC data file</p>
 </dd></dl>
 
@@ -340,7 +284,7 @@ start of a <em>header</em> block.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_File">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_File</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_File"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_File" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_File</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_File"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_File" title="Permalink to this definition">¶</a></dt>
 <dd><p><strong>#F</strong> – original data file name (starts a file header block)</p>
 <p>Module <a class="reference internal" href="../spec.html#module-spec2nexus.spec" title="spec2nexus.spec: Classes to read the contents of a SPEC data file."><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a> is responsible for handling this control line.</p>
 <p>IN-MEMORY REPRESENTATION</p>
@@ -354,7 +298,7 @@ start of a <em>header</em> block.</p>
 </ul>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_File.process">
-<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spec_file_obj</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_File.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_File.process" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spec_file_obj</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_File.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_File.process" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>required:</em> handle this line from a SPEC data file</p>
 </dd></dl>
 
@@ -362,7 +306,7 @@ start of a <em>header</em> block.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_Geometry">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_Geometry</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Geometry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Geometry" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_Geometry</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Geometry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Geometry" title="Permalink to this definition">¶</a></dt>
 <dd><p><strong>#G</strong> – diffractometer geometry (numbered rows: #G0, #G1, …)</p>
 <p>IN-MEMORY REPRESENTATION</p>
 <ul class="simple">
@@ -382,19 +326,19 @@ SPEC diffractometer support.</p></li>
 </ul>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_Geometry.postprocess">
-<span class="sig-name descname"><span class="pre">postprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Geometry.postprocess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Geometry.postprocess" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">postprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Geometry.postprocess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Geometry.postprocess" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>optional:</em> additional processing deferred until <em>after</em> data file has been read</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_Geometry.process">
-<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Geometry.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Geometry.process" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Geometry.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Geometry.process" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>required:</em> handle this line from a SPEC data file</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_Geometry.writer">
-<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Geometry.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Geometry.writer" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Geometry.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Geometry.writer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Describe how to store this data in an HDF5 NeXus file</p>
 </dd></dl>
 
@@ -402,7 +346,7 @@ SPEC diffractometer support.</p></li>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_HKL">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_HKL</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_HKL"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_HKL" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_HKL</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_HKL"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_HKL" title="Permalink to this definition">¶</a></dt>
 <dd><p><strong>#Q</strong> – <span class="math notranslate nohighlight">\(Q\)</span> (<span class="math notranslate nohighlight">\(hkl\)</span>) at start of scan</p>
 <p>IN-MEMORY REPRESENTATION</p>
 <ul class="simple">
@@ -414,13 +358,13 @@ SPEC diffractometer support.</p></li>
 </ul>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_HKL.process">
-<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_HKL.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_HKL.process" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_HKL.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_HKL.process" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>required:</em> handle this line from a SPEC data file</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_HKL.writer">
-<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_HKL.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_HKL.writer" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_HKL.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_HKL.writer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Describe how to store this data in an HDF5 NeXus file</p>
 </dd></dl>
 
@@ -428,7 +372,7 @@ SPEC diffractometer support.</p></li>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_Labels">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_Labels</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Labels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Labels" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_Labels</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Labels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Labels" title="Permalink to this definition">¶</a></dt>
 <dd><p><strong>#L</strong> – data column labels</p>
 <p>IN-MEMORY REPRESENTATION</p>
 <ul class="simple">
@@ -444,7 +388,7 @@ collected in <strong>data_lines</strong></p></li>
 </ul>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_Labels.process">
-<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Labels.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Labels.process" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Labels.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Labels.process" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>required:</em> handle this line from a SPEC data file</p>
 </dd></dl>
 
@@ -452,7 +396,7 @@ collected in <strong>data_lines</strong></p></li>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_MCA">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_MCA</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_MCA</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA" title="Permalink to this definition">¶</a></dt>
 <dd><p><strong>#&#64;MCA</strong> – MCA data formatting declaration (ignored for now)</p>
 <p>declares this scan contains MCA data (SPEC’s array_dump() format, such as <code class="docutils literal notranslate"><span class="pre">&quot;#&#64;MCA</span> <span class="pre">16C&quot;</span></code>)</p>
 <p>From documentation provided by the ESRF BLISS group:
@@ -473,7 +417,7 @@ This format string is held by the global variable “MCA_FMT” and can then bee
 </div></blockquote>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_MCA.process">
-<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA.process" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA.process" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>required:</em> handle this line from a SPEC data file</p>
 </dd></dl>
 
@@ -481,7 +425,7 @@ This format string is held by the global variable “MCA_FMT” and can then bee
 
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_MCA_Array">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_MCA_Array</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA_Array"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA_Array" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_MCA_Array</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA_Array"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA_Array" title="Permalink to this definition">¶</a></dt>
 <dd><p><strong>&#64;A</strong> – MCA Array data</p>
 <p>MCA data. Each value is the content of one channel, or an
 integrated value over several channels if a reduction was applied.</p>
@@ -511,13 +455,13 @@ this method reads the data lines and buffers them for post-processing in
 </ul>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_MCA_Array.postprocess">
-<span class="sig-name descname"><span class="pre">postprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA_Array.postprocess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA_Array.postprocess" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">postprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA_Array.postprocess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA_Array.postprocess" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>optional:</em> additional processing deferred until <em>after</em> data file has been read</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_MCA_Array.process">
-<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA_Array.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA_Array.process" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA_Array.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA_Array.process" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>required:</em> handle this line from a SPEC data file</p>
 </dd></dl>
 
@@ -525,7 +469,7 @@ this method reads the data lines and buffers them for post-processing in
 
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_MCA_Calibration">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_MCA_Calibration</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA_Calibration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA_Calibration" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_MCA_Calibration</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA_Calibration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA_Calibration" title="Permalink to this definition">¶</a></dt>
 <dd><p><strong>#&#64;CALIB</strong> – coefficients to compute a scale based on the MCA channel number</p>
 <p><span class="math notranslate nohighlight">\(x_k = a +bk + ck^2\)</span> for MCA data, <span class="math notranslate nohighlight">\(k\)</span> is channel number</p>
 <p>IN-MEMORY REPRESENTATION</p>
@@ -545,13 +489,13 @@ this method reads the data lines and buffers them for post-processing in
 </ul>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_MCA_Calibration.process">
-<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA_Calibration.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA_Calibration.process" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA_Calibration.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA_Calibration.process" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>required:</em> handle this line from a SPEC data file</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_MCA_Calibration.writer">
-<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA_Calibration.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA_Calibration.writer" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA_Calibration.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA_Calibration.writer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Describe how to store this data in an HDF5 NeXus file</p>
 </dd></dl>
 
@@ -559,7 +503,7 @@ this method reads the data lines and buffers them for post-processing in
 
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_MCA_ChannelInformation">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_MCA_ChannelInformation</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA_ChannelInformation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA_ChannelInformation" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_MCA_ChannelInformation</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA_ChannelInformation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA_ChannelInformation" title="Permalink to this definition">¶</a></dt>
 <dd><p><strong>#&#64;CHANN</strong> – MCA channel information</p>
 <p>number_saved, first_saved, last_saved, reduction_coef</p>
 <p>IN-MEMORY REPRESENTATION</p>
@@ -579,13 +523,13 @@ this method reads the data lines and buffers them for post-processing in
 </ul>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_MCA_ChannelInformation.process">
-<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA_ChannelInformation.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA_ChannelInformation.process" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA_ChannelInformation.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA_ChannelInformation.process" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>required:</em> handle this line from a SPEC data file</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_MCA_ChannelInformation.writer">
-<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA_ChannelInformation.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA_ChannelInformation.writer" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA_ChannelInformation.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA_ChannelInformation.writer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Describe how to store this data in an HDF5 NeXus file</p>
 </dd></dl>
 
@@ -593,7 +537,7 @@ this method reads the data lines and buffers them for post-processing in
 
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_MCA_CountTime">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_MCA_CountTime</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA_CountTime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA_CountTime" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_MCA_CountTime</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA_CountTime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA_CountTime" title="Permalink to this definition">¶</a></dt>
 <dd><p><strong>#&#64;CTIME</strong> – MCA count times</p>
 <p>preset_time, elapsed_live_time, elapsed_real_time</p>
 <p>IN-MEMORY REPRESENTATION</p>
@@ -612,13 +556,13 @@ this method reads the data lines and buffers them for post-processing in
 </ul>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_MCA_CountTime.process">
-<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA_CountTime.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA_CountTime.process" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA_CountTime.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA_CountTime.process" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>required:</em> handle this line from a SPEC data file</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_MCA_CountTime.writer">
-<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA_CountTime.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA_CountTime.writer" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA_CountTime.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA_CountTime.writer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Describe how to store this data in an HDF5 NeXus file</p>
 </dd></dl>
 
@@ -626,7 +570,7 @@ this method reads the data lines and buffers them for post-processing in
 
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_MCA_RegionOfInterest">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_MCA_RegionOfInterest</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA_RegionOfInterest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA_RegionOfInterest" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_MCA_RegionOfInterest</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA_RegionOfInterest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA_RegionOfInterest" title="Permalink to this definition">¶</a></dt>
 <dd><p><strong>#&#64;ROI</strong> – MCA ROI (Region Of Interest) channel information</p>
 <p>ROI_name, first_chan, last_chan</p>
 <p>IN-MEMORY REPRESENTATION</p>
@@ -645,13 +589,13 @@ in the <em>NXentry</em> group, such as <em>/S1/MCA/ROI</em></p>
 </ul>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_MCA_RegionOfInterest.process">
-<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA_RegionOfInterest.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA_RegionOfInterest.process" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA_RegionOfInterest.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA_RegionOfInterest.process" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>required:</em> handle this line from a SPEC data file</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_MCA_RegionOfInterest.writer">
-<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA_RegionOfInterest.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA_RegionOfInterest.writer" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA_RegionOfInterest.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA_RegionOfInterest.writer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Describe how to store this data in an HDF5 NeXus file</p>
 </dd></dl>
 
@@ -659,7 +603,7 @@ in the <em>NXentry</em> group, such as <em>/S1/MCA/ROI</em></p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_Monitor">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_Monitor</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Monitor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Monitor" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_Monitor</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Monitor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Monitor" title="Permalink to this definition">¶</a></dt>
 <dd><p><strong>#M</strong> – counting against this constant monitor count (see #T)</p>
 <p>IN-MEMORY REPRESENTATION</p>
 <ul class="simple">
@@ -673,13 +617,13 @@ value <em>SPEC scan with constant monitor count</em>, such as <em>/S1/counting_b
 </ul>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_Monitor.process">
-<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Monitor.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Monitor.process" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Monitor.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Monitor.process" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>required:</em> handle this line from a SPEC data file</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_Monitor.writer">
-<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Monitor.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Monitor.writer" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Monitor.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Monitor.writer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Describe how to store this data in an HDF5 NeXus file</p>
 </dd></dl>
 
@@ -687,7 +631,7 @@ value <em>SPEC scan with constant monitor count</em>, such as <em>/S1/counting_b
 
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_NormalizingFactor">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_NormalizingFactor</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_NormalizingFactor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_NormalizingFactor" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_NormalizingFactor</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_NormalizingFactor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_NormalizingFactor" title="Permalink to this definition">¶</a></dt>
 <dd><p><strong>#I</strong> – intensity normalizing factor</p>
 <p>IN-MEMORY REPRESENTATION</p>
 <ul class="simple">
@@ -699,13 +643,13 @@ value <em>SPEC scan with constant monitor count</em>, such as <em>/S1/counting_b
 </ul>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_NormalizingFactor.process">
-<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_NormalizingFactor.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_NormalizingFactor.process" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_NormalizingFactor.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_NormalizingFactor.process" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>required:</em> handle this line from a SPEC data file</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_NormalizingFactor.writer">
-<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_NormalizingFactor.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_NormalizingFactor.writer" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_NormalizingFactor.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_NormalizingFactor.writer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Describe how to store this data in an HDF5 NeXus file</p>
 </dd></dl>
 
@@ -713,7 +657,7 @@ value <em>SPEC scan with constant monitor count</em>, such as <em>/S1/counting_b
 
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_NumColumns">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_NumColumns</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_NumColumns"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_NumColumns" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_NumColumns</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_NumColumns"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_NumColumns" title="Permalink to this definition">¶</a></dt>
 <dd><p><strong>#N</strong> – number of columns of data [ num2 sets per row ]</p>
 <p>IN-MEMORY REPRESENTATION</p>
 <ul class="simple">
@@ -725,7 +669,7 @@ value <em>SPEC scan with constant monitor count</em>, such as <em>/S1/counting_b
 </ul>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_NumColumns.process">
-<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_NumColumns.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_NumColumns.process" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_NumColumns.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_NumColumns.process" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>required:</em> handle this line from a SPEC data file</p>
 </dd></dl>
 
@@ -733,7 +677,7 @@ value <em>SPEC scan with constant monitor count</em>, such as <em>/S1/counting_b
 
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_PositionerMnemonics">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_PositionerMnemonics</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_PositionerMnemonics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_PositionerMnemonics" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_PositionerMnemonics</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_PositionerMnemonics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_PositionerMnemonics" title="Permalink to this definition">¶</a></dt>
 <dd><p><strong>#o</strong> – positioner mnemonics (new with SPEC v6)</p>
 <p>IN-MEMORY REPRESENTATION</p>
 <ul class="simple">
@@ -749,19 +693,19 @@ value <em>SPEC scan with constant monitor count</em>, such as <em>/S1/counting_b
 </ul>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_PositionerMnemonics.postprocess">
-<span class="sig-name descname"><span class="pre">postprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_PositionerMnemonics.postprocess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_PositionerMnemonics.postprocess" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">postprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_PositionerMnemonics.postprocess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_PositionerMnemonics.postprocess" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>optional:</em> additional processing deferred until <em>after</em> data file has been read</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_PositionerMnemonics.process">
-<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_PositionerMnemonics.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_PositionerMnemonics.process" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_PositionerMnemonics.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_PositionerMnemonics.process" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>required:</em> handle this line from a SPEC data file</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_PositionerMnemonics.writer">
-<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_PositionerMnemonics.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_PositionerMnemonics.writer" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_PositionerMnemonics.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_PositionerMnemonics.writer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Describe how to store this data in an HDF5 NeXus file</p>
 </dd></dl>
 
@@ -769,7 +713,7 @@ value <em>SPEC scan with constant monitor count</em>, such as <em>/S1/counting_b
 
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_PositionerNames">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_PositionerNames</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_PositionerNames"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_PositionerNames" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_PositionerNames</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_PositionerNames"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_PositionerNames" title="Permalink to this definition">¶</a></dt>
 <dd><p><strong>#O</strong> – positioner names (numbered rows: #O0, #O1, …)</p>
 <p>IN-MEMORY REPRESENTATION</p>
 <ul class="simple">
@@ -791,7 +735,7 @@ value <em>SPEC scan with constant monitor count</em>, such as <em>/S1/counting_b
 </ul>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_PositionerNames.process">
-<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sdf_object</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_PositionerNames.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_PositionerNames.process" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sdf_object</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_PositionerNames.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_PositionerNames.process" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>required:</em> handle this line from a SPEC data file</p>
 </dd></dl>
 
@@ -799,7 +743,7 @@ value <em>SPEC scan with constant monitor count</em>, such as <em>/S1/counting_b
 
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_Positioners">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_Positioners</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Positioners"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Positioners" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_Positioners</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Positioners"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Positioners" title="Permalink to this definition">¶</a></dt>
 <dd><p><strong>#P</strong> – positioner values at start of scan (numbered rows: #P0, #P1, …)</p>
 <p>IN-MEMORY REPRESENTATION</p>
 <ul class="simple">
@@ -816,7 +760,7 @@ value <em>SPEC scan with constant monitor count</em>, such as <em>/S1/counting_b
 </ul>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_Positioners.postprocess">
-<span class="sig-name descname"><span class="pre">postprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Positioners.postprocess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Positioners.postprocess" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">postprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Positioners.postprocess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Positioners.postprocess" title="Permalink to this definition">¶</a></dt>
 <dd><p>interpret the motor positions from the scan header</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -827,13 +771,13 @@ value <em>SPEC scan with constant monitor count</em>, such as <em>/S1/counting_b
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_Positioners.process">
-<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Positioners.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Positioners.process" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Positioners.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Positioners.process" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>required:</em> handle this line from a SPEC data file</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_Positioners.writer">
-<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Positioners.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Positioners.writer" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Positioners.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Positioners.writer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Describe how to store this data in an HDF5 NeXus file</p>
 </dd></dl>
 
@@ -841,7 +785,7 @@ value <em>SPEC scan with constant monitor count</em>, such as <em>/S1/counting_b
 
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_Scan">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_Scan</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Scan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Scan" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_Scan</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Scan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Scan" title="Permalink to this definition">¶</a></dt>
 <dd><p><strong>#S</strong> – SPEC scan</p>
 <p>In SPEC data files, the <code class="docutils literal notranslate"><span class="pre">#S</span></code> control line indicates the
 start of a <em>scan</em> block.  Each scan will be written to a
@@ -864,7 +808,7 @@ level, such as <em>/S1</em></p></li>
 </ul>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_Scan.process">
-<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">part</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sdf</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Scan.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Scan.process" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">part</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sdf</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Scan.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Scan.process" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>required:</em> handle this line from a SPEC data file</p>
 </dd></dl>
 
@@ -872,7 +816,7 @@ level, such as <em>/S1</em></p></li>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_TemperatureSetPoint">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_TemperatureSetPoint</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_TemperatureSetPoint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_TemperatureSetPoint" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_TemperatureSetPoint</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_TemperatureSetPoint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_TemperatureSetPoint" title="Permalink to this definition">¶</a></dt>
 <dd><p><strong>#X</strong> – Temperature Set Point (desired temperature)</p>
 <p>The default declaration of the #X control line is written:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Fheader</span> <span class="s1">&#39;_cols++;printf(&quot;#X </span><span class="si">%g</span><span class="s1">Kohm (</span><span class="si">%g</span><span class="s1">C)</span><span class="se">\n</span><span class="s1">&quot;,TEMP_SP,DEGC_SP)&#39;</span>
@@ -898,13 +842,13 @@ If the conversion process fails for any reason in this implementation, the <em>#
 </ul>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_TemperatureSetPoint.process">
-<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_TemperatureSetPoint.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_TemperatureSetPoint.process" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_TemperatureSetPoint.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_TemperatureSetPoint.process" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>required:</em> handle this line from a SPEC data file</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_TemperatureSetPoint.writer">
-<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_TemperatureSetPoint.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_TemperatureSetPoint.writer" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_TemperatureSetPoint.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_TemperatureSetPoint.writer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Describe how to store this data in an HDF5 NeXus file</p>
 </dd></dl>
 
@@ -912,7 +856,7 @@ If the conversion process fails for any reason in this implementation, the <em>#
 
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_UserReserved">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_UserReserved</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_UserReserved"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_UserReserved" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_UserReserved</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_UserReserved"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_UserReserved" title="Permalink to this definition">¶</a></dt>
 <dd><p><strong>#U</strong> – Reserved for user</p>
 <p>IN-MEMORY REPRESENTATION</p>
 <ul class="simple">
@@ -928,13 +872,13 @@ such as <em>/S1/UserReserved/header_1</em> and  <em>/S1/UserReserved/item_5</em>
 </ul>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_UserReserved.process">
-<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sdf_object</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_UserReserved.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_UserReserved.process" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sdf_object</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_UserReserved.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_UserReserved.process" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>required:</em> handle this line from a SPEC data file</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_UserReserved.writer">
-<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sdf_object</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_UserReserved.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_UserReserved.writer" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sdf_object</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_UserReserved.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_UserReserved.writer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Describe how to store this data in an HDF5 NeXus file</p>
 </dd></dl>
 
@@ -942,7 +886,7 @@ such as <em>/S1/UserReserved/header_1</em> and  <em>/S1/UserReserved/item_5</em>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.combine_split_NM_lines">
-<span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">combine_split_NM_lines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_lines</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#combine_split_NM_lines"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.combine_split_NM_lines" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">combine_split_NM_lines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_lines</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#combine_split_NM_lines"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.combine_split_NM_lines" title="Permalink to this definition">¶</a></dt>
 <dd><p>combine split lines of data</p>
 <blockquote>
 <div><p>#N N [M]</p>
@@ -954,7 +898,7 @@ are M sets of data columns on each line.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.data_lines_postprocessing">
-<span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">data_lines_postprocessing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scan</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#data_lines_postprocessing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.data_lines_postprocessing" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">data_lines_postprocessing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scan</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#data_lines_postprocessing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.data_lines_postprocessing" title="Permalink to this definition">¶</a></dt>
 <dd><p>interpret the data lines from the body of the scan</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -965,41 +909,74 @@ are M sets of data columns on each line.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.data_lines_writer">
-<span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">data_lines_writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#data_lines_writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.data_lines_writer" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">data_lines_writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#data_lines_writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.data_lines_writer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Describe how to store scan data in an HDF5 NeXus file</p>
 </dd></dl>
 
 </section>
 
 
-           </div>
+            <div class="clearer"></div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="fallback.html" class="btn btn-neutral float-left" title="Fallback plugin" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="uim.html" class="btn btn-neutral float-right" title="UIM plugin" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2014-2022, Pete R. Jemian.</p>
-  </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
         </div>
       </div>
-    </section>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="fallback.html"
+                          title="previous chapter">Fallback plugin</a></p>
   </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
-
-</body>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="uim.html"
+                          title="next chapter">UIM plugin</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/supplied_plugins/spec_common.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="uim.html" title="UIM plugin"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="fallback.html" title="Fallback plugin"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">spec2nexus 56.g494d3e4 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../contents.html" >Contents</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../plugin.html" ><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.plugin</span></code></a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">SPEC standard plugin</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2014-2022, Pete R. Jemian.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+    </div>
+  </body>
 </html>

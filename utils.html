@@ -1,105 +1,61 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Common Methods: spec2nexus.utils &mdash; spec2nexus 54.g7273e4c documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-    <script src="_static/js/theme.js"></script>
+
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Common Methods: spec2nexus.utils &#8212; spec2nexus 56.g494d3e4 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="spec2nexus.scanf" href="scanf.html" />
-    <link rel="prev" title="How to write a custom plugin module" href="how_to_write_plugin.html" /> 
-</head>
+    <link rel="prev" title="How to write a custom plugin module" href="how_to_write_plugin.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="scanf.html" title="spec2nexus.scanf"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="how_to_write_plugin.html" title="How to write a custom plugin module"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">spec2nexus 56.g494d3e4 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="contents.html" accesskey="U">Contents</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Common Methods: <code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a></li> 
+      </ul>
+    </div>  
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> spec2nexus
-          </a>
-              <div class="version">
-                2021.1.8
-              </div>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="contents.html">Contents</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="spec2nexus.html">spec2nexus</a></li>
-<li class="toctree-l2"><a class="reference internal" href="extractSpecScan.html">extractSpecScan</a></li>
-<li class="toctree-l2"><a class="reference internal" href="specplot.html">specplot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="specplot_gallery.html">specplot_gallery</a></li>
-<li class="toctree-l2"><a class="reference internal" href="spec.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="charts.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.charts</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="specplot_custom_scan_macro.html">How to write a custom scan handling for <em>specplot</em></a></li>
-<li class="toctree-l2"><a class="reference internal" href="eznx.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.eznx</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="plugin.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.plugin</span></code></a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Common Methods: <code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#module-spec2nexus.utils">source code documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="scanf.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.scanf</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="singletons.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.singletons</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="writer.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#required-libraries">Required Libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#optional-libraries">Optional Libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="unit_testing.html">Unit Testing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="example_data.html">Example data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changes.html">Change History</a></li>
-<li class="toctree-l2"><a class="reference internal" href="license.html">License</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="contents.html#indices-and-tables">Indices and tables</a></li>
-</ul>
-
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">spec2nexus</a>
-      </nav>
-
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="contents.html">Contents</a> &raquo;</li>
-      <li>Common Methods: <code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="_sources/utils.rst.txt" rel="nofollow"> View page source</a>
-      </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
   <section id="common-methods-spec2nexus-utils">
-<span id="utils"></span><h1>Common Methods: <a class="reference internal" href="#module-spec2nexus.utils" title="spec2nexus.utils: common methods used by **spec2nexus** modules"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a><a class="headerlink" href="#common-methods-spec2nexus-utils" title="Permalink to this headline"></a></h1>
+<span id="utils"></span><h1>Common Methods: <a class="reference internal" href="#module-spec2nexus.utils" title="spec2nexus.utils: common methods used by **spec2nexus** modules"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a><a class="headerlink" href="#common-methods-spec2nexus-utils" title="Permalink to this headline">¶</a></h1>
 <section id="module-spec2nexus.utils">
-<span id="source-code-documentation"></span><h2>source code documentation<a class="headerlink" href="#module-spec2nexus.utils" title="Permalink to this headline"></a></h2>
+<span id="source-code-documentation"></span><h2>source code documentation<a class="headerlink" href="#module-spec2nexus.utils" title="Permalink to this headline">¶</a></h2>
 <p>(internal library) common methods used in <strong>spec2nexus</strong> modules</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -126,7 +82,7 @@
 </table>
 <dl class="py function">
 <dt class="sig sig-object py" id="spec2nexus.utils.clean_name">
-<span class="sig-prename descclassname"><span class="pre">spec2nexus.utils.</span></span><span class="sig-name descname"><span class="pre">clean_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/utils.html#clean_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.utils.clean_name" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">spec2nexus.utils.</span></span><span class="sig-name descname"><span class="pre">clean_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/utils.html#clean_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.utils.clean_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>create a name that is allowed by both HDF5 and NeXus rules</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -146,7 +102,7 @@ the rule that valid NeXus group or field names cannot start with a digit.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="spec2nexus.utils.iso8601">
-<span class="sig-prename descclassname"><span class="pre">spec2nexus.utils.</span></span><span class="sig-name descname"><span class="pre">iso8601</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/utils.html#iso8601"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.utils.iso8601" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">spec2nexus.utils.</span></span><span class="sig-name descname"><span class="pre">iso8601</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/utils.html#iso8601"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.utils.iso8601" title="Permalink to this definition">¶</a></dt>
 <dd><p>convert SPEC time (example: Wed Nov 03 13:39:34 2010) into ISO8601 string</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -172,7 +128,7 @@ the rule that valid NeXus group or field names cannot start with a digit.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="spec2nexus.utils.reshape_data">
-<span class="sig-prename descclassname"><span class="pre">spec2nexus.utils.</span></span><span class="sig-name descname"><span class="pre">reshape_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scan_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan_shape</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/utils.html#reshape_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.utils.reshape_data" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">spec2nexus.utils.</span></span><span class="sig-name descname"><span class="pre">reshape_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scan_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan_shape</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/utils.html#reshape_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.utils.reshape_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shape scan data from raw to different dimensionality</p>
 <p>Some SPEC macros collect data in a mesh or grid yet
 report the data as a 1-D sequence of observations.
@@ -183,7 +139,7 @@ needs to be reshaped according to its intended dimensionality.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="spec2nexus.utils.sanitize_name">
-<span class="sig-prename descclassname"><span class="pre">spec2nexus.utils.</span></span><span class="sig-name descname"><span class="pre">sanitize_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/utils.html#sanitize_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.utils.sanitize_name" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">spec2nexus.utils.</span></span><span class="sig-name descname"><span class="pre">sanitize_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/utils.html#sanitize_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.utils.sanitize_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>make name that is allowed by HDF5 and NeXus rules</p>
 <dl class="field-list simple">
 <dt class="field-odd">Note</dt>
@@ -209,13 +165,13 @@ the rule that valid names cannot start with a digit.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="spec2nexus.utils.split_column_labels">
-<span class="sig-prename descclassname"><span class="pre">spec2nexus.utils.</span></span><span class="sig-name descname"><span class="pre">split_column_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/utils.html#split_column_labels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.utils.split_column_labels" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">spec2nexus.utils.</span></span><span class="sig-name descname"><span class="pre">split_column_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/utils.html#split_column_labels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.utils.split_column_labels" title="Permalink to this definition">¶</a></dt>
 <dd><p>SPEC labels may contain one space</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="spec2nexus.utils.strip_first_word">
-<span class="sig-prename descclassname"><span class="pre">spec2nexus.utils.</span></span><span class="sig-name descname"><span class="pre">strip_first_word</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/utils.html#strip_first_word"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.utils.strip_first_word" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">spec2nexus.utils.</span></span><span class="sig-name descname"><span class="pre">strip_first_word</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/utils.html#strip_first_word"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.utils.strip_first_word" title="Permalink to this definition">¶</a></dt>
 <dd><p>return everything after the first space on the line from the spec data file</p>
 </dd></dl>
 
@@ -223,34 +179,76 @@ the rule that valid names cannot start with a digit.</p>
 </section>
 
 
-           </div>
+            <div class="clearer"></div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="how_to_write_plugin.html" class="btn btn-neutral float-left" title="How to write a custom plugin module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="scanf.html" class="btn btn-neutral float-right" title="spec2nexus.scanf" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2014-2022, Pete R. Jemian.</p>
-  </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
         </div>
       </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Common Methods: <code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a><ul>
+<li><a class="reference internal" href="#module-spec2nexus.utils">source code documentation</a></li>
+</ul>
+</li>
+</ul>
 
-</body>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="how_to_write_plugin.html"
+                          title="previous chapter">How to write a custom plugin module</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="scanf.html"
+                          title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.scanf</span></code></a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/utils.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="scanf.html" title="spec2nexus.scanf"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="how_to_write_plugin.html" title="How to write a custom plugin module"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">spec2nexus 56.g494d3e4 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="contents.html" >Contents</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Common Methods: <code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2014-2022, Pete R. Jemian.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+    </div>
+  </body>
 </html>

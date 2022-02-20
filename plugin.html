@@ -1,119 +1,60 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>spec2nexus.plugin &mdash; spec2nexus 54.g7273e4c documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="_static/js/theme.js"></script>
+
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>spec2nexus.plugin &#8212; spec2nexus 56.g494d3e4 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="XPCS plugin" href="supplied_plugins/XPCS.html" />
-    <link rel="prev" title="spec2nexus.writer" href="writer.html" /> 
-</head>
+    <link rel="prev" title="spec2nexus.writer" href="writer.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="supplied_plugins/XPCS.html" title="XPCS plugin"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="writer.html" title="spec2nexus.writer"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">spec2nexus 56.g494d3e4 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="contents.html" accesskey="U">Contents</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.plugin</span></code></a></li> 
+      </ul>
+    </div>  
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> spec2nexus
-          </a>
-              <div class="version">
-                2021.1.8
-              </div>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="contents.html">Contents</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="spec2nexus.html">spec2nexus</a></li>
-<li class="toctree-l2"><a class="reference internal" href="extractSpecScan.html">extractSpecScan</a></li>
-<li class="toctree-l2"><a class="reference internal" href="specplot.html">specplot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="specplot_gallery.html">specplot_gallery</a></li>
-<li class="toctree-l2"><a class="reference internal" href="spec.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="charts.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.charts</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="specplot_custom_scan_macro.html">How to write a custom scan handling for <em>specplot</em></a></li>
-<li class="toctree-l2"><a class="reference internal" href="eznx.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.eznx</span></code></a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.plugin</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#supplied-spec-plugin-modules">Supplied <strong>spec</strong> plugin modules</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="supplied_plugins/XPCS.html">XPCS plugin</a></li>
-<li class="toctree-l4"><a class="reference internal" href="supplied_plugins/apstools_specwriter.html">apstools SpecWriterCallback metadata plugin</a></li>
-<li class="toctree-l4"><a class="reference internal" href="supplied_plugins/fallback.html">Fallback plugin</a></li>
-<li class="toctree-l4"><a class="reference internal" href="supplied_plugins/spec_common.html">SPEC standard plugin</a></li>
-<li class="toctree-l4"><a class="reference internal" href="supplied_plugins/uim.html">UIM plugin</a></li>
-<li class="toctree-l4"><a class="reference internal" href="supplied_plugins/unicat.html">unicat plugin</a></li>
-<li class="toctree-l4"><a class="reference internal" href="supplied_plugins/uxml.html">#UXML: UXML metadata plugin</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#writing-a-custom-plugin">Writing a custom plugin</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="how_to_write_plugin.html">How to write a custom plugin module</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#overview-of-the-supplied-spec-plugins">Overview of the supplied <strong>spec</strong> plugins</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-spec2nexus.plugin">source code documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="utils.html">Common Methods: <code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="scanf.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.scanf</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="singletons.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.singletons</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="writer.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#required-libraries">Required Libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#optional-libraries">Optional Libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="unit_testing.html">Unit Testing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="example_data.html">Example data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changes.html">Change History</a></li>
-<li class="toctree-l2"><a class="reference internal" href="license.html">License</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="contents.html#indices-and-tables">Indices and tables</a></li>
-</ul>
-
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">spec2nexus</a>
-      </nav>
-
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="contents.html">Contents</a> &raquo;</li>
-      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.plugin</span></code></li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="_sources/plugin.rst.txt" rel="nofollow"> View page source</a>
-      </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
   <section id="spec2nexus-plugin">
-<h1><a class="reference internal" href="#module-spec2nexus.plugin" title="spec2nexus.plugin: Define the plug-in architecture."><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.plugin</span></code></a><a class="headerlink" href="#spec2nexus-plugin" title="Permalink to this headline"></a></h1>
+<h1><a class="reference internal" href="#module-spec2nexus.plugin" title="spec2nexus.plugin: Define the plug-in architecture."><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.plugin</span></code></a><a class="headerlink" href="#spec2nexus-plugin" title="Permalink to this headline">¶</a></h1>
 <p>An extensible plug-in architecture is used to handle the different possible
 <span class="target" id="index-0"></span>control line
 control lines (such as <strong>#F</strong>, <strong>#E</strong>, <strong>#S</strong>, …) in a SPEC data file.</p>
@@ -128,7 +69,7 @@ Any control line encountered but not recognized will be placed as text
 in a NeXus <strong>NXnote</strong> group named <code class="docutils literal notranslate"><span class="pre">unrecognized_NNN</span></code> (where <code class="docutils literal notranslate"><span class="pre">NNN</span></code>
 is from 1 to the maximum number of unrecognized control lines).</p>
 <section id="supplied-spec-plugin-modules">
-<span id="supplied-plugins"></span><h2>Supplied <strong>spec</strong> plugin modules<a class="headerlink" href="#supplied-spec-plugin-modules" title="Permalink to this headline"></a></h2>
+<span id="supplied-plugins"></span><h2>Supplied <strong>spec</strong> plugin modules<a class="headerlink" href="#supplied-spec-plugin-modules" title="Permalink to this headline">¶</a></h2>
 <p>These plugin modules are supplied:</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -163,7 +104,7 @@ is from 1 to the maximum number of unrecognized control lines).</p>
 </div>
 </section>
 <section id="writing-a-custom-plugin">
-<h2>Writing a custom plugin<a class="headerlink" href="#writing-a-custom-plugin" title="Permalink to this headline"></a></h2>
+<h2>Writing a custom plugin<a class="headerlink" href="#writing-a-custom-plugin" title="Permalink to this headline">¶</a></h2>
 <p>While <strong>spec2nexus</strong> provides a comprehensive set of plugins
 to handle the common SPEC <span class="target" id="index-1"></span>control line control lines, custom control lines
 are used at many facilities to write additional scan data
@@ -188,7 +129,7 @@ are written to process these additions.</p>
 </div>
 </section>
 <section id="overview-of-the-supplied-spec-plugins">
-<span id="control-line-table"></span><h2>Overview of the supplied <strong>spec</strong> plugins<a class="headerlink" href="#overview-of-the-supplied-spec-plugins" title="Permalink to this headline"></a></h2>
+<span id="control-line-table"></span><h2>Overview of the supplied <strong>spec</strong> plugins<a class="headerlink" href="#overview-of-the-supplied-spec-plugins" title="Permalink to this headline">¶</a></h2>
 <p>Plugins for these control lines <a class="footnote-reference brackets" href="#id2" id="id1">1</a> are provided in <strong>spec2nexus</strong>:</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -304,7 +245,7 @@ are written to process these additions.</p>
 </dl>
 </section>
 <section id="module-spec2nexus.plugin">
-<span id="source-code-documentation"></span><h2>source code documentation<a class="headerlink" href="#module-spec2nexus.plugin" title="Permalink to this headline"></a></h2>
+<span id="source-code-documentation"></span><h2>source code documentation<a class="headerlink" href="#module-spec2nexus.plugin" title="Permalink to this headline">¶</a></h2>
 <p>define the plug-in architecture</p>
 <p>Use <a class="reference internal" href="#spec2nexus.plugin.ControlLineHandler" title="spec2nexus.plugin.ControlLineHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">spec2nexus.plugin.ControlLineHandler</span></code></a> as a metaclass
 to create a plugin handler class for each SPEC control line.
@@ -366,7 +307,7 @@ In each such class, it is necessary to:</p>
 </table>
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.plugin.AutoRegister">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugin.</span></span><span class="sig-name descname"><span class="pre">AutoRegister</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">classname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baseclasses</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/plugin.html#AutoRegister"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.AutoRegister" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugin.</span></span><span class="sig-name descname"><span class="pre">AutoRegister</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">classname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baseclasses</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/plugin.html#AutoRegister"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.AutoRegister" title="Permalink to this definition">¶</a></dt>
 <dd><p>plugin to handle a single control line in a SPEC data file</p>
 <p>This class is a metaclass to auto-register plugins to handle
 various parts of a SPEC data file.
@@ -383,7 +324,7 @@ See <a class="reference internal" href="supplied_plugins/spec_common.html#module
 
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.plugin.ControlLineHandler">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugin.</span></span><span class="sig-name descname"><span class="pre">ControlLineHandler</span></span><a class="reference internal" href="_modules/spec2nexus/plugin.html#ControlLineHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.ControlLineHandler" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugin.</span></span><span class="sig-name descname"><span class="pre">ControlLineHandler</span></span><a class="reference internal" href="_modules/spec2nexus/plugin.html#ControlLineHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.ControlLineHandler" title="Permalink to this definition">¶</a></dt>
 <dd><p>base class for SPEC data file control line handler plugins</p>
 <p>define one ControlLineHandler class for each different type of control line</p>
 <dl class="field-list simple">
@@ -415,19 +356,19 @@ This is the example used by
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugin.ControlLineHandler.postprocess">
-<span class="sig-name descname"><span class="pre">postprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/plugin.html#ControlLineHandler.postprocess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.ControlLineHandler.postprocess" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">postprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/plugin.html#ControlLineHandler.postprocess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.ControlLineHandler.postprocess" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>optional:</em> additional processing deferred until <em>after</em> data file has been read</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugin.ControlLineHandler.process">
-<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spec_file_obj</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/plugin.html#ControlLineHandler.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.ControlLineHandler.process" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spec_file_obj</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/plugin.html#ControlLineHandler.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.ControlLineHandler.process" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>required:</em> handle this line from a SPEC data file</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugin.ControlLineHandler.writer">
-<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/plugin.html#ControlLineHandler.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.ControlLineHandler.writer" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/plugin.html#ControlLineHandler.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.ControlLineHandler.writer" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>optional:</em> Describe how to store this data in an HDF5 NeXus file</p>
 </dd></dl>
 
@@ -435,49 +376,49 @@ This is the example used by
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="spec2nexus.plugin.DuplicateControlLineKey">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugin.</span></span><span class="sig-name descname"><span class="pre">DuplicateControlLineKey</span></span><a class="reference internal" href="_modules/spec2nexus/plugin.html#DuplicateControlLineKey"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.DuplicateControlLineKey" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugin.</span></span><span class="sig-name descname"><span class="pre">DuplicateControlLineKey</span></span><a class="reference internal" href="_modules/spec2nexus/plugin.html#DuplicateControlLineKey"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.DuplicateControlLineKey" title="Permalink to this definition">¶</a></dt>
 <dd><p>This control line key regular expression has been used more than once.</p>
 </dd></dl>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="spec2nexus.plugin.DuplicateControlLinePlugin">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugin.</span></span><span class="sig-name descname"><span class="pre">DuplicateControlLinePlugin</span></span><a class="reference internal" href="_modules/spec2nexus/plugin.html#DuplicateControlLinePlugin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.DuplicateControlLinePlugin" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugin.</span></span><span class="sig-name descname"><span class="pre">DuplicateControlLinePlugin</span></span><a class="reference internal" href="_modules/spec2nexus/plugin.html#DuplicateControlLinePlugin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.DuplicateControlLinePlugin" title="Permalink to this definition">¶</a></dt>
 <dd><p>This control line handler has been used more than once.</p>
 </dd></dl>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="spec2nexus.plugin.DuplicatePlugin">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugin.</span></span><span class="sig-name descname"><span class="pre">DuplicatePlugin</span></span><a class="reference internal" href="_modules/spec2nexus/plugin.html#DuplicatePlugin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.DuplicatePlugin" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugin.</span></span><span class="sig-name descname"><span class="pre">DuplicatePlugin</span></span><a class="reference internal" href="_modules/spec2nexus/plugin.html#DuplicatePlugin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.DuplicatePlugin" title="Permalink to this definition">¶</a></dt>
 <dd><p>This plugin file name has been used more than once.</p>
 </dd></dl>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="spec2nexus.plugin.PluginBadKeyError">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugin.</span></span><span class="sig-name descname"><span class="pre">PluginBadKeyError</span></span><a class="reference internal" href="_modules/spec2nexus/plugin.html#PluginBadKeyError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.PluginBadKeyError" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugin.</span></span><span class="sig-name descname"><span class="pre">PluginBadKeyError</span></span><a class="reference internal" href="_modules/spec2nexus/plugin.html#PluginBadKeyError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.PluginBadKeyError" title="Permalink to this definition">¶</a></dt>
 <dd><p>The plugin ‘key’ value is not acceptable.</p>
 </dd></dl>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="spec2nexus.plugin.PluginDuplicateKeyError">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugin.</span></span><span class="sig-name descname"><span class="pre">PluginDuplicateKeyError</span></span><a class="reference internal" href="_modules/spec2nexus/plugin.html#PluginDuplicateKeyError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.PluginDuplicateKeyError" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugin.</span></span><span class="sig-name descname"><span class="pre">PluginDuplicateKeyError</span></span><a class="reference internal" href="_modules/spec2nexus/plugin.html#PluginDuplicateKeyError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.PluginDuplicateKeyError" title="Permalink to this definition">¶</a></dt>
 <dd><p>This plugin key has been used before.</p>
 </dd></dl>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="spec2nexus.plugin.PluginException">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugin.</span></span><span class="sig-name descname"><span class="pre">PluginException</span></span><a class="reference internal" href="_modules/spec2nexus/plugin.html#PluginException"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.PluginException" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugin.</span></span><span class="sig-name descname"><span class="pre">PluginException</span></span><a class="reference internal" href="_modules/spec2nexus/plugin.html#PluginException"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.PluginException" title="Permalink to this definition">¶</a></dt>
 <dd><p>parent exception for this module</p>
 </dd></dl>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="spec2nexus.plugin.PluginKeyNotDefined">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugin.</span></span><span class="sig-name descname"><span class="pre">PluginKeyNotDefined</span></span><a class="reference internal" href="_modules/spec2nexus/plugin.html#PluginKeyNotDefined"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.PluginKeyNotDefined" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugin.</span></span><span class="sig-name descname"><span class="pre">PluginKeyNotDefined</span></span><a class="reference internal" href="_modules/spec2nexus/plugin.html#PluginKeyNotDefined"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.PluginKeyNotDefined" title="Permalink to this definition">¶</a></dt>
 <dd><p>Must define ‘key’ in class declaration.</p>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.plugin.PluginManager">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugin.</span></span><span class="sig-name descname"><span class="pre">PluginManager</span></span><a class="reference internal" href="_modules/spec2nexus/plugin.html#PluginManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.PluginManager" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugin.</span></span><span class="sig-name descname"><span class="pre">PluginManager</span></span><a class="reference internal" href="_modules/spec2nexus/plugin.html#PluginManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.PluginManager" title="Permalink to this definition">¶</a></dt>
 <dd><p>Manage the set of SPEC data file control line plugins</p>
 <p class="rubric">Class Methods</p>
 <table class="longtable docutils align-default">
@@ -508,13 +449,13 @@ This is the example used by
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugin.PluginManager.get">
-<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/plugin.html#PluginManager.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.PluginManager.get" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/plugin.html#PluginManager.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.PluginManager.get" title="Permalink to this definition">¶</a></dt>
 <dd><p>return the handler identified by key or None</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugin.PluginManager.getKey">
-<span class="sig-name descname"><span class="pre">getKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spec_data_file_line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/plugin.html#PluginManager.getKey"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.PluginManager.getKey" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">getKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spec_data_file_line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/plugin.html#PluginManager.getKey"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.PluginManager.getKey" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find the key that matches this line in a SPEC data file.  Return None if not found.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -525,14 +466,14 @@ This is the example used by
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugin.PluginManager.load_plugins">
-<span class="sig-name descname"><span class="pre">load_plugins</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/plugin.html#PluginManager.load_plugins"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.PluginManager.load_plugins" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">load_plugins</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/plugin.html#PluginManager.load_plugins"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.PluginManager.load_plugins" title="Permalink to this definition">¶</a></dt>
 <dd><p>load all spec2nexus plugin modules</p>
 <p>called from <a class="reference internal" href="#spec2nexus.plugin.get_plugin_manager" title="spec2nexus.plugin.get_plugin_manager"><code class="xref py py-func docutils literal notranslate"><span class="pre">spec2nexus.plugin.get_plugin_manager()</span></code></a></p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugin.PluginManager.match_key">
-<span class="sig-name descname"><span class="pre">match_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/plugin.html#PluginManager.match_key"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.PluginManager.match_key" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">match_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/plugin.html#PluginManager.match_key"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.PluginManager.match_key" title="Permalink to this definition">¶</a></dt>
 <dd><p>test if any handler’s key matches text</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -549,13 +490,13 @@ up to but not including the first whitespace</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugin.PluginManager.process">
-<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/plugin.html#PluginManager.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.PluginManager.process" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/plugin.html#PluginManager.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.PluginManager.process" title="Permalink to this definition">¶</a></dt>
 <dd><p>pick the control line handler by key and call its process() method</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugin.PluginManager.register_control_line_handler">
-<span class="sig-name descname"><span class="pre">register_control_line_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">handler</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/plugin.html#PluginManager.register_control_line_handler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.PluginManager.register_control_line_handler" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">register_control_line_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">handler</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/plugin.html#PluginManager.register_control_line_handler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.PluginManager.register_control_line_handler" title="Permalink to this definition">¶</a></dt>
 <dd><p>auto-registry of all AutoRegister plugins</p>
 <p>Called from AutoRegister.__init__</p>
 </dd></dl>
@@ -564,13 +505,13 @@ up to but not including the first whitespace</p>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="spec2nexus.plugin.PluginProcessMethodNotDefined">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugin.</span></span><span class="sig-name descname"><span class="pre">PluginProcessMethodNotDefined</span></span><a class="reference internal" href="_modules/spec2nexus/plugin.html#PluginProcessMethodNotDefined"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.PluginProcessMethodNotDefined" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugin.</span></span><span class="sig-name descname"><span class="pre">PluginProcessMethodNotDefined</span></span><a class="reference internal" href="_modules/spec2nexus/plugin.html#PluginProcessMethodNotDefined"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.PluginProcessMethodNotDefined" title="Permalink to this definition">¶</a></dt>
 <dd><p>Must define ‘process()’ method in class declaration.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="spec2nexus.plugin.get_plugin_manager">
-<span class="sig-prename descclassname"><span class="pre">spec2nexus.plugin.</span></span><span class="sig-name descname"><span class="pre">get_plugin_manager</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/plugin.html#get_plugin_manager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.get_plugin_manager" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">spec2nexus.plugin.</span></span><span class="sig-name descname"><span class="pre">get_plugin_manager</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/plugin.html#get_plugin_manager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin.get_plugin_manager" title="Permalink to this definition">¶</a></dt>
 <dd><p>get the instance of the plugin_manager (a singleton)</p>
 <p>Create instance of PluginManager() if necessary.
 Also,</p>
@@ -580,34 +521,79 @@ Also,</p>
 </section>
 
 
-           </div>
+            <div class="clearer"></div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="writer.html" class="btn btn-neutral float-left" title="spec2nexus.writer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="supplied_plugins/XPCS.html" class="btn btn-neutral float-right" title="XPCS plugin" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2014-2022, Pete R. Jemian.</p>
-  </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
         </div>
       </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.plugin</span></code></a><ul>
+<li><a class="reference internal" href="#supplied-spec-plugin-modules">Supplied <strong>spec</strong> plugin modules</a></li>
+<li><a class="reference internal" href="#writing-a-custom-plugin">Writing a custom plugin</a></li>
+<li><a class="reference internal" href="#overview-of-the-supplied-spec-plugins">Overview of the supplied <strong>spec</strong> plugins</a></li>
+<li><a class="reference internal" href="#module-spec2nexus.plugin">source code documentation</a></li>
+</ul>
+</li>
+</ul>
 
-</body>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="writer.html"
+                          title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code></a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="supplied_plugins/XPCS.html"
+                          title="next chapter">XPCS plugin</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/plugin.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="supplied_plugins/XPCS.html" title="XPCS plugin"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="writer.html" title="spec2nexus.writer"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">spec2nexus 56.g494d3e4 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="contents.html" >Contents</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.plugin</span></code></a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2014-2022, Pete R. Jemian.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+    </div>
+  </body>
 </html>

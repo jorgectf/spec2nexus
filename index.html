@@ -1,83 +1,61 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>spec2nexus &mdash; spec2nexus 54.g7273e4c documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-    <script src="_static/js/theme.js"></script>
+
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>spec2nexus &#8212; spec2nexus 56.g494d3e4 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Contents" href="contents.html" /> 
-</head>
+    <link rel="next" title="Contents" href="contents.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="contents.html" title="Contents"
+             accesskey="N">next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">spec2nexus 56.g494d3e4 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">spec2nexus</a></li> 
+      </ul>
+    </div>  
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-            <a href="#" class="icon icon-home"> spec2nexus
-          </a>
-              <div class="version">
-                2021.1.8
-              </div>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="contents.html">Contents</a></li>
-<li class="toctree-l1"><a class="reference internal" href="contents.html#indices-and-tables">Indices and tables</a></li>
-</ul>
-
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">spec2nexus</a>
-      </nav>
-
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
-      <li>spec2nexus</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
-      </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
   <section id="spec2nexus">
-<h1>spec2nexus<a class="headerlink" href="#spec2nexus" title="Permalink to this headline"></a></h1>
+<h1>spec2nexus<a class="headerlink" href="#spec2nexus" title="Permalink to this headline">¶</a></h1>
 <p>Converts SPEC data files and scans into NeXus HDF5 files:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ spec2nexus  path/to/file/specfile.dat
 </pre></div>
 </div>
 <p>Writes <code class="docutils literal notranslate"><span class="pre">path/to/file/specfile.hdf5</span></code></p>
 <section id="provides">
-<h2>Provides<a class="headerlink" href="#provides" title="Permalink to this headline"></a></h2>
+<h2>Provides<a class="headerlink" href="#provides" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><strong>spec2nexus</strong>       : command-line tool: Convert <a class="reference external" href="http://certif.com">SPEC</a> data files to <a class="reference external" href="http://nexusformat.org">NeXus</a> <a class="reference external" href="http://hdfgroup.org">HDF5</a></p></li>
 <li><p><strong>extractSpecScan</strong>  : command-line tool: Save columns from SPEC data file scan(s) to TSV files</p></li>
@@ -88,18 +66,18 @@
 </ul>
 </section>
 <section id="package-information">
-<h2>Package Information<a class="headerlink" href="#package-information" title="Permalink to this headline"></a></h2>
+<h2>Package Information<a class="headerlink" href="#package-information" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><strong>author</strong>:    Pete R. Jemian</p></li>
 <li><p><strong>email</strong>:     <a class="reference external" href="mailto:prjemian&#37;&#52;&#48;gmail&#46;com">prjemian<span>&#64;</span>gmail<span>&#46;</span>com</a></p></li>
 <li><p><strong>copyright</strong>: 2014-2020, Pete R. Jemian</p></li>
-<li><p><strong>license</strong>:   Creative Commons Attribution 4.0 International Public License (see <a class="reference external" href="http://spec2nexus.readthedocs.io/en/latest/license.html">LICENSE.txt</a> file)</p></li>
-<li><p><strong>URL</strong>:       documentation: <a class="reference external" href="http://spec2nexus.readthedocs.io">http://spec2nexus.readthedocs.io</a></p></li>
+<li><p><strong>license</strong>:   Creative Commons Attribution 4.0 International Public License (see <a class="reference external" href="https://prjemian.github.io/spec2nexus/license.html">LICENSE.txt</a> file)</p></li>
+<li><p><strong>URL</strong>:       documentation: <a class="reference external" href="https://prjemian.github.io/spec2nexus/">https://prjemian.github.io/spec2nexus/</a></p></li>
 <li><p><strong>git</strong>:       source: <a class="reference external" href="https://github.com/prjemian/spec2nexus">https://github.com/prjemian/spec2nexus</a></p></li>
 <li><p><strong>PyPI</strong>:      Distribution: <a class="reference external" href="https://pypi.python.org/pypi/spec2nexus/">https://pypi.python.org/pypi/spec2nexus/</a></p></li>
 <li><p><strong>OpenHub</strong>:   Compare open source software: <a class="reference external" href="https://www.openhub.net/p/spec2nexus">https://www.openhub.net/p/spec2nexus</a></p></li>
 <li><p><strong>version</strong>:   2021.1.8</p></li>
-<li><p><strong>release</strong>:   54.g7273e4c</p></li>
+<li><p><strong>release</strong>:   56.g494d3e4</p></li>
 <li><p><strong>published</strong>: Feb 20, 2022</p></li>
 </ul>
 <div class="toctree-wrapper compound">
@@ -108,33 +86,68 @@
 </section>
 
 
-           </div>
+            <div class="clearer"></div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="contents.html" class="btn btn-neutral float-right" title="Contents" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2014-2022, Pete R. Jemian.</p>
-  </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
         </div>
       </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="#">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">spec2nexus</a><ul>
+<li><a class="reference internal" href="#provides">Provides</a></li>
+<li><a class="reference internal" href="#package-information">Package Information</a></li>
+</ul>
+</li>
+</ul>
 
-</body>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="contents.html"
+                          title="next chapter">Contents</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="contents.html" title="Contents"
+             >next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">spec2nexus 56.g494d3e4 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">spec2nexus</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2014-2022, Pete R. Jemian.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+    </div>
+  </body>
 </html>

@@ -1,108 +1,62 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>extractSpecScan &mdash; spec2nexus 54.g7273e4c documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-    <script src="_static/js/theme.js"></script>
+
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>extractSpecScan &#8212; spec2nexus 56.g494d3e4 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="specplot" href="specplot.html" />
-    <link rel="prev" title="spec2nexus" href="spec2nexus.html" /> 
-</head>
+    <link rel="prev" title="spec2nexus" href="spec2nexus.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="specplot.html" title="specplot"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="spec2nexus.html" title="spec2nexus"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">spec2nexus 56.g494d3e4 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="contents.html" accesskey="U">Contents</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">extractSpecScan</a></li> 
+      </ul>
+    </div>  
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> spec2nexus
-          </a>
-              <div class="version">
-                2021.1.8
-              </div>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="contents.html">Contents</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="spec2nexus.html">spec2nexus</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">extractSpecScan</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#how-to-use-extractspecscan">How to use <strong>extractSpecScan</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-spec2nexus.extractSpecScan">source code documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="specplot.html">specplot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="specplot_gallery.html">specplot_gallery</a></li>
-<li class="toctree-l2"><a class="reference internal" href="spec.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="charts.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.charts</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="specplot_custom_scan_macro.html">How to write a custom scan handling for <em>specplot</em></a></li>
-<li class="toctree-l2"><a class="reference internal" href="eznx.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.eznx</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="plugin.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.plugin</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="utils.html">Common Methods: <code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="scanf.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.scanf</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="singletons.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.singletons</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="writer.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#required-libraries">Required Libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#optional-libraries">Optional Libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="unit_testing.html">Unit Testing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="example_data.html">Example data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changes.html">Change History</a></li>
-<li class="toctree-l2"><a class="reference internal" href="license.html">License</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="contents.html#indices-and-tables">Indices and tables</a></li>
-</ul>
-
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">spec2nexus</a>
-      </nav>
-
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="contents.html">Contents</a> &raquo;</li>
-      <li>extractSpecScan</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="_sources/extractSpecScan.rst.txt" rel="nofollow"> View page source</a>
-      </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
   <section id="extractspecscan">
-<span id="id1"></span><h1>extractSpecScan<a class="headerlink" href="#extractspecscan" title="Permalink to this headline"></a></h1>
+<span id="id1"></span><h1>extractSpecScan<a class="headerlink" href="#extractspecscan" title="Permalink to this headline">¶</a></h1>
 <p>Command line tool to extract scan data from a SPEC data file.</p>
 <section id="how-to-use-extractspecscan">
-<span id="index-0"></span><h2>How to use <strong>extractSpecScan</strong><a class="headerlink" href="#how-to-use-extractspecscan" title="Permalink to this headline"></a></h2>
+<span id="index-0"></span><h2>How to use <strong>extractSpecScan</strong><a class="headerlink" href="#how-to-use-extractspecscan" title="Permalink to this headline">¶</a></h2>
 <p>Extract one scan from a SPEC data file:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>user@host ~$ extractSpecScan data/APS_spec_data.dat -s 1 -c mr USAXS_PD I0 seconds
 </pre></div>
@@ -126,7 +80,7 @@ usage: extractSpecScan [-h] [-v] [--nolabels] -s SCAN [SCAN ...] -c COLUMN
                        spec_file
 
 Save columns from SPEC data file scan(s) to TSV files URL:
-http://spec2nexus.readthedocs.org/en/latest/extractSpecScan.html v2016.1025.0
+https://prjemian.github.io/spec2nexus//extractSpecScan.html v2016.1025.0
 
 positional arguments:
   spec_file             SPEC data file name(s)
@@ -154,7 +108,7 @@ optional arguments:
 </div>
 </section>
 <section id="example">
-<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline"></a></h2>
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <p>Extract four columns (mr, USAXS_PD, I0, seconds) from two
 scans (1, 6) in a SPEC data file:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ extractSpecScan data/APS_spec_data.dat -s 1 6 -c mr USAXS_PD I0 seconds
@@ -202,7 +156,7 @@ wrote: data/APS_spec_data_6.dat
 </div>
 </section>
 <section id="module-spec2nexus.extractSpecScan">
-<span id="source-code-documentation"></span><h2>source code documentation<a class="headerlink" href="#module-spec2nexus.extractSpecScan" title="Permalink to this headline"></a></h2>
+<span id="source-code-documentation"></span><h2>source code documentation<a class="headerlink" href="#module-spec2nexus.extractSpecScan" title="Permalink to this headline">¶</a></h2>
 <p>Save columns from SPEC data file scan(s) to TSV files</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -220,13 +174,13 @@ wrote: data/APS_spec_data_6.dat
 <p>Compatible with Python 2.7+</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="spec2nexus.extractSpecScan.get_user_parameters">
-<span class="sig-prename descclassname"><span class="pre">spec2nexus.extractSpecScan.</span></span><span class="sig-name descname"><span class="pre">get_user_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/extractSpecScan.html#get_user_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.extractSpecScan.get_user_parameters" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">spec2nexus.extractSpecScan.</span></span><span class="sig-name descname"><span class="pre">get_user_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/extractSpecScan.html#get_user_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.extractSpecScan.get_user_parameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>configure user’s command line parameters from sys.argv</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="spec2nexus.extractSpecScan.main">
-<span class="sig-prename descclassname"><span class="pre">spec2nexus.extractSpecScan.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/extractSpecScan.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.extractSpecScan.main" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">spec2nexus.extractSpecScan.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/extractSpecScan.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.extractSpecScan.main" title="Permalink to this definition">¶</a></dt>
 <dd><p>read the data file, find each scan, find the columns, save the data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -250,7 +204,7 @@ in each chosen SPEC scan number or the program will skip that particular scan</p
 
 <dl class="py function">
 <dt class="sig sig-object py" id="spec2nexus.extractSpecScan.makeOutputFileName">
-<span class="sig-prename descclassname"><span class="pre">spec2nexus.extractSpecScan.</span></span><span class="sig-name descname"><span class="pre">makeOutputFileName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">specFile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scanNum</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/extractSpecScan.html#makeOutputFileName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.extractSpecScan.makeOutputFileName" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">spec2nexus.extractSpecScan.</span></span><span class="sig-name descname"><span class="pre">makeOutputFileName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">specFile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scanNum</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/extractSpecScan.html#makeOutputFileName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.extractSpecScan.makeOutputFileName" title="Permalink to this definition">¶</a></dt>
 <dd><p>return an output file name based on specFile and scanNum</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -298,34 +252,78 @@ If none is present, use “.dat”.</p>
 </section>
 
 
-           </div>
+            <div class="clearer"></div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="spec2nexus.html" class="btn btn-neutral float-left" title="spec2nexus" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="specplot.html" class="btn btn-neutral float-right" title="specplot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2014-2022, Pete R. Jemian.</p>
-  </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
         </div>
       </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">extractSpecScan</a><ul>
+<li><a class="reference internal" href="#how-to-use-extractspecscan">How to use <strong>extractSpecScan</strong></a></li>
+<li><a class="reference internal" href="#example">Example</a></li>
+<li><a class="reference internal" href="#module-spec2nexus.extractSpecScan">source code documentation</a></li>
+</ul>
+</li>
+</ul>
 
-</body>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="spec2nexus.html"
+                          title="previous chapter">spec2nexus</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="specplot.html"
+                          title="next chapter">specplot</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/extractSpecScan.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="specplot.html" title="specplot"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="spec2nexus.html" title="spec2nexus"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">spec2nexus 56.g494d3e4 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="contents.html" >Contents</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">extractSpecScan</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2014-2022, Pete R. Jemian.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+    </div>
+  </body>
 </html>
