@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>spec2nexus.writer &#8212; spec2nexus 60.gd7e4e62 documentation</title>
+    <title>spec2nexus.writer &#8212; spec2nexus 61.g30e047e documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/bizstyle.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -32,7 +32,7 @@
         <li class="right" >
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">spec2nexus 60.gd7e4e62 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">spec2nexus 61.g30e047e documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">spec2nexus.writer</a></li> 
       </ul>
@@ -138,7 +138,7 @@
                     <span class="s2">&quot;NXdata&quot;</span><span class="p">,</span>
                     <span class="n">signal</span><span class="o">=</span><span class="s2">&quot;no_y_data&quot;</span><span class="p">,</span>
                     <span class="n">axes</span><span class="o">=</span><span class="s2">&quot;no_x_data&quot;</span><span class="p">,</span>
-                    <span class="n">no_x_data_indices</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,],</span>
+                    <span class="n">no_x_data_indices</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
                 <span class="p">)</span>
                 <span class="n">eznx</span><span class="o">.</span><span class="n">makeDataset</span><span class="p">(</span>
                     <span class="n">nxdata</span><span class="p">,</span>
@@ -175,7 +175,7 @@
         <span class="p">)</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">c</span> <span class="o">=</span> <span class="n">header0</span><span class="o">.</span><span class="n">comments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-            <span class="n">user</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;User = &quot;</span><span class="p">)</span> <span class="p">:]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="n">user</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;User = &quot;</span><span class="p">):]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
             <span class="n">dd</span><span class="p">[</span><span class="s2">&quot;SPEC_user&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">user</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
             <span class="k">pass</span>
@@ -335,7 +335,7 @@
         <span class="p">):</span>  <span class="c1"># stopped scan before second row started</span>
             <span class="n">signal</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">oneD</span><span class="p">(</span><span class="n">nxdata</span><span class="p">,</span> <span class="n">scan</span><span class="p">)</span>  <span class="c1"># fallback support</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">axis1</span> <span class="o">=</span> <span class="n">axis1</span><span class="p">[</span><span class="mi">0</span> <span class="p">:</span> <span class="n">intervals1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">axis1</span> <span class="o">=</span> <span class="n">axis1</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span> <span class="n">intervals1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
             <span class="n">axis2</span> <span class="o">=</span> <span class="p">[</span>
                 <span class="n">axis2</span><span class="p">[</span><span class="n">row</span><span class="p">]</span>
                 <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">axis2</span><span class="p">))</span>
@@ -443,7 +443,7 @@
         <li class="right" >
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">spec2nexus 60.gd7e4e62 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">spec2nexus 61.g30e047e documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">spec2nexus.writer</a></li> 
       </ul>
