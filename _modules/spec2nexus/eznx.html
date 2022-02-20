@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>spec2nexus.eznx &mdash; spec2nexus 54.g7273e4c documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> spec2nexus
+          </a>
+              <div class="version">
+                2021.1.8
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contents.html">Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contents.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">spec2nexus</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      <li>spec2nexus.eznx</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for spec2nexus.eznx</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="c1"># -----------------------------------------------------------------------------</span>
+<span class="c1"># :author:    Pete R. Jemian</span>
+<span class="c1"># :email:     prjemian@gmail.com</span>
+<span class="c1"># :copyright: (c) 2014-2020, Pete R. Jemian</span>
+<span class="c1">#</span>
+<span class="c1"># Distributed under the terms of the Creative Commons Attribution 4.0 International Public License.</span>
+<span class="c1">#</span>
+<span class="c1"># The full license is in the file LICENSE.txt, distributed with this software.</span>
+<span class="c1"># -----------------------------------------------------------------------------</span>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">(Easy NeXus) support reading &amp; writing NeXus HDF5 files using h5py</span>
+
+<span class="sd">:predecessor: NeXus h5py example code: ``my_lib.py`` [#]_</span>
+
+<span class="sd">.. [#] http://download.nexusformat.org/doc/html/examples/h5py/index.html#mylib-support-module</span>
+
+
+<span class="sd">.. rubric:: Dependencies</span>
+
+<span class="sd">* h5py: interface to HDF5 file format</span>
+
+
+<span class="sd">.. rubric:: Exceptions raised</span>
+
+<span class="sd">* None</span>
+
+
+<span class="sd">.. rubric:: Example</span>
+
+<span class="sd">::</span>
+
+<span class="sd">    root = eznx.makeFile(&#39;test.h5&#39;, creator=&#39;eznx&#39;, default=&#39;entry&#39;)</span>
+<span class="sd">    nxentry = eznx.makeGroup(root, &#39;entry&#39;, &#39;NXentry&#39;, default=&#39;data&#39;)</span>
+<span class="sd">    ds = eznx.write_dataset(nxentry, &#39;title&#39;, &#39;simple test data&#39;)</span>
+<span class="sd">    nxdata = eznx.makeGroup(nxentry, &#39;data&#39;, &#39;NXdata&#39;, signal=&#39;counts&#39;, axes=&#39;tth&#39;, tth_indices=0)</span>
+<span class="sd">    ds = eznx.write_dataset(nxdata, &#39;tth&#39;, [10.0, 10.1, 10.2, 10.3], units=&#39;degrees&#39;)</span>
+<span class="sd">    ds = eznx.write_dataset(nxdata, &#39;counts&#39;, [1, 50, 1000, 5], units=&#39;counts&#39;, axes=&quot;tth&quot;)</span>
+<span class="sd">    root.close()</span>
+
+<span class="sd">.. index:: NeXus structure; SPEC data</span>
+
+<span class="sd">The resulting (binary) data file has this structure::</span>
+
+<span class="sd">    test.h5:NeXus data file</span>
+<span class="sd">      @creator = eznx</span>
+<span class="sd">      @default = &#39;entry&#39;</span>
+<span class="sd">      entry:NXentry</span>
+<span class="sd">        @NX_class = NXentry</span>
+<span class="sd">        @default = &#39;data&#39;</span>
+<span class="sd">        title:NX_CHAR = simple test data</span>
+<span class="sd">        data:NXdata</span>
+<span class="sd">          @NX_class = NXdata</span>
+<span class="sd">          @signal = &#39;counts&#39;</span>
+<span class="sd">          @axes = &#39;tth&#39;</span>
+<span class="sd">          @tth_indices = 0</span>
+<span class="sd">          counts:NX_INT64[4] = [1, 50, 1000, 5]</span>
+<span class="sd">            @units = counts</span>
+<span class="sd">            @axes = tth</span>
+<span class="sd">          tth:NX_FLOAT64[4] = [10.0, 10.1, 10.199999999999999, 10.300000000000001]</span>
+<span class="sd">            @units = degrees</span>
+
+
+<span class="sd">.. rubric::  Classes and Methods</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="kn">import</span> <span class="nn">h5py</span>  <span class="c1"># HDF5 support</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">six</span>
+
+
+<div class="viewcode-block" id="makeFile"><a class="viewcode-back" href="../../eznx.html#spec2nexus.eznx.makeFile">[docs]</a><span class="k">def</span> <span class="nf">makeFile</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="o">**</span><span class="n">attr</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    create and open an empty NeXus HDF5 file using h5py</span>
+
+<span class="sd">    Any named parameters in the call to this method will be saved as</span>
+<span class="sd">    attributes of the root of the file.</span>
+<span class="sd">    Note that ``**attr`` is a dictionary of named parameters.</span>
+
+<span class="sd">    :param str filename: valid file name</span>
+<span class="sd">    :param dict attr: optional dictionary of attributes</span>
+<span class="sd">    :return: h5py file object</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">obj</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+    <span class="n">addAttributes</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="o">**</span><span class="n">attr</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">obj</span></div>
+
+
+<div class="viewcode-block" id="makeGroup"><a class="viewcode-back" href="../../eznx.html#spec2nexus.eznx.makeGroup">[docs]</a><span class="k">def</span> <span class="nf">makeGroup</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">nxclass</span><span class="p">,</span> <span class="o">**</span><span class="n">attr</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    create a NeXus group</span>
+
+<span class="sd">    Any named parameters in the call to this method</span>
+<span class="sd">    will be saved as attributes of the group.</span>
+<span class="sd">    Note that ``**attr`` is a dictionary of named parameters.</span>
+
+<span class="sd">    :param obj parent: parent group</span>
+<span class="sd">    :param str name: valid NeXus group name</span>
+<span class="sd">    :param str nxclass: valid NeXus class name</span>
+<span class="sd">    :param dict attr: optional dictionary of attributes</span>
+<span class="sd">    :return: h5py group object</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">obj</span> <span class="o">=</span> <span class="n">parent</span><span class="o">.</span><span class="n">create_group</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;NX_class&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nxclass</span>
+    <span class="n">addAttributes</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="o">**</span><span class="n">attr</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">obj</span></div>
+
+
+<div class="viewcode-block" id="openGroup"><a class="viewcode-back" href="../../eznx.html#spec2nexus.eznx.openGroup">[docs]</a><span class="k">def</span> <span class="nf">openGroup</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">nx_class</span><span class="p">,</span> <span class="o">**</span><span class="n">attr</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;open or create the NeXus/HDF5 group, return the object</span>
+
+<span class="sd">    :param obj parent: h5py parent object</span>
+<span class="sd">    :param str name: valid NeXus group name to open or create</span>
+<span class="sd">    :param str nxclass: valid NeXus class name (base class or application definition)</span>
+<span class="sd">    :param dict attr: optional dictionary of attributes</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">group</span> <span class="o">=</span> <span class="n">parent</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+        <span class="n">addAttributes</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="o">**</span><span class="n">attr</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+        <span class="n">group</span> <span class="o">=</span> <span class="n">makeGroup</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">nx_class</span><span class="p">,</span> <span class="o">**</span><span class="n">attr</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">group</span></div>
+
+
+<div class="viewcode-block" id="makeDataset"><a class="viewcode-back" href="../../eznx.html#spec2nexus.eznx.makeDataset">[docs]</a><span class="k">def</span> <span class="nf">makeDataset</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">attr</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    create and write data to a dataset in the HDF5 file hierarchy</span>
+
+<span class="sd">    Any named parameters in the call to this method</span>
+<span class="sd">    will be saved as attributes of the dataset.</span>
+
+<span class="sd">    :param obj parent: parent group</span>
+<span class="sd">    :param str name: valid NeXus dataset name</span>
+<span class="sd">    :param obj data: the information to be written</span>
+<span class="sd">    :param dict attr: optional dictionary of attributes</span>
+<span class="sd">    :return: h5py dataset object</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="n">parent</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">attr</span><span class="p">[</span><span class="s2">&quot;NOTE&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;no data supplied, value set to empty string&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># storing-a-list-of-strings-to-a-hdf5-dataset-from-python</span>
+        <span class="c1"># https://stackoverflow.com/questions/23220513/</span>
+        <span class="c1"># [n.encode(&quot;ascii&quot;, &quot;ignore&quot;) for n in data]</span>
+        <span class="k">def</span> <span class="nf">encoder</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">six</span><span class="o">.</span><span class="n">string_types</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">value</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;ascii&quot;</span><span class="p">,</span> <span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">value</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)):</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">data</span><span class="p">,</span>
+            <span class="p">]</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="n">parent</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">encoder</span><span class="p">,</span> <span class="n">data</span><span class="p">)))</span>
+    <span class="n">addAttributes</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="o">**</span><span class="n">attr</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">obj</span></div>
+
+
+<div class="viewcode-block" id="write_dataset"><a class="viewcode-back" href="../../eznx.html#spec2nexus.eznx.write_dataset">[docs]</a><span class="k">def</span> <span class="nf">write_dataset</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">attr</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;write to the NeXus/HDF5 dataset, create it if necessary, return the object</span>
+
+<span class="sd">    :param obj parent: h5py parent object</span>
+<span class="sd">    :param str name: valid NeXus dataset name to write</span>
+<span class="sd">    :param obj data: the information to be written</span>
+<span class="sd">    :param dict attr: optional dictionary of attributes</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">parent</span><span class="p">:</span>
+        <span class="c1"># dataset already exists</span>
+        <span class="c1"># delete it, any links to it may break</span>
+        <span class="k">del</span> <span class="n">parent</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+    <span class="n">dset</span> <span class="o">=</span> <span class="n">makeDataset</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">attr</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dset</span></div>
+
+
+<div class="viewcode-block" id="makeLink"><a class="viewcode-back" href="../../eznx.html#spec2nexus.eznx.makeLink">[docs]</a><span class="k">def</span> <span class="nf">makeLink</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">sourceObject</span><span class="p">,</span> <span class="n">targetName</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    create an internal NeXus (hard) link in an HDF5 file</span>
+
+<span class="sd">    :param obj parent: parent group of source</span>
+<span class="sd">    :param obj sourceObject: existing HDF5 object</span>
+<span class="sd">    :param str targetName: HDF5 node path to be created,</span>
+<span class="sd">                            such as ``/entry/data/data``</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="s2">&quot;target&quot;</span> <span class="ow">in</span> <span class="n">sourceObject</span><span class="o">.</span><span class="n">attrs</span><span class="p">:</span>
+        <span class="c1"># NeXus link, NOT an HDF5 link!</span>
+        <span class="n">sourceObject</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;target&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">sourceObject</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="n">str_source</span> <span class="o">=</span> <span class="n">sourceObject</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;ascii&quot;</span><span class="p">,</span> <span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+    <span class="n">str_target</span> <span class="o">=</span> <span class="n">targetName</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;ascii&quot;</span><span class="p">,</span> <span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+    <span class="n">parent</span><span class="p">[</span><span class="n">str_target</span><span class="p">]</span> <span class="o">=</span> <span class="n">parent</span><span class="p">[</span><span class="n">str_source</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="makeExternalLink"><a class="viewcode-back" href="../../eznx.html#spec2nexus.eznx.makeExternalLink">[docs]</a><span class="k">def</span> <span class="nf">makeExternalLink</span><span class="p">(</span><span class="n">hdf5FileObject</span><span class="p">,</span> <span class="n">sourceFile</span><span class="p">,</span> <span class="n">sourcePath</span><span class="p">,</span> <span class="n">targetPath</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    create an external link from sourceFile, sourcePath to targetPath in hdf5FileObject</span>
+
+<span class="sd">    :param obj hdf5FileObject: open HDF5 file object</span>
+<span class="sd">    :param str sourceFile: file containing existing HDF5 object at sourcePath</span>
+<span class="sd">    :param str sourcePath: path to existing HDF5 object in sourceFile</span>
+<span class="sd">    :param str targetPath: full node path to be created in current open HDF5 file,</span>
+<span class="sd">                            such as ``/entry/data/data``</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">       Since the object retrieved is in a different file,</span>
+<span class="sd">       its &quot;.file&quot; and &quot;.parent&quot; properties will refer to</span>
+<span class="sd">       objects in that file, not the file in which the link resides.</span>
+
+<span class="sd">    :see: http://www.h5py.org/docs-1.3/guide/group.html#external-links</span>
+
+<span class="sd">    This routine is provided as a reminder how to do this simple operation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">hdf5FileObject</span><span class="p">[</span><span class="n">targetPath</span><span class="p">]</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">ExternalLink</span><span class="p">(</span><span class="n">sourceFile</span><span class="p">,</span> <span class="n">sourcePath</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="addAttributes"><a class="viewcode-back" href="../../eznx.html#spec2nexus.eznx.addAttributes">[docs]</a><span class="k">def</span> <span class="nf">addAttributes</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="o">**</span><span class="n">attr</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    add attributes to an h5py data item</span>
+
+<span class="sd">    :param obj parent: h5py parent object</span>
+<span class="sd">    :param dict attr: optional dictionary of attributes</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="c1"># attr is a dictionary of attributes</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">attr</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">parent</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span></div>
+
+
+<div class="viewcode-block" id="read_nexus_field"><a class="viewcode-back" href="../../eznx.html#spec2nexus.eznx.read_nexus_field">[docs]</a><span class="k">def</span> <span class="nf">read_nexus_field</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">dataset_name</span><span class="p">,</span> <span class="n">astype</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    get a dataset from the HDF5 parent group</span>
+
+<span class="sd">    :param obj parent: h5py parent object</span>
+<span class="sd">    :param str dataset_name: name of the dataset (NeXus field) to be read</span>
+<span class="sd">    :param obj astype: option to return as different data type</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">dataset_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">parent</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="n">dataset</span> <span class="o">=</span> <span class="n">parent</span><span class="p">[</span><span class="n">dataset_name</span><span class="p">]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;unexpected </span><span class="si">%d</span><span class="s2">-D data&quot;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">dataset</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># as array</span>
+        <span class="k">if</span> <span class="n">astype</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">dataset</span><span class="p">[</span><span class="o">...</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">astype</span><span class="p">)</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="o">...</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">dataset</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">char</span> <span class="o">==</span> <span class="s2">&quot;O&quot;</span><span class="p">:</span>
+            <span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">arr</span>
+
+    <span class="k">else</span><span class="p">:</span>  <span class="c1"># as scalar</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[()]</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+            <span class="n">v</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">):</span>
+            <span class="n">v</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">astype</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">v</span> <span class="o">=</span> <span class="n">astype</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">v</span></div>
+
+
+<div class="viewcode-block" id="read_nexus_group_fields"><a class="viewcode-back" href="../../eznx.html#spec2nexus.eznx.read_nexus_group_fields">[docs]</a><span class="k">def</span> <span class="nf">read_nexus_group_fields</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">fields</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    return the fields in the NeXus group as a dict(name=dataset)</span>
+
+<span class="sd">    This routine provides a mass way to read a directed list</span>
+<span class="sd">    of datasets (NeXus fields) in an HDF5 group.</span>
+
+<span class="sd">    :param obj parent: h5py parent object</span>
+<span class="sd">    :param str name: name of the group containing the fields</span>
+<span class="sd">    :param [name] fields: list of field names to be read</span>
+<span class="sd">    :returns: dictionary of {name:dataset}</span>
+<span class="sd">    :raises KeyError: if a field is not found</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">group</span> <span class="o">=</span> <span class="n">parent</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+    <span class="k">return</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">read_nexus_field</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">fields</span><span class="p">}</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2014-2022, Pete R. Jemian.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>spec2nexus.charts &mdash; spec2nexus 54.g7273e4c documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> spec2nexus
+          </a>
+              <div class="version">
+                2021.1.8
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contents.html">Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contents.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">spec2nexus</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      <li>spec2nexus.charts</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for spec2nexus.charts</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">charting for spec2nexus</span>
+
+<span class="sd">.. autosummary::</span>
+
+<span class="sd">    ~make_png</span>
+<span class="sd">    ~xy_plot</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.figure</span>
+
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;Agg&quot;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">matplotlib.backends.backend_agg</span> <span class="k">import</span> <span class="n">FigureCanvasAgg</span> <span class="k">as</span> <span class="n">FigureCanvas</span>
+
+<span class="kn">import</span> <span class="nn">spec2nexus</span>
+
+
+<span class="n">SCALING_FACTOR</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1">#  2**24</span>
+<span class="n">PLOT_H_INT</span> <span class="o">=</span> <span class="mi">9</span>  <span class="c1"># 7</span>
+<span class="n">PLOT_V_INT</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># 3</span>
+<span class="n">COLORMAP</span> <span class="o">=</span> <span class="s2">&quot;cubehelix&quot;</span>  <span class="c1"># http://matplotlib.org/api/pyplot_summary.html#matplotlib.pyplot.colormaps</span>
+<span class="n">WATERMARK_TEXT</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">, (C) </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span>
+    <span class="n">spec2nexus</span><span class="o">.</span><span class="n">__package_name__</span><span class="p">,</span>
+    <span class="n">spec2nexus</span><span class="o">.</span><span class="n">__copyright__</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span>
+<span class="p">)</span>
+
+
+<div class="viewcode-block" id="make_png"><a class="viewcode-back" href="../../charts.html#spec2nexus.charts.make_png">[docs]</a><span class="k">def</span> <span class="nf">make_png</span><span class="p">(</span>
+    <span class="n">image</span><span class="p">,</span>
+    <span class="n">image_file</span><span class="p">,</span>
+    <span class="n">axes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;2-D data&quot;</span><span class="p">,</span>
+    <span class="n">subtitle</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">log_image</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">hsize</span><span class="o">=</span><span class="n">PLOT_H_INT</span><span class="p">,</span>
+    <span class="n">vsize</span><span class="o">=</span><span class="n">PLOT_V_INT</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="n">COLORMAP</span><span class="p">,</span>
+    <span class="n">xtitle</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">ytitle</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">timestamp_str</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    read the image from the named HDF5 file and make a PNG file</span>
+
+<span class="sd">    Test that the HDF5 file exists and that the path to the data exists in that file.</span>
+<span class="sd">    Read the data from the named dataset, mask off some bad values,</span>
+<span class="sd">    convert to log(image) and use Matplotlib to make the PNG file.</span>
+
+<span class="sd">    :param obj image: array of data to be rendered</span>
+<span class="sd">    :param str image_file: name of image file to be written (path is optional)</span>
+<span class="sd">    :param bool log_image: plot log(image)</span>
+<span class="sd">    :param int hsize: horizontal size of the PNG image (default: 7)</span>
+<span class="sd">    :param int hsize: vertical size of the PNG image (default: 3)</span>
+<span class="sd">    :param str cmap: colormap for the image (default: &#39;cubehelix&#39;), &#39;jet&#39; is another good one</span>
+<span class="sd">    :return str: *image_file*</span>
+
+<span class="sd">    The HDF5 file could be a NeXus file, or some other layout.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># replace masked data with min good value</span>
+    <span class="n">image_data</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_less_equal</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">image_data</span> <span class="o">=</span> <span class="n">image_data</span><span class="o">.</span><span class="n">filled</span><span class="p">(</span><span class="n">image_data</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+    <span class="n">image_data</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_invalid</span><span class="p">(</span>
+        <span class="n">image_data</span>
+    <span class="p">)</span>  <span class="c1"># mask out any NaN values</span>
+
+    <span class="k">if</span> <span class="n">log_image</span> <span class="ow">and</span> <span class="n">image_data</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># apply log scaling</span>
+        <span class="n">image_data</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">image_data</span><span class="p">)</span>
+        <span class="n">image_data</span> <span class="o">-=</span> <span class="n">image_data</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+        <span class="n">image_data</span> <span class="o">*=</span> <span class="n">SCALING_FACTOR</span> <span class="o">/</span> <span class="n">image_data</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">hsize</span><span class="p">,</span> <span class="n">vsize</span><span class="p">))</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">axes</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+
+        <span class="k">def</span> <span class="nf">shift_to_pixel_boundaries</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+            <span class="n">np_arr</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+            <span class="n">step</span> <span class="o">=</span> <span class="n">np_arr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">np_arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np_arr</span><span class="p">,</span> <span class="n">np_arr</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">step</span><span class="p">)</span> <span class="o">-</span> <span class="n">step</span> <span class="o">/</span> <span class="mi">2</span>
+
+        <span class="n">x</span> <span class="o">=</span> <span class="n">shift_to_pixel_boundaries</span><span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">shift_to_pixel_boundaries</span><span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+        <span class="n">ax</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">image_data</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">y</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">()])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image_data</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">xtitle</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">xtitle</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ytitle</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">ytitle</span><span class="p">)</span>
+
+    <span class="n">timestamp_str</span> <span class="o">=</span> <span class="n">timestamp_str</span> <span class="ow">or</span> <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+
+    <span class="k">if</span> <span class="n">subtitle</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">subtitle</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+        <span class="mf">0.02</span><span class="p">,</span>
+        <span class="mf">0.0</span><span class="p">,</span>
+        <span class="n">timestamp_str</span><span class="p">,</span>
+        <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span>
+        <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span>
+        <span class="n">va</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">,</span>
+        <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+        <span class="mf">0.98</span><span class="p">,</span>
+        <span class="mf">0.0</span><span class="p">,</span>
+        <span class="n">WATERMARK_TEXT</span><span class="p">,</span>
+        <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span>
+        <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span>
+        <span class="n">va</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">,</span>
+        <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">ticklabel_format</span><span class="p">(</span><span class="n">useOffset</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;plain&quot;</span><span class="p">)</span>
+
+    <span class="n">FigureCanvas</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span><span class="o">.</span><span class="n">print_figure</span><span class="p">(</span><span class="n">image_file</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">image_file</span></div>
+
+
+<div class="viewcode-block" id="xy_plot"><a class="viewcode-back" href="../../charts.html#spec2nexus.charts.xy_plot">[docs]</a><span class="k">def</span> <span class="nf">xy_plot</span><span class="p">(</span>
+    <span class="n">x</span><span class="p">,</span>
+    <span class="n">y</span><span class="p">,</span>
+    <span class="n">plot_file</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">subtitle</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">xtitle</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">ytitle</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">xlog</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">ylog</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">hsize</span><span class="o">=</span><span class="n">PLOT_H_INT</span><span class="p">,</span>
+    <span class="n">vsize</span><span class="o">=</span><span class="n">PLOT_V_INT</span><span class="p">,</span>
+    <span class="n">timestamp_str</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    with MatPlotLib, generate a plot of a scan (as if data from a scan in a SPEC file)</span>
+
+<span class="sd">    :param [float] x: horizontal axis data</span>
+<span class="sd">    :param [float] y: vertical axis data</span>
+<span class="sd">    :param str plot_file: file name to write plot image</span>
+<span class="sd">    :param str xtitle: horizontal axis label (default: not shown)</span>
+<span class="sd">    :param str ytitle: vertical axis label (default: not shown)</span>
+<span class="sd">    :param str title: title for plot (default: date time)</span>
+<span class="sd">    :param str subtitle: subtitle for plot (default: not shown)</span>
+<span class="sd">    :param bool xlog: should X axis be log (default: False=linear)</span>
+<span class="sd">    :param bool ylog: should Y axis be log (default: False=linear)</span>
+<span class="sd">    :param str timestamp_str: date to use on plot (default: now)</span>
+
+<span class="sd">    .. tip:: when using this module as a background task ...</span>
+
+<span class="sd">        MatPlotLib has several interfaces for plotting.</span>
+<span class="sd">        Since this module runs as part of a background job</span>
+<span class="sd">        generating lots of plots, MatPlotLib&#39;s standard ``plt`` code is</span>
+<span class="sd">        not the right model.  It warns after 20 plots and</span>
+<span class="sd">        will eventually run out of memory.</span>
+
+<span class="sd">        Here&#39;s the fix used in this module:</span>
+<span class="sd">        http://stackoverflow.com/questions/16334588/create-a-figure-that-is-reference-counted/16337909#16337909</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">hsize</span><span class="p">,</span> <span class="n">vsize</span><span class="p">))</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">xlog</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;X data has no positive values,&quot;</span>
+            <span class="n">msg</span> <span class="o">+=</span> <span class="s2">&quot; and therefore can not be log-scaled.&quot;</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ylog</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">max</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Y data has no positive values,&quot;</span>
+            <span class="n">msg</span> <span class="o">+=</span> <span class="s2">&quot; and therefore can not be log-scaled.&quot;</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">xlog</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">ylog</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">ticklabel_format</span><span class="p">(</span><span class="n">useOffset</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">xtitle</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">xtitle</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ytitle</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">ytitle</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">subtitle</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">subtitle</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+        <span class="mf">0.02</span><span class="p">,</span>
+        <span class="mf">0.0</span><span class="p">,</span>
+        <span class="n">timestamp_str</span><span class="p">,</span>
+        <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span>
+        <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span>
+        <span class="n">va</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">,</span>
+        <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+        <span class="mf">0.98</span><span class="p">,</span>
+        <span class="mf">0.0</span><span class="p">,</span>
+        <span class="n">WATERMARK_TEXT</span><span class="p">,</span>
+        <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span>
+        <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span>
+        <span class="n">va</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">,</span>
+        <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">xlog</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">ylog</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">ticklabel_format</span><span class="p">(</span><span class="n">useOffset</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;plain&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;o-&quot;</span><span class="p">)</span>
+
+    <span class="n">FigureCanvas</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span><span class="o">.</span><span class="n">print_figure</span><span class="p">(</span><span class="n">plot_file</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2014-2022, Pete R. Jemian.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

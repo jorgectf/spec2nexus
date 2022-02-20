@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Example data &mdash; spec2nexus 54.g7273e4c documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Change History" href="changes.html" />
+    <link rel="prev" title="Unit Testing" href="unit_testing.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> spec2nexus
+          </a>
+              <div class="version">
+                2021.1.8
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="contents.html">Contents</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="spec2nexus.html">spec2nexus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extractSpecScan.html">extractSpecScan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specplot.html">specplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specplot_gallery.html">specplot_gallery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spec.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="charts.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.charts</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="specplot_custom_scan_macro.html">How to write a custom scan handling for <em>specplot</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="eznx.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.eznx</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.plugin</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">Common Methods: <code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="scanf.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.scanf</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="singletons.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.singletons</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="writer.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#required-libraries">Required Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#optional-libraries">Optional Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unit_testing.html">Unit Testing</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Example data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#about-these-example-data-files">About these example data files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#downloads">Downloads</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="changes.html">Change History</a></li>
+<li class="toctree-l2"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contents.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">spec2nexus</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="contents.html">Contents</a> &raquo;</li>
+      <li>Example data</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/example_data.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="example-data">
+<span id="index-0"></span><span id="id1"></span><h1>Example data<a class="headerlink" href="#example-data" title="Permalink to this headline"></a></h1>
+<section id="about-these-example-data-files">
+<h2>About these example data files<a class="headerlink" href="#about-these-example-data-files" title="Permalink to this headline"></a></h2>
+<p>These files are examples of various
+data files that may be read by <strong>spec2nexus</strong>.
+They are used to test various components of the interface.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 7%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>file</p></th>
+<th class="head"></th>
+<th class="head"><p>type            description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>02_03_setup.dat</p></td>
+<td><p>SPEC scans</p></td>
+<td><p>1-D scans, some have no data lines (data are stored in HDF5 file)</p></td>
+</tr>
+<tr class="row-odd"><td><p>03_06_JanTest.dat</p></td>
+<td><p>SPEC scans</p></td>
+<td><p>1-D scans, USAXS scans, Fly scans, #O+#o and #J+#j control lines</p></td>
+</tr>
+<tr class="row-even"><td><p>05_02_test.dat</p></td>
+<td><p>SPEC scans</p></td>
+<td><p>1-D scans, USAXS scans, Fly scans, multiple #F control lines, multiple #S 1 control lines</p></td>
+</tr>
+<tr class="row-odd"><td><p>33bm_spec.dat</p></td>
+<td><p>SPEC scans</p></td>
+<td><p>1-D &amp; 2-D scans (includes hklscan &amp; hklmesh)</p></td>
+</tr>
+<tr class="row-even"><td><p>33id_spec.dat</p></td>
+<td><p>SPEC scans</p></td>
+<td><p>1-D &amp; 2-D scans (includes mesh &amp; Escan scans &amp; MCA data)</p></td>
+</tr>
+<tr class="row-odd"><td><p>APS_spec_data.dat</p></td>
+<td><p>SPEC scans</p></td>
+<td><p>1-D scans (ascan &amp; uascan), includes lots of metadata and comments</p></td>
+</tr>
+<tr class="row-even"><td><p>CdOsO</p></td>
+<td><p>SPEC scans</p></td>
+<td><p>1-D scans (ascan), four #E (2, 3659, 3692, 3800) and two #S 1 (35, 3725)</p></td>
+</tr>
+<tr class="row-odd"><td><p>CdSe</p></td>
+<td><p>SPEC scans</p></td>
+<td><p>1-D scans (ascan), problem with scan abort on lines 5918-9, in scan 92</p></td>
+</tr>
+<tr class="row-even"><td><p>compression.h5</p></td>
+<td><p>NeXus HDF5</p></td>
+<td><p>2-D compressed image, also demonstrates problem to be resolved in code</p></td>
+</tr>
+<tr class="row-odd"><td><p>Data_Q.h5</p></td>
+<td><p>NeXus HDF5</p></td>
+<td><p>2-D image at /entry/data/{I,Q}, test file and variable-length strings</p></td>
+</tr>
+<tr class="row-even"><td><p>lmn40.spe</p></td>
+<td><p>SPEC scans</p></td>
+<td><p>1-D &amp; 2-D scans (hklmesh), two #E lines, has two header sections</p></td>
+</tr>
+<tr class="row-odd"><td><p>mca_spectra_example.dat</p></td>
+<td><p>SPEC scans</p></td>
+<td><p>1-D scans (cscan) with 4 MCA spectra in each scan (issue #55)</p></td>
+</tr>
+<tr class="row-even"><td><p>spec_from_spock.spc</p></td>
+<td><p>SPEC scans</p></td>
+<td><p>no header section, uses “nan”, from sardana</p></td>
+</tr>
+<tr class="row-odd"><td><p>startup_1.spec</p></td>
+<td><p>SPEC scans</p></td>
+<td><p>1-D scans with SCA spectra &amp; UXML headers for RSM code</p></td>
+</tr>
+<tr class="row-even"><td><p>user6idd.dat</p></td>
+<td><p>SPEC scans</p></td>
+<td><p>1-D scans, aborted scan, control lines:  #R #UB #UE #UX #UX1 #UX2 #X,
+non-default format in #X lines</p></td>
+</tr>
+<tr class="row-odd"><td><p>usaxs-bluesky-specwritercallback.dat</p></td>
+<td><p>SPEC scans</p></td>
+<td><p>1-D scans, #MD control lines</p></td>
+</tr>
+<tr class="row-even"><td><p>writer_1_3.h5</p></td>
+<td><p>NeXus HDF5</p></td>
+<td><p>1-D NeXus User Manual example</p></td>
+</tr>
+<tr class="row-odd"><td><p>YSZ011_ALDITO_Fe2O3_planar_fired_1.spc</p></td>
+<td><p>SPEC scans</p></td>
+<td><p>1-D scans, text in #V metadata, also has #UIM control lines</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="downloads">
+<h2>Downloads<a class="headerlink" href="#downloads" title="Permalink to this headline"></a></h2>
+<p>These downloads are also available online:
+<a class="reference external" href="https://github.com/prjemian/spec2nexus/tree/master/src/spec2nexus/data">https://github.com/prjemian/spec2nexus/tree/master/src/spec2nexus/data</a></p>
+<ul class="simple">
+<li><p><a class="reference download internal" download="" href="_downloads/ec3779e91ea933c5d45205dd15662441/33bm_spec.dat"><code class="xref download docutils literal notranslate"><span class="pre">33bm_spec.dat</span></code></a></p></li>
+<li><p><a class="reference download internal" download="" href="_downloads/255a36bb401eb9cb8b6a4ddedbd5db8e/33id_spec.dat"><code class="xref download docutils literal notranslate"><span class="pre">33id_spec.dat</span></code></a></p></li>
+<li><p><a class="reference download internal" download="" href="_downloads/244a61e0175ec7b3529489d113633549/APS_spec_data.dat"><code class="xref download docutils literal notranslate"><span class="pre">APS_spec_data.dat</span></code></a></p></li>
+<li><p><a class="reference download internal" download="" href="_downloads/365a7658f54333159132dc1f08cb8043/CdSe"><code class="xref download docutils literal notranslate"><span class="pre">CdSe</span></code></a></p></li>
+<li><p><a class="reference download internal" download="" href="_downloads/72befc0ad419c25bbfe0f62f5284c9b7/compression.h5"><code class="xref download docutils literal notranslate"><span class="pre">compression.h5</span></code></a></p></li>
+<li><p><a class="reference download internal" download="" href="_downloads/de96d1dd8abf61dc19c6c32103c44c74/Data_Q.h5"><code class="xref download docutils literal notranslate"><span class="pre">Data_Q.h5</span></code></a></p></li>
+<li><p><a class="reference download internal" download="" href="_downloads/c40f182445c313daec4c02940b500da4/lmn40.spe"><code class="xref download docutils literal notranslate"><span class="pre">lmn40.spe</span></code></a></p></li>
+<li><p><a class="reference download internal" download="" href="_downloads/e3ef73ad4609cea469d69b04f2d57308/mca_spectra_example.dat"><code class="xref download docutils literal notranslate"><span class="pre">mca_spectra_example.dat</span></code></a></p></li>
+<li><p><a class="reference download internal" download="" href="_downloads/611ccdbb47d4a7bdc25c48e8ac9897e0/user6idd.dat"><code class="xref download docutils literal notranslate"><span class="pre">user6idd.dat</span></code></a></p></li>
+<li><p><a class="reference download internal" download="" href="_downloads/d6cb5abe47ccce1e905d3835cba9af59/writer_1_3.h5"><code class="xref download docutils literal notranslate"><span class="pre">writer_1_3.h5</span></code></a></p></li>
+<li><p><a class="reference download internal" download="" href="_downloads/a7bef791fa73d93aa07488d577670dd4/YSZ011_ALDITO_Fe2O3_planar_fired_1.spc"><code class="xref download docutils literal notranslate"><span class="pre">YSZ011_ALDITO_Fe2O3_planar_fired_1.spc</span></code></a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="unit_testing.html" class="btn btn-neutral float-left" title="Unit Testing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="changes.html" class="btn btn-neutral float-right" title="Change History" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2014-2022, Pete R. Jemian.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

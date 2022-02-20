@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>spec2nexus.plugins.unicat &mdash; spec2nexus 54.g7273e4c documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> spec2nexus
+          </a>
+              <div class="version">
+                2021.1.8
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contents.html">Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contents.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">spec2nexus</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>spec2nexus.plugins.unicat</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for spec2nexus.plugins.unicat</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="c1"># -----------------------------------------------------------------------------</span>
+<span class="c1"># :author:    Pete R. Jemian</span>
+<span class="c1"># :email:     prjemian@gmail.com</span>
+<span class="c1"># :copyright: (c) 2014-2020, Pete R. Jemian</span>
+<span class="c1">#</span>
+<span class="c1"># Distributed under the terms of the Creative Commons Attribution 4.0 International Public License.</span>
+<span class="c1">#</span>
+<span class="c1"># The full license is in the file LICENSE.txt, distributed with this software.</span>
+<span class="c1"># -----------------------------------------------------------------------------</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">**#H** &amp; **#V** - Metadata in SPEC data files as defined by APS UNICAT</span>
+
+<span class="sd">Handles the UNICAT control lines which write additional metadata</span>
+<span class="sd">in the scans using #H/#V pairs of labels/values.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">six</span>
+
+<span class="kn">from</span> <span class="nn">..</span> <span class="k">import</span> <span class="n">eznx</span>
+<span class="kn">from</span> <span class="nn">..plugin</span> <span class="k">import</span> <span class="n">AutoRegister</span><span class="p">,</span> <span class="n">ControlLineHandler</span>
+<span class="kn">from</span> <span class="nn">..utils</span> <span class="k">import</span> <span class="n">strip_first_word</span>
+
+
+<div class="viewcode-block" id="UNICAT_MetadataMnemonics"><a class="viewcode-back" href="../../../supplied_plugins/unicat.html#spec2nexus.plugins.unicat.UNICAT_MetadataMnemonics">[docs]</a><span class="nd">@six</span><span class="o">.</span><span class="n">add_metaclass</span><span class="p">(</span><span class="n">AutoRegister</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">UNICAT_MetadataMnemonics</span><span class="p">(</span><span class="n">ControlLineHandler</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    **#H** -- UNICAT metadata names (numbered rows: #H0, #H1, ...)</span>
+
+<span class="sd">    Individual metadata names are expected to be single-word strings</span>
+<span class="sd">    but may be multi-word strings as long as the words in the string</span>
+<span class="sd">    are separated by only one space.  The delimiter between metadata</span>
+<span class="sd">    names is two consecutive spaces.  A tab (``\\t``) character is also</span>
+<span class="sd">    acceptable but should be avoided.</span>
+
+<span class="sd">    IN-MEMORY REPRESENTATION</span>
+
+<span class="sd">    * (SpecDataFileHeader) : **H** : labels</span>
+<span class="sd">    * (SpecDataFileScan): **metadata** : {labels: values}</span>
+
+<span class="sd">    HDF5/NeXus REPRESENTATION</span>
+
+<span class="sd">    * *NXnote* group named **metadata** below the</span>
+<span class="sd">      *NXentry* group, such as **/entry/metadata**</span>
+
+<span class="sd">      * datasets created from dictionary &lt;scan&gt;.metadata</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">key</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;#H\d+&quot;</span>
+    <span class="n">scan_attributes_defined</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;H&quot;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="UNICAT_MetadataMnemonics.process"><a class="viewcode-back" href="../../../supplied_plugins/unicat.html#spec2nexus.plugins.unicat.UNICAT_MetadataMnemonics.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">spec_obj</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">):</span>
+        <span class="n">row_text</span> <span class="o">=</span> <span class="n">strip_first_word</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;  +&quot;</span><span class="p">,</span> <span class="n">row_text</span><span class="p">)</span>
+        <span class="n">spec_obj</span><span class="o">.</span><span class="n">H</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="UNICAT_MetadataValues"><a class="viewcode-back" href="../../../supplied_plugins/unicat.html#spec2nexus.plugins.unicat.UNICAT_MetadataValues">[docs]</a><span class="nd">@six</span><span class="o">.</span><span class="n">add_metaclass</span><span class="p">(</span><span class="n">AutoRegister</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">UNICAT_MetadataValues</span><span class="p">(</span><span class="n">ControlLineHandler</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    **#V** -- UNICAT metadata values (numbered rows: #V0, #V1, ...)</span>
+
+<span class="sd">    Individual metadata values are expected to be numbers but may</span>
+<span class="sd">    be multi-word strings as long as the words in the string are</span>
+<span class="sd">    separated by only one space.  The delimiter between metadata</span>
+<span class="sd">    values is two consecutive spaces.  A tab (``&#39;\\t&#39;``) character is</span>
+<span class="sd">    also acceptable but should be avoided.</span>
+
+<span class="sd">    All numerical values will be converted into floating point</span>
+<span class="sd">    numbers.  Only if that conversion fails, the text of the value</span>
+<span class="sd">    will be reported verbatim.</span>
+
+<span class="sd">    IN-MEMORY REPRESENTATION</span>
+
+<span class="sd">    * (SpecDataFileScan): **V** : values</span>
+<span class="sd">    * (SpecDataFileScan): **metadata** : {labels: values}</span>
+
+<span class="sd">    HDF5/NeXus REPRESENTATION</span>
+
+<span class="sd">    * *NXnote* group named **metadata** below the</span>
+<span class="sd">      *NXentry* group, such as **/entry/metadata**</span>
+
+<span class="sd">      * datasets created from dictionary &lt;scan&gt;.metadata</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">key</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;#V\d+&quot;</span>
+    <span class="n">scan_attributes_defined</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;V&quot;</span><span class="p">,</span> <span class="s2">&quot;metadata&quot;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="UNICAT_MetadataValues.process"><a class="viewcode-back" href="../../../supplied_plugins/unicat.html#spec2nexus.plugins.unicat.UNICAT_MetadataValues.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">scan</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">):</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">V</span><span class="p">)</span>
+        <span class="n">row_text</span> <span class="o">=</span> <span class="n">strip_first_word</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">delimiter</span> <span class="ow">in</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot; &quot;</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot; &quot;</span><span class="p">):</span>
+            <span class="n">values</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">delimiter</span><span class="p">,</span> <span class="n">row_text</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">H</span><span class="p">[</span><span class="n">index</span><span class="p">])</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
+                <span class="k">break</span>
+
+        <span class="n">scan</span><span class="o">.</span><span class="n">V</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+        <span class="n">scan</span><span class="o">.</span><span class="n">addPostProcessor</span><span class="p">(</span><span class="s2">&quot;unicat_metadata&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">postprocess</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="UNICAT_MetadataValues.postprocess"><a class="viewcode-back" href="../../../supplied_plugins/unicat.html#spec2nexus.plugins.unicat.UNICAT_MetadataValues.postprocess">[docs]</a>    <span class="k">def</span> <span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scan</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        interpret the UNICAT metadata (mostly floating point) from the scan header</span>
+
+<span class="sd">        :param SpecDataFileScan scan: data from a single SPEC scan (instance of SpecDataFileScan)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">scan</span><span class="o">.</span><span class="n">metadata</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">header</span><span class="p">,</span> <span class="s2">&quot;H&quot;</span><span class="p">):</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;No matching #H line(s) for scan </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">scan</span><span class="o">.</span><span class="n">scanNum</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">row</span><span class="p">,</span> <span class="n">values</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">V</span><span class="p">):</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">row</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">H</span><span class="p">):</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;No matching #H</span><span class="si">%d</span><span class="s2"> line for #V</span><span class="si">%d</span><span class="s2"> in scan </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span>
+                    <span class="n">row</span><span class="p">,</span>
+                    <span class="n">row</span><span class="p">,</span>
+                    <span class="n">scan</span><span class="o">.</span><span class="n">scanNum</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">col</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">H</span><span class="p">[</span><span class="n">row</span><span class="p">]):</span>
+                    <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                        <span class="s2">&quot;No matching label in #H</span><span class="si">%d</span><span class="s2"> line for #V</span><span class="si">%d</span><span class="s2">, column </span><span class="si">%d</span><span class="s2"> in scan </span><span class="si">%d</span><span class="s2">&quot;</span>
+                        <span class="o">%</span> <span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">scan</span><span class="o">.</span><span class="n">scanNum</span><span class="p">)</span>
+                    <span class="p">)</span>
+                    <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                <span class="n">label</span> <span class="o">=</span> <span class="n">scan</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">H</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">scan</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                    <span class="n">scan</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+        <span class="n">scan</span><span class="o">.</span><span class="n">addH5writer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">writer</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="UNICAT_MetadataValues.writer"><a class="viewcode-back" href="../../../supplied_plugins/unicat.html#spec2nexus.plugins.unicat.UNICAT_MetadataValues.writer">[docs]</a>    <span class="k">def</span> <span class="nf">writer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h5parent</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="n">scan</span><span class="p">,</span> <span class="n">nxclass</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Describe how to store this data in an HDF5 NeXus file&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">scan</span><span class="p">,</span> <span class="s2">&quot;metadata&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">desc</span> <span class="o">=</span> <span class="s2">&quot;SPEC metadata (UNICAT-style #H &amp; #V lines)&quot;</span>
+            <span class="n">group</span> <span class="o">=</span> <span class="n">eznx</span><span class="o">.</span><span class="n">makeGroup</span><span class="p">(</span>
+                <span class="n">h5parent</span><span class="p">,</span> <span class="s2">&quot;metadata&quot;</span><span class="p">,</span> <span class="n">nxclass</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="n">desc</span>
+            <span class="p">)</span>
+            <span class="n">writer</span><span class="o">.</span><span class="n">save_dict</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">scan</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>
+
+            <span class="c1"># link it to the NXinstrument group</span>
+            <span class="n">nxinstrument</span> <span class="o">=</span> <span class="n">eznx</span><span class="o">.</span><span class="n">openGroup</span><span class="p">(</span>
+                <span class="n">h5parent</span><span class="p">,</span> <span class="s2">&quot;instrument&quot;</span><span class="p">,</span> <span class="s2">&quot;NXinstrument&quot;</span>
+            <span class="p">)</span>
+            <span class="n">eznx</span><span class="o">.</span><span class="n">makeLink</span><span class="p">(</span><span class="n">h5parent</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">nxinstrument</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;/metadata&quot;</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2014-2022, Pete R. Jemian.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

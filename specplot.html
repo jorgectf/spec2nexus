@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>specplot &mdash; spec2nexus 54.g7273e4c documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="specplot_gallery" href="specplot_gallery.html" />
+    <link rel="prev" title="extractSpecScan" href="extractSpecScan.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> spec2nexus
+          </a>
+              <div class="version">
+                2021.1.8
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="contents.html">Contents</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="spec2nexus.html">spec2nexus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extractSpecScan.html">extractSpecScan</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">specplot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-use-specplot">How to use <em>specplot</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#help">Help</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#module-spec2nexus.specplot">source code documentation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="specplot_gallery.html">specplot_gallery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spec.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="charts.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.charts</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="specplot_custom_scan_macro.html">How to write a custom scan handling for <em>specplot</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="eznx.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.eznx</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.plugin</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">Common Methods: <code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="scanf.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.scanf</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="singletons.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.singletons</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="writer.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#required-libraries">Required Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#optional-libraries">Optional Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unit_testing.html">Unit Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_data.html">Example data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changes.html">Change History</a></li>
+<li class="toctree-l2"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contents.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">spec2nexus</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="contents.html">Contents</a> &raquo;</li>
+      <li>specplot</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/specplot.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="specplot">
+<span id="id1"></span><h1>specplot<a class="headerlink" href="#specplot" title="Permalink to this headline"></a></h1>
+<p>Read a SPEC data file and plot a thumbnail image.</p>
+<p>This code can be called as a standalone program or it can be
+imported into another program and called as a subroutine,
+as shown in the <a class="reference internal" href="specplot_gallery.html#specplot-gallery"><span class="std std-ref">specplot_gallery</span></a> program.</p>
+<p>The standard representation of a SPEC scan is a line plot of the
+last data column <em>versus</em> the first data column.  Any SPEC macro
+which name ends with <cite>scan</cite> (<a class="footnote-reference brackets" href="#id3" id="id2">1</a>) will be plotted as a line plot.</p>
+<p>A special case SPEC scan macro is the <cite>hklscan</cite> where one of the
+three reciprocal space axes is scanned while the other two remain
+constant.  A special handler (<a class="reference internal" href="specplot_custom_scan_macro.html#custom-hklscan-specplot"><span class="std std-ref">SPEC’s hklscan macro</span></a>)
+is provided to pick properly the scanned
+axis (not always the first column) for representation as a line plot.</p>
+<p>Some SPEC macros scan two positioners over a grid to collect a
+2-D image one pixel at a time.  These scans are represented as
+color-mapped images where the first two columns are the vertical
+and horizontal axes and the image is color-mapped to intensity.
+Any SPEC macro which name ends with <cite>mesh</cite> will be plotted as
+an image plot.</p>
+<dl class="footnote brackets">
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dd><p><cite>scan</cite>: any scan where the last four letters converted
+to lower case match <cite>scan</cite>,
+such as <cite>ascan</cite>, <cite>a2scan</cite>, <cite>Escan</cite>,
+<cite>tscan</cite>, <cite>uascan</cite>, <cite>FlyScan</cite>, <cite>unusual_custom_user_scan</cite>, …</p>
+</dd>
+</dl>
+<p>Different handling can be customized for scan macros, as described in
+<a class="reference internal" href="specplot_custom_scan_macro.html#how-to-write-custom-scan-macro-handling"><span class="std std-ref">How to write a custom scan handling for specplot</span></a>.</p>
+<section id="how-to-use-specplot">
+<h2>How to use <em>specplot</em><a class="headerlink" href="#how-to-use-specplot" title="Permalink to this headline"></a></h2>
+<p>Plot a scan from one of the sample data files supplied with <em>spec2nexus</em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>user@host ~$ specplot src/spec2nexus/data/APS_spec_data.dat 2 specplot.png
+</pre></div>
+</div>
+<figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="_images/specplot.png"><img alt="_images/specplot.png" src="_images/specplot.png" style="width: 95%;" /></a>
+<figcaption>
+<p><span class="caption-text">Plot of scan #2 from example data file <em>APS_spec_data.dat</em>.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>user@host ~$ specplot
+usage: specplot.py [-h] specFile scan_number plotFile
+</pre></div>
+</div>
+</section>
+<section id="help">
+<h2>Help<a class="headerlink" href="#help" title="Permalink to this headline"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>user@host ~$ specplot -h
+usage: specplot.py [-h] specFile scan_number plotFile
+
+read a SPEC data file and plot scan n
+
+positional arguments:
+  specFile     SPEC data file name
+  scan_number  scan number in SPEC file
+  plotFile     output plot file name
+
+optional arguments:
+  -h, --help   show this help message and exit
+</pre></div>
+</div>
+<section id="module-spec2nexus.specplot">
+<span id="source-code-documentation"></span><h3>source code documentation<a class="headerlink" href="#module-spec2nexus.specplot" title="Permalink to this headline"></a></h3>
+<p>Plot the data from scan N in a SPEC data file</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.specplot.Selector" title="spec2nexus.specplot.Selector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Selector</span></code></a>(*args, **kwargs)</p></td>
+<td><p>associate SPEC scan macro names with image makers</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.specplot.ImageMaker" title="spec2nexus.specplot.ImageMaker"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ImageMaker</span></code></a>()</p></td>
+<td><p>superclass to handle plotting of data from a SPEC scan</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.specplot.LinePlotter" title="spec2nexus.specplot.LinePlotter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LinePlotter</span></code></a>()</p></td>
+<td><p>create a line plot</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.specplot.MeshPlotter" title="spec2nexus.specplot.MeshPlotter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MeshPlotter</span></code></a>()</p></td>
+<td><p>create a mesh plot (2-D image)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.specplot.openSpecFile" title="spec2nexus.specplot.openSpecFile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">openSpecFile</span></code></a>(specFile)</p></td>
+<td><p>convenience routine so that others do not have to <cite>import spec2nexus.spec</cite></p></td>
+</tr>
+</tbody>
+</table>
+<p>Exceptions:</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.specplot.NoDataToPlot" title="spec2nexus.specplot.NoDataToPlot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NoDataToPlot</span></code></a></p></td>
+<td><p>No data found.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.specplot.NotPlottable" title="spec2nexus.specplot.NotPlottable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NotPlottable</span></code></a></p></td>
+<td><p>No plottable data for this scan.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.specplot.ScanAborted" title="spec2nexus.specplot.ScanAborted"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScanAborted</span></code></a></p></td>
+<td><p>Scan aborted before all points acquired.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.specplot.UnexpectedObjectTypeError" title="spec2nexus.specplot.UnexpectedObjectTypeError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UnexpectedObjectTypeError</span></code></a></p></td>
+<td><p>Incorrect Python object type: programmer error.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt class="sig sig-object py" id="spec2nexus.specplot.HKLScanPlotter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.specplot.</span></span><span class="sig-name descname"><span class="pre">HKLScanPlotter</span></span><a class="reference internal" href="_modules/spec2nexus/specplot.html#HKLScanPlotter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.HKLScanPlotter" title="Permalink to this definition"></a></dt>
+<dd><p>create a line plot from hklscan macros</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.specplot.HKLScanPlotter.retrieve_plot_data">
+<span class="sig-name descname"><span class="pre">retrieve_plot_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#HKLScanPlotter.retrieve_plot_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.HKLScanPlotter.retrieve_plot_data" title="Permalink to this definition"></a></dt>
+<dd><p>retrieve default data from spec data file</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="spec2nexus.specplot.ImageMaker">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.specplot.</span></span><span class="sig-name descname"><span class="pre">ImageMaker</span></span><a class="reference internal" href="_modules/spec2nexus/specplot.html#ImageMaker"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.ImageMaker" title="Permalink to this definition"></a></dt>
+<dd><p>superclass to handle plotting of data from a SPEC scan</p>
+<p class="rubric">Internal data model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Signal</dt>
+<dd class="field-odd"><p>name of the <code class="docutils literal notranslate"><span class="pre">signal</span></code> data (default data to be plotted)</p>
+</dd>
+<dt class="field-even">Data</dt>
+<dd class="field-even"><p>values of various collected arrays {label: array}</p>
+</dd>
+<dt class="field-odd">Axes</dt>
+<dd class="field-odd"><p>names of the axes of signal data</p>
+</dd>
+</dl>
+<p class="rubric">USAGE:</p>
+<ol class="arabic">
+<li><p>Create a subclass of <a class="reference internal" href="#spec2nexus.specplot.ImageMaker" title="spec2nexus.specplot.ImageMaker"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageMaker</span></code></a></p></li>
+<li><p>Override any of these methods:</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.specplot.ImageMaker.data_file_name" title="spec2nexus.specplot.ImageMaker.data_file_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data_file_name</span></code></a>()</p></td>
+<td><p>the name of the file with the actual data</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.specplot.ImageMaker.make_image" title="spec2nexus.specplot.ImageMaker.make_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_image</span></code></a>(plotFile)</p></td>
+<td><p>make MatPlotLib chart image from the SPEC scan</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.specplot.ImageMaker.plottable" title="spec2nexus.specplot.ImageMaker.plottable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plottable</span></code></a>()</p></td>
+<td><p>can this data be plotted as expected?</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.specplot.ImageMaker.plot_options" title="spec2nexus.specplot.ImageMaker.plot_options"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_options</span></code></a>()</p></td>
+<td><p>re-define any plot options in a subclass</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.specplot.ImageMaker.retrieve_plot_data" title="spec2nexus.specplot.ImageMaker.retrieve_plot_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">retrieve_plot_data</span></code></a>()</p></td>
+<td><p>retrieve default plottable data from spec data file and store locally</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<p class="rubric">EXAMPLE</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">LinePlotter</span><span class="p">(</span><span class="n">ImageMaker</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;create a line plot&#39;&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="nf">make_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plotFile</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        make MatPlotLib chart image from the SPEC scan</span>
+
+<span class="sd">        :param obj plotData: object returned from :meth:`retrieve_plot_data`</span>
+<span class="sd">        :param str plotFile: name of image file to write</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">assert</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">signal</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">assert</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">assert</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">signal</span><span class="p">]</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+        <span class="n">xy_plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span>  <span class="n">plotFile</span><span class="p">,</span>
+               <span class="n">title</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">plot_title</span><span class="p">(),</span>
+               <span class="n">plot_subtitle</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">plot_subtitle</span><span class="p">(),</span>
+               <span class="n">xtitle</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">x_title</span><span class="p">(),</span>
+               <span class="n">ytitle</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_title</span><span class="p">(),</span>
+               <span class="n">xlog</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">x_log</span><span class="p">(),</span>
+               <span class="n">ylog</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_log</span><span class="p">(),</span>
+               <span class="n">timestamp_str</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">timestamp</span><span class="p">())</span>
+
+<span class="n">sfile</span> <span class="o">=</span> <span class="n">specplot</span><span class="o">.</span><span class="n">openSpecFile</span><span class="p">(</span><span class="n">specFile</span><span class="p">)</span>
+<span class="n">scan</span> <span class="o">=</span> <span class="n">sfile</span><span class="o">.</span><span class="n">getScan</span><span class="p">(</span><span class="n">scan_number</span><span class="p">)</span>
+<span class="n">plotter</span> <span class="o">=</span> <span class="n">LinePlotter</span><span class="p">()</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">plot_scan</span><span class="p">(</span><span class="n">scan</span><span class="p">,</span> <span class="n">plotFile</span><span class="p">,</span> <span class="n">y_log</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.specplot.ImageMaker.data_file_name">
+<span class="sig-name descname"><span class="pre">data_file_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#ImageMaker.data_file_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.ImageMaker.data_file_name" title="Permalink to this definition"></a></dt>
+<dd><p>the name of the file with the actual data</p>
+<p>Usually, this is the SPEC data file
+but it <em>could</em> be something else</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.specplot.ImageMaker.data_is_newer_than_plot">
+<span class="sig-name descname"><span class="pre">data_is_newer_than_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plotFile</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#ImageMaker.data_is_newer_than_plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.ImageMaker.data_is_newer_than_plot" title="Permalink to this definition"></a></dt>
+<dd><p>only proceed if mtime of SPEC data file is newer than plotFile</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.specplot.ImageMaker.make_image">
+<span class="sig-name descname"><span class="pre">make_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plotFile</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#ImageMaker.make_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.ImageMaker.make_image" title="Permalink to this definition"></a></dt>
+<dd><p>make MatPlotLib chart image from the SPEC scan</p>
+<p>The data to be plotted are provided in:</p>
+<ul class="simple">
+<li><p><cite>self.signal</cite></p></li>
+<li><p><cite>self.axes</cite></p></li>
+<li><p><cite>self.data</cite></p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>plotFile</strong> (<em>str</em>) – name of image file to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.specplot.ImageMaker.plot_options">
+<span class="sig-name descname"><span class="pre">plot_options</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#ImageMaker.plot_options"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.ImageMaker.plot_options" title="Permalink to this definition"></a></dt>
+<dd><p>re-define any plot options in a subclass</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.specplot.ImageMaker.plot_scan">
+<span class="sig-name descname"><span class="pre">plot_scan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plotFile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maker</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#ImageMaker.plot_scan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.ImageMaker.plot_scan" title="Permalink to this definition"></a></dt>
+<dd><p>make an image plot of the data in the scan</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scan</strong> (<em>obj</em>) – instance of <a class="reference internal" href="spec.html#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileScan</span></code></a></p></li>
+<li><p><strong>plotFile</strong> (<em>str</em>) – file name for plot output</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.specplot.ImageMaker.plot_subtitle">
+<span class="sig-name descname"><span class="pre">plot_subtitle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#ImageMaker.plot_subtitle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.ImageMaker.plot_subtitle" title="Permalink to this definition"></a></dt>
+<dd><p>Return the plot_subtitle.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.specplot.ImageMaker.plot_title">
+<span class="sig-name descname"><span class="pre">plot_title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#ImageMaker.plot_title"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.ImageMaker.plot_title" title="Permalink to this definition"></a></dt>
+<dd><p>Return the plot title.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.specplot.ImageMaker.plottable">
+<span class="sig-name descname"><span class="pre">plottable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#ImageMaker.plottable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.ImageMaker.plottable" title="Permalink to this definition"></a></dt>
+<dd><p>can this data be plotted as expected?</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.specplot.ImageMaker.retrieve_plot_data">
+<span class="sig-name descname"><span class="pre">retrieve_plot_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#ImageMaker.retrieve_plot_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.ImageMaker.retrieve_plot_data" title="Permalink to this definition"></a></dt>
+<dd><p>retrieve default plottable data from spec data file and store locally</p>
+<p>This method must retrieve the data to be plotted, either from the
+SPEC data file scan or from a file which name is provided
+in the scan detalis.</p>
+<p>These attributes must be set by this method:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Data</dt>
+<dd class="field-odd"><p>dictionary containing values of the various collected arrays {label: array}</p>
+</dd>
+<dt class="field-even">Signal</dt>
+<dd class="field-even"><p>name of the ‘signal’ data (default data to be plotted)</p>
+</dd>
+<dt class="field-odd">Axes</dt>
+<dd class="field-odd"><p>names of the axes of signal data</p>
+</dd>
+</dl>
+<p class="rubric">Example data</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;angle&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+    <span class="s1">&#39;counts&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.</span> <span class="mf">2.</span> <span class="mf">55.</span> <span class="mf">3.</span> <span class="mi">0</span><span class="p">]}</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">signal</span> <span class="o">=</span> <span class="s1">&#39;counts&#39;</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">axes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;angle&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Raise any of these exceptions as appropriate:</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.specplot.NoDataToPlot" title="spec2nexus.specplot.NoDataToPlot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NoDataToPlot</span></code></a></p></td>
+<td><p>No data found.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.specplot.NotPlottable" title="spec2nexus.specplot.NotPlottable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NotPlottable</span></code></a></p></td>
+<td><p>No plottable data for this scan.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.specplot.ScanAborted" title="spec2nexus.specplot.ScanAborted"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScanAborted</span></code></a></p></td>
+<td><p>Scan aborted before all points acquired.</p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.specplot.ImageMaker.set_plot_subtitle">
+<span class="sig-name descname"><span class="pre">set_plot_subtitle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#ImageMaker.set_plot_subtitle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.ImageMaker.set_plot_subtitle" title="Permalink to this definition"></a></dt>
+<dd><p>Set the plot_subtitle.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.specplot.ImageMaker.set_plot_title">
+<span class="sig-name descname"><span class="pre">set_plot_title</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#ImageMaker.set_plot_title"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.ImageMaker.set_plot_title" title="Permalink to this definition"></a></dt>
+<dd><p>Set the plot title.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.specplot.ImageMaker.set_timestamp">
+<span class="sig-name descname"><span class="pre">set_timestamp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#ImageMaker.set_timestamp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.ImageMaker.set_timestamp" title="Permalink to this definition"></a></dt>
+<dd><p>Set the plot time stamp.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.specplot.ImageMaker.set_x_log">
+<span class="sig-name descname"><span class="pre">set_x_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">choice</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#ImageMaker.set_x_log"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.ImageMaker.set_x_log" title="Permalink to this definition"></a></dt>
+<dd><p>Set the x axis logarithmic if True.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.specplot.ImageMaker.set_x_title">
+<span class="sig-name descname"><span class="pre">set_x_title</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#ImageMaker.set_x_title"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.ImageMaker.set_x_title" title="Permalink to this definition"></a></dt>
+<dd><p>Set the x axis title.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.specplot.ImageMaker.set_y_log">
+<span class="sig-name descname"><span class="pre">set_y_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">choice</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#ImageMaker.set_y_log"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.ImageMaker.set_y_log" title="Permalink to this definition"></a></dt>
+<dd><p>Set the y axis logarithmic if True.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.specplot.ImageMaker.set_y_title">
+<span class="sig-name descname"><span class="pre">set_y_title</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#ImageMaker.set_y_title"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.ImageMaker.set_y_title" title="Permalink to this definition"></a></dt>
+<dd><p>Set the y axis title.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.specplot.ImageMaker.set_z_log">
+<span class="sig-name descname"><span class="pre">set_z_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">choice</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#ImageMaker.set_z_log"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.ImageMaker.set_z_log" title="Permalink to this definition"></a></dt>
+<dd><p>Set the z axis (image) logarithmic if True.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.specplot.ImageMaker.timestamp">
+<span class="sig-name descname"><span class="pre">timestamp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#ImageMaker.timestamp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.ImageMaker.timestamp" title="Permalink to this definition"></a></dt>
+<dd><p>Return the time of this scan as a string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.specplot.ImageMaker.x_log">
+<span class="sig-name descname"><span class="pre">x_log</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#ImageMaker.x_log"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.ImageMaker.x_log" title="Permalink to this definition"></a></dt>
+<dd><p>Boolean: should the X axis be plotted on a log scale?</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.specplot.ImageMaker.x_title">
+<span class="sig-name descname"><span class="pre">x_title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#ImageMaker.x_title"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.ImageMaker.x_title" title="Permalink to this definition"></a></dt>
+<dd><p>Return the title for the X axis.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.specplot.ImageMaker.y_log">
+<span class="sig-name descname"><span class="pre">y_log</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#ImageMaker.y_log"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.ImageMaker.y_log" title="Permalink to this definition"></a></dt>
+<dd><p>Boolean: should the Y axis be plotted on a log scale?</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.specplot.ImageMaker.y_title">
+<span class="sig-name descname"><span class="pre">y_title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#ImageMaker.y_title"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.ImageMaker.y_title" title="Permalink to this definition"></a></dt>
+<dd><p>Return the title for the Y axis.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.specplot.ImageMaker.z_log">
+<span class="sig-name descname"><span class="pre">z_log</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#ImageMaker.z_log"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.ImageMaker.z_log" title="Permalink to this definition"></a></dt>
+<dd><p>Boolean: should the Z axis (image) be plotted on a log scale?</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="spec2nexus.specplot.LinePlotter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.specplot.</span></span><span class="sig-name descname"><span class="pre">LinePlotter</span></span><a class="reference internal" href="_modules/spec2nexus/specplot.html#LinePlotter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.LinePlotter" title="Permalink to this definition"></a></dt>
+<dd><p>create a line plot</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.specplot.LinePlotter.make_image">
+<span class="sig-name descname"><span class="pre">make_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plotFile</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#LinePlotter.make_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.LinePlotter.make_image" title="Permalink to this definition"></a></dt>
+<dd><p>make MatPlotLib chart image from the SPEC scan</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>plotFile</strong> (<em>str</em>) – name of image file to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.specplot.LinePlotter.plot_options">
+<span class="sig-name descname"><span class="pre">plot_options</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#LinePlotter.plot_options"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.LinePlotter.plot_options" title="Permalink to this definition"></a></dt>
+<dd><p>define the settings for this, accepting any non-default values first</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.specplot.LinePlotter.plottable">
+<span class="sig-name descname"><span class="pre">plottable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#LinePlotter.plottable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.LinePlotter.plottable" title="Permalink to this definition"></a></dt>
+<dd><p>can this data be plotted as expected?</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.specplot.LinePlotter.retrieve_plot_data">
+<span class="sig-name descname"><span class="pre">retrieve_plot_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#LinePlotter.retrieve_plot_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.LinePlotter.retrieve_plot_data" title="Permalink to this definition"></a></dt>
+<dd><p>retrieve default data from spec data file</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="spec2nexus.specplot.MeshPlotter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.specplot.</span></span><span class="sig-name descname"><span class="pre">MeshPlotter</span></span><a class="reference internal" href="_modules/spec2nexus/specplot.html#MeshPlotter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.MeshPlotter" title="Permalink to this definition"></a></dt>
+<dd><p>create a mesh plot (2-D image)</p>
+<p>..rubric:: References:</p>
+<dl class="field-list">
+<dt class="field-odd">Mesh 2-D parser</dt>
+<dd class="field-odd"><p><a class="reference external" href="http://www.certif.com/spec_help/mesh.html">http://www.certif.com/spec_help/mesh.html</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span> <span class="n">motor1</span> <span class="n">start1</span> <span class="n">end1</span> <span class="n">intervals1</span> <span class="n">motor2</span> <span class="n">start2</span> <span class="n">end2</span> <span class="n">intervals2</span> <span class="n">time</span>
+</pre></div>
+</div>
+</dd>
+<dt class="field-even">Hklmesh 2-D parser</dt>
+<dd class="field-even"><p><a class="reference external" href="http://www.certif.com/spec_help/hklmesh.html">http://www.certif.com/spec_help/hklmesh.html</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hklmesh</span> <span class="n">Q1</span> <span class="n">start1</span> <span class="n">end1</span> <span class="n">intervals1</span> <span class="n">Q2</span> <span class="n">start2</span> <span class="n">end2</span> <span class="n">intervals2</span> <span class="n">time</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.specplot.MeshPlotter.make_image">
+<span class="sig-name descname"><span class="pre">make_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plotFile</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#MeshPlotter.make_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.MeshPlotter.make_image" title="Permalink to this definition"></a></dt>
+<dd><p>make MatPlotLib chart image from the SPEC scan</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>plotFile</strong> (<em>str</em>) – name of image file to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.specplot.MeshPlotter.plot_options">
+<span class="sig-name descname"><span class="pre">plot_options</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#MeshPlotter.plot_options"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.MeshPlotter.plot_options" title="Permalink to this definition"></a></dt>
+<dd><p>define the settings for this, accepting any non-default values first</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.specplot.MeshPlotter.plottable">
+<span class="sig-name descname"><span class="pre">plottable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#MeshPlotter.plottable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.MeshPlotter.plottable" title="Permalink to this definition"></a></dt>
+<dd><p>can this data be plotted as expected?</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.specplot.MeshPlotter.retrieve_plot_data">
+<span class="sig-name descname"><span class="pre">retrieve_plot_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#MeshPlotter.retrieve_plot_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.MeshPlotter.retrieve_plot_data" title="Permalink to this definition"></a></dt>
+<dd><p>retrieve default data from spec data file</p>
+<p>data parser for 2-D mesh and hklmesh</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="spec2nexus.specplot.NoDataToPlot">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.specplot.</span></span><span class="sig-name descname"><span class="pre">NoDataToPlot</span></span><a class="reference internal" href="_modules/spec2nexus/specplot.html#NoDataToPlot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.NoDataToPlot" title="Permalink to this definition"></a></dt>
+<dd><p>No data found.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="spec2nexus.specplot.NotPlottable">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.specplot.</span></span><span class="sig-name descname"><span class="pre">NotPlottable</span></span><a class="reference internal" href="_modules/spec2nexus/specplot.html#NotPlottable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.NotPlottable" title="Permalink to this definition"></a></dt>
+<dd><p>No plottable data for this scan.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="spec2nexus.specplot.ScanAborted">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.specplot.</span></span><span class="sig-name descname"><span class="pre">ScanAborted</span></span><a class="reference internal" href="_modules/spec2nexus/specplot.html#ScanAborted"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.ScanAborted" title="Permalink to this definition"></a></dt>
+<dd><p>Scan aborted before all points acquired.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="spec2nexus.specplot.Selector">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.specplot.</span></span><span class="sig-name descname"><span class="pre">Selector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#Selector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.Selector" title="Permalink to this definition"></a></dt>
+<dd><p>associate SPEC scan macro names with image makers</p>
+<dl class="field-list simple">
+<dt class="field-odd">Image maker</dt>
+<dd class="field-odd"><p>subclass of <a class="reference internal" href="#spec2nexus.specplot.ImageMaker" title="spec2nexus.specplot.ImageMaker"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageMaker</span></code></a></p>
+</dd>
+</dl>
+<p>To include a custom image maker from outside this module,
+create the subclass and then add it to an instance of this
+class.  Such as this plotter that defaults to a logarithmic
+scale for the X axis for all <cite>logxscan</cite> macros:</p>
+<blockquote>
+<div><p>from spec2nexus import specplot</p>
+<p>class LogX_Plotter(specplot.ImageMaker):</p>
+<blockquote>
+<div><dl class="simple">
+<dt>def x_log(self):</dt><dd><p>return True</p>
+</dd>
+</dl>
+</div></blockquote>
+<p># …</p>
+<p>selector = specplot.Selector()
+selector.add(‘logxscan’, LogX_Plotter)</p>
+<p># …</p>
+<p>image_maker = specplot.Selector().auto(scan)
+plotter = image_maker()
+plotter.plot_scan(scan, fullPlotFile)</p>
+</div></blockquote>
+<p>This class is a singleton which means you will always get the same
+instance when you call this class many times in your program.</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.specplot.Selector.auto" title="spec2nexus.specplot.Selector.auto"><code class="xref py py-obj docutils literal notranslate"><span class="pre">auto</span></code></a>(scan)</p></td>
+<td><p>automatically choose a scan image maker based on the SPEC scan macro</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.specplot.Selector.add" title="spec2nexus.specplot.Selector.add"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add</span></code></a>(key, value[, default])</p></td>
+<td><p>register a new value by key</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.specplot.Selector.update" title="spec2nexus.specplot.Selector.update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update</span></code></a>(key, value[, default])</p></td>
+<td><p>replace an existing key with a new value</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.specplot.Selector.get" title="spec2nexus.specplot.Selector.get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get</span></code></a>(key)</p></td>
+<td><p>return a value by key</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.specplot.Selector.exists" title="spec2nexus.specplot.Selector.exists"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exists</span></code></a>(key)</p></td>
+<td><p>is the key known?</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.specplot.Selector.default" title="spec2nexus.specplot.Selector.default"><code class="xref py py-obj docutils literal notranslate"><span class="pre">default</span></code></a>()</p></td>
+<td><p>retrieve the value of the default key</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.specplot.Selector.add">
+<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#Selector.add"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.Selector.add" title="Permalink to this definition"></a></dt>
+<dd><p>register a new value by key</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>key</strong> (<em>str</em>) – name of key, typically the macro name</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>KeyError</strong> – if key exists</p></li>
+<li><p><a class="reference internal" href="#spec2nexus.specplot.UnexpectedObjectTypeError" title="spec2nexus.specplot.UnexpectedObjectTypeError"><strong>UnexpectedObjectTypeError</strong></a> – if value is not subclass of <a class="reference internal" href="#spec2nexus.specplot.ImageMaker" title="spec2nexus.specplot.ImageMaker"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageMaker</span></code></a></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.specplot.Selector.auto">
+<span class="sig-name descname"><span class="pre">auto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scan</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#Selector.auto"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.Selector.auto" title="Permalink to this definition"></a></dt>
+<dd><p>automatically choose a scan image maker based on the SPEC scan macro</p>
+<p>Selection Rules:</p>
+<ul class="simple">
+<li><p>macro ends with “scan”: use <a class="reference internal" href="#spec2nexus.specplot.LinePlotter" title="spec2nexus.specplot.LinePlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">LinePlotter</span></code></a></p></li>
+<li><p>macro ends with “mesh”: use <a class="reference internal" href="#spec2nexus.specplot.MeshPlotter" title="spec2nexus.specplot.MeshPlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">MeshPlotter</span></code></a></p></li>
+<li><p>default: use default image maker (initially <a class="reference internal" href="#spec2nexus.specplot.LinePlotter" title="spec2nexus.specplot.LinePlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">LinePlotter</span></code></a>)</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.specplot.Selector.default">
+<span class="sig-name descname"><span class="pre">default</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#Selector.default"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.Selector.default" title="Permalink to this definition"></a></dt>
+<dd><p>retrieve the value of the default key</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.specplot.Selector.exists">
+<span class="sig-name descname"><span class="pre">exists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#Selector.exists"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.Selector.exists" title="Permalink to this definition"></a></dt>
+<dd><p>is the key known?</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.specplot.Selector.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#Selector.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.Selector.get" title="Permalink to this definition"></a></dt>
+<dd><p>return a value by key</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>subclass of <a class="reference internal" href="#spec2nexus.specplot.ImageMaker" title="spec2nexus.specplot.ImageMaker"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageMaker</span></code></a> or <cite>None</cite> if key not found</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.specplot.Selector.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#Selector.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.Selector.update" title="Permalink to this definition"></a></dt>
+<dd><p>replace an existing key with a new value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>key</strong> (<em>str</em>) – name of key, typically the macro name</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>KeyError</strong> – if key does not exist</p></li>
+<li><p><a class="reference internal" href="#spec2nexus.specplot.UnexpectedObjectTypeError" title="spec2nexus.specplot.UnexpectedObjectTypeError"><strong>UnexpectedObjectTypeError</strong></a> – if value is not subclass of <a class="reference internal" href="#spec2nexus.specplot.ImageMaker" title="spec2nexus.specplot.ImageMaker"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageMaker</span></code></a></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="spec2nexus.specplot.UnexpectedObjectTypeError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.specplot.</span></span><span class="sig-name descname"><span class="pre">UnexpectedObjectTypeError</span></span><a class="reference internal" href="_modules/spec2nexus/specplot.html#UnexpectedObjectTypeError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.UnexpectedObjectTypeError" title="Permalink to this definition"></a></dt>
+<dd><p>Incorrect Python object type: programmer error.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="spec2nexus.specplot.openSpecFile">
+<span class="sig-prename descclassname"><span class="pre">spec2nexus.specplot.</span></span><span class="sig-name descname"><span class="pre">openSpecFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">specFile</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot.html#openSpecFile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot.openSpecFile" title="Permalink to this definition"></a></dt>
+<dd><p>convenience routine so that others do not have to <cite>import spec2nexus.spec</cite></p>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="extractSpecScan.html" class="btn btn-neutral float-left" title="extractSpecScan" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="specplot_gallery.html" class="btn btn-neutral float-right" title="specplot_gallery" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2014-2022, Pete R. Jemian.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

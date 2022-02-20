@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>unicat plugin &mdash; spec2nexus 54.g7273e4c documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="#UXML: UXML metadata plugin" href="uxml.html" />
+    <link rel="prev" title="UIM plugin" href="uim.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> spec2nexus
+          </a>
+              <div class="version">
+                2021.1.8
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../contents.html">Contents</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../spec2nexus.html">spec2nexus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extractSpecScan.html">extractSpecScan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../specplot.html">specplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../specplot_gallery.html">specplot_gallery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spec.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../charts.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.charts</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../specplot_custom_scan_macro.html">How to write a custom scan handling for <em>specplot</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../eznx.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.eznx</span></code></a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../plugin.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.plugin</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../plugin.html#supplied-spec-plugin-modules">Supplied <strong>spec</strong> plugin modules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="XPCS.html">XPCS plugin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apstools_specwriter.html">apstools SpecWriterCallback metadata plugin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fallback.html">Fallback plugin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="spec_common.html">SPEC standard plugin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="uim.html">UIM plugin</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">unicat plugin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="uxml.html">#UXML: UXML metadata plugin</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plugin.html#writing-a-custom-plugin">Writing a custom plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugin.html#overview-of-the-supplied-spec-plugins">Overview of the supplied <strong>spec</strong> plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugin.html#module-spec2nexus.plugin">source code documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../utils.html">Common Methods: <code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scanf.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.scanf</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../singletons.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.singletons</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writer.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#required-libraries">Required Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#optional-libraries">Optional Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit_testing.html">Unit Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../example_data.html">Example data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes.html">Change History</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">License</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contents.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">spec2nexus</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../contents.html">Contents</a> &raquo;</li>
+          <li><a href="../plugin.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.plugin</span></code></a> &raquo;</li>
+      <li>unicat plugin</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/supplied_plugins/unicat.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-spec2nexus.plugins.unicat">
+<span id="id1"></span><span id="unicat-plugin"></span><h1>unicat plugin<a class="headerlink" href="#module-spec2nexus.plugins.unicat" title="Permalink to this headline"></a></h1>
+<p><strong>#H</strong> &amp; <strong>#V</strong> - Metadata in SPEC data files as defined by APS UNICAT</p>
+<p>Handles the UNICAT control lines which write additional metadata
+in the scans using #H/#V pairs of labels/values.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="spec2nexus.plugins.unicat.UNICAT_MetadataMnemonics">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.unicat.</span></span><span class="sig-name descname"><span class="pre">UNICAT_MetadataMnemonics</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/unicat.html#UNICAT_MetadataMnemonics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.unicat.UNICAT_MetadataMnemonics" title="Permalink to this definition"></a></dt>
+<dd><p><strong>#H</strong> – UNICAT metadata names (numbered rows: #H0, #H1, …)</p>
+<p>Individual metadata names are expected to be single-word strings
+but may be multi-word strings as long as the words in the string
+are separated by only one space.  The delimiter between metadata
+names is two consecutive spaces.  A tab (<code class="docutils literal notranslate"><span class="pre">\t</span></code>) character is also
+acceptable but should be avoided.</p>
+<p>IN-MEMORY REPRESENTATION</p>
+<ul class="simple">
+<li><p>(SpecDataFileHeader) : <strong>H</strong> : labels</p></li>
+<li><p>(SpecDataFileScan): <strong>metadata</strong> : {labels: values}</p></li>
+</ul>
+<p>HDF5/NeXus REPRESENTATION</p>
+<ul class="simple">
+<li><p><em>NXnote</em> group named <strong>metadata</strong> below the
+<em>NXentry</em> group, such as <strong>/entry/metadata</strong></p>
+<ul>
+<li><p>datasets created from dictionary &lt;scan&gt;.metadata</p></li>
+</ul>
+</li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.plugins.unicat.UNICAT_MetadataMnemonics.process">
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spec_obj</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/unicat.html#UNICAT_MetadataMnemonics.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.unicat.UNICAT_MetadataMnemonics.process" title="Permalink to this definition"></a></dt>
+<dd><p><em>required:</em> handle this line from a SPEC data file</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="spec2nexus.plugins.unicat.UNICAT_MetadataValues">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.unicat.</span></span><span class="sig-name descname"><span class="pre">UNICAT_MetadataValues</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/unicat.html#UNICAT_MetadataValues"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.unicat.UNICAT_MetadataValues" title="Permalink to this definition"></a></dt>
+<dd><p><strong>#V</strong> – UNICAT metadata values (numbered rows: #V0, #V1, …)</p>
+<p>Individual metadata values are expected to be numbers but may
+be multi-word strings as long as the words in the string are
+separated by only one space.  The delimiter between metadata
+values is two consecutive spaces.  A tab (<code class="docutils literal notranslate"><span class="pre">'\t'</span></code>) character is
+also acceptable but should be avoided.</p>
+<p>All numerical values will be converted into floating point
+numbers.  Only if that conversion fails, the text of the value
+will be reported verbatim.</p>
+<p>IN-MEMORY REPRESENTATION</p>
+<ul class="simple">
+<li><p>(SpecDataFileScan): <strong>V</strong> : values</p></li>
+<li><p>(SpecDataFileScan): <strong>metadata</strong> : {labels: values}</p></li>
+</ul>
+<p>HDF5/NeXus REPRESENTATION</p>
+<ul class="simple">
+<li><p><em>NXnote</em> group named <strong>metadata</strong> below the
+<em>NXentry</em> group, such as <strong>/entry/metadata</strong></p>
+<ul>
+<li><p>datasets created from dictionary &lt;scan&gt;.metadata</p></li>
+</ul>
+</li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.plugins.unicat.UNICAT_MetadataValues.postprocess">
+<span class="sig-name descname"><span class="pre">postprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/unicat.html#UNICAT_MetadataValues.postprocess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.unicat.UNICAT_MetadataValues.postprocess" title="Permalink to this definition"></a></dt>
+<dd><p>interpret the UNICAT metadata (mostly floating point) from the scan header</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>scan</strong> (<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><em>SpecDataFileScan</em></a>) – data from a single SPEC scan (instance of SpecDataFileScan)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.plugins.unicat.UNICAT_MetadataValues.process">
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/unicat.html#UNICAT_MetadataValues.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.unicat.UNICAT_MetadataValues.process" title="Permalink to this definition"></a></dt>
+<dd><p><em>required:</em> handle this line from a SPEC data file</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.plugins.unicat.UNICAT_MetadataValues.writer">
+<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/unicat.html#UNICAT_MetadataValues.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.unicat.UNICAT_MetadataValues.writer" title="Permalink to this definition"></a></dt>
+<dd><p>Describe how to store this data in an HDF5 NeXus file</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="uim.html" class="btn btn-neutral float-left" title="UIM plugin" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="uxml.html" class="btn btn-neutral float-right" title="#UXML: UXML metadata plugin" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2014-2022, Pete R. Jemian.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

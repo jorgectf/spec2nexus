@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>spec2nexus.charts &mdash; spec2nexus 54.g7273e4c documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="How to write a custom scan handling for specplot" href="specplot_custom_scan_macro.html" />
+    <link rel="prev" title="spec2nexus.spec" href="spec.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> spec2nexus
+          </a>
+              <div class="version">
+                2021.1.8
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="contents.html">Contents</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="spec2nexus.html">spec2nexus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extractSpecScan.html">extractSpecScan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specplot.html">specplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specplot_gallery.html">specplot_gallery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spec.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.charts</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-spec2nexus.charts">source code documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="specplot_custom_scan_macro.html">How to write a custom scan handling for <em>specplot</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="eznx.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.eznx</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.plugin</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">Common Methods: <code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="scanf.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.scanf</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="singletons.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.singletons</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="writer.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#required-libraries">Required Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#optional-libraries">Optional Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unit_testing.html">Unit Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_data.html">Example data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changes.html">Change History</a></li>
+<li class="toctree-l2"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contents.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">spec2nexus</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="contents.html">Contents</a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.charts</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/charts.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="spec2nexus-charts">
+<span id="charts"></span><h1><a class="reference internal" href="#module-spec2nexus.charts" title="spec2nexus.charts: charting for spec2nexus"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.charts</span></code></a><a class="headerlink" href="#spec2nexus-charts" title="Permalink to this headline"></a></h1>
+<section id="module-spec2nexus.charts">
+<span id="source-code-documentation"></span><h2>source code documentation<a class="headerlink" href="#module-spec2nexus.charts" title="Permalink to this headline"></a></h2>
+<p>charting for spec2nexus</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.charts.make_png" title="spec2nexus.charts.make_png"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_png</span></code></a>(image, image_file[, axes, title, ...])</p></td>
+<td><p>read the image from the named HDF5 file and make a PNG file</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.charts.xy_plot" title="spec2nexus.charts.xy_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xy_plot</span></code></a>(x, y, plot_file[, title, subtitle, ...])</p></td>
+<td><p>with MatPlotLib, generate a plot of a scan (as if data from a scan in a SPEC file)</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="spec2nexus.charts.make_png">
+<span class="sig-prename descclassname"><span class="pre">spec2nexus.charts.</span></span><span class="sig-name descname"><span class="pre">make_png</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'2-D</span> <span class="pre">data'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtitle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_image</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cubehelix'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xtitle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ytitle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/charts.html#make_png"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.charts.make_png" title="Permalink to this definition"></a></dt>
+<dd><p>read the image from the named HDF5 file and make a PNG file</p>
+<p>Test that the HDF5 file exists and that the path to the data exists in that file.
+Read the data from the named dataset, mask off some bad values,
+convert to log(image) and use Matplotlib to make the PNG file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> (<em>obj</em>) – array of data to be rendered</p></li>
+<li><p><strong>image_file</strong> (<em>str</em>) – name of image file to be written (path is optional)</p></li>
+<li><p><strong>log_image</strong> (<em>bool</em>) – plot log(image)</p></li>
+<li><p><strong>hsize</strong> (<em>int</em>) – horizontal size of the PNG image (default: 7)</p></li>
+<li><p><strong>hsize</strong> – vertical size of the PNG image (default: 3)</p></li>
+<li><p><strong>cmap</strong> (<em>str</em>) – colormap for the image (default: ‘cubehelix’), ‘jet’ is another good one</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return str</dt>
+<dd class="field-even"><p><em>image_file</em></p>
+</dd>
+</dl>
+<p>The HDF5 file could be a NeXus file, or some other layout.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="spec2nexus.charts.xy_plot">
+<span class="sig-prename descclassname"><span class="pre">spec2nexus.charts.</span></span><span class="sig-name descname"><span class="pre">xy_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtitle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xtitle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ytitle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/charts.html#xy_plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.charts.xy_plot" title="Permalink to this definition"></a></dt>
+<dd><p>with MatPlotLib, generate a plot of a scan (as if data from a scan in a SPEC file)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>[</em><em>float</em><em>]</em>) – horizontal axis data</p></li>
+<li><p><strong>y</strong> (<em>[</em><em>float</em><em>]</em>) – vertical axis data</p></li>
+<li><p><strong>plot_file</strong> (<em>str</em>) – file name to write plot image</p></li>
+<li><p><strong>xtitle</strong> (<em>str</em>) – horizontal axis label (default: not shown)</p></li>
+<li><p><strong>ytitle</strong> (<em>str</em>) – vertical axis label (default: not shown)</p></li>
+<li><p><strong>title</strong> (<em>str</em>) – title for plot (default: date time)</p></li>
+<li><p><strong>subtitle</strong> (<em>str</em>) – subtitle for plot (default: not shown)</p></li>
+<li><p><strong>xlog</strong> (<em>bool</em>) – should X axis be log (default: False=linear)</p></li>
+<li><p><strong>ylog</strong> (<em>bool</em>) – should Y axis be log (default: False=linear)</p></li>
+<li><p><strong>timestamp_str</strong> (<em>str</em>) – date to use on plot (default: now)</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>when using this module as a background task …</p>
+<p>MatPlotLib has several interfaces for plotting.
+Since this module runs as part of a background job
+generating lots of plots, MatPlotLib’s standard <code class="docutils literal notranslate"><span class="pre">plt</span></code> code is
+not the right model.  It warns after 20 plots and
+will eventually run out of memory.</p>
+<p>Here’s the fix used in this module:
+<a class="reference external" href="http://stackoverflow.com/questions/16334588/create-a-figure-that-is-reference-counted/16337909#16337909">http://stackoverflow.com/questions/16334588/create-a-figure-that-is-reference-counted/16337909#16337909</a></p>
+</div>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="spec.html" class="btn btn-neutral float-left" title="spec2nexus.spec" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="specplot_custom_scan_macro.html" class="btn btn-neutral float-right" title="How to write a custom scan handling for specplot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2014-2022, Pete R. Jemian.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>spec2nexus.scanf &mdash; spec2nexus 54.g7273e4c documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> spec2nexus
+          </a>
+              <div class="version">
+                2021.1.8
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contents.html">Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contents.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">spec2nexus</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      <li>spec2nexus.scanf</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for spec2nexus.scanf</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Small scanf-implementation.</span>
+
+<span class="sd">* Created by Henning Schroeder on Mon, 12 Feb 2007</span>
+<span class="sd">* PSF license</span>
+
+<span class="sd">Python has powerful regular expressions but sometimes they are totally overkill</span>
+<span class="sd">when you just want to parse a simple-formatted string.</span>
+<span class="sd">C programmers use the scanf-function for these tasks (see link below).</span>
+
+<span class="sd">This implementation of scanf translates the simple scanf-format into</span>
+<span class="sd">regular expressions. Unlike C you can be sure that there are no buffer overflows</span>
+<span class="sd">possible.</span>
+
+<span class="sd">source: http://code.activestate.com/recipes/502213-simple-scanf-implementation/</span>
+
+<span class="sd">For more information see:</span>
+
+<span class="sd">  * http://www.python.org/doc/current/lib/node49.html</span>
+<span class="sd">  * http://en.wikipedia.org/wiki/Scanf</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;scanf&quot;</span><span class="p">]</span>
+
+
+<span class="n">DEBUG</span> <span class="o">=</span> <span class="kc">False</span>
+
+
+<span class="c1"># As you can probably see it is relatively easy to add more format types</span>
+<span class="n">scanf_translate</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">_token</span><span class="p">),</span> <span class="n">_pattern</span><span class="p">,</span> <span class="n">_cast</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">_token</span><span class="p">,</span> <span class="n">_pattern</span><span class="p">,</span> <span class="n">_cast</span> <span class="ow">in</span> <span class="p">[</span>
+        <span class="p">(</span><span class="s2">&quot;</span><span class="si">%c</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;(.)&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">),</span>
+        <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;%(\d)c&quot;</span><span class="p">,</span> <span class="s2">&quot;(.{</span><span class="si">%s</span><span class="s2">})&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">),</span>
+        <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;%(\d)[di]&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;([+-]?\d{</span><span class="si">%s</span><span class="s2">})&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;%[di]&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;([+-]?\d+)&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;</span><span class="si">%u</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;(\d+)&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">),</span>
+        <span class="c1"># (&quot;%[fgeE]&quot;, &quot;(\d+\.\d+)&quot;, float),</span>
+        <span class="c1"># re for float is much trickier!</span>
+        <span class="p">(</span><span class="s2">&quot;%[f]&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;([-+]?(?:\d+(?:\.\d*)?|\.\d+))&quot;</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span>
+        <span class="p">(</span>
+            <span class="s2">&quot;%[geE]&quot;</span><span class="p">,</span>
+            <span class="sa">r</span><span class="s2">&quot;([-+]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][-+]?\d+)?)&quot;</span><span class="p">,</span>
+            <span class="nb">float</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;(\S+)&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;%([xX])&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;(0</span><span class="si">%s</span><span class="s2">[\dA-Za-f]+)&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">16</span><span class="p">)),</span>
+        <span class="p">(</span><span class="s2">&quot;</span><span class="si">%o</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;(0[0-7]*)&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">7</span><span class="p">)),</span>
+    <span class="p">]</span>
+<span class="p">]</span>
+
+
+<span class="c1"># Cache formats</span>
+<span class="n">SCANF_CACHE_SIZE</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">scanf_cache</span> <span class="o">=</span> <span class="p">{}</span>
+
+
+<span class="k">def</span> <span class="nf">_scanf_compile</span><span class="p">(</span><span class="n">fmt</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This is an internal function which translates the format into regular expressions</span>
+
+<span class="sd">    For example:</span>
+<span class="sd">    &gt;&gt;&gt; format_re, casts = _scanf_compile(&#39;%s - %d errors, %d warnings&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; print format_re.pattern</span>
+<span class="sd">    (\\S+) \- ([+-]?\\d+) errors, ([+-]?\\d+) warnings</span>
+
+<span class="sd">    Translated formats are cached for faster use</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">compiled</span> <span class="o">=</span> <span class="n">scanf_cache</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">fmt</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">compiled</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">compiled</span>
+
+    <span class="n">format_pat</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">cast_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">fmt</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">length</span><span class="p">:</span>
+        <span class="n">found</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">for</span> <span class="n">token</span><span class="p">,</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">cast</span> <span class="ow">in</span> <span class="n">scanf_translate</span><span class="p">:</span>
+            <span class="n">found</span> <span class="o">=</span> <span class="n">token</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">fmt</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">found</span><span class="p">:</span>
+                <span class="n">cast_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cast</span><span class="p">)</span>
+                <span class="n">groups</span> <span class="o">=</span> <span class="n">found</span><span class="o">.</span><span class="n">groupdict</span><span class="p">()</span> <span class="ow">or</span> <span class="n">found</span><span class="o">.</span><span class="n">groups</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">groups</span><span class="p">:</span>
+                    <span class="n">pattern</span> <span class="o">=</span> <span class="n">pattern</span> <span class="o">%</span> <span class="n">groups</span>
+                <span class="n">format_pat</span> <span class="o">+=</span> <span class="n">pattern</span>
+                <span class="n">i</span> <span class="o">=</span> <span class="n">found</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
+                <span class="k">break</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>
+            <span class="n">char</span> <span class="o">=</span> <span class="n">fmt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="c1"># escape special characters</span>
+            <span class="k">if</span> <span class="n">char</span> <span class="ow">in</span> <span class="s2">&quot;()[]-.+*?</span><span class="si">{}</span><span class="s2">&lt;&gt;</span><span class="se">\\</span><span class="s2">&quot;</span><span class="p">:</span>
+                <span class="n">format_pat</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">&quot;</span>
+            <span class="n">format_pat</span> <span class="o">+=</span> <span class="n">char</span>
+            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;DEBUG: </span><span class="si">%r</span><span class="s2"> -&gt; </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">fmt</span><span class="p">,</span> <span class="n">format_pat</span><span class="p">))</span>
+    <span class="n">format_re</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">format_pat</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">scanf_cache</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">SCANF_CACHE_SIZE</span><span class="p">:</span>
+        <span class="n">scanf_cache</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+    <span class="n">scanf_cache</span><span class="p">[</span><span class="n">fmt</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">format_re</span><span class="p">,</span> <span class="n">cast_list</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">format_re</span><span class="p">,</span> <span class="n">cast_list</span>
+
+
+<div class="viewcode-block" id="scanf"><a class="viewcode-back" href="../../scanf.html#spec2nexus.scanf.scanf">[docs]</a><span class="k">def</span> <span class="nf">scanf</span><span class="p">(</span><span class="n">fmt</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    scanf supports the following formats:</span>
+
+<span class="sd">    =========  ==================================</span>
+<span class="sd">    format     description</span>
+<span class="sd">    =========  ==================================</span>
+<span class="sd">      %c       One character</span>
+<span class="sd">      %5c      5 characters</span>
+<span class="sd">      %d       int value</span>
+<span class="sd">      %7d      int value with length 7</span>
+<span class="sd">      %f       float value</span>
+<span class="sd">      %o       octal value</span>
+<span class="sd">      %X, %x   hex value</span>
+<span class="sd">      %s       string terminated by whitespace</span>
+<span class="sd">    =========  ==================================</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">    &gt;&gt;&gt; scanf(&quot;%s - %d errors, %d warnings&quot;, &quot;/usr/sbin/sendmail - 0 errors, 4 warnings&quot;)</span>
+<span class="sd">    (&#39;/usr/sbin/sendmail&#39;, 0, 4)</span>
+<span class="sd">    &gt;&gt;&gt; scanf(&quot;%o %x %d&quot;, &quot;0123 0x123 123&quot;)</span>
+<span class="sd">    (66, 291, 123)</span>
+
+
+<span class="sd">    If the parameter s is a file-like object, s.readline is called.</span>
+<span class="sd">    If s is not specified, stdin is assumed.</span>
+
+<span class="sd">    The function returns a tuple of found values</span>
+<span class="sd">    or None if the format does not match.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">s</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="s2">&quot;readline&quot;</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+
+    <span class="n">format_re</span><span class="p">,</span> <span class="n">casts</span> <span class="o">=</span> <span class="n">_scanf_compile</span><span class="p">(</span><span class="n">fmt</span><span class="p">)</span>
+    <span class="n">found</span> <span class="o">=</span> <span class="n">format_re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">found</span><span class="p">:</span>
+        <span class="n">groups</span> <span class="o">=</span> <span class="n">found</span><span class="o">.</span><span class="n">groups</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">tuple</span><span class="p">([</span><span class="n">casts</span><span class="p">[</span><span class="n">i</span><span class="p">](</span><span class="n">groups</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">groups</span><span class="p">))])</span></div>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">doctest</span>
+
+    <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">report</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2014-2022, Pete R. Jemian.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
