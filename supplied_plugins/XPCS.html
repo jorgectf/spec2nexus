@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>XPCS plugin &#8212; spec2nexus  documentation</title>
+    <title>XPCS plugin &#8212; spec2nexus 2.g25e9d51 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -41,7 +41,7 @@
         <li class="right" >
           <a href="../plugin.html" title="spec2nexus.plugin"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">spec2nexus  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">spec2nexus 2.g25e9d51 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../contents.html" >Contents</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../plugin.html" accesskey="U"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.plugin</span></code></a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">XPCS plugin</a></li> 
@@ -53,99 +53,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="module-spec2nexus.plugins.XPCS">
-<span id="xpcs-plugin"></span><span id="xpcs"></span><h1>XPCS plugin<a class="headerlink" href="#module-spec2nexus.plugins.XPCS" title="Permalink to this headline">¶</a></h1>
-<p>SPEC data file control lines unique to the APS XPCS instrument</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="spec2nexus.plugins.XPCS.XPCS_CCD">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.XPCS.</span></span><span class="sig-name descname"><span class="pre">XPCS_CCD</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/XPCS.html#XPCS_CCD"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.XPCS.XPCS_CCD" title="Permalink to this definition">¶</a></dt>
-<dd><p>#CCD</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="spec2nexus.plugins.XPCS.XPCS_CCD.process">
-<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spec_obj</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/XPCS.html#XPCS_CCD.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.XPCS.XPCS_CCD.process" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>required:</em> handle this line from a SPEC data file</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="spec2nexus.plugins.XPCS.XPCS_CCD.writer">
-<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/XPCS.html#XPCS_CCD.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.XPCS.XPCS_CCD.writer" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>optional:</em> Describe how to store this data in an HDF5 NeXus file</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="spec2nexus.plugins.XPCS.XPCS_VA">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.XPCS.</span></span><span class="sig-name descname"><span class="pre">XPCS_VA</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/XPCS.html#XPCS_VA"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.XPCS.XPCS_VA" title="Permalink to this definition">¶</a></dt>
-<dd><p><strong>#VA</strong></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="spec2nexus.plugins.XPCS.XPCS_VA.process">
-<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spec_obj</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/XPCS.html#XPCS_VA.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.XPCS.XPCS_VA.process" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>required:</em> handle this line from a SPEC data file</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="spec2nexus.plugins.XPCS.XPCS_VA.writer">
-<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/XPCS.html#XPCS_VA.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.XPCS.XPCS_VA.writer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Describe how to write VA data</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="spec2nexus.plugins.XPCS.XPCS_VD">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.XPCS.</span></span><span class="sig-name descname"><span class="pre">XPCS_VD</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/XPCS.html#XPCS_VD"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.XPCS.XPCS_VD" title="Permalink to this definition">¶</a></dt>
-<dd><p><strong>#VD</strong></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="spec2nexus.plugins.XPCS.XPCS_VD.process">
-<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spec_obj</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/XPCS.html#XPCS_VD.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.XPCS.XPCS_VD.process" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>required:</em> handle this line from a SPEC data file</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="spec2nexus.plugins.XPCS.XPCS_VD.writer">
-<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/XPCS.html#XPCS_VD.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.XPCS.XPCS_VD.writer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Describe how to write VD data</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="spec2nexus.plugins.XPCS.XPCS_VE">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.XPCS.</span></span><span class="sig-name descname"><span class="pre">XPCS_VE</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/XPCS.html#XPCS_VE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.XPCS.XPCS_VE" title="Permalink to this definition">¶</a></dt>
-<dd><p><strong>#VE</strong></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="spec2nexus.plugins.XPCS.XPCS_VE.process">
-<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spec_obj</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/XPCS.html#XPCS_VE.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.XPCS.XPCS_VE.process" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>required:</em> handle this line from a SPEC data file</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="spec2nexus.plugins.XPCS.XPCS_VE.writer">
-<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/XPCS.html#XPCS_VE.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.XPCS.XPCS_VE.writer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Describe how to write VE data</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="spec2nexus.plugins.XPCS.XPCS_XPCS">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.XPCS.</span></span><span class="sig-name descname"><span class="pre">XPCS_XPCS</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/XPCS.html#XPCS_XPCS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.XPCS.XPCS_XPCS" title="Permalink to this definition">¶</a></dt>
-<dd><p>#XPCS</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="spec2nexus.plugins.XPCS.XPCS_XPCS.process">
-<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spec_obj</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/XPCS.html#XPCS_XPCS.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.XPCS.XPCS_XPCS.process" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>required:</em> handle this line from a SPEC data file</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="spec2nexus.plugins.XPCS.XPCS_XPCS.writer">
-<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/XPCS.html#XPCS_XPCS.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.XPCS.XPCS_XPCS.writer" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>optional:</em> Describe how to store this data in an HDF5 NeXus file</p>
-</dd></dl>
-
-</dd></dl>
-
+  <section id="xpcs-plugin">
+<span id="xpcs"></span><h1>XPCS plugin<a class="headerlink" href="#xpcs-plugin" title="Permalink to this headline">¶</a></h1>
 </section>
 
 
@@ -201,7 +110,7 @@
         <li class="right" >
           <a href="../plugin.html" title="spec2nexus.plugin"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">spec2nexus  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">spec2nexus 2.g25e9d51 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../contents.html" >Contents</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../plugin.html" ><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.plugin</span></code></a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">XPCS plugin</a></li> 

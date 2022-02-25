@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>#UXML: UXML metadata plugin &#8212; spec2nexus  documentation</title>
+    <title>#UXML: UXML metadata plugin &#8212; spec2nexus 2.g25e9d51 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -41,7 +41,7 @@
         <li class="right" >
           <a href="unicat.html" title="unicat plugin"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">spec2nexus  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">spec2nexus 2.g25e9d51 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../contents.html" >Contents</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../plugin.html" accesskey="U"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.plugin</span></code></a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">#UXML: UXML metadata plugin</a></li> 
@@ -76,125 +76,6 @@ is defined from the content provided in the SPEC scan.</p>
 use of <code class="docutils literal notranslate"><span class="pre">#UXML</span></code> in a SPEC data file:
 * <a class="reference download internal" download="" href="../_downloads/94d45e5eeea7aaef0bfc4aeddc6c7c37/uxml.xsd"><code class="xref download docutils literal notranslate"><span class="pre">uxml.xsd</span></code></a></p>
 <hr class="docutils" />
-<span class="target" id="module-spec2nexus.plugins.uxml"></span><p>#UXML: UXML structured metadata</p>
-<dl class="py exception">
-<dt class="sig sig-object py" id="spec2nexus.plugins.uxml.UXML_Error">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.uxml.</span></span><span class="sig-name descname"><span class="pre">UXML_Error</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/uxml.html#UXML_Error"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.uxml.UXML_Error" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="spec2nexus.plugins.uxml.UXML_metadata">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.uxml.</span></span><span class="sig-name descname"><span class="pre">UXML_metadata</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/uxml.html#UXML_metadata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.uxml.UXML_metadata" title="Permalink to this definition">¶</a></dt>
-<dd><p><strong>#UXML</strong> – XML metadata in scan header</p>
-<p>IN-MEMORY REPRESENTATION</p>
-<ul class="simple">
-<li><p>(SpecDataFileScan): <strong>UXML</strong> : XML document root</p></li>
-</ul>
-<p>HDF5/NeXus REPRESENTATION</p>
-<ul class="simple">
-<li><p>various items below the <em>NXentry</em> parent group,
-as indicated in the UXML</p></li>
-</ul>
-<p class="rubric">Public methods</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.plugins.uxml.UXML_metadata.process" title="spec2nexus.plugins.uxml.UXML_metadata.process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process</span></code></a>(text, scan, *args, **kws)</p></td>
-<td><p>read #UXML lines from SPEC data file into <code class="docutils literal notranslate"><span class="pre">scan.UXML</span></code></p></td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Internal methods</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.plugins.uxml.UXML_metadata.walk_xml_tree" title="spec2nexus.plugins.uxml.UXML_metadata.walk_xml_tree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">walk_xml_tree</span></code></a>(h5parent, xml_node)</p></td>
-<td><p>parse the XML node into HDF5 objects</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.plugins.uxml.UXML_metadata.make_NeXus_links" title="spec2nexus.plugins.uxml.UXML_metadata.make_NeXus_links"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_NeXus_links</span></code></a>()</p></td>
-<td><p>create all the hardlinks as directed</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.plugins.uxml.UXML_metadata.prune_dict" title="spec2nexus.plugins.uxml.UXML_metadata.prune_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prune_dict</span></code></a>(d, keys)</p></td>
-<td><p>remove keys from dictionary d</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.plugins.uxml.UXML_metadata.dataset" title="spec2nexus.plugins.uxml.UXML_metadata.dataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dataset</span></code></a>(h5parent, xml_node)</p></td>
-<td><p>HDF5/NeXus dataset specification</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.plugins.uxml.UXML_metadata.group" title="spec2nexus.plugins.uxml.UXML_metadata.group"><code class="xref py py-obj docutils literal notranslate"><span class="pre">group</span></code></a>(h5parent, xml_node)</p></td>
-<td><p>HDF5/NeXus group specification</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.plugins.uxml.UXML_metadata.hardlink" title="spec2nexus.plugins.uxml.UXML_metadata.hardlink"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hardlink</span></code></a>(h5parent, xml_node)</p></td>
-<td><p>HDF5/NeXus hard link specification</p></td>
-</tr>
-</tbody>
-</table>
-<dl class="py method">
-<dt class="sig sig-object py" id="spec2nexus.plugins.uxml.UXML_metadata.dataset">
-<span class="sig-name descname"><span class="pre">dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xml_node</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/uxml.html#UXML_metadata.dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.uxml.UXML_metadata.dataset" title="Permalink to this definition">¶</a></dt>
-<dd><p>HDF5/NeXus dataset specification</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="spec2nexus.plugins.uxml.UXML_metadata.group">
-<span class="sig-name descname"><span class="pre">group</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xml_node</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/uxml.html#UXML_metadata.group"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.uxml.UXML_metadata.group" title="Permalink to this definition">¶</a></dt>
-<dd><p>HDF5/NeXus group specification</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="spec2nexus.plugins.uxml.UXML_metadata.hardlink">
-<span class="sig-name descname"><span class="pre">hardlink</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xml_node</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/uxml.html#UXML_metadata.hardlink"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.uxml.UXML_metadata.hardlink" title="Permalink to this definition">¶</a></dt>
-<dd><p>HDF5/NeXus hard link specification</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="spec2nexus.plugins.uxml.UXML_metadata.make_NeXus_links">
-<span class="sig-name descname"><span class="pre">make_NeXus_links</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/uxml.html#UXML_metadata.make_NeXus_links"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.uxml.UXML_metadata.make_NeXus_links" title="Permalink to this definition">¶</a></dt>
-<dd><p>create all the hardlinks as directed</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="spec2nexus.plugins.uxml.UXML_metadata.postprocess">
-<span class="sig-name descname"><span class="pre">postprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/uxml.html#UXML_metadata.postprocess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.uxml.UXML_metadata.postprocess" title="Permalink to this definition">¶</a></dt>
-<dd><p>convert the UXML text into an XML object (<code class="docutils literal notranslate"><span class="pre">scan.UXML_root</span></code>)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>scan</strong> (<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><em>SpecDataFileScan</em></a>) – data from a single SPEC scan</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="spec2nexus.plugins.uxml.UXML_metadata.process">
-<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/uxml.html#UXML_metadata.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.uxml.UXML_metadata.process" title="Permalink to this definition">¶</a></dt>
-<dd><p>read #UXML lines from SPEC data file into <code class="docutils literal notranslate"><span class="pre">scan.UXML</span></code></p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="spec2nexus.plugins.uxml.UXML_metadata.prune_dict">
-<span class="sig-name descname"><span class="pre">prune_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keys</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/uxml.html#UXML_metadata.prune_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.uxml.UXML_metadata.prune_dict" title="Permalink to this definition">¶</a></dt>
-<dd><p>remove keys from dictionary d</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="spec2nexus.plugins.uxml.UXML_metadata.walk_xml_tree">
-<span class="sig-name descname"><span class="pre">walk_xml_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xml_node</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/uxml.html#UXML_metadata.walk_xml_tree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.uxml.UXML_metadata.walk_xml_tree" title="Permalink to this definition">¶</a></dt>
-<dd><p>parse the XML node into HDF5 objects</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="spec2nexus.plugins.uxml.UXML_metadata.writer">
-<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nxentry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/uxml.html#UXML_metadata.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.uxml.UXML_metadata.writer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Describe how to store this data in an HDF5 NeXus file</p>
-</dd></dl>
-
-</dd></dl>
-
 </section>
 
 
@@ -250,7 +131,7 @@ as indicated in the UXML</p></li>
         <li class="right" >
           <a href="unicat.html" title="unicat plugin"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">spec2nexus  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">spec2nexus 2.g25e9d51 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../contents.html" >Contents</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../plugin.html" ><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.plugin</span></code></a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">#UXML: UXML metadata plugin</a></li> 
