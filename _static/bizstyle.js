@@ -36,6 +36,6 @@ $(window).resize(function(){
         $("li.nav-item-0 a").text("Top");
     }
     else {
-        $("li.nav-item-0 a").text("spec2nexus 10.ge845b7e documentation");
+        $("li.nav-item-0 a").text("spec2nexus 11.ga53450e documentation");
     }
 });
