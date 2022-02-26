@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>spec2nexus.writer &#8212; spec2nexus 21.gf5eba61 documentation</title>
+    <title>spec2nexus.writer &#8212; spec2nexus 22.g8537864 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/bizstyle.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -32,7 +32,7 @@
         <li class="right" >
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">spec2nexus 21.gf5eba61 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">spec2nexus 22.g8537864 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">spec2nexus.writer</a></li> 
       </ul>
@@ -62,7 +62,7 @@
 <span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">utils</span>
 
 
-<span class="c1"># see: http://download.nexusformat.org/doc/html/classes/base_classes/index.html</span>
+<span class="c1"># see: https://download.nexusformat.org/doc/html/classes/base_classes/index.html</span>
 <span class="c1"># CONTAINER_CLASS = &#39;NXlog&#39;          # information that is recorded against time</span>
 <span class="n">CONTAINER_CLASS</span> <span class="o">=</span> <span class="s2">&quot;NXnote&quot;</span>  <span class="c1"># any additional freeform information not covered by the other base classes</span>
 <span class="c1"># CONTAINER_CLASS = &#39;NXparameters&#39;   # Container for parameters, usually used in processing or analysis</span>
@@ -226,7 +226,7 @@
         <span class="c1"># if len(signal) == 0:</span>
         <span class="c1">#     pass</span>
 
-        <span class="c1"># Syntax of axes attribute (http://wiki.nexusformat.org/2014_axes_and_uncertainties):</span>
+        <span class="c1"># Syntax of axes attribute (https://wiki.nexusformat.org/2014_axes_and_uncertainties):</span>
         <span class="c1">#  @axes=&quot;H:K&quot;       INCOREECT</span>
         <span class="c1">#  @axes=&quot;H&quot;, &quot;K&quot;    CORRECT</span>
         <span class="k">if</span> <span class="n">axes</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
@@ -304,9 +304,9 @@
         <span class="sd">&quot;&quot;&quot;*internal*: data parser for 2-D mesh and hklmesh&quot;&quot;&quot;</span>
         <span class="c1"># TODO: refactor to use NeXus data model: signal, axes, data</span>
 
-        <span class="c1"># 2-D parser: http://www.certif.com/spec_help/mesh.html</span>
+        <span class="c1"># 2-D parser: https://www.certif.com/spec_help/mesh.html</span>
         <span class="c1"># mesh motor1 start1 end1 intervals1 motor2 start2 end2 intervals2 time</span>
-        <span class="c1"># 2-D parser: http://www.certif.com/spec_help/hklmesh.html</span>
+        <span class="c1"># 2-D parser: https://www.certif.com/spec_help/hklmesh.html</span>
         <span class="c1">#  hklmesh Q1 start1 end1 intervals1 Q2 start2 end2 intervals2 time</span>
         <span class="c1"># mesh:    data/33id_spec.dat  scan 22</span>
         <span class="c1"># hklmesh: data/33bm_spec.dat  scan 17</span>
@@ -443,7 +443,7 @@
         <li class="right" >
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">spec2nexus 21.gf5eba61 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">spec2nexus 22.g8537864 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">spec2nexus.writer</a></li> 
       </ul>
