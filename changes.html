@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Change History &#8212; spec2nexus 11.ga53450e documentation</title>
+    <title>Change History &#8212; spec2nexus 15.g40c915d documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -41,7 +41,7 @@
         <li class="right" >
           <a href="example_data.html" title="Example data"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">spec2nexus 11.ga53450e documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">spec2nexus 15.g40c915d documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="contents.html" accesskey="U">Contents</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Change History</a></li> 
       </ul>
@@ -56,24 +56,71 @@
 <h1>Change History<a class="headerlink" href="#change-history" title="Permalink to this headline">¶</a></h1>
 <section id="production">
 <h2>Production<a class="headerlink" href="#production" title="Permalink to this headline">¶</a></h2>
-<dl class="field-list simple">
-<dt class="field-odd">2021.2.0</dt>
-<dd class="field-odd"><p>release expected 2022-03-15</p>
-</dd>
-<dt class="field-even">2021.1.11</dt>
-<dd class="field-even"><p>released <em>2022.02.24</em></p>
+<section id="id1">
+<h3>2021.2.0<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>release expected by middle 2022-03</p>
+<section id="notice">
+<h4>Notice<a class="headerlink" href="#notice" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
-<li><p>re-release due to documentation publishing workflow problem</p></li>
+<li><p>Use conda-forge now: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">spec2nexus</span></code></p></li>
+<li><p>Updated format for new Change History entries.</p></li>
 </ul>
-</dd>
-<dt class="field-odd">2021.1.10</dt>
+</section>
+<section id="breaking-changes">
+<h4>Breaking Changes<a class="headerlink" href="#breaking-changes" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>(planned) Scans now identified by numeric keys instead of strings.</p></li>
+</ul>
+</section>
+<section id="new-features-and-or-enhancements">
+<h4>New Features and/or Enhancements<a class="headerlink" href="#new-features-and-or-enhancements" title="Permalink to this headline">¶</a></h4>
+<p>Add new diffractometer configuration reports:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">str(scan.diffractometer)</span></code>:  minimal view of <code class="docutils literal notranslate"><span class="pre">scan</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scan.diffractometer.print_brief(scan)</span></code> : content similar to SPEC’s <code class="docutils literal notranslate"><span class="pre">wh</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scan.diffractometer.print_all(scan)</span></code> : content similar to SPEC’s <code class="docutils literal notranslate"><span class="pre">pa</span></code></p></li>
+</ul>
+</section>
+<section id="fixes">
+<h4>Fixes<a class="headerlink" href="#fixes" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">eznx</span></code>: needs to return text as <code class="docutils literal notranslate"><span class="pre">str</span></code> (not <code class="docutils literal notranslate"><span class="pre">bytes</span></code>).</p></li>
+</ul>
+</section>
+<section id="maintenance">
+<h4>Maintenance<a class="headerlink" href="#maintenance" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Optimize initial load times for data files.</p></li>
+<li><p>Code tests now use real examples of non-zero MCA data using files with both
+single and multiple MCA detectors.</p></li>
+<li><p>Tests of code using Python 3.7, 3.8, 3.9, 3.10</p></li>
+<li><p>All unit test code now in-source using <code class="docutils literal notranslate"><span class="pre">pytest</span></code></p></li>
+<li><p>Code is not compliant with [PEP8](<a class="reference external" href="https://pep8.org/">https://pep8.org/</a>) (Python code style guide).</p></li>
+<li><p>Increase number of unit tests to improve code coverage (now ~95%).</p></li>
+<li><p>Resume use of test code coverage reporting:
+<a class="reference external" href="https://coveralls.io/github/prjemian/spec2nexus">https://coveralls.io/github/prjemian/spec2nexus</a></p></li>
+</ul>
+</section>
+<section id="deprecations">
+<h4>Deprecations<a class="headerlink" href="#deprecations" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Python versions lower than 3.7 are no longer supported.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">2021.1.11</dt>
 <dd class="field-odd"><p>released <em>2022.02.24</em></p>
 <ul class="simple">
 <li><p>re-release due to documentation publishing workflow problem</p></li>
 </ul>
 </dd>
-<dt class="field-even">2021.1.9</dt>
+<dt class="field-even">2021.1.10</dt>
 <dd class="field-even"><p>released <em>2022.02.24</em></p>
+<ul class="simple">
+<li><p>re-release due to documentation publishing workflow problem</p></li>
+</ul>
+</dd>
+<dt class="field-odd">2021.1.9</dt>
+<dd class="field-odd"><p>released <em>2022.02.24</em></p>
 <ul class="simple">
 <li><dl class="simple">
 <dt><a class="reference external" href="https://github.com/prjemian/spec2nexus/issues/239">#239</a></dt><dd><p>publish documentation at <a class="reference external" href="https://prjemian.github.io/spec2nexus/">https://prjemian.github.io/spec2nexus/</a></p>
@@ -82,8 +129,8 @@
 </li>
 </ul>
 </dd>
-<dt class="field-odd">2021.1.8</dt>
-<dd class="field-odd"><p>released <em>2020.11.10</em></p>
+<dt class="field-even">2021.1.8</dt>
+<dd class="field-even"><p>released <em>2020.11.10</em></p>
 <ul class="simple">
 <li><dl class="simple">
 <dt><a class="reference external" href="https://github.com/prjemian/spec2nexus/issues/221">#221</a></dt><dd><p>move CI from travis-ci to Github Actions, test with python 3.8</p>
@@ -720,6 +767,8 @@ read scans with repeated scan numbers</p></li>
 </dd>
 </dl>
 </section>
+</section>
+</section>
 <section id="development-github-repository">
 <h2>Development: GitHub repository<a class="headerlink" href="#development-github-repository" title="Permalink to this headline">¶</a></h2>
 <dl class="field-list simple">
@@ -782,7 +831,18 @@ read scans with repeated scan numbers</p></li>
     <h3><a href="index.html">Table of Contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">Change History</a><ul>
-<li><a class="reference internal" href="#production">Production</a></li>
+<li><a class="reference internal" href="#production">Production</a><ul>
+<li><a class="reference internal" href="#id1">2021.2.0</a><ul>
+<li><a class="reference internal" href="#notice">Notice</a></li>
+<li><a class="reference internal" href="#breaking-changes">Breaking Changes</a></li>
+<li><a class="reference internal" href="#new-features-and-or-enhancements">New Features and/or Enhancements</a></li>
+<li><a class="reference internal" href="#fixes">Fixes</a></li>
+<li><a class="reference internal" href="#maintenance">Maintenance</a></li>
+<li><a class="reference internal" href="#deprecations">Deprecations</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a class="reference internal" href="#development-github-repository">Development: GitHub repository</a></li>
 <li><a class="reference internal" href="#development-nexpy-branch">Development: NeXpy branch</a></li>
 <li><a class="reference internal" href="#production-usaxs-livedata">Production: USAXS livedata</a></li>
@@ -837,7 +897,7 @@ read scans with repeated scan numbers</p></li>
         <li class="right" >
           <a href="example_data.html" title="Example data"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">spec2nexus 11.ga53450e documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">spec2nexus 15.g40c915d documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="contents.html" >Contents</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Change History</a></li> 
       </ul>

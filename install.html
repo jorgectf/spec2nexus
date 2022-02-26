@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Installation &#8212; spec2nexus 11.ga53450e documentation</title>
+    <title>Installation &#8212; spec2nexus 15.g40c915d documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -41,7 +41,7 @@
         <li class="right" >
           <a href="singletons.html" title="spec2nexus.singletons"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">spec2nexus 11.ga53450e documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">spec2nexus 15.g40c915d documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="contents.html" accesskey="U">Contents</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Installation</a></li> 
       </ul>
@@ -54,23 +54,18 @@
             
   <section id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>Released versions of spec2nexus are available on <a class="reference external" href="https://pypi.python.org/pypi/spec2nexus">PyPI</a>.</p>
+<p>Released versions of spec2nexus are available on <a class="reference external" href="https://pypi.python.org/pypi/spec2nexus">PyPI</a> and <a class="reference external" href="https://anaconda.org/conda-forge/spec2nexus">conda-forge</a>.</p>
 <p>If you have <code class="docutils literal notranslate"><span class="pre">pip</span></code> installed, then you can install:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install spec2nexus
 </pre></div>
 </div>
 <p>If you are using Anaconda Python and have <code class="docutils literal notranslate"><span class="pre">conda</span></code> installed,
-then you can install with either of these:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda install -c aps-anl-tag spec2nexus
-$ conda install -c aps-anl-dev spec2nexus
-$ conda install -c prjemian spec2nexus
+use this install command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda install -c conda-forge spec2nexus
 </pre></div>
 </div>
-<p>Note that channel <cite>aps-anl-tag</cite> is for production versions
-while channel <cite>aps-anl-dev</cite> is for development/testing versions.
-The channel <cite>prjemian</cite> is an alternate with all versions available.</p>
-<p>The latest development versions of spec2nexus can be downloaded from the
-GitHub repository listed above:</p>
+<p>The latest development versions of spec2nexus can be downloaded
+from the GitHub repository listed above:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone http://github.com/prjemian/spec2nexus.git
 </pre></div>
 </div>
@@ -88,53 +83,6 @@ $ python setup.py install
 </pre></div>
 </div>
 </section>
-<section id="required-libraries">
-<h1>Required Libraries<a class="headerlink" href="#required-libraries" title="Permalink to this headline">¶</a></h1>
-<p>These libraries are required to write NeXus data files.
-They are not required to read SPEC data files.</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 31%" />
-<col style="width: 69%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Library</p></th>
-<th class="head"><p>URL</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>h5py</p></td>
-<td><p><a class="reference external" href="http://www.h5py.org">http://www.h5py.org</a></p></td>
-</tr>
-<tr class="row-odd"><td><p>numpy</p></td>
-<td><p><a class="reference external" href="http://numpy.scipy.org/">http://numpy.scipy.org/</a></p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="optional-libraries">
-<h1>Optional Libraries<a class="headerlink" href="#optional-libraries" title="Permalink to this headline">¶</a></h1>
-<p>These libraries are used by the <a class="reference internal" href="specplot.html#specplot"><span class="std std-ref">specplot</span></a>
-and  <a class="reference internal" href="specplot_gallery.html#specplot-gallery"><span class="std std-ref">specplot_gallery</span></a> modules
-of the <em>spec2nexus</em> package but are not required
-just to read SPEC data files or write NeXus data files.</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 31%" />
-<col style="width: 69%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Library</p></th>
-<th class="head"><p>URL</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>MatPlotLib</p></td>
-<td><p><a class="reference external" href="http://matplotlib.org/">http://matplotlib.org/</a></p></td>
-</tr>
-</tbody>
-</table>
-</section>
 
 
             <div class="clearer"></div>
@@ -143,15 +91,6 @@ just to read SPEC data files or write NeXus data files.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <div>
-    <h3><a href="index.html">Table of Contents</a></h3>
-    <ul>
-<li><a class="reference internal" href="#">Installation</a></li>
-<li><a class="reference internal" href="#required-libraries">Required Libraries</a></li>
-<li><a class="reference internal" href="#optional-libraries">Optional Libraries</a></li>
-</ul>
-
-  </div>
   <div>
     <h4>Previous topic</h4>
     <p class="topless"><a href="singletons.html"
@@ -198,7 +137,7 @@ just to read SPEC data files or write NeXus data files.</p>
         <li class="right" >
           <a href="singletons.html" title="spec2nexus.singletons"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">spec2nexus 11.ga53450e documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">spec2nexus 15.g40c915d documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="contents.html" >Contents</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Installation</a></li> 
       </ul>
