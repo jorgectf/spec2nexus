@@ -1,97 +1,266 @@
-
-
 <!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="spec2nexus.charts" href="charts.html" /><link rel="prev" title="specplot_gallery" href="specplot_gallery.html" />
 
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>spec2nexus.spec &#8212; spec2nexus 33.gb579ea6 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
+    <meta name="generator" content="sphinx-4.4.0, furo 2022.03.04"/>
+        <title>spec2nexus.spec - spec2nexus 37.ge73a11f documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=935aa2abcc5c1da4283d1dc201fb1f0add16d23a" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
     
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/bizstyle.js"></script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="spec2nexus.charts" href="charts.html" />
-    <link rel="prev" title="specplot_gallery" href="specplot_gallery.html" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <!--[if lt IE 9]>
-    <script src="_static/css3-mediaqueries.js"></script>
-    <![endif]-->
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="charts.html" title="spec2nexus.charts"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="specplot_gallery.html" title="specplot_gallery"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">spec2nexus 33.gb579ea6 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="contents.html" accesskey="U">Contents</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a></li> 
-      </ul>
-    </div>  
+    
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
-  <section id="spec2nexus-spec">
-<span id="spec"></span><h1><a class="reference internal" href="#module-spec2nexus.spec" title="spec2nexus.spec: Classes to read the contents of a SPEC data file."><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a><a class="headerlink" href="#spec2nexus-spec" title="Permalink to this headline">¶</a></h1>
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">spec2nexus 37.ge73a11f documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text">spec2nexus 37.ge73a11f documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="contents.html">Contents</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="spec2nexus.html">spec2nexus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extractSpecScan.html">extractSpecScan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specplot.html">specplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specplot_gallery.html">specplot_gallery</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="charts.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.charts</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="specplot_custom_scan_macro.html">How to write a custom scan handling for <em>specplot</em></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="eznx.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.eznx</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="writer.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="plugin_core.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.plugin</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="supplied_plugins/XPCS.html">XPCS plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="supplied_plugins/apstools_specwriter.html">apstools SpecWriterCallback metadata plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="supplied_plugins/fallback.html">Fallback plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="supplied_plugins/spec_common.html">SPEC standard plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="supplied_plugins/uim.html">UIM plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="supplied_plugins/unicat.html">unicat plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="supplied_plugins/uxml.html">#UXML: UXML metadata plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="how_to_write_plugin.html">How to write a custom plugin module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">Common Methods: <code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="scanf.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.scanf</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="singletons.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.singletons</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="writer.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unit_testing.html">Unit Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_data.html">Example data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changes.html">Change History</a></li>
+<li class="toctree-l2"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contents.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="spec2nexus-spec">
+<span id="spec"></span><h1><a class="reference internal" href="#module-spec2nexus.spec" title="spec2nexus.spec: Classes to read the contents of a SPEC data file."><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a><a class="headerlink" href="#spec2nexus-spec" title="Permalink to this headline">#</a></h1>
 <p>Library of classes to read the contents of a SPEC data file.</p>
 <section id="how-to-use-spec2nexus-spec">
-<span id="index-0"></span><h2>How to use <a class="reference internal" href="#module-spec2nexus.spec" title="spec2nexus.spec: Classes to read the contents of a SPEC data file."><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a><a class="headerlink" href="#how-to-use-spec2nexus-spec" title="Permalink to this headline">¶</a></h2>
+<span id="index-0"></span><h2>How to use <a class="reference internal" href="#module-spec2nexus.spec" title="spec2nexus.spec: Classes to read the contents of a SPEC data file."><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a><a class="headerlink" href="#how-to-use-spec2nexus-spec" title="Permalink to this headline">#</a></h2>
 <p><a class="reference internal" href="#module-spec2nexus.spec" title="spec2nexus.spec: Classes to read the contents of a SPEC data file."><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a> provides Python support to read
 the scans in a SPEC data file.  (It does not provide a command-line interface.)
 Here is a quick example how to use <a class="reference internal" href="#module-spec2nexus.spec" title="spec2nexus.spec: Classes to read the contents of a SPEC data file."><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec</span></code></a>:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="lineno">1 </span><span class="kn">from</span> <span class="nn">spec2nexus.spec</span> <span class="kn">import</span> <span class="n">SpecDataFile</span>
-<span class="lineno">2 </span>
-<span class="lineno">3 </span><span class="n">specfile</span> <span class="o">=</span> <span class="n">SpecDataFile</span><span class="p">(</span><span class="s1">&#39;data/33id_spec.dat&#39;</span><span class="p">)</span>
-<span class="lineno">4 </span><span class="k">print</span> <span class="s1">&#39;SPEC file name:&#39;</span><span class="p">,</span> <span class="n">specfile</span><span class="o">.</span><span class="n">specFile</span>
-<span class="lineno">5 </span><span class="k">print</span> <span class="s1">&#39;SPEC file time:&#39;</span><span class="p">,</span> <span class="n">specfile</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">date</span>
-<span class="lineno">6 </span><span class="k">print</span> <span class="s1">&#39;number of scans:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">specfile</span><span class="o">.</span><span class="n">scans</span><span class="p">)</span>
-<span class="lineno">7 </span>
-<span class="lineno">8 </span><span class="k">for</span> <span class="n">scanNum</span><span class="p">,</span> <span class="n">scan</span> <span class="ow">in</span> <span class="n">specfile</span><span class="o">.</span><span class="n">scans</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-<span class="lineno">9 </span>    <span class="k">print</span> <span class="n">scanNum</span><span class="p">,</span> <span class="n">scan</span><span class="o">.</span><span class="n">scanCmd</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">spec2nexus.spec</span> <span class="kn">import</span> <span class="n">SpecDataFile</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="n">specfile</span> <span class="o">=</span> <span class="n">SpecDataFile</span><span class="p">(</span><span class="s1">'data/33id_spec.dat'</span><span class="p">)</span>
+<span class="linenos">4</span><span class="nb">print</span> <span class="s1">'SPEC file name:'</span><span class="p">,</span> <span class="n">specfile</span><span class="o">.</span><span class="n">specFile</span>
+<span class="linenos">5</span><span class="nb">print</span> <span class="s1">'SPEC file time:'</span><span class="p">,</span> <span class="n">specfile</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">date</span>
+<span class="linenos">6</span><span class="nb">print</span> <span class="s1">'number of scans:'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">specfile</span><span class="o">.</span><span class="n">scans</span><span class="p">)</span>
+<span class="linenos">7</span>
+<span class="linenos">8</span><span class="k">for</span> <span class="n">scanNum</span><span class="p">,</span> <span class="n">scan</span> <span class="ow">in</span> <span class="n">specfile</span><span class="o">.</span><span class="n">scans</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="linenos">9</span>    <span class="nb">print</span> <span class="n">scanNum</span><span class="p">,</span> <span class="n">scan</span><span class="o">.</span><span class="n">scanCmd</span>
 </pre></div>
 </div>
 <p>For one example data file provided with <a class="reference internal" href="#module-spec2nexus.spec" title="spec2nexus.spec: Classes to read the contents of a SPEC data file."><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a>, the output starts with:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="lineno">1 </span><span class="n">SPEC</span> <span class="n">file</span> <span class="n">name</span><span class="p">:</span> <span class="n">samplecheck_7_17_03</span>
-<span class="lineno">2 </span><span class="n">SPEC</span> <span class="n">file</span> <span class="n">time</span><span class="p">:</span> <span class="n">Thu</span> <span class="n">Jul</span> <span class="mi">17</span> <span class="mi">02</span><span class="p">:</span><span class="mi">37</span><span class="p">:</span><span class="mi">32</span> <span class="mi">2003</span>
-<span class="lineno">3 </span><span class="n">number</span> <span class="n">of</span> <span class="n">scans</span><span class="p">:</span> <span class="mi">106</span>
-<span class="lineno">4 </span><span class="mi">1</span>  <span class="n">ascan</span>  <span class="n">eta</span> <span class="mf">43.6355</span> <span class="mf">44.0355</span>  <span class="mi">40</span> <span class="mi">1</span>
-<span class="lineno">5 </span><span class="mi">2</span>  <span class="n">ascan</span>  <span class="n">chi</span> <span class="mf">73.47</span> <span class="mf">73.87</span>  <span class="mi">40</span> <span class="mi">1</span>
-<span class="lineno">6 </span><span class="mi">3</span>  <span class="n">ascan</span>  <span class="k">del</span> <span class="mf">84.6165</span> <span class="mf">84.8165</span>  <span class="mi">20</span> <span class="mi">1</span>
-<span class="lineno">7 </span><span class="mi">4</span>  <span class="n">ascan</span>  <span class="k">del</span> <span class="mf">84.5199</span> <span class="mf">84.7199</span>  <span class="mi">20</span> <span class="mi">1</span>
-<span class="lineno">8 </span><span class="mi">5</span>  <span class="n">ascan</span>  <span class="k">del</span> <span class="mf">84.3269</span> <span class="mf">84.9269</span>  <span class="mi">30</span> <span class="mi">1</span>
-<span class="lineno">9 </span><span class="o">...</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">SPEC</span> <span class="n">file</span> <span class="n">name</span><span class="p">:</span> <span class="n">samplecheck_7_17_03</span>
+<span class="linenos">2</span><span class="n">SPEC</span> <span class="n">file</span> <span class="n">time</span><span class="p">:</span> <span class="n">Thu</span> <span class="n">Jul</span> <span class="mi">17</span> <span class="mi">02</span><span class="p">:</span><span class="mi">37</span><span class="p">:</span><span class="mi">32</span> <span class="mi">2003</span>
+<span class="linenos">3</span><span class="n">number</span> <span class="n">of</span> <span class="n">scans</span><span class="p">:</span> <span class="mi">106</span>
+<span class="linenos">4</span><span class="mi">1</span>  <span class="n">ascan</span>  <span class="n">eta</span> <span class="mf">43.6355</span> <span class="mf">44.0355</span>  <span class="mi">40</span> <span class="mi">1</span>
+<span class="linenos">5</span><span class="mi">2</span>  <span class="n">ascan</span>  <span class="n">chi</span> <span class="mf">73.47</span> <span class="mf">73.87</span>  <span class="mi">40</span> <span class="mi">1</span>
+<span class="linenos">6</span><span class="mi">3</span>  <span class="n">ascan</span>  <span class="k">del</span> <span class="mf">84.6165</span> <span class="mf">84.8165</span>  <span class="mi">20</span> <span class="mi">1</span>
+<span class="linenos">7</span><span class="mi">4</span>  <span class="n">ascan</span>  <span class="k">del</span> <span class="mf">84.5199</span> <span class="mf">84.7199</span>  <span class="mi">20</span> <span class="mi">1</span>
+<span class="linenos">8</span><span class="mi">5</span>  <span class="n">ascan</span>  <span class="k">del</span> <span class="mf">84.3269</span> <span class="mf">84.9269</span>  <span class="mi">30</span> <span class="mi">1</span>
+<span class="linenos">9</span><span class="o">...</span>
 </pre></div>
 </div>
 <section id="how-to-read-one-scan">
-<h3>How to read one scan<a class="headerlink" href="#how-to-read-one-scan" title="Permalink to this headline">¶</a></h3>
+<h3>How to read one scan<a class="headerlink" href="#how-to-read-one-scan" title="Permalink to this headline">#</a></h3>
 <p>Here is an example how to read one scan:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="lineno">1 </span><span class="kn">from</span> <span class="nn">spec2nexus.spec</span> <span class="kn">import</span> <span class="n">SpecDataFile</span>
-<span class="lineno">2 </span>
-<span class="lineno">3 </span><span class="n">specfile</span> <span class="o">=</span> <span class="n">SpecDataFile</span><span class="p">(</span><span class="s1">&#39;data/33id_spec.dat&#39;</span><span class="p">)</span>
-<span class="lineno">4 </span><span class="n">specscan</span> <span class="o">=</span> <span class="n">specfile</span><span class="o">.</span><span class="n">getScan</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="lineno">5 </span><span class="k">print</span> <span class="n">specscan</span><span class="o">.</span><span class="n">scanNum</span>
-<span class="lineno">6 </span><span class="k">print</span> <span class="n">specscan</span><span class="o">.</span><span class="n">scanCmd</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">spec2nexus.spec</span> <span class="kn">import</span> <span class="n">SpecDataFile</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="n">specfile</span> <span class="o">=</span> <span class="n">SpecDataFile</span><span class="p">(</span><span class="s1">'data/33id_spec.dat'</span><span class="p">)</span>
+<span class="linenos">4</span><span class="n">specscan</span> <span class="o">=</span> <span class="n">specfile</span><span class="o">.</span><span class="n">getScan</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos">5</span><span class="nb">print</span> <span class="n">specscan</span><span class="o">.</span><span class="n">scanNum</span>
+<span class="linenos">6</span><span class="nb">print</span> <span class="n">specscan</span><span class="o">.</span><span class="n">scanCmd</span>
 </pre></div>
 </div>
 <p>which has this output:</p>
@@ -103,26 +272,26 @@ Here is a quick example how to use <a class="reference internal" href="#module-s
 the dictionary is <code class="docutils literal notranslate"><span class="pre">specscan.data</span></code> where the keys are the column labels (from the
 #L line) and the values are from each row.  It is possible to make a default
 plot of the last column vs. the first column.  Here’s how to find that data:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="lineno">1 </span><span class="n">x_label</span> <span class="o">=</span> <span class="n">specscan</span><span class="o">.</span><span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>          <span class="c1"># first column from #L line</span>
-<span class="lineno">2 </span><span class="n">y_label</span> <span class="o">=</span> <span class="n">specscan</span><span class="o">.</span><span class="n">L</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>         <span class="c1"># last column from #L line</span>
-<span class="lineno">3 </span><span class="n">x_data</span> <span class="o">=</span> <span class="n">specscan</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">x_label</span><span class="p">]</span>  <span class="c1"># data for first column</span>
-<span class="lineno">4 </span><span class="n">y_data</span> <span class="o">=</span> <span class="n">specscan</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">y_label</span><span class="p">]</span>  <span class="c1"># data for last column</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">x_label</span> <span class="o">=</span> <span class="n">specscan</span><span class="o">.</span><span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>          <span class="c1"># first column from #L line</span>
+<span class="linenos">2</span><span class="n">y_label</span> <span class="o">=</span> <span class="n">specscan</span><span class="o">.</span><span class="n">L</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>         <span class="c1"># last column from #L line</span>
+<span class="linenos">3</span><span class="n">x_data</span> <span class="o">=</span> <span class="n">specscan</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">x_label</span><span class="p">]</span>  <span class="c1"># data for first column</span>
+<span class="linenos">4</span><span class="n">y_data</span> <span class="o">=</span> <span class="n">specscan</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">y_label</span><span class="p">]</span>  <span class="c1"># data for last column</span>
 </pre></div>
 </div>
 </section>
 <section id="get-a-list-of-the-scans">
-<h3>Get a list of the scans<a class="headerlink" href="#get-a-list-of-the-scans" title="Permalink to this headline">¶</a></h3>
+<h3>Get a list of the scans<a class="headerlink" href="#get-a-list-of-the-scans" title="Permalink to this headline">#</a></h3>
 <p>The complete list of scan numbers from the data file is obtained
 (sorting is necessary since the list of dictionary keys is returned
 in a scrambled order):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">all_scans</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">specfile</span><span class="o">.</span><span class="n">scans</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 </pre></div>
 </div>
-<hr class="docutils" />
+<hr class="docutils"/>
 </section>
 </section>
 <section id="spec-data-files">
-<span id="spec-keys"></span><span id="index-1"></span><h2>SPEC data files<a class="headerlink" href="#spec-data-files" title="Permalink to this headline">¶</a></h2>
+<span id="spec-keys"></span><span id="index-1"></span><h2>SPEC data files<a class="headerlink" href="#spec-data-files" title="Permalink to this headline">#</a></h2>
 <p>The SPEC data file format is described in the SPEC manual. <a class="footnote-reference brackets" href="#id2" id="id1">1</a>
 This manual is taken as a suggested starting point for most users.
 Data files with deviations from this standard are produced at some facilities.</p>
@@ -132,15 +301,15 @@ Data files with deviations from this standard are produced at some facilities.</
 </dd>
 </dl>
 <span class="target" id="index-2"></span><span class="target" id="index-3"></span><span class="target" id="index-4"></span><section id="assumptions-about-data-file-structure">
-<span id="index-5"></span><h3>Assumptions about data file structure<a class="headerlink" href="#assumptions-about-data-file-structure" title="Permalink to this headline">¶</a></h3>
+<span id="index-5"></span><h3>Assumptions about data file structure<a class="headerlink" href="#assumptions-about-data-file-structure" title="Permalink to this headline">#</a></h3>
 <p>These assumptions are used to parse SPEC data files:</p>
 <ol class="arabic">
 <li><p>SPEC data files are text files organized by lines.
 The lines can be categorized as: <strong>control lines</strong>, <strong>data lines</strong>, and blank lines.</p>
-<table class="docutils align-default">
+<div class="table-wrapper"><table class="docutils align-default">
 <colgroup>
-<col style="width: 16%" />
-<col style="width: 84%" />
+<col style="width: 16%"/>
+<col style="width: 84%"/>
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>line type</p></th>
@@ -158,7 +327,7 @@ The lines can be categorized as: <strong>control lines</strong>, <strong>data li
 <td><p>containing MCA data <a class="footnote-reference brackets" href="#id7" id="id4">3</a></p></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </li>
 <li><p>Lines in a SPEC data file start with a file name control line,
 then series of blocks.  Each block may be either a file header block
@@ -202,12 +371,12 @@ and zero or more scan blocks. <a class="footnote-reference brackets" href="#id8"
 </dl>
 </section>
 <section id="control-lines-keys-defined-by-spec">
-<span id="plugin-list"></span><h3>Control lines (keys) defined by SPEC<a class="headerlink" href="#control-lines-keys-defined-by-spec" title="Permalink to this headline">¶</a></h3>
+<span id="plugin-list"></span><h3>Control lines (keys) defined by SPEC<a class="headerlink" href="#control-lines-keys-defined-by-spec" title="Permalink to this headline">#</a></h3>
 <p>Here is a list <a class="footnote-reference brackets" href="#id10" id="id9">5</a> of keys (command words) from the comments in the <em>file.mac</em> (SPEC v6) macro source file:</p>
-<table class="docutils align-default">
+<div class="table-wrapper"><table class="docutils align-default">
 <colgroup>
-<col style="width: 15%" />
-<col style="width: 85%" />
+<col style="width: 15%"/>
+<col style="width: 85%"/>
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>command word</p></th>
@@ -284,89 +453,89 @@ and zero or more scan blocks. <a class="footnote-reference brackets" href="#id8"
 <tr class="row-even"><td><p>#X</p></td>
 <td><p>a temperature</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="mailto:#&#37;&#52;&#48;MCA">#<span>&#64;</span>MCA</a> fmt</p></td>
-<td><p>this scan contains MCA data (array_dump() format, as in <code class="docutils literal notranslate"><span class="pre">&quot;%16C&quot;</span></code>)</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="mailto:#%40MCA">#<span>@</span>MCA</a> fmt</p></td>
+<td><p>this scan contains MCA data (array_dump() format, as in <code class="docutils literal notranslate"><span class="pre">"%16C"</span></code>)</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="mailto:#&#37;&#52;&#48;CALIB">#<span>&#64;</span>CALIB</a> a b c</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="mailto:#%40CALIB">#<span>@</span>CALIB</a> a b c</p></td>
 <td><p>coefficients for <code class="docutils literal notranslate"><span class="pre">x[i]</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span> <span class="pre">*</span> <span class="pre">i</span> <span class="pre">+</span> <span class="pre">c</span> <span class="pre">*</span> <span class="pre">i</span> <span class="pre">*</span> <span class="pre">i</span></code> for MCA data</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="mailto:#&#37;&#52;&#48;CHANN">#<span>&#64;</span>CHANN</a> n f l r</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="mailto:#%40CHANN">#<span>@</span>CHANN</a> n f l r</p></td>
 <td><p>MCA channel information (number_saved, first_saved, last_saved, reduction coef)</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="mailto:#&#37;&#52;&#48;CTIME">#<span>&#64;</span>CTIME</a> p l r</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="mailto:#%40CTIME">#<span>@</span>CTIME</a> p l r</p></td>
 <td><p>MCA count times (preset_time, elapsed_live_time, elapsed_real_time)</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="mailto:#&#37;&#52;&#48;ROI">#<span>&#64;</span>ROI</a> n f l</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="mailto:#%40ROI">#<span>@</span>ROI</a> n f l</p></td>
 <td><p>MCA ROI channel information (ROI_name, first_chan, last_chan)</p></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <dl class="footnote brackets">
 <dt class="label" id="id10"><span class="brackets"><a class="fn-backref" href="#id9">5</a></span></dt>
 <dd><p>Compare with <a class="reference internal" href="plugin_core.html#supplied-plugins"><span class="std std-ref">Supplied spec plugin modules</span></a></p>
 </dd>
 </dl>
 <section id="example-of-control-lines">
-<span id="control-line-examples"></span><span id="index-6"></span><h4>Example of Control Lines<a class="headerlink" href="#example-of-control-lines" title="Permalink to this headline">¶</a></h4>
+<span id="control-line-examples"></span><span id="index-6"></span><h4>Example of Control Lines<a class="headerlink" href="#example-of-control-lines" title="Permalink to this headline">#</a></h4>
 <p>The command word of a control line may have a number at the end,
 indicating it is part of a sequence, such as these control lines
 (see <a class="reference internal" href="#plugin-list"><span class="std std-ref">Control lines (keys) defined by SPEC</span></a> for how to interpret):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="lineno"> 1 </span><span class="c1">#D Wed Nov 03 13:42:03 2010</span>
-<span class="lineno"> 2 </span><span class="c1">#T 0.3  (seconds)</span>
-<span class="lineno"> 3 </span><span class="c1">#G0 0</span>
-<span class="lineno"> 4 </span><span class="c1">#G1 0</span>
-<span class="lineno"> 5 </span><span class="c1">#G3 0</span>
-<span class="lineno"> 6 </span><span class="c1">#G4 0</span>
-<span class="lineno"> 7 </span><span class="c1">#Q</span>
-<span class="lineno"> 8 </span><span class="c1">#P0 -0.5396381 -0.5675 0.395862 0.7425 40.489861 0 5.894899e-07 11</span>
-<span class="lineno"> 9 </span><span class="c1">#P1 24 0 -1.19 9.0028278 25.000378 -22.29064 1.5 5</span>
-<span class="lineno">10 </span><span class="c1">#P2 -43 -0.01 98 11.8 0 -6.3275 111.52875 -8.67896</span>
-<span class="lineno">11 </span><span class="c1">#P3 -0.11352 1e-05 0.199978 0.4001875 1.2998435 15.6077 0 0</span>
-<span class="lineno">12 </span><span class="c1">#P4 3.03 0 3.21 6.805 2.835 2.4475 0.9355 -0.072</span>
-<span class="lineno">13 </span><span class="c1">#P5 1.31 0.0875 2442.673 -0.391 12 -14.4125 15.498553</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1">#D Wed Nov 03 13:42:03 2010</span>
+<span class="linenos"> 2</span><span class="c1">#T 0.3  (seconds)</span>
+<span class="linenos"> 3</span><span class="c1">#G0 0</span>
+<span class="linenos"> 4</span><span class="c1">#G1 0</span>
+<span class="linenos"> 5</span><span class="c1">#G3 0</span>
+<span class="linenos"> 6</span><span class="c1">#G4 0</span>
+<span class="linenos"> 7</span><span class="c1">#Q</span>
+<span class="linenos"> 8</span><span class="c1">#P0 -0.5396381 -0.5675 0.395862 0.7425 40.489861 0 5.894899e-07 11</span>
+<span class="linenos"> 9</span><span class="c1">#P1 24 0 -1.19 9.0028278 25.000378 -22.29064 1.5 5</span>
+<span class="linenos">10</span><span class="c1">#P2 -43 -0.01 98 11.8 0 -6.3275 111.52875 -8.67896</span>
+<span class="linenos">11</span><span class="c1">#P3 -0.11352 1e-05 0.199978 0.4001875 1.2998435 15.6077 0 0</span>
+<span class="linenos">12</span><span class="c1">#P4 3.03 0 3.21 6.805 2.835 2.4475 0.9355 -0.072</span>
+<span class="linenos">13</span><span class="c1">#P5 1.31 0.0875 2442.673 -0.391 12 -14.4125 15.498553</span>
 </pre></div>
 </div>
 </section>
 <section id="example-of-mca-data-lines">
-<span id="mca-data-example"></span><span id="index-7"></span><h4>Example of MCA data lines<a class="headerlink" href="#example-of-mca-data-lines" title="Permalink to this headline">¶</a></h4>
-<p>Lines with MCA array data begin with the <strong>&#64;A</strong> command word.
+<span id="mca-data-example"></span><span id="index-7"></span><h4>Example of MCA data lines<a class="headerlink" href="#example-of-mca-data-lines" title="Permalink to this headline">#</a></h4>
+<p>Lines with MCA array data begin with the <strong>@A</strong> command word.
 (If such a data line ends with a continuation character <code class="docutils literal notranslate"><span class="pre">\</span></code>,
 the next line is read as part of this line.)</p>
 <p>This is an example of a 91-channel MCA data array with trivial (zero) values:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span class="lineno">1 </span>@A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\
-<span class="lineno">2 </span> 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\
-<span class="lineno">3 </span> 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\
-<span class="lineno">4 </span> 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\
-<span class="lineno">5 </span> 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\
-<span class="lineno">6 </span> 0 0 0 0 0 0 0 0 0 0 0
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>@A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\
+<span class="linenos">2</span> 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\
+<span class="linenos">3</span> 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\
+<span class="linenos">4</span> 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\
+<span class="linenos">5</span> 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\
+<span class="linenos">6</span> 0 0 0 0 0 0 0 0 0 0 0
 </pre></div>
 </div>
 <p>Several MCA spectra may be written to a scan.  In this case, a number
-follows <strong>&#64;A</strong> indicating which spectrum, such as in this example with
+follows <strong>@A</strong> indicating which spectrum, such as in this example with
 four spectra:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span class="lineno">1 </span>     @A1 0 0 0 0 0 0 35 0 0 35
-<span class="lineno">2 </span>     @A2 0 0 0 0 0 0 0 35 0 35
-<span class="lineno">3 </span>     @A3 0 0 35 35 0 0 0 0 0 0
-<span class="lineno">4 </span>     @A4 0 0 0 0 0 35 35 0 35 0
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>     @A1 0 0 0 0 0 0 35 0 0 35
+<span class="linenos">2</span>     @A2 0 0 0 0 0 0 0 35 0 35
+<span class="linenos">3</span>     @A3 0 0 35 35 0 0 0 0 0 0
+<span class="linenos">4</span>     @A4 0 0 0 0 0 35 35 0 35 0
 </pre></div>
 </div>
 </section>
 </section>
 <section id="supported-header-keys-command-words">
-<h3>Supported header keys (command words)<a class="headerlink" href="#supported-header-keys-command-words" title="Permalink to this headline">¶</a></h3>
+<h3>Supported header keys (command words)<a class="headerlink" href="#supported-header-keys-command-words" title="Permalink to this headline">#</a></h3>
 <p>The SPEC data file keys recognized by <a class="reference internal" href="#module-spec2nexus.spec" title="spec2nexus.spec: Classes to read the contents of a SPEC data file."><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec</span></code></a>
 are listed in <a class="reference internal" href="plugin_core.html#supplied-plugins"><span class="std std-ref">Supplied spec plugin modules</span></a>.</p>
 </section>
 </section>
-<hr class="docutils" />
+<hr class="docutils"/>
 <section id="source-code-summary">
-<h2>source code summary<a class="headerlink" href="#source-code-summary" title="Permalink to this headline">¶</a></h2>
+<h2>source code summary<a class="headerlink" href="#source-code-summary" title="Permalink to this headline">#</a></h2>
 <section id="classes">
-<h3>classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
-<table class="longtable docutils align-default">
+<h3>classes<a class="headerlink" href="#classes" title="Permalink to this headline">#</a></h3>
+<div class="table-wrapper"><table class="longtable docutils align-default">
 <colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
+<col style="width: 10%"/>
+<col style="width: 90%"/>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.spec.SpecDataFile" title="spec2nexus.spec.SpecDataFile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SpecDataFile</span></code></a></p></td>
@@ -379,14 +548,14 @@ are listed in <a class="reference internal" href="plugin_core.html#supplied-plug
 <td><p>contents of a spec data file scan (#S) section</p></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </section>
 <section id="methods">
-<h3>methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h3>
-<table class="longtable docutils align-default">
+<h3>methods<a class="headerlink" href="#methods" title="Permalink to this headline">#</a></h3>
+<div class="table-wrapper"><table class="longtable docutils align-default">
 <colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
+<col style="width: 10%"/>
+<col style="width: 90%"/>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="utils.html#spec2nexus.utils.strip_first_word" title="spec2nexus.utils.strip_first_word"><code class="xref py py-obj docutils literal notranslate"><span class="pre">strip_first_word</span></code></a></p></td>
@@ -396,14 +565,14 @@ are listed in <a class="reference internal" href="plugin_core.html#supplied-plug
 <td><p>test if a given file name is a SPEC data file</p></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </section>
 <section id="exceptions">
-<h3>exceptions<a class="headerlink" href="#exceptions" title="Permalink to this headline">¶</a></h3>
-<table class="longtable docutils align-default">
+<h3>exceptions<a class="headerlink" href="#exceptions" title="Permalink to this headline">#</a></h3>
+<div class="table-wrapper"><table class="longtable docutils align-default">
 <colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
+<col style="width: 10%"/>
+<col style="width: 90%"/>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.spec.SpecDataFileNotFound" title="spec2nexus.spec.SpecDataFileNotFound"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SpecDataFileNotFound</span></code></a></p></td>
@@ -422,14 +591,14 @@ are listed in <a class="reference internal" href="plugin_core.html#supplied-plug
 <td><p>unknown part in a single SPEC data file</p></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </section>
 <section id="dependencies">
-<h3>dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h3>
-<table class="longtable docutils align-default">
+<h3>dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">#</a></h3>
+<div class="table-wrapper"><table class="longtable docutils align-default">
 <colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
+<col style="width: 10%"/>
+<col style="width: 90%"/>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">os</span></code></p></td>
@@ -442,14 +611,14 @@ are listed in <a class="reference internal" href="plugin_core.html#supplied-plug
 <td><p>This module provides access to some objects used or maintained by the interpreter and to functions that interact strongly with the interpreter.</p></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </section>
 <section id="internal-structure-of-spec2nexus-spec-specdatafilescan">
-<span id="spec-scan-internal-structure"></span><h3>internal structure of <a class="reference internal" href="#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><code class="xref py py-class docutils literal notranslate"><span class="pre">spec2nexus.spec.SpecDataFileScan</span></code></a><a class="headerlink" href="#internal-structure-of-spec2nexus-spec-specdatafilescan" title="Permalink to this headline">¶</a></h3>
+<span id="spec-scan-internal-structure"></span><h3>internal structure of <a class="reference internal" href="#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><code class="xref py py-class docutils literal notranslate"><span class="pre">spec2nexus.spec.SpecDataFileScan</span></code></a><a class="headerlink" href="#internal-structure-of-spec2nexus-spec-specdatafilescan" title="Permalink to this headline">#</a></h3>
 <p>The internal variables of a Python class are called <em>attributes</em>.
 It may be convenient, for some, to think of them as <em>variables</em>.</p>
 <section id="scan-attributes">
-<h4>scan attributes<a class="headerlink" href="#scan-attributes" title="Permalink to this headline">¶</a></h4>
+<h4>scan attributes<a class="headerlink" href="#scan-attributes" title="Permalink to this headline">#</a></h4>
 <dl class="field-list simple">
 <dt class="field-odd">parent</dt>
 <dd class="field-odd"><p><em>obj</em> - instance of <a class="reference internal" href="#spec2nexus.spec.SpecDataFile" title="spec2nexus.spec.SpecDataFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">spec2nexus.spec.SpecDataFile</span></code></a></p>
@@ -466,7 +635,7 @@ It may be convenient, for some, to think of them as <em>variables</em>.</p>
 </dl>
 </section>
 <section id="scan-attributes-variables-set-after-call-to-plugins">
-<h4>scan attributes (variables) set after call to plugins<a class="headerlink" href="#scan-attributes-variables-set-after-call-to-plugins" title="Permalink to this headline">¶</a></h4>
+<h4>scan attributes (variables) set after call to plugins<a class="headerlink" href="#scan-attributes-variables-set-after-call-to-plugins" title="Permalink to this headline">#</a></h4>
 <p>These attributes are only set <em>after</em> the scan’s <code class="xref py py-meth docutils literal notranslate"><span class="pre">interpret()</span></code> method is called.
 This method is called automatically when trying to read any of the following scan attributes:</p>
 <dl class="field-list simple">
@@ -527,7 +696,7 @@ This method is called automatically when trying to read any of the following sca
 </dl>
 </section>
 <section id="internal-use-only-do-not-modify">
-<h4>internal use only - do not modify<a class="headerlink" href="#internal-use-only-do-not-modify" title="Permalink to this headline">¶</a></h4>
+<h4>internal use only - do not modify<a class="headerlink" href="#internal-use-only-do-not-modify" title="Permalink to this headline">#</a></h4>
 <p>These scan attributes are for internal use only and are not part of the public interface.
 Do not modify them or write code that depends on them.</p>
 <dl class="field-list simple">
@@ -547,14 +716,14 @@ Do not modify them or write code that depends on them.</p>
 </section>
 </section>
 <section id="module-spec2nexus.spec">
-<span id="source-code-documentation"></span><h3>source code documentation<a class="headerlink" href="#module-spec2nexus.spec" title="Permalink to this headline">¶</a></h3>
+<span id="source-code-documentation"></span><h3>source code documentation<a class="headerlink" href="#module-spec2nexus.spec" title="Permalink to this headline">#</a></h3>
 <p>A set of classes to read the contents of a SPEC data file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">author</dt>
 <dd class="field-odd"><p>Pete Jemian</p>
 </dd>
 <dt class="field-even">email</dt>
-<dd class="field-even"><p><a class="reference external" href="mailto:jemian&#37;&#52;&#48;anl&#46;gov">jemian<span>&#64;</span>anl<span>&#46;</span>gov</a></p>
+<dd class="field-even"><p><a class="reference external" href="mailto:jemian%40anl.gov">jemian<span>@</span>anl<span>.</span>gov</a></p>
 </dd>
 </dl>
 <p><a class="reference internal" href="#spec2nexus.spec.SpecDataFile" title="spec2nexus.spec.SpecDataFile"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SpecDataFile()</span></code></a> is the only class users will need to call.
@@ -563,10 +732,10 @@ All other <a class="reference internal" href="#module-spec2nexus.spec" title="sp
 <p>The user should create a class instance for each spec data file, specifying the
 file reference (by path reference as needed) and the internal routines will take
 care of all that is necessary to read and interpret the information.</p>
-<table class="longtable docutils align-default">
+<div class="table-wrapper"><table class="longtable docutils align-default">
 <colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
+<col style="width: 10%"/>
+<col style="width: 90%"/>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.spec.is_spec_file" title="spec2nexus.spec.is_spec_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_spec_file</span></code></a>(filename)</p></td>
@@ -585,25 +754,25 @@ care of all that is necessary to read and interpret the information.</p>
 <td><p>contents of a spec data file scan (#S) section</p></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>Note that the SPEC geometry control lines (<code class="docutils literal notranslate"><span class="pre">#G0</span> <span class="pre">#G1</span></code> …)
 have meanings that are unique to specific diffractometer geometries including
 different numbers of values.  Consult the geometry macro file for specifics.</p>
 <p class="rubric">Examples</p>
 <p>Get the first and last scan numbers from the file:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">spec2nexus</span> <span class="k">import</span> <span class="n">spec</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">spec_data</span> <span class="o">=</span> <span class="n">spec</span><span class="o">.</span><span class="n">SpecDataFile</span><span class="p">(</span><span class="s1">&#39;path/to/my/spec_data.dat&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">spec2nexus</span> <span class="kn">import</span> <span class="n">spec</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">spec_data</span> <span class="o">=</span> <span class="n">spec</span><span class="o">.</span><span class="n">SpecDataFile</span><span class="p">(</span><span class="s1">'path/to/my/spec_data.dat'</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">spec_data</span><span class="o">.</span><span class="n">fileName</span><span class="p">)</span>
 <span class="go">path/to/my/spec_data.dat</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;first scan: &#39;</span><span class="p">,</span> <span class="n">spec_data</span><span class="o">.</span><span class="n">getFirstScanNumber</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">'first scan: '</span><span class="p">,</span> <span class="n">spec_data</span><span class="o">.</span><span class="n">getFirstScanNumber</span><span class="p">())</span>
 <span class="go">1</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;last scan: &#39;</span><span class="p">,</span> <span class="n">spec_data</span><span class="o">.</span><span class="n">getLastScanNumber</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">'last scan: '</span><span class="p">,</span> <span class="n">spec_data</span><span class="o">.</span><span class="n">getLastScanNumber</span><span class="p">())</span>
 <span class="go">22</span>
 </pre></div>
 </div>
 <p>Get plottable data from scan number 10:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">spec2nexus</span> <span class="k">import</span> <span class="n">spec</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">spec_data</span> <span class="o">=</span> <span class="n">spec</span><span class="o">.</span><span class="n">SpecDataFile</span><span class="p">(</span><span class="s1">&#39;path/to/my/spec_data.dat&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">spec2nexus</span> <span class="kn">import</span> <span class="n">spec</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">spec_data</span> <span class="o">=</span> <span class="n">spec</span><span class="o">.</span><span class="n">SpecDataFile</span><span class="p">(</span><span class="s1">'path/to/my/spec_data.dat'</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">scan10</span> <span class="o">=</span> <span class="n">spec_data</span><span class="o">.</span><span class="n">getScan</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x_label</span> <span class="o">=</span> <span class="n">scan10</span><span class="o">.</span><span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y_label</span> <span class="o">=</span> <span class="n">scan10</span><span class="o">.</span><span class="n">L</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
@@ -612,7 +781,7 @@ different numbers of values.  Consult the geometry macro file for specifics.</p>
 </pre></div>
 </div>
 <p>Try to read a file that does not exist:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">spec_data</span> <span class="o">=</span> <span class="n">spec</span><span class="o">.</span><span class="n">SpecDataFile</span><span class="p">(</span><span class="s1">&#39;missing_file&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">spec_data</span> <span class="o">=</span> <span class="n">spec</span><span class="o">.</span><span class="n">SpecDataFile</span><span class="p">(</span><span class="s1">'missing_file'</span><span class="p">)</span>
 <span class="gt">Traceback (most recent call last):</span>
   <span class="c">...</span>
 <span class="gr">spec.SpecDataFileNotFound</span>: <span class="n">file does not exist: missing_file</span>
@@ -621,24 +790,22 @@ different numbers of values.  Consult the geometry macro file for specifics.</p>
 <p class="rubric">Classes and Methods</p>
 <dl class="py exception">
 <dt class="sig sig-object py" id="spec2nexus.spec.DuplicateSpecScanNumber">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.spec.</span></span><span class="sig-name descname"><span class="pre">DuplicateSpecScanNumber</span></span><a class="reference internal" href="_modules/spec2nexus/spec.html#DuplicateSpecScanNumber"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.DuplicateSpecScanNumber" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.spec.</span></span><span class="sig-name descname"><span class="pre">DuplicateSpecScanNumber</span></span><a class="reference internal" href="_modules/spec2nexus/spec.html#DuplicateSpecScanNumber"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.DuplicateSpecScanNumber" title="Permalink to this definition">#</a></dt>
 <dd><p>multiple use of scan number in a single SPEC data file</p>
 </dd></dl>
-
 <dl class="py exception">
 <dt class="sig sig-object py" id="spec2nexus.spec.NotASpecDataFile">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.spec.</span></span><span class="sig-name descname"><span class="pre">NotASpecDataFile</span></span><a class="reference internal" href="_modules/spec2nexus/spec.html#NotASpecDataFile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.NotASpecDataFile" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.spec.</span></span><span class="sig-name descname"><span class="pre">NotASpecDataFile</span></span><a class="reference internal" href="_modules/spec2nexus/spec.html#NotASpecDataFile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.NotASpecDataFile" title="Permalink to this definition">#</a></dt>
 <dd><p>content of file is not SPEC data (first line must start with <code class="docutils literal notranslate"><span class="pre">#F</span></code>)</p>
 </dd></dl>
-
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.spec.SpecDataFile">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.spec.</span></span><span class="sig-name descname"><span class="pre">SpecDataFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFile" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.spec.</span></span><span class="sig-name descname"><span class="pre">SpecDataFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFile" title="Permalink to this definition">#</a></dt>
 <dd><p>contents of a SPEC data file</p>
-<table class="longtable docutils align-default">
+<div class="table-wrapper"><table class="longtable docutils align-default">
 <colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
+<col style="width: 10%"/>
+<col style="width: 90%"/>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.spec.SpecDataFile.dissect_file" title="spec2nexus.spec.SpecDataFile.dissect_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dissect_file</span></code></a>()</p></td>
@@ -678,10 +845,10 @@ different numbers of values.  Consult the geometry macro file for specifics.</p>
 <td><p>Has the file been updated since the last time it was read?</p></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.spec.SpecDataFile.dissect_file">
-<span class="sig-name descname"><span class="pre">dissect_file</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFile.dissect_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFile.dissect_file" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">dissect_file</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFile.dissect_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFile.dissect_file" title="Permalink to this definition">#</a></dt>
 <dd><p>divide (SPEC data file text) buffer into sections</p>
 <p>internal: A <em>section</em> starts with either #F | #E | #S</p>
 <p>RETURNS</p>
@@ -691,71 +858,60 @@ text with one of the above control lines at its start</p>
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.spec.SpecDataFile.getFirstScanNumber">
-<span class="sig-name descname"><span class="pre">getFirstScanNumber</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFile.getFirstScanNumber"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFile.getFirstScanNumber" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">getFirstScanNumber</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFile.getFirstScanNumber"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFile.getFirstScanNumber" title="Permalink to this definition">#</a></dt>
 <dd><p>return the first scan</p>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.spec.SpecDataFile.getLastScanNumber">
-<span class="sig-name descname"><span class="pre">getLastScanNumber</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFile.getLastScanNumber"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFile.getLastScanNumber" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">getLastScanNumber</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFile.getLastScanNumber"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFile.getLastScanNumber" title="Permalink to this definition">#</a></dt>
 <dd><p>return the last scan</p>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.spec.SpecDataFile.getMaxScanNumber">
-<span class="sig-name descname"><span class="pre">getMaxScanNumber</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFile.getMaxScanNumber"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFile.getMaxScanNumber" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">getMaxScanNumber</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFile.getMaxScanNumber"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFile.getMaxScanNumber" title="Permalink to this definition">#</a></dt>
 <dd><p>return the highest numbered scan</p>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.spec.SpecDataFile.getMinScanNumber">
-<span class="sig-name descname"><span class="pre">getMinScanNumber</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFile.getMinScanNumber"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFile.getMinScanNumber" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">getMinScanNumber</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFile.getMinScanNumber"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFile.getMinScanNumber" title="Permalink to this definition">#</a></dt>
 <dd><p>return the lowest numbered scan</p>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.spec.SpecDataFile.getScan">
-<span class="sig-name descname"><span class="pre">getScan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scan_number</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFile.getScan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFile.getScan" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">getScan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scan_number</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFile.getScan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFile.getScan" title="Permalink to this definition">#</a></dt>
 <dd><p>return the scan number indicated, None if not found</p>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.spec.SpecDataFile.getScanCommands">
-<span class="sig-name descname"><span class="pre">getScanCommands</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scan_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFile.getScanCommands"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFile.getScanCommands" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">getScanCommands</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scan_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFile.getScanCommands"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFile.getScanCommands" title="Permalink to this definition">#</a></dt>
 <dd><p>return all the scan commands as a list, with scan number</p>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.spec.SpecDataFile.getScanNumbers">
-<span class="sig-name descname"><span class="pre">getScanNumbers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFile.getScanNumbers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFile.getScanNumbers" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">getScanNumbers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFile.getScanNumbers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFile.getScanNumbers" title="Permalink to this definition">#</a></dt>
 <dd><p>return a list of all scan numbers sorted by scan number</p>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.spec.SpecDataFile.getScanNumbersChronological">
-<span class="sig-name descname"><span class="pre">getScanNumbersChronological</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFile.getScanNumbersChronological"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFile.getScanNumbersChronological" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">getScanNumbersChronological</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFile.getScanNumbersChronological"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFile.getScanNumbersChronological" title="Permalink to this definition">#</a></dt>
 <dd><p>return a list of all scan numbers sorted by date</p>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.spec.SpecDataFile.read">
-<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFile.read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFile.read" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFile.read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFile.read" title="Permalink to this definition">#</a></dt>
 <dd><p>Reads and parses a spec data file</p>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.spec.SpecDataFile.refresh">
-<span class="sig-name descname"><span class="pre">refresh</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFile.refresh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFile.refresh" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">refresh</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFile.refresh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFile.refresh" title="Permalink to this definition">#</a></dt>
 <dd><p>update (refresh) the content if the file is updated</p>
 <p>returns previous last_scan or None if file not updated</p>
 </dd></dl>
-
 <dl class="py property">
 <dt class="sig sig-object py" id="spec2nexus.spec.SpecDataFile.update_available">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update_available</span></span><a class="headerlink" href="#spec2nexus.spec.SpecDataFile.update_available" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update_available</span></span><a class="headerlink" href="#spec2nexus.spec.SpecDataFile.update_available" title="Permalink to this definition">#</a></dt>
 <dd><p>Has the file been updated since the last time it was read?</p>
 <p>Reference file modification time is stored <em>after</em>
 file is read in <a class="reference internal" href="#spec2nexus.spec.SpecDataFile.read" title="spec2nexus.spec.SpecDataFile.read"><code class="xref py py-meth docutils literal notranslate"><span class="pre">read()</span></code></a> method.</p>
@@ -775,23 +931,20 @@ myLastScan = sdf.last_scan</p>
 </dl>
 </div></blockquote>
 </dd></dl>
-
 </dd></dl>
-
 <dl class="py exception">
 <dt class="sig sig-object py" id="spec2nexus.spec.SpecDataFileCouldNotOpen">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.spec.</span></span><span class="sig-name descname"><span class="pre">SpecDataFileCouldNotOpen</span></span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFileCouldNotOpen"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFileCouldNotOpen" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.spec.</span></span><span class="sig-name descname"><span class="pre">SpecDataFileCouldNotOpen</span></span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFileCouldNotOpen"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFileCouldNotOpen" title="Permalink to this definition">#</a></dt>
 <dd><p>data file could not be opened</p>
 </dd></dl>
-
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.spec.SpecDataFileHeader">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.spec.</span></span><span class="sig-name descname"><span class="pre">SpecDataFileHeader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">buf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFileHeader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFileHeader" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.spec.</span></span><span class="sig-name descname"><span class="pre">SpecDataFileHeader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">buf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFileHeader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFileHeader" title="Permalink to this definition">#</a></dt>
 <dd><p>contents of a spec data file header (#E) section</p>
-<table class="longtable docutils align-default">
+<div class="table-wrapper"><table class="longtable docutils align-default">
 <colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
+<col style="width: 10%"/>
+<col style="width: 90%"/>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.spec.SpecDataFileHeader.interpret" title="spec2nexus.spec.SpecDataFileHeader.interpret"><code class="xref py py-obj docutils literal notranslate"><span class="pre">interpret</span></code></a>()</p></td>
@@ -807,10 +960,10 @@ myLastScan = sdf.last_scan</p>
 <td><p></p></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.spec.SpecDataFileHeader.addH5writer">
-<span class="sig-name descname"><span class="pre">addH5writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFileHeader.addH5writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFileHeader.addH5writer" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">addH5writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFileHeader.addH5writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFileHeader.addH5writer" title="Permalink to this definition">#</a></dt>
 <dd><p>add a function to be processed when writing the scan header</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -822,10 +975,9 @@ myLastScan = sdf.last_scan</p>
 </dl>
 <p>The writers will be called when the HDF5 file is to be written.</p>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.spec.SpecDataFileHeader.addPostProcessor">
-<span class="sig-name descname"><span class="pre">addPostProcessor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFileHeader.addPostProcessor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFileHeader.addPostProcessor" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">addPostProcessor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFileHeader.addPostProcessor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFileHeader.addPostProcessor" title="Permalink to this definition">#</a></dt>
 <dd><p>add a function to be processed after interpreting all lines from a header</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -837,29 +989,25 @@ myLastScan = sdf.last_scan</p>
 </dl>
 <p>The postprocessors will be called at the end of header interpretation.</p>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.spec.SpecDataFileHeader.interpret">
-<span class="sig-name descname"><span class="pre">interpret</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFileHeader.interpret"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFileHeader.interpret" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">interpret</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFileHeader.interpret"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFileHeader.interpret" title="Permalink to this definition">#</a></dt>
 <dd><p>Interpret the supplied buffer with the spec data file header.</p>
 </dd></dl>
-
 </dd></dl>
-
 <dl class="py exception">
 <dt class="sig sig-object py" id="spec2nexus.spec.SpecDataFileNotFound">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.spec.</span></span><span class="sig-name descname"><span class="pre">SpecDataFileNotFound</span></span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFileNotFound"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFileNotFound" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.spec.</span></span><span class="sig-name descname"><span class="pre">SpecDataFileNotFound</span></span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFileNotFound"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFileNotFound" title="Permalink to this definition">#</a></dt>
 <dd><p>data file was not found</p>
 </dd></dl>
-
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.spec.SpecDataFileScan">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.spec.</span></span><span class="sig-name descname"><span class="pre">SpecDataFileScan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFileScan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFileScan" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.spec.</span></span><span class="sig-name descname"><span class="pre">SpecDataFileScan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFileScan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFileScan" title="Permalink to this definition">#</a></dt>
 <dd><p>contents of a spec data file scan (#S) section</p>
-<table class="longtable docutils align-default">
+<div class="table-wrapper"><table class="longtable docutils align-default">
 <colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
+<col style="width: 10%"/>
+<col style="width: 90%"/>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.spec.SpecDataFileScan.get_macro_name" title="spec2nexus.spec.SpecDataFileScan.get_macro_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_macro_name</span></code></a>()</p></td>
@@ -881,10 +1029,10 @@ myLastScan = sdf.last_scan</p>
 <td><p>add a function to be processed when writing the scan data</p></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.spec.SpecDataFileScan.addH5writer">
-<span class="sig-name descname"><span class="pre">addH5writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFileScan.addH5writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFileScan.addH5writer" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">addH5writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFileScan.addH5writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFileScan.addH5writer" title="Permalink to this definition">#</a></dt>
 <dd><p>add a function to be processed when writing the scan data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -896,10 +1044,9 @@ myLastScan = sdf.last_scan</p>
 </dl>
 <p>The writers will be called when the HDF5 file is to be written.</p>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.spec.SpecDataFileScan.addPostProcessor">
-<span class="sig-name descname"><span class="pre">addPostProcessor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFileScan.addPostProcessor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFileScan.addPostProcessor" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">addPostProcessor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFileScan.addPostProcessor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFileScan.addPostProcessor" title="Permalink to this definition">#</a></dt>
 <dd><p>add a function to be processed after interpreting all lines from a scan</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -911,44 +1058,37 @@ myLastScan = sdf.last_scan</p>
 </dl>
 <p>The postprocessors will be called at the end of scan data interpretation.</p>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.spec.SpecDataFileScan.add_interpreter_comment">
-<span class="sig-name descname"><span class="pre">add_interpreter_comment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">comment</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFileScan.add_interpreter_comment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFileScan.add_interpreter_comment" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">add_interpreter_comment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">comment</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFileScan.add_interpreter_comment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFileScan.add_interpreter_comment" title="Permalink to this definition">#</a></dt>
 <dd><p>allow the interpreter to communicate information to the caller</p>
 <p>see issue #66: <a class="reference external" href="https://github.com/prjemian/spec2nexus/issues/66">https://github.com/prjemian/spec2nexus/issues/66</a></p>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.spec.SpecDataFileScan.get_interpreter_comments">
-<span class="sig-name descname"><span class="pre">get_interpreter_comments</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFileScan.get_interpreter_comments"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFileScan.get_interpreter_comments" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_interpreter_comments</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFileScan.get_interpreter_comments"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFileScan.get_interpreter_comments" title="Permalink to this definition">#</a></dt>
 <dd><p>return the list of comments</p>
 <p>see issue #66: <a class="reference external" href="https://github.com/prjemian/spec2nexus/issues/66">https://github.com/prjemian/spec2nexus/issues/66</a></p>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.spec.SpecDataFileScan.get_macro_name">
-<span class="sig-name descname"><span class="pre">get_macro_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFileScan.get_macro_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFileScan.get_macro_name" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_macro_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFileScan.get_macro_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFileScan.get_macro_name" title="Permalink to this definition">#</a></dt>
 <dd><p>name of the SPEC macro used for this scan</p>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.spec.SpecDataFileScan.interpret">
-<span class="sig-name descname"><span class="pre">interpret</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFileScan.interpret"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFileScan.interpret" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">interpret</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFileScan.interpret"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFileScan.interpret" title="Permalink to this definition">#</a></dt>
 <dd><p>Interpret the supplied buffer with the spec scan data.</p>
 </dd></dl>
-
 </dd></dl>
-
 <dl class="py exception">
 <dt class="sig sig-object py" id="spec2nexus.spec.UnknownSpecFilePart">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.spec.</span></span><span class="sig-name descname"><span class="pre">UnknownSpecFilePart</span></span><a class="reference internal" href="_modules/spec2nexus/spec.html#UnknownSpecFilePart"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.UnknownSpecFilePart" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.spec.</span></span><span class="sig-name descname"><span class="pre">UnknownSpecFilePart</span></span><a class="reference internal" href="_modules/spec2nexus/spec.html#UnknownSpecFilePart"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.UnknownSpecFilePart" title="Permalink to this definition">#</a></dt>
 <dd><p>unknown part in a single SPEC data file</p>
 </dd></dl>
-
 <dl class="py function">
 <dt class="sig sig-object py" id="spec2nexus.spec.is_spec_file">
-<span class="sig-prename descclassname"><span class="pre">spec2nexus.spec.</span></span><span class="sig-name descname"><span class="pre">is_spec_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#is_spec_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.is_spec_file" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">spec2nexus.spec.</span></span><span class="sig-name descname"><span class="pre">is_spec_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#is_spec_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.is_spec_file" title="Permalink to this definition">#</a></dt>
 <dd><p>test if a given file name is a SPEC data file</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -957,10 +1097,9 @@ myLastScan = sdf.last_scan</p>
 </dl>
 <p><em>filename</em> is a SPEC file if it contains at least one #S control line</p>
 </dd></dl>
-
 <dl class="py function">
 <dt class="sig sig-object py" id="spec2nexus.spec.is_spec_file_with_header">
-<span class="sig-prename descclassname"><span class="pre">spec2nexus.spec.</span></span><span class="sig-name descname"><span class="pre">is_spec_file_with_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#is_spec_file_with_header"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.is_spec_file_with_header" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">spec2nexus.spec.</span></span><span class="sig-name descname"><span class="pre">is_spec_file_with_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#is_spec_file_with_header"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.is_spec_file_with_header" title="Permalink to this definition">#</a></dt>
 <dd><p>test if a given file name is a SPEC data file</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -988,21 +1127,67 @@ with these control lines in order:</p>
 </dd>
 </dl>
 </dd></dl>
-
 </section>
 </section>
 </section>
 
-
-            <div class="clearer"></div>
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="charts.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.charts</span></code></div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="specplot_gallery.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">specplot_gallery</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2014-2022, Pete R. Jemian
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              
+            </div>
           </div>
         </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <div>
-    <h3><a href="index.html">Table of Contents</a></h3>
-    <ul>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
 <li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a><ul>
 <li><a class="reference internal" href="#how-to-use-spec2nexus-spec">How to use <code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a><ul>
 <li><a class="reference internal" href="#how-to-read-one-scan">How to read one scan</a></li>
@@ -1037,61 +1222,17 @@ with these control lines in order:</p>
 </li>
 </ul>
 
-  </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="specplot_gallery.html"
-                          title="previous chapter">specplot_gallery</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="charts.html"
-                          title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.charts</span></code></a></p>
-  </div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/spec.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
+          </div>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="charts.html" title="spec2nexus.charts"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="specplot_gallery.html" title="specplot_gallery"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">spec2nexus 33.gb579ea6 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="contents.html" >Contents</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-        &#169; Copyright 2014-2022, Pete R. Jemian.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
-    </div>
-  </body>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    </body>
 </html>
