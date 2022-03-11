@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>spec2nexus.spec &#8212; spec2nexus 29.g1ec3f15 documentation</title>
+    <title>spec2nexus.spec &#8212; spec2nexus 29.g196a5d0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -41,7 +41,7 @@
         <li class="right" >
           <a href="specplot_gallery.html" title="specplot_gallery"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">spec2nexus 29.g1ec3f15 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">spec2nexus 29.g196a5d0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="contents.html" accesskey="U">Contents</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a></li> 
       </ul>
@@ -303,7 +303,7 @@ and zero or more scan blocks. <a class="footnote-reference brackets" href="#id8"
 </table>
 <dl class="footnote brackets">
 <dt class="label" id="id10"><span class="brackets"><a class="fn-backref" href="#id9">5</a></span></dt>
-<dd><p>Compare with <a class="reference internal" href="plugin.html#supplied-plugins"><span class="std std-ref">Supplied spec plugin modules</span></a></p>
+<dd><p>Compare with <a class="reference internal" href="plugin_core.html#supplied-plugins"><span class="std std-ref">Supplied spec plugin modules</span></a></p>
 </dd>
 </dl>
 <section id="example-of-control-lines">
@@ -355,7 +355,7 @@ four spectra:</p>
 <section id="supported-header-keys-command-words">
 <h3>Supported header keys (command words)<a class="headerlink" href="#supported-header-keys-command-words" title="Permalink to this headline">¶</a></h3>
 <p>The SPEC data file keys recognized by <a class="reference internal" href="#module-spec2nexus.spec" title="spec2nexus.spec: Classes to read the contents of a SPEC data file."><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec</span></code></a>
-are listed in <a class="reference internal" href="plugin.html#supplied-plugins"><span class="std std-ref">Supplied spec plugin modules</span></a>.</p>
+are listed in <a class="reference internal" href="plugin_core.html#supplied-plugins"><span class="std std-ref">Supplied spec plugin modules</span></a>.</p>
 </section>
 </section>
 <hr class="docutils" />
@@ -795,7 +795,7 @@ myLastScan = sdf.last_scan</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.spec.SpecDataFileHeader.interpret" title="spec2nexus.spec.SpecDataFileHeader.interpret"><code class="xref py py-obj docutils literal notranslate"><span class="pre">interpret</span></code></a>()</p></td>
-<td><p>interpret the supplied buffer with the spec data file header</p></td>
+<td><p>Interpret the supplied buffer with the spec data file header.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.spec.SpecDataFileHeader.addPostProcessor" title="spec2nexus.spec.SpecDataFileHeader.addPostProcessor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">addPostProcessor</span></code></a>(label, func)</p></td>
 <td><p>add a function to be processed after interpreting all lines from a header</p></td>
@@ -841,7 +841,7 @@ myLastScan = sdf.last_scan</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.spec.SpecDataFileHeader.interpret">
 <span class="sig-name descname"><span class="pre">interpret</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFileHeader.interpret"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFileHeader.interpret" title="Permalink to this definition">¶</a></dt>
-<dd><p>interpret the supplied buffer with the spec data file header</p>
+<dd><p>Interpret the supplied buffer with the spec data file header.</p>
 </dd></dl>
 
 </dd></dl>
@@ -866,7 +866,7 @@ myLastScan = sdf.last_scan</p>
 <td><p>name of the SPEC macro used for this scan</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.spec.SpecDataFileScan.interpret" title="spec2nexus.spec.SpecDataFileScan.interpret"><code class="xref py py-obj docutils literal notranslate"><span class="pre">interpret</span></code></a>()</p></td>
-<td><p>interpret the supplied buffer with the spec scan data</p></td>
+<td><p>Interpret the supplied buffer with the spec scan data.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.spec.SpecDataFileScan.add_interpreter_comment" title="spec2nexus.spec.SpecDataFileScan.add_interpreter_comment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_interpreter_comment</span></code></a>(comment)</p></td>
 <td><p>allow the interpreter to communicate information to the caller</p></td>
@@ -935,7 +935,7 @@ myLastScan = sdf.last_scan</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.spec.SpecDataFileScan.interpret">
 <span class="sig-name descname"><span class="pre">interpret</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/spec.html#SpecDataFileScan.interpret"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.spec.SpecDataFileScan.interpret" title="Permalink to this definition">¶</a></dt>
-<dd><p>interpret the supplied buffer with the spec scan data</p>
+<dd><p>Interpret the supplied buffer with the spec scan data.</p>
 </dd></dl>
 
 </dd></dl>
@@ -1084,7 +1084,7 @@ with these control lines in order:</p>
         <li class="right" >
           <a href="specplot_gallery.html" title="specplot_gallery"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">spec2nexus 29.g1ec3f15 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">spec2nexus 29.g196a5d0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="contents.html" >Contents</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a></li> 
       </ul>

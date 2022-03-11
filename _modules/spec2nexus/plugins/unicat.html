@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>spec2nexus.plugins.unicat &#8212; spec2nexus 29.g1ec3f15 documentation</title>
+    <title>spec2nexus.plugins.unicat &#8212; spec2nexus 29.g196a5d0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/bizstyle.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -32,7 +32,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">spec2nexus 29.g1ec3f15 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">spec2nexus 29.g196a5d0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">spec2nexus.plugins.unicat</a></li> 
       </ul>
@@ -44,10 +44,7 @@
           <div class="body" role="main">
             
   <h1>Source code for spec2nexus.plugins.unicat</h1><div class="highlight"><pre>
-<span></span><span class="ch">#!/usr/bin/env python</span>
-<span class="c1"># -*- coding: utf-8 -*-</span>
-
-<span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">**#H** &amp; **#V** - Metadata in SPEC data files as defined by APS UNICAT</span>
 
 <span class="sd">Handles the UNICAT control lines which write additional metadata</span>
@@ -57,12 +54,13 @@
 
 <span class="kn">import</span> <span class="nn">re</span>
 
-<span class="kn">from</span> <span class="nn">..</span> <span class="k">import</span> <span class="n">eznx</span>
-<span class="kn">from</span> <span class="nn">..plugin</span> <span class="k">import</span> <span class="n">AutoRegister</span><span class="p">,</span> <span class="n">ControlLineHandler</span>
-<span class="kn">from</span> <span class="nn">..utils</span> <span class="k">import</span> <span class="n">strip_first_word</span>
+<span class="c1"># use absolute imports (not relative)</span>
+<span class="kn">from</span> <span class="nn">spec2nexus</span> <span class="k">import</span> <span class="n">eznx</span>
+<span class="kn">from</span> <span class="nn">spec2nexus.plugin_core</span> <span class="k">import</span> <span class="n">ControlLineBase</span>
+<span class="kn">from</span> <span class="nn">spec2nexus.utils</span> <span class="k">import</span> <span class="n">strip_first_word</span>
 
 
-<div class="viewcode-block" id="UNICAT_MetadataMnemonics"><a class="viewcode-back" href="../../../supplied_plugins/unicat.html#spec2nexus.plugins.unicat.UNICAT_MetadataMnemonics">[docs]</a><span class="k">class</span> <span class="nc">UNICAT_MetadataMnemonics</span><span class="p">(</span><span class="n">ControlLineHandler</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">AutoRegister</span><span class="p">):</span>
+<div class="viewcode-block" id="UNICAT_MetadataMnemonics"><a class="viewcode-back" href="../../../supplied_plugins/unicat.html#spec2nexus.plugins.unicat.UNICAT_MetadataMnemonics">[docs]</a><span class="k">class</span> <span class="nc">UNICAT_MetadataMnemonics</span><span class="p">(</span><span class="n">ControlLineBase</span><span class="p">):</span>
 
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **#H** -- UNICAT metadata names (numbered rows: #H0, #H1, ...)</span>
@@ -96,7 +94,7 @@
         <span class="n">spec_obj</span><span class="o">.</span><span class="n">H</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span></div></div>
 
 
-<div class="viewcode-block" id="UNICAT_MetadataValues"><a class="viewcode-back" href="../../../supplied_plugins/unicat.html#spec2nexus.plugins.unicat.UNICAT_MetadataValues">[docs]</a><span class="k">class</span> <span class="nc">UNICAT_MetadataValues</span><span class="p">(</span><span class="n">ControlLineHandler</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">AutoRegister</span><span class="p">):</span>
+<div class="viewcode-block" id="UNICAT_MetadataValues"><a class="viewcode-back" href="../../../supplied_plugins/unicat.html#spec2nexus.plugins.unicat.UNICAT_MetadataValues">[docs]</a><span class="k">class</span> <span class="nc">UNICAT_MetadataValues</span><span class="p">(</span><span class="n">ControlLineBase</span><span class="p">):</span>
 
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **#V** -- UNICAT metadata values (numbered rows: #V0, #V1, ...)</span>
@@ -226,7 +224,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">spec2nexus 29.g1ec3f15 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">spec2nexus 29.g196a5d0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">spec2nexus.plugins.unicat</a></li> 
       </ul>

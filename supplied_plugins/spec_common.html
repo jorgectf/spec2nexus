@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>SPEC standard plugin &#8212; spec2nexus 29.g1ec3f15 documentation</title>
+    <title>SPEC standard plugin &#8212; spec2nexus 29.g196a5d0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -42,9 +42,9 @@
         <li class="right" >
           <a href="fallback.html" title="Fallback plugin"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">spec2nexus 29.g1ec3f15 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">spec2nexus 29.g196a5d0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../contents.html" >Contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../plugin.html" accesskey="U"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.plugin</span></code></a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../plugin_core.html" accesskey="U"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.plugin</span></code></a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">SPEC standard plugin</a></li> 
       </ul>
     </div>  
@@ -82,7 +82,16 @@ string array of all comments from this scan block</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_Comment.process">
 <span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Comment.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Comment.process" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>required:</em> handle this line from a SPEC data file</p>
+<dd><p><em>required:</em> Handle this line from a SPEC data file.</p>
+<p>PARAMETERS</p>
+<dl class="simple">
+<dt>text str:</dt><dd><p>?raw text?</p>
+</dd>
+<dt>spec_obj obj:</dt><dd><p>Instance of <a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFile" title="spec2nexus.spec.SpecDataFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFile</span></code></a>,
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileHeader" title="spec2nexus.spec.SpecDataFileHeader"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileHeader</span></code></a>, or
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileScan</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -110,7 +119,16 @@ value <em>SPEC scan with constant counting time</em>, such as <em>/S1/counting_b
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_CountTime.process">
 <span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_CountTime.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_CountTime.process" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>required:</em> handle this line from a SPEC data file</p>
+<dd><p><em>required:</em> Handle this line from a SPEC data file.</p>
+<p>PARAMETERS</p>
+<dl class="simple">
+<dt>text str:</dt><dd><p>?raw text?</p>
+</dd>
+<dt>spec_obj obj:</dt><dd><p>Instance of <a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFile" title="spec2nexus.spec.SpecDataFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFile</span></code></a>,
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileHeader" title="spec2nexus.spec.SpecDataFileHeader"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileHeader</span></code></a>, or
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileScan</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -140,13 +158,22 @@ value <em>SPEC scan with constant counting time</em>, such as <em>/S1/counting_b
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_CounterMnemonics.postprocess">
 <span class="sig-name descname"><span class="pre">postprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_CounterMnemonics.postprocess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_CounterMnemonics.postprocess" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>optional:</em> additional processing deferred until <em>after</em> data file has been read</p>
+<dd><p><em>optional:</em> More processing deferred until <em>after</em> data file has been read.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_CounterMnemonics.process">
 <span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_CounterMnemonics.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_CounterMnemonics.process" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>required:</em> handle this line from a SPEC data file</p>
+<dd><p><em>required:</em> Handle this line from a SPEC data file.</p>
+<p>PARAMETERS</p>
+<dl class="simple">
+<dt>text str:</dt><dd><p>?raw text?</p>
+</dd>
+<dt>spec_obj obj:</dt><dd><p>Instance of <a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFile" title="spec2nexus.spec.SpecDataFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFile</span></code></a>,
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileHeader" title="spec2nexus.spec.SpecDataFileHeader"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileHeader</span></code></a>, or
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileScan</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -176,13 +203,22 @@ value <em>SPEC scan with constant counting time</em>, such as <em>/S1/counting_b
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_CounterNames.postprocess">
 <span class="sig-name descname"><span class="pre">postprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_CounterNames.postprocess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_CounterNames.postprocess" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>optional:</em> additional processing deferred until <em>after</em> data file has been read</p>
+<dd><p><em>optional:</em> More processing deferred until <em>after</em> data file has been read.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_CounterNames.process">
 <span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_CounterNames.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_CounterNames.process" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>required:</em> handle this line from a SPEC data file</p>
+<dd><p><em>required:</em> Handle this line from a SPEC data file.</p>
+<p>PARAMETERS</p>
+<dl class="simple">
+<dt>text str:</dt><dd><p>?raw text?</p>
+</dd>
+<dt>spec_obj obj:</dt><dd><p>Instance of <a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFile" title="spec2nexus.spec.SpecDataFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFile</span></code></a>,
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileHeader" title="spec2nexus.spec.SpecDataFileHeader"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileHeader</span></code></a>, or
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileScan</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -223,13 +259,22 @@ collected in <strong>data_lines</strong></p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_DataLine.postprocess">
 <span class="sig-name descname"><span class="pre">postprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_DataLine.postprocess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_DataLine.postprocess" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>optional:</em> additional processing deferred until <em>after</em> data file has been read</p>
+<dd><p><em>optional:</em> More processing deferred until <em>after</em> data file has been read.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_DataLine.process">
 <span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_DataLine.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_DataLine.process" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>required:</em> handle this line from a SPEC data file</p>
+<dd><p><em>required:</em> Handle this line from a SPEC data file.</p>
+<p>PARAMETERS</p>
+<dl class="simple">
+<dt>text str:</dt><dd><p>?raw text?</p>
+</dd>
+<dt>spec_obj obj:</dt><dd><p>Instance of <a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFile" title="spec2nexus.spec.SpecDataFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFile</span></code></a>,
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileHeader" title="spec2nexus.spec.SpecDataFileHeader"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileHeader</span></code></a>, or
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileScan</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -249,7 +294,16 @@ collected in <strong>data_lines</strong></p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_Date.process">
 <span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sdf_object</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Date.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Date.process" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>required:</em> handle this line from a SPEC data file</p>
+<dd><p><em>required:</em> Handle this line from a SPEC data file.</p>
+<p>PARAMETERS</p>
+<dl class="simple">
+<dt>text str:</dt><dd><p>?raw text?</p>
+</dd>
+<dt>spec_obj obj:</dt><dd><p>Instance of <a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFile" title="spec2nexus.spec.SpecDataFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFile</span></code></a>,
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileHeader" title="spec2nexus.spec.SpecDataFileHeader"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileHeader</span></code></a>, or
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileScan</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -277,7 +331,16 @@ start of a <em>header</em> block.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_Epoch.process">
 <span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">buf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sdf_object</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Epoch.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Epoch.process" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>required:</em> handle this line from a SPEC data file</p>
+<dd><p><em>required:</em> Handle this line from a SPEC data file.</p>
+<p>PARAMETERS</p>
+<dl class="simple">
+<dt>text str:</dt><dd><p>?raw text?</p>
+</dd>
+<dt>spec_obj obj:</dt><dd><p>Instance of <a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFile" title="spec2nexus.spec.SpecDataFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFile</span></code></a>,
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileHeader" title="spec2nexus.spec.SpecDataFileHeader"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileHeader</span></code></a>, or
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileScan</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -299,7 +362,16 @@ start of a <em>header</em> block.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_File.process">
 <span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spec_file_obj</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_File.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_File.process" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>required:</em> handle this line from a SPEC data file</p>
+<dd><p><em>required:</em> Handle this line from a SPEC data file.</p>
+<p>PARAMETERS</p>
+<dl class="simple">
+<dt>text str:</dt><dd><p>?raw text?</p>
+</dd>
+<dt>spec_obj obj:</dt><dd><p>Instance of <a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFile" title="spec2nexus.spec.SpecDataFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFile</span></code></a>,
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileHeader" title="spec2nexus.spec.SpecDataFileHeader"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileHeader</span></code></a>, or
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileScan</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -327,13 +399,22 @@ SPEC diffractometer support.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_Geometry.postprocess">
 <span class="sig-name descname"><span class="pre">postprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Geometry.postprocess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Geometry.postprocess" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>optional:</em> additional processing deferred until <em>after</em> data file has been read</p>
+<dd><p><em>optional:</em> More processing deferred until <em>after</em> data file has been read.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_Geometry.process">
 <span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Geometry.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Geometry.process" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>required:</em> handle this line from a SPEC data file</p>
+<dd><p><em>required:</em> Handle this line from a SPEC data file.</p>
+<p>PARAMETERS</p>
+<dl class="simple">
+<dt>text str:</dt><dd><p>?raw text?</p>
+</dd>
+<dt>spec_obj obj:</dt><dd><p>Instance of <a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFile" title="spec2nexus.spec.SpecDataFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFile</span></code></a>,
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileHeader" title="spec2nexus.spec.SpecDataFileHeader"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileHeader</span></code></a>, or
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileScan</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -359,7 +440,16 @@ SPEC diffractometer support.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_HKL.process">
 <span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_HKL.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_HKL.process" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>required:</em> handle this line from a SPEC data file</p>
+<dd><p><em>required:</em> Handle this line from a SPEC data file.</p>
+<p>PARAMETERS</p>
+<dl class="simple">
+<dt>text str:</dt><dd><p>?raw text?</p>
+</dd>
+<dt>spec_obj obj:</dt><dd><p>Instance of <a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFile" title="spec2nexus.spec.SpecDataFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFile</span></code></a>,
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileHeader" title="spec2nexus.spec.SpecDataFileHeader"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileHeader</span></code></a>, or
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileScan</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -389,7 +479,16 @@ collected in <strong>data_lines</strong></p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_Labels.process">
 <span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Labels.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Labels.process" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>required:</em> handle this line from a SPEC data file</p>
+<dd><p><em>required:</em> Handle this line from a SPEC data file.</p>
+<p>PARAMETERS</p>
+<dl class="simple">
+<dt>text str:</dt><dd><p>?raw text?</p>
+</dd>
+<dt>spec_obj obj:</dt><dd><p>Instance of <a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFile" title="spec2nexus.spec.SpecDataFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFile</span></code></a>,
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileHeader" title="spec2nexus.spec.SpecDataFileHeader"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileHeader</span></code></a>, or
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileScan</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -418,7 +517,16 @@ This format string is held by the global variable “MCA_FMT” and can then bee
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_MCA.process">
 <span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA.process" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>required:</em> handle this line from a SPEC data file</p>
+<dd><p><em>required:</em> Handle this line from a SPEC data file.</p>
+<p>PARAMETERS</p>
+<dl class="simple">
+<dt>text str:</dt><dd><p>?raw text?</p>
+</dd>
+<dt>spec_obj obj:</dt><dd><p>Instance of <a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFile" title="spec2nexus.spec.SpecDataFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFile</span></code></a>,
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileHeader" title="spec2nexus.spec.SpecDataFileHeader"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileHeader</span></code></a>, or
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileScan</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -456,13 +564,22 @@ this method reads the data lines and buffers them for post-processing in
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_MCA_Array.postprocess">
 <span class="sig-name descname"><span class="pre">postprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA_Array.postprocess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA_Array.postprocess" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>optional:</em> additional processing deferred until <em>after</em> data file has been read</p>
+<dd><p><em>optional:</em> More processing deferred until <em>after</em> data file has been read.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_MCA_Array.process">
 <span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA_Array.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA_Array.process" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>required:</em> handle this line from a SPEC data file</p>
+<dd><p><em>required:</em> Handle this line from a SPEC data file.</p>
+<p>PARAMETERS</p>
+<dl class="simple">
+<dt>text str:</dt><dd><p>?raw text?</p>
+</dd>
+<dt>spec_obj obj:</dt><dd><p>Instance of <a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFile" title="spec2nexus.spec.SpecDataFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFile</span></code></a>,
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileHeader" title="spec2nexus.spec.SpecDataFileHeader"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileHeader</span></code></a>, or
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileScan</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -490,7 +607,16 @@ this method reads the data lines and buffers them for post-processing in
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_MCA_Calibration.process">
 <span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA_Calibration.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA_Calibration.process" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>required:</em> handle this line from a SPEC data file</p>
+<dd><p><em>required:</em> Handle this line from a SPEC data file.</p>
+<p>PARAMETERS</p>
+<dl class="simple">
+<dt>text str:</dt><dd><p>?raw text?</p>
+</dd>
+<dt>spec_obj obj:</dt><dd><p>Instance of <a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFile" title="spec2nexus.spec.SpecDataFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFile</span></code></a>,
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileHeader" title="spec2nexus.spec.SpecDataFileHeader"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileHeader</span></code></a>, or
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileScan</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -524,7 +650,16 @@ this method reads the data lines and buffers them for post-processing in
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_MCA_ChannelInformation.process">
 <span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA_ChannelInformation.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA_ChannelInformation.process" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>required:</em> handle this line from a SPEC data file</p>
+<dd><p><em>required:</em> Handle this line from a SPEC data file.</p>
+<p>PARAMETERS</p>
+<dl class="simple">
+<dt>text str:</dt><dd><p>?raw text?</p>
+</dd>
+<dt>spec_obj obj:</dt><dd><p>Instance of <a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFile" title="spec2nexus.spec.SpecDataFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFile</span></code></a>,
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileHeader" title="spec2nexus.spec.SpecDataFileHeader"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileHeader</span></code></a>, or
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileScan</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -557,7 +692,16 @@ this method reads the data lines and buffers them for post-processing in
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_MCA_CountTime.process">
 <span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA_CountTime.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA_CountTime.process" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>required:</em> handle this line from a SPEC data file</p>
+<dd><p><em>required:</em> Handle this line from a SPEC data file.</p>
+<p>PARAMETERS</p>
+<dl class="simple">
+<dt>text str:</dt><dd><p>?raw text?</p>
+</dd>
+<dt>spec_obj obj:</dt><dd><p>Instance of <a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFile" title="spec2nexus.spec.SpecDataFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFile</span></code></a>,
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileHeader" title="spec2nexus.spec.SpecDataFileHeader"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileHeader</span></code></a>, or
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileScan</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -590,7 +734,16 @@ in the <em>NXentry</em> group, such as <em>/S1/MCA/ROI</em></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_MCA_RegionOfInterest.process">
 <span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_MCA_RegionOfInterest.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_MCA_RegionOfInterest.process" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>required:</em> handle this line from a SPEC data file</p>
+<dd><p><em>required:</em> Handle this line from a SPEC data file.</p>
+<p>PARAMETERS</p>
+<dl class="simple">
+<dt>text str:</dt><dd><p>?raw text?</p>
+</dd>
+<dt>spec_obj obj:</dt><dd><p>Instance of <a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFile" title="spec2nexus.spec.SpecDataFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFile</span></code></a>,
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileHeader" title="spec2nexus.spec.SpecDataFileHeader"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileHeader</span></code></a>, or
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileScan</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -618,7 +771,16 @@ value <em>SPEC scan with constant monitor count</em>, such as <em>/S1/counting_b
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_Monitor.process">
 <span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Monitor.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Monitor.process" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>required:</em> handle this line from a SPEC data file</p>
+<dd><p><em>required:</em> Handle this line from a SPEC data file.</p>
+<p>PARAMETERS</p>
+<dl class="simple">
+<dt>text str:</dt><dd><p>?raw text?</p>
+</dd>
+<dt>spec_obj obj:</dt><dd><p>Instance of <a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFile" title="spec2nexus.spec.SpecDataFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFile</span></code></a>,
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileHeader" title="spec2nexus.spec.SpecDataFileHeader"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileHeader</span></code></a>, or
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileScan</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -644,7 +806,16 @@ value <em>SPEC scan with constant monitor count</em>, such as <em>/S1/counting_b
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_NormalizingFactor.process">
 <span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_NormalizingFactor.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_NormalizingFactor.process" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>required:</em> handle this line from a SPEC data file</p>
+<dd><p><em>required:</em> Handle this line from a SPEC data file.</p>
+<p>PARAMETERS</p>
+<dl class="simple">
+<dt>text str:</dt><dd><p>?raw text?</p>
+</dd>
+<dt>spec_obj obj:</dt><dd><p>Instance of <a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFile" title="spec2nexus.spec.SpecDataFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFile</span></code></a>,
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileHeader" title="spec2nexus.spec.SpecDataFileHeader"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileHeader</span></code></a>, or
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileScan</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -670,7 +841,16 @@ value <em>SPEC scan with constant monitor count</em>, such as <em>/S1/counting_b
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_NumColumns.process">
 <span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_NumColumns.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_NumColumns.process" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>required:</em> handle this line from a SPEC data file</p>
+<dd><p><em>required:</em> Handle this line from a SPEC data file.</p>
+<p>PARAMETERS</p>
+<dl class="simple">
+<dt>text str:</dt><dd><p>?raw text?</p>
+</dd>
+<dt>spec_obj obj:</dt><dd><p>Instance of <a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFile" title="spec2nexus.spec.SpecDataFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFile</span></code></a>,
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileHeader" title="spec2nexus.spec.SpecDataFileHeader"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileHeader</span></code></a>, or
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileScan</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -694,13 +874,22 @@ value <em>SPEC scan with constant monitor count</em>, such as <em>/S1/counting_b
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_PositionerMnemonics.postprocess">
 <span class="sig-name descname"><span class="pre">postprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_PositionerMnemonics.postprocess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_PositionerMnemonics.postprocess" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>optional:</em> additional processing deferred until <em>after</em> data file has been read</p>
+<dd><p><em>optional:</em> More processing deferred until <em>after</em> data file has been read.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_PositionerMnemonics.process">
 <span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_PositionerMnemonics.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_PositionerMnemonics.process" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>required:</em> handle this line from a SPEC data file</p>
+<dd><p><em>required:</em> Handle this line from a SPEC data file.</p>
+<p>PARAMETERS</p>
+<dl class="simple">
+<dt>text str:</dt><dd><p>?raw text?</p>
+</dd>
+<dt>spec_obj obj:</dt><dd><p>Instance of <a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFile" title="spec2nexus.spec.SpecDataFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFile</span></code></a>,
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileHeader" title="spec2nexus.spec.SpecDataFileHeader"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileHeader</span></code></a>, or
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileScan</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -736,7 +925,16 @@ value <em>SPEC scan with constant monitor count</em>, such as <em>/S1/counting_b
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_PositionerNames.process">
 <span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sdf_object</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_PositionerNames.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_PositionerNames.process" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>required:</em> handle this line from a SPEC data file</p>
+<dd><p><em>required:</em> Handle this line from a SPEC data file.</p>
+<p>PARAMETERS</p>
+<dl class="simple">
+<dt>text str:</dt><dd><p>?raw text?</p>
+</dd>
+<dt>spec_obj obj:</dt><dd><p>Instance of <a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFile" title="spec2nexus.spec.SpecDataFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFile</span></code></a>,
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileHeader" title="spec2nexus.spec.SpecDataFileHeader"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileHeader</span></code></a>, or
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileScan</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -772,7 +970,16 @@ value <em>SPEC scan with constant monitor count</em>, such as <em>/S1/counting_b
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_Positioners.process">
 <span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Positioners.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Positioners.process" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>required:</em> handle this line from a SPEC data file</p>
+<dd><p><em>required:</em> Handle this line from a SPEC data file.</p>
+<p>PARAMETERS</p>
+<dl class="simple">
+<dt>text str:</dt><dd><p>?raw text?</p>
+</dd>
+<dt>spec_obj obj:</dt><dd><p>Instance of <a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFile" title="spec2nexus.spec.SpecDataFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFile</span></code></a>,
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileHeader" title="spec2nexus.spec.SpecDataFileHeader"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileHeader</span></code></a>, or
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileScan</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -809,7 +1016,16 @@ level, such as <em>/S1</em></p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_Scan.process">
 <span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">part</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sdf</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_Scan.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_Scan.process" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>required:</em> handle this line from a SPEC data file</p>
+<dd><p><em>required:</em> Handle this line from a SPEC data file.</p>
+<p>PARAMETERS</p>
+<dl class="simple">
+<dt>text str:</dt><dd><p>?raw text?</p>
+</dd>
+<dt>spec_obj obj:</dt><dd><p>Instance of <a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFile" title="spec2nexus.spec.SpecDataFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFile</span></code></a>,
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileHeader" title="spec2nexus.spec.SpecDataFileHeader"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileHeader</span></code></a>, or
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileScan</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -828,7 +1044,7 @@ and uses the <a class="reference internal" href="../scanf.html#spec2nexus.scanf.
 </pre></div>
 </div>
 <p>Depending on the circumstances, this might be a good candidate to override
-with a custom <em>ControlLineHandler</em> that parses the data as written.
+with a custom <em>ControlLineBase</em> that parses the data as written.
 If the conversion process fails for any reason in this implementation, the <em>#X</em> line is ignored.</p>
 <p>IN-MEMORY REPRESENTATION</p>
 <ul class="simple">
@@ -843,7 +1059,16 @@ If the conversion process fails for any reason in this implementation, the <em>#
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_TemperatureSetPoint.process">
 <span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_TemperatureSetPoint.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_TemperatureSetPoint.process" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>required:</em> handle this line from a SPEC data file</p>
+<dd><p><em>required:</em> Handle this line from a SPEC data file.</p>
+<p>PARAMETERS</p>
+<dl class="simple">
+<dt>text str:</dt><dd><p>?raw text?</p>
+</dd>
+<dt>spec_obj obj:</dt><dd><p>Instance of <a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFile" title="spec2nexus.spec.SpecDataFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFile</span></code></a>,
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileHeader" title="spec2nexus.spec.SpecDataFileHeader"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileHeader</span></code></a>, or
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileScan</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -873,7 +1098,16 @@ such as <em>/S1/UserReserved/header_1</em> and  <em>/S1/UserReserved/item_5</em>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_UserReserved.process">
 <span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sdf_object</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_UserReserved.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_UserReserved.process" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>required:</em> handle this line from a SPEC data file</p>
+<dd><p><em>required:</em> Handle this line from a SPEC data file.</p>
+<p>PARAMETERS</p>
+<dl class="simple">
+<dt>text str:</dt><dd><p>?raw text?</p>
+</dd>
+<dt>spec_obj obj:</dt><dd><p>Instance of <a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFile" title="spec2nexus.spec.SpecDataFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFile</span></code></a>,
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileHeader" title="spec2nexus.spec.SpecDataFileHeader"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileHeader</span></code></a>, or
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileScan</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -968,9 +1202,9 @@ are M sets of data columns on each line.</p>
         <li class="right" >
           <a href="fallback.html" title="Fallback plugin"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">spec2nexus 29.g1ec3f15 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">spec2nexus 29.g196a5d0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../contents.html" >Contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../plugin.html" ><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.plugin</span></code></a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../plugin_core.html" ><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.plugin</span></code></a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">SPEC standard plugin</a></li> 
       </ul>
     </div>

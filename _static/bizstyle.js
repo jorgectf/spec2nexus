@@ -36,6 +36,6 @@ $(window).resize(function(){
         $("li.nav-item-0 a").text("Top");
     }
     else {
-        $("li.nav-item-0 a").text("spec2nexus 29.g1ec3f15 documentation");
+        $("li.nav-item-0 a").text("spec2nexus 29.g196a5d0 documentation");
     }
 });

@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>spec2nexus.plugins.spec_common &#8212; spec2nexus 29.g1ec3f15 documentation</title>
+    <title>spec2nexus.plugins.spec_common &#8212; spec2nexus 29.g196a5d0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/bizstyle.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -32,7 +32,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">spec2nexus 29.g1ec3f15 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">spec2nexus 29.g196a5d0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">spec2nexus.plugins.spec_common</a></li> 
       </ul>
@@ -59,23 +59,24 @@
 <span class="kn">import</span> <span class="nn">datetime</span>
 <span class="kn">import</span> <span class="nn">time</span>
 
-<span class="kn">from</span> <span class="nn">..diffractometers</span> <span class="k">import</span> <span class="n">get_geometry_catalog</span><span class="p">,</span> <span class="n">Diffractometer</span>
-<span class="kn">from</span> <span class="nn">..eznx</span> <span class="k">import</span> <span class="n">write_dataset</span><span class="p">,</span> <span class="n">makeGroup</span><span class="p">,</span> <span class="n">openGroup</span><span class="p">,</span> <span class="n">makeLink</span>
-<span class="kn">from</span> <span class="nn">..plugin</span> <span class="k">import</span> <span class="n">AutoRegister</span><span class="p">,</span> <span class="n">ControlLineHandler</span>
-<span class="kn">from</span> <span class="nn">..scanf</span> <span class="k">import</span> <span class="n">scanf</span>
-<span class="kn">from</span> <span class="nn">..spec</span> <span class="k">import</span> <span class="p">(</span>
+<span class="kn">from</span> <span class="nn">spec2nexus.plugin_core</span> <span class="k">import</span> <span class="n">ControlLineBase</span>
+
+<span class="kn">from</span> <span class="nn">spec2nexus.diffractometers</span> <span class="k">import</span> <span class="n">get_geometry_catalog</span><span class="p">,</span> <span class="n">Diffractometer</span>
+<span class="kn">from</span> <span class="nn">spec2nexus.eznx</span> <span class="k">import</span> <span class="n">write_dataset</span><span class="p">,</span> <span class="n">makeGroup</span><span class="p">,</span> <span class="n">openGroup</span><span class="p">,</span> <span class="n">makeLink</span>
+<span class="kn">from</span> <span class="nn">spec2nexus.scanf</span> <span class="k">import</span> <span class="n">scanf</span>
+<span class="kn">from</span> <span class="nn">spec2nexus.spec</span> <span class="k">import</span> <span class="p">(</span>
     <span class="n">SpecDataFileHeader</span><span class="p">,</span>
     <span class="n">SpecDataFileScan</span><span class="p">,</span>
     <span class="n">DuplicateSpecScanNumber</span><span class="p">,</span>
     <span class="n">MCA_DATA_KEY</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="kn">from</span> <span class="nn">..utils</span> <span class="k">import</span> <span class="p">(</span>
+<span class="kn">from</span> <span class="nn">spec2nexus.utils</span> <span class="k">import</span> <span class="p">(</span>
     <span class="n">strip_first_word</span><span class="p">,</span>
     <span class="n">iso8601</span><span class="p">,</span>
     <span class="n">split_column_labels</span><span class="p">,</span>
     <span class="n">clean_name</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="kn">from</span> <span class="nn">..writer</span> <span class="k">import</span> <span class="n">CONTAINER_CLASS</span>
+<span class="kn">from</span> <span class="nn">spec2nexus.writer</span> <span class="k">import</span> <span class="n">CONTAINER_CLASS</span>
 
 
 <span class="n">SCAN_DATA_KEY</span> <span class="o">=</span> <span class="s2">&quot;scan_data&quot;</span>
@@ -85,7 +86,7 @@
 <span class="c1"># header block</span>
 
 
-<div class="viewcode-block" id="SPEC_File"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_File">[docs]</a><span class="k">class</span> <span class="nc">SPEC_File</span><span class="p">(</span><span class="n">ControlLineHandler</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">AutoRegister</span><span class="p">):</span>
+<div class="viewcode-block" id="SPEC_File"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_File">[docs]</a><span class="k">class</span> <span class="nc">SPEC_File</span><span class="p">(</span><span class="n">ControlLineBase</span><span class="p">):</span>
 
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **#F** -- original data file name (starts a file header block)</span>
@@ -112,7 +113,7 @@
             <span class="n">spec_file_obj</span><span class="o">.</span><span class="n">specFile</span> <span class="o">=</span> <span class="n">strip_first_word</span><span class="p">(</span><span class="n">text</span><span class="p">)</span></div></div>
 
 
-<div class="viewcode-block" id="SPEC_Epoch"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_Epoch">[docs]</a><span class="k">class</span> <span class="nc">SPEC_Epoch</span><span class="p">(</span><span class="n">ControlLineHandler</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">AutoRegister</span><span class="p">):</span>
+<div class="viewcode-block" id="SPEC_Epoch"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_Epoch">[docs]</a><span class="k">class</span> <span class="nc">SPEC_Epoch</span><span class="p">(</span><span class="n">ControlLineBase</span><span class="p">):</span>
 
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **#E** -- the UNIX epoch (seconds from 00:00 GMT 1/1/70)</span>
@@ -149,7 +150,7 @@
         <span class="n">header</span><span class="o">.</span><span class="n">interpret</span><span class="p">()</span>  <span class="c1"># parse the full header</span></div></div>
 
 
-<div class="viewcode-block" id="SPEC_Date"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_Date">[docs]</a><span class="k">class</span> <span class="nc">SPEC_Date</span><span class="p">(</span><span class="n">ControlLineHandler</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">AutoRegister</span><span class="p">):</span>
+<div class="viewcode-block" id="SPEC_Date"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_Date">[docs]</a><span class="k">class</span> <span class="nc">SPEC_Date</span><span class="p">(</span><span class="n">ControlLineBase</span><span class="p">):</span>
 
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **#D** -- date/time stamp</span>
@@ -193,7 +194,7 @@
         <span class="n">write_dataset</span><span class="p">(</span><span class="n">h5parent</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="n">iso8601</span><span class="p">(</span><span class="n">sdf_object</span><span class="o">.</span><span class="n">date</span><span class="p">))</span></div></div>
 
 
-<div class="viewcode-block" id="SPEC_Comment"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_Comment">[docs]</a><span class="k">class</span> <span class="nc">SPEC_Comment</span><span class="p">(</span><span class="n">ControlLineHandler</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">AutoRegister</span><span class="p">):</span>
+<div class="viewcode-block" id="SPEC_Comment"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_Comment">[docs]</a><span class="k">class</span> <span class="nc">SPEC_Comment</span><span class="p">(</span><span class="n">ControlLineBase</span><span class="p">):</span>
 
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **#C** -- any comment either in the scan header or somewhere in the scan</span>
@@ -235,7 +236,7 @@
 <span class="c1"># scan block</span>
 
 
-<div class="viewcode-block" id="SPEC_Scan"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_Scan">[docs]</a><span class="k">class</span> <span class="nc">SPEC_Scan</span><span class="p">(</span><span class="n">ControlLineHandler</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">AutoRegister</span><span class="p">):</span>
+<div class="viewcode-block" id="SPEC_Scan"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_Scan">[docs]</a><span class="k">class</span> <span class="nc">SPEC_Scan</span><span class="p">(</span><span class="n">ControlLineBase</span><span class="p">):</span>
 
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **#S** -- SPEC scan</span>
@@ -333,7 +334,7 @@
         <span class="n">sdf</span><span class="o">.</span><span class="n">scans</span><span class="p">[</span><span class="n">scan</span><span class="o">.</span><span class="n">scanNum</span><span class="p">]</span> <span class="o">=</span> <span class="n">scan</span></div></div>
 
 
-<div class="viewcode-block" id="SPEC_Geometry"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_Geometry">[docs]</a><span class="k">class</span> <span class="nc">SPEC_Geometry</span><span class="p">(</span><span class="n">ControlLineHandler</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">AutoRegister</span><span class="p">):</span>
+<div class="viewcode-block" id="SPEC_Geometry"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_Geometry">[docs]</a><span class="k">class</span> <span class="nc">SPEC_Geometry</span><span class="p">(</span><span class="n">ControlLineBase</span><span class="p">):</span>
 
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **#G** -- diffractometer geometry (numbered rows: #G0, #G1, ...)</span>
@@ -500,7 +501,7 @@
                     <span class="p">)</span></div></div>
 
 
-<div class="viewcode-block" id="SPEC_NormalizingFactor"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_NormalizingFactor">[docs]</a><span class="k">class</span> <span class="nc">SPEC_NormalizingFactor</span><span class="p">(</span><span class="n">ControlLineHandler</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">AutoRegister</span><span class="p">):</span>
+<div class="viewcode-block" id="SPEC_NormalizingFactor"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_NormalizingFactor">[docs]</a><span class="k">class</span> <span class="nc">SPEC_NormalizingFactor</span><span class="p">(</span><span class="n">ControlLineBase</span><span class="p">):</span>
 
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **#I** -- intensity normalizing factor</span>
@@ -526,7 +527,7 @@
             <span class="n">writer</span><span class="o">.</span><span class="n">write_dataset</span><span class="p">(</span><span class="n">h5parent</span><span class="p">,</span> <span class="s2">&quot;intensity_factor&quot;</span><span class="p">,</span> <span class="n">scan</span><span class="o">.</span><span class="n">I</span><span class="p">)</span></div></div>
 
 
-<div class="viewcode-block" id="SPEC_CounterNames"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_CounterNames">[docs]</a><span class="k">class</span> <span class="nc">SPEC_CounterNames</span><span class="p">(</span><span class="n">ControlLineHandler</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">AutoRegister</span><span class="p">):</span>
+<div class="viewcode-block" id="SPEC_CounterNames"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_CounterNames">[docs]</a><span class="k">class</span> <span class="nc">SPEC_CounterNames</span><span class="p">(</span><span class="n">ControlLineBase</span><span class="p">):</span>
 
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **#J** -- names of counters (each separated by two spaces) (new with SPEC v6)</span>
@@ -577,7 +578,7 @@
             <span class="n">write_dataset</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></div></div>
 
 
-<div class="viewcode-block" id="SPEC_CounterMnemonics"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_CounterMnemonics">[docs]</a><span class="k">class</span> <span class="nc">SPEC_CounterMnemonics</span><span class="p">(</span><span class="n">ControlLineHandler</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">AutoRegister</span><span class="p">):</span>
+<div class="viewcode-block" id="SPEC_CounterMnemonics"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_CounterMnemonics">[docs]</a><span class="k">class</span> <span class="nc">SPEC_CounterMnemonics</span><span class="p">(</span><span class="n">ControlLineBase</span><span class="p">):</span>
 
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **#j** -- mnemonics of counter  (new with SPEC v6)</span>
@@ -639,7 +640,7 @@
             <span class="n">header</span><span class="o">.</span><span class="n">counter_xref</span><span class="p">[</span><span class="n">mne</span><span class="p">]</span> <span class="o">=</span> <span class="n">name_row</span><span class="p">[</span><span class="n">column_number</span><span class="p">]</span>
 
 
-<div class="viewcode-block" id="SPEC_Labels"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_Labels">[docs]</a><span class="k">class</span> <span class="nc">SPEC_Labels</span><span class="p">(</span><span class="n">ControlLineHandler</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">AutoRegister</span><span class="p">):</span>
+<div class="viewcode-block" id="SPEC_Labels"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_Labels">[docs]</a><span class="k">class</span> <span class="nc">SPEC_Labels</span><span class="p">(</span><span class="n">ControlLineBase</span><span class="p">):</span>
 
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **#L** -- data column labels</span>
@@ -677,7 +678,7 @@
         <span class="n">scan</span><span class="o">.</span><span class="n">column_last</span> <span class="o">=</span> <span class="n">scan</span><span class="o">.</span><span class="n">L</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span></div></div>
 
 
-<div class="viewcode-block" id="SPEC_Monitor"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_Monitor">[docs]</a><span class="k">class</span> <span class="nc">SPEC_Monitor</span><span class="p">(</span><span class="n">ControlLineHandler</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">AutoRegister</span><span class="p">):</span>
+<div class="viewcode-block" id="SPEC_Monitor"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_Monitor">[docs]</a><span class="k">class</span> <span class="nc">SPEC_Monitor</span><span class="p">(</span><span class="n">ControlLineBase</span><span class="p">):</span>
 
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **#M** -- counting against this constant monitor count (see #T)</span>
@@ -714,7 +715,7 @@
         <span class="p">)</span></div></div>
 
 
-<div class="viewcode-block" id="SPEC_NumColumns"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_NumColumns">[docs]</a><span class="k">class</span> <span class="nc">SPEC_NumColumns</span><span class="p">(</span><span class="n">ControlLineHandler</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">AutoRegister</span><span class="p">):</span>
+<div class="viewcode-block" id="SPEC_NumColumns"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_NumColumns">[docs]</a><span class="k">class</span> <span class="nc">SPEC_NumColumns</span><span class="p">(</span><span class="n">ControlLineBase</span><span class="p">):</span>
 
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **#N** -- number of columns of data [ num2 sets per row ]</span>
@@ -736,7 +737,7 @@
         <span class="n">scan</span><span class="o">.</span><span class="n">N</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">strip_first_word</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span></div></div>
 
 
-<div class="viewcode-block" id="SPEC_PositionerNames"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_PositionerNames">[docs]</a><span class="k">class</span> <span class="nc">SPEC_PositionerNames</span><span class="p">(</span><span class="n">ControlLineHandler</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">AutoRegister</span><span class="p">):</span>
+<div class="viewcode-block" id="SPEC_PositionerNames"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_PositionerNames">[docs]</a><span class="k">class</span> <span class="nc">SPEC_PositionerNames</span><span class="p">(</span><span class="n">ControlLineBase</span><span class="p">):</span>
 
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **#O** -- positioner names (numbered rows: #O0, #O1, ...)</span>
@@ -775,7 +776,7 @@
         <span class="n">sdf_object</span><span class="o">.</span><span class="n">O</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">content</span><span class="p">)</span></div></div>
 
 
-<div class="viewcode-block" id="SPEC_PositionerMnemonics"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_PositionerMnemonics">[docs]</a><span class="k">class</span> <span class="nc">SPEC_PositionerMnemonics</span><span class="p">(</span><span class="n">ControlLineHandler</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">AutoRegister</span><span class="p">):</span>
+<div class="viewcode-block" id="SPEC_PositionerMnemonics"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_PositionerMnemonics">[docs]</a><span class="k">class</span> <span class="nc">SPEC_PositionerMnemonics</span><span class="p">(</span><span class="n">ControlLineBase</span><span class="p">):</span>
 
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **#o** -- positioner mnemonics (new with SPEC v6)</span>
@@ -842,7 +843,7 @@
             <span class="n">header</span><span class="o">.</span><span class="n">positioner_xref</span><span class="p">[</span><span class="n">mne</span><span class="p">]</span> <span class="o">=</span> <span class="n">name_row</span><span class="p">[</span><span class="n">column_number</span><span class="p">]</span>
 
 
-<div class="viewcode-block" id="SPEC_Positioners"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_Positioners">[docs]</a><span class="k">class</span> <span class="nc">SPEC_Positioners</span><span class="p">(</span><span class="n">ControlLineHandler</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">AutoRegister</span><span class="p">):</span>
+<div class="viewcode-block" id="SPEC_Positioners"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_Positioners">[docs]</a><span class="k">class</span> <span class="nc">SPEC_Positioners</span><span class="p">(</span><span class="n">ControlLineBase</span><span class="p">):</span>
 
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **#P** -- positioner values at start of scan (numbered rows: #P0, #P1, ...)</span>
@@ -915,7 +916,7 @@
         <span class="n">makeLink</span><span class="p">(</span><span class="n">h5parent</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">nxinstrument</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;/positioners&quot;</span><span class="p">)</span></div></div>
 
 
-<div class="viewcode-block" id="SPEC_HKL"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_HKL">[docs]</a><span class="k">class</span> <span class="nc">SPEC_HKL</span><span class="p">(</span><span class="n">ControlLineHandler</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">AutoRegister</span><span class="p">):</span>
+<div class="viewcode-block" id="SPEC_HKL"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_HKL">[docs]</a><span class="k">class</span> <span class="nc">SPEC_HKL</span><span class="p">(</span><span class="n">ControlLineBase</span><span class="p">):</span>
 
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **#Q** -- :math:`Q` (:math:`hkl`) at start of scan</span>
@@ -944,7 +945,7 @@
         <span class="n">write_dataset</span><span class="p">(</span><span class="n">h5parent</span><span class="p">,</span> <span class="s2">&quot;Q&quot;</span><span class="p">,</span> <span class="n">scan</span><span class="o">.</span><span class="n">Q</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="n">desc</span><span class="p">)</span></div></div>
 
 
-<div class="viewcode-block" id="SPEC_CountTime"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_CountTime">[docs]</a><span class="k">class</span> <span class="nc">SPEC_CountTime</span><span class="p">(</span><span class="n">ControlLineHandler</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">AutoRegister</span><span class="p">):</span>
+<div class="viewcode-block" id="SPEC_CountTime"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_CountTime">[docs]</a><span class="k">class</span> <span class="nc">SPEC_CountTime</span><span class="p">(</span><span class="n">ControlLineBase</span><span class="p">):</span>
 
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **#T** -- counting against this constant number of seconds (see #M)</span>
@@ -981,7 +982,7 @@
         <span class="p">)</span></div></div>
 
 
-<div class="viewcode-block" id="SPEC_UserReserved"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_UserReserved">[docs]</a><span class="k">class</span> <span class="nc">SPEC_UserReserved</span><span class="p">(</span><span class="n">ControlLineHandler</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">AutoRegister</span><span class="p">):</span>
+<div class="viewcode-block" id="SPEC_UserReserved"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_UserReserved">[docs]</a><span class="k">class</span> <span class="nc">SPEC_UserReserved</span><span class="p">(</span><span class="n">ControlLineBase</span><span class="p">):</span>
 
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **#U** -- Reserved for user</span>
@@ -1027,7 +1028,7 @@
             <span class="p">)</span></div></div>
 
 
-<div class="viewcode-block" id="SPEC_TemperatureSetPoint"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_TemperatureSetPoint">[docs]</a><span class="k">class</span> <span class="nc">SPEC_TemperatureSetPoint</span><span class="p">(</span><span class="n">ControlLineHandler</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">AutoRegister</span><span class="p">):</span>
+<div class="viewcode-block" id="SPEC_TemperatureSetPoint"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_TemperatureSetPoint">[docs]</a><span class="k">class</span> <span class="nc">SPEC_TemperatureSetPoint</span><span class="p">(</span><span class="n">ControlLineBase</span><span class="p">):</span>
 
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **#X** -- Temperature Set Point (desired temperature)</span>
@@ -1042,7 +1043,7 @@
 <span class="sd">        fmt = &quot;#X %fKohm (%fC)&quot;</span>
 
 <span class="sd">    Depending on the circumstances, this might be a good candidate to override</span>
-<span class="sd">    with a custom *ControlLineHandler* that parses the data as written.</span>
+<span class="sd">    with a custom *ControlLineBase* that parses the data as written.</span>
 <span class="sd">    If the conversion process fails for any reason in this implementation, the *#X* line is ignored.</span>
 
 <span class="sd">    IN-MEMORY REPRESENTATION</span>
@@ -1092,7 +1093,7 @@
             <span class="p">)</span></div></div>
 
 
-<div class="viewcode-block" id="SPEC_DataLine"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_DataLine">[docs]</a><span class="k">class</span> <span class="nc">SPEC_DataLine</span><span class="p">(</span><span class="n">ControlLineHandler</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">AutoRegister</span><span class="p">):</span>
+<div class="viewcode-block" id="SPEC_DataLine"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_DataLine">[docs]</a><span class="k">class</span> <span class="nc">SPEC_DataLine</span><span class="p">(</span><span class="n">ControlLineBase</span><span class="p">):</span>
 
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **(scan_data)** -- scan data line</span>
@@ -1151,7 +1152,7 @@
 <span class="c1"># see ESRF BLISS group: https://www.esrf.eu/blissdb/macros/getsource.py?macname=mca.mac</span>
 
 
-<div class="viewcode-block" id="SPEC_MCA"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_MCA">[docs]</a><span class="k">class</span> <span class="nc">SPEC_MCA</span><span class="p">(</span><span class="n">ControlLineHandler</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">AutoRegister</span><span class="p">):</span>
+<div class="viewcode-block" id="SPEC_MCA"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_MCA">[docs]</a><span class="k">class</span> <span class="nc">SPEC_MCA</span><span class="p">(</span><span class="n">ControlLineBase</span><span class="p">):</span>
 
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **#@MCA** -- MCA data formatting declaration (ignored for now)</span>
@@ -1184,7 +1185,7 @@
         <span class="k">pass</span>  <span class="c1"># not sure how to handle this, ignore it for now</span></div></div>
 
 
-<div class="viewcode-block" id="SPEC_MCA_Array"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_MCA_Array">[docs]</a><span class="k">class</span> <span class="nc">SPEC_MCA_Array</span><span class="p">(</span><span class="n">ControlLineHandler</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">AutoRegister</span><span class="p">):</span>
+<div class="viewcode-block" id="SPEC_MCA_Array"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_MCA_Array">[docs]</a><span class="k">class</span> <span class="nc">SPEC_MCA_Array</span><span class="p">(</span><span class="n">ControlLineBase</span><span class="p">):</span>
 
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **@A** -- MCA Array data</span>
@@ -1229,7 +1230,7 @@
         <span class="n">data_lines_postprocessing</span><span class="p">(</span><span class="n">scan</span><span class="p">)</span></div></div>
 
 
-<div class="viewcode-block" id="SPEC_MCA_Calibration"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_MCA_Calibration">[docs]</a><span class="k">class</span> <span class="nc">SPEC_MCA_Calibration</span><span class="p">(</span><span class="n">ControlLineHandler</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">AutoRegister</span><span class="p">):</span>
+<div class="viewcode-block" id="SPEC_MCA_Calibration"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_MCA_Calibration">[docs]</a><span class="k">class</span> <span class="nc">SPEC_MCA_Calibration</span><span class="p">(</span><span class="n">ControlLineBase</span><span class="p">):</span>
 
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **#@CALIB** -- coefficients to compute a scale based on the MCA channel number</span>
@@ -1288,7 +1289,7 @@
                         <span class="p">)</span></div></div>
 
 
-<div class="viewcode-block" id="SPEC_MCA_ChannelInformation"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_MCA_ChannelInformation">[docs]</a><span class="k">class</span> <span class="nc">SPEC_MCA_ChannelInformation</span><span class="p">(</span><span class="n">ControlLineHandler</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">AutoRegister</span><span class="p">):</span>
+<div class="viewcode-block" id="SPEC_MCA_ChannelInformation"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_MCA_ChannelInformation">[docs]</a><span class="k">class</span> <span class="nc">SPEC_MCA_ChannelInformation</span><span class="p">(</span><span class="n">ControlLineBase</span><span class="p">):</span>
 
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **#@CHANN** -- MCA channel information</span>
@@ -1349,7 +1350,7 @@
                 <span class="n">makeLink</span><span class="p">(</span><span class="n">h5parent</span><span class="p">,</span> <span class="n">mca_group</span><span class="p">,</span> <span class="n">nxinstrument</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;/MCA&quot;</span><span class="p">)</span></div></div>
 
 
-<div class="viewcode-block" id="SPEC_MCA_CountTime"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_MCA_CountTime">[docs]</a><span class="k">class</span> <span class="nc">SPEC_MCA_CountTime</span><span class="p">(</span><span class="n">ControlLineHandler</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">AutoRegister</span><span class="p">):</span>
+<div class="viewcode-block" id="SPEC_MCA_CountTime"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_MCA_CountTime">[docs]</a><span class="k">class</span> <span class="nc">SPEC_MCA_CountTime</span><span class="p">(</span><span class="n">ControlLineBase</span><span class="p">):</span>
 
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **#@CTIME** -- MCA count times</span>
@@ -1410,7 +1411,7 @@
                 <span class="n">makeLink</span><span class="p">(</span><span class="n">h5parent</span><span class="p">,</span> <span class="n">mca_group</span><span class="p">,</span> <span class="n">nxinstrument</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;/MCA&quot;</span><span class="p">)</span></div></div>
 
 
-<div class="viewcode-block" id="SPEC_MCA_RegionOfInterest"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_MCA_RegionOfInterest">[docs]</a><span class="k">class</span> <span class="nc">SPEC_MCA_RegionOfInterest</span><span class="p">(</span><span class="n">ControlLineHandler</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">AutoRegister</span><span class="p">):</span>
+<div class="viewcode-block" id="SPEC_MCA_RegionOfInterest"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_MCA_RegionOfInterest">[docs]</a><span class="k">class</span> <span class="nc">SPEC_MCA_RegionOfInterest</span><span class="p">(</span><span class="n">ControlLineBase</span><span class="p">):</span>
 
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **#@ROI** -- MCA ROI (Region Of Interest) channel information</span>
@@ -1646,7 +1647,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">spec2nexus 29.g1ec3f15 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">spec2nexus 29.g196a5d0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">spec2nexus.plugins.spec_common</a></li> 
       </ul>

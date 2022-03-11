@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>spec2nexus.plugins.fallback &#8212; spec2nexus 29.g1ec3f15 documentation</title>
+    <title>spec2nexus.plugins.fallback &#8212; spec2nexus 29.g196a5d0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/bizstyle.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -32,7 +32,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">spec2nexus 29.g1ec3f15 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">spec2nexus 29.g196a5d0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">spec2nexus.plugins.fallback</a></li> 
       </ul>
@@ -44,21 +44,19 @@
           <div class="body" role="main">
             
   <h1>Source code for spec2nexus.plugins.fallback</h1><div class="highlight"><pre>
-<span></span><span class="ch">#!/usr/bin/env python</span>
-<span class="c1"># -*- coding: utf-8 -*-</span>
-
-<span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Fallback handling for any SPEC data file control lines not recognized by other handlers</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">OrderedDict</span>
+<span class="c1"># use absolute imports (not relative)</span>
+<span class="kn">from</span> <span class="nn">spec2nexus.eznx</span> <span class="k">import</span> <span class="n">makeGroup</span>
+<span class="kn">from</span> <span class="nn">spec2nexus.plugin_core</span> <span class="k">import</span> <span class="n">ControlLineBase</span>
+<span class="kn">from</span> <span class="nn">spec2nexus.spec</span> <span class="k">import</span> <span class="n">UNRECOGNIZED_KEY</span>
+<span class="kn">from</span> <span class="nn">spec2nexus.spec</span> <span class="k">import</span> <span class="n">SpecDataFileHeader</span>
+<span class="kn">from</span> <span class="nn">spec2nexus.spec</span> <span class="k">import</span> <span class="n">SpecDataFileScan</span>
 
-<span class="kn">from</span> <span class="nn">..eznx</span> <span class="k">import</span> <span class="n">makeGroup</span>
-<span class="kn">from</span> <span class="nn">..plugin</span> <span class="k">import</span> <span class="n">AutoRegister</span><span class="p">,</span> <span class="n">ControlLineHandler</span>
-<span class="kn">from</span> <span class="nn">..spec</span> <span class="k">import</span> <span class="n">UNRECOGNIZED_KEY</span><span class="p">,</span> <span class="n">SpecDataFileHeader</span><span class="p">,</span> <span class="n">SpecDataFileScan</span>
 
-
-<div class="viewcode-block" id="UnrecognizedControlLine"><a class="viewcode-back" href="../../../supplied_plugins/fallback.html#spec2nexus.plugins.fallback.UnrecognizedControlLine">[docs]</a><span class="k">class</span> <span class="nc">UnrecognizedControlLine</span><span class="p">(</span><span class="n">ControlLineHandler</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">AutoRegister</span><span class="p">):</span>
+<div class="viewcode-block" id="UnrecognizedControlLine"><a class="viewcode-back" href="../../../supplied_plugins/fallback.html#spec2nexus.plugins.fallback.UnrecognizedControlLine">[docs]</a><span class="k">class</span> <span class="nc">UnrecognizedControlLine</span><span class="p">(</span><span class="n">ControlLineBase</span><span class="p">):</span>
 
     <span class="sd">&quot;&quot;&quot;unrecognized control line&quot;&quot;&quot;</span>
 
@@ -70,9 +68,7 @@
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">spec_obj</span><span class="p">,</span> <span class="s2">&quot;_unrecognized&quot;</span><span class="p">):</span>
             <span class="n">spec_obj</span><span class="o">.</span><span class="n">_unrecognized</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">spec_obj</span><span class="o">.</span><span class="n">_unrecognized</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">spec_obj</span><span class="p">,</span> <span class="n">SpecDataFileHeader</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span>
-            <span class="n">spec_obj</span><span class="p">,</span> <span class="n">SpecDataFileScan</span>
-        <span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">spec_obj</span><span class="p">,</span> <span class="p">(</span><span class="n">SpecDataFileHeader</span><span class="p">,</span> <span class="n">SpecDataFileScan</span><span class="p">)):</span>
             <span class="n">spec_obj</span><span class="o">.</span><span class="n">addH5writer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">writer</span><span class="p">)</span>
 
 <div class="viewcode-block" id="UnrecognizedControlLine.writer"><a class="viewcode-back" href="../../../supplied_plugins/fallback.html#spec2nexus.plugins.fallback.UnrecognizedControlLine.writer">[docs]</a>    <span class="k">def</span> <span class="nf">writer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h5parent</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="n">scan</span><span class="p">,</span> <span class="n">nxclass</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">):</span>
@@ -87,9 +83,7 @@
             <span class="k">if</span> <span class="n">nm</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">h5parent</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
                 <span class="n">group</span> <span class="o">=</span> <span class="n">makeGroup</span><span class="p">(</span><span class="n">h5parent</span><span class="p">,</span> <span class="n">nm</span><span class="p">,</span> <span class="n">nxclass</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="n">desc</span><span class="p">)</span>
                 <span class="n">success</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="n">dd</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
-        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">_unrecognized</span><span class="p">):</span>
-            <span class="n">dd</span><span class="p">[</span><span class="s2">&quot;u&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="n">dd</span> <span class="o">=</span> <span class="p">{</span><span class="n">f</span><span class="s2">&quot;u</span><span class="si">{i}</span><span class="s2">&quot;</span><span class="p">:</span> <span class="n">value</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">_unrecognized</span><span class="p">)}</span>
         <span class="n">writer</span><span class="o">.</span><span class="n">save_dict</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">dd</span><span class="p">)</span></div></div>
 
 <span class="c1"># -----------------------------------------------------------------------------</span>
@@ -132,7 +126,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">spec2nexus 29.g1ec3f15 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">spec2nexus 29.g196a5d0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">spec2nexus.plugins.fallback</a></li> 
       </ul>
