@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="spec2nexus.charts" href="charts.html" /><link rel="prev" title="specplot_gallery" href="specplot_gallery.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.03.04"/>
-        <title>spec2nexus.spec - spec2nexus 2021.1.11 (46.g48038d3)</title>
+        <title>spec2nexus.spec - spec2nexus 2021.1.11 (48.g04495f1)</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=935aa2abcc5c1da4283d1dc201fb1f0add16d23a" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -122,7 +122,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">spec2nexus 2021.1.11 (46.g48038d3)</div></a>
+      <a href="index.html"><div class="brand">spec2nexus 2021.1.11 (48.g04495f1)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -145,7 +145,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.1.11 (46.g48038d3)</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.1.11 (48.g04495f1)</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -303,7 +303,7 @@ alphabetically by scan number:</p>
 </section>
 <section id="select-from-the-list-of-the-scans">
 <h3>Select from the list of the scans<a class="headerlink" href="#select-from-the-list-of-the-scans" title="Permalink to this headline">#</a></h3>
-<p>Get a scan (or list of scans) by _slicing_ from the
+<p>Get a scan (or list of scans) by <em>slicing</em> from the
 <a class="reference internal" href="#spec2nexus.spec.SpecDataFile" title="spec2nexus.spec.SpecDataFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFile()</span></code></a> object.</p>
 <p>EXAMPLES:</p>
 <p>First, read a SPEC data file:</p>
@@ -322,7 +322,7 @@ alphabetically by scan number:</p>
 <span class="go">73  ascan  micro_y 6.7515 7.1515  20 1</span>
 </pre></div>
 </div>
-<p>Show scan numbers below 4.  Since the slice uses <cite>:</cite> characters, it returns a
+<p>Show scan numbers below 4.  Since the slice uses <code class="docutils literal notranslate"><span class="pre">:</span></code> characters, it returns a
 list of scans:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">specscan</span> <span class="ow">in</span> <span class="n">specfile</span><span class="p">[:</span><span class="mi">4</span><span class="p">]:</span>
 <span class="gp">... </span>   <span class="nb">print</span><span class="p">(</span><span class="n">specscan</span><span class="p">)</span>
@@ -332,7 +332,7 @@ list of scans:</p>
 <span class="go">3  ascan  micro_y 4.75 6.75  50 1</span>
 </pre></div>
 </div>
-<p>Note there are two scans with scan number <cite>1</cite>.  Slice the first scan number 1:</p>
+<p>Note there are two scans with scan number <code class="docutils literal notranslate"><span class="pre">1</span></code>.  Slice the first scan number 1:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">specscan</span> <span class="ow">in</span> <span class="n">specfile</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="mi">0</span><span class="p">]:</span>
 <span class="gp">... </span>   <span class="nb">print</span><span class="p">(</span><span class="n">specscan</span><span class="p">)</span>
 <span class="go">1  ascan  herixE -17.3368 -7.33676  40 1</span>
@@ -360,7 +360,7 @@ list of scans:</p>
 <span class="go">False</span>
 </pre></div>
 </div>
-<p>Note that <cite>getScan()</cite> returns a single scan while slicing (using <cite>:</cite>) returns a
+<p>Note that <code class="docutils literal notranslate"><span class="pre">getScan()</span></code> returns a single scan while slicing (using <cite>:</cite>) returns a
 list.  This fails:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">specfile</span><span class="o">.</span><span class="n">getScan</span><span class="p">(</span><span class="mf">1.1</span><span class="p">)</span> <span class="o">==</span> <span class="n">specfile</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <span class="go">False</span>
@@ -412,9 +412,9 @@ the <code class="docutils literal notranslate"><span class="pre">given</span></c
 </tr>
 </tbody>
 </table></div>
-<ul class="simple">
+<ul>
 <li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">start</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">finish</span></code> take these meanings:</dt><dd><ul>
+<dt><code class="docutils literal notranslate"><span class="pre">start</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">finish</span></code> take these meanings:</dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">None</span></code> : match all</p></li>
 <li><p>string : will be converted to integer</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&gt;=0</span></code> : match by scan number (from SPEC data file <code class="docutils literal notranslate"><span class="pre">#S</span></code> lines)</p></li>
@@ -423,21 +423,6 @@ the <code class="docutils literal notranslate"><span class="pre">given</span></c
 </dd>
 </dl>
 </li>
-</ul>
-<aside class="sidebar">
-<p class="sidebar-title">duplicated scan numbers</p>
-<p>When there are _many_ duplicates of a scan number, it may be necessary to
-use a string representation to distinguish between, for example <code class="docutils literal notranslate"><span class="pre">.1</span></code> (second
-occurrence) and <code class="docutils literal notranslate"><span class="pre">.10</span></code> (eleventh occurrence).</p>
-<p>Examples:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">specfile</span><span class="p">[</span><span class="s1">'4.10'</span><span class="p">]</span> <span class="o">!=</span> <span class="n">specfile</span><span class="p">[</span><span class="mf">4.10</span><span class="p">]</span>
-<span class="go">False</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">specfile</span><span class="p">[</span><span class="s1">'4.1'</span><span class="p">]</span> <span class="o">==</span> <span class="n">specfile</span><span class="p">[</span><span class="mf">4.10</span><span class="p">]</span>
-<span class="go">True</span>
-</pre></div>
-</div>
-</aside>
-<ul>
 <li><dl>
 <dt><cite>which</cite> takes these meanings:</dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">None</span></code> : match all</p></li>
@@ -451,6 +436,17 @@ while <code class="docutils literal notranslate"><span class="pre">which=-1</spa
 </dl>
 </li>
 </ul>
+<p><strong>Many duplicated scan numbers</strong></p>
+<p>When there are <em>many</em> duplicates of a scan number, it may be necessary to
+use a string representation to distinguish between, for example <code class="docutils literal notranslate"><span class="pre">.1</span></code> (second
+occurrence) and <code class="docutils literal notranslate"><span class="pre">.10</span></code> (eleventh occurrence).</p>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">specfile</span><span class="p">[</span><span class="s1">'4.10'</span><span class="p">]</span> <span class="o">!=</span> <span class="n">specfile</span><span class="p">[</span><span class="mf">4.10</span><span class="p">]</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">specfile</span><span class="p">[</span><span class="s1">'4.1'</span><span class="p">]</span> <span class="o">==</span> <span class="n">specfile</span><span class="p">[</span><span class="mf">4.10</span><span class="p">]</span>
+<span class="go">True</span>
+</pre></div>
+</div>
 <hr class="docutils"/>
 </section>
 </section>
