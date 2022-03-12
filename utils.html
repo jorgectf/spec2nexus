@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="spec2nexus.scanf" href="scanf.html" /><link rel="prev" title="How to write a custom plugin module" href="how_to_write_plugin.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.03.04"/>
-        <title>Common Methods: spec2nexus.utils - spec2nexus 2021.1.11 (39.g6a05f85)</title>
+        <title>Common Methods: spec2nexus.utils - spec2nexus 2021.1.11 (46.g48038d3)</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=935aa2abcc5c1da4283d1dc201fb1f0add16d23a" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -122,7 +122,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">spec2nexus 2021.1.11 (39.g6a05f85)</div></a>
+      <a href="index.html"><div class="brand">spec2nexus 2021.1.11 (46.g48038d3)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -145,7 +145,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.1.11 (39.g6a05f85)</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.1.11 (46.g48038d3)</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -238,14 +238,20 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.utils.iso8601" title="spec2nexus.utils.iso8601"><code class="xref py py-obj docutils literal notranslate"><span class="pre">iso8601</span></code></a>(date)</p></td>
 <td><p>convert SPEC time (example: Wed Nov 03 13:39:34 2010) into ISO8601 string</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.utils.strip_first_word" title="spec2nexus.utils.strip_first_word"><code class="xref py py-obj docutils literal notranslate"><span class="pre">strip_first_word</span></code></a>(line)</p></td>
-<td><p>return everything after the first space on the line from the spec data file</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.utils.reshape_data" title="spec2nexus.utils.reshape_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reshape_data</span></code></a>(scan_data, scan_shape)</p></td>
+<td><p>Shape scan data from raw to different dimensionality</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.utils.sanitize_name" title="spec2nexus.utils.sanitize_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sanitize_name</span></code></a>(group, key)</p></td>
 <td><p>make name that is allowed by HDF5 and NeXus rules</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.utils.reshape_data" title="spec2nexus.utils.reshape_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reshape_data</span></code></a>(scan_data, scan_shape)</p></td>
-<td><p>Shape scan data from raw to different dimensionality</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.utils.split_column_labels" title="spec2nexus.utils.split_column_labels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">split_column_labels</span></code></a>(text)</p></td>
+<td><p>SPEC labels may contain one space</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.utils.split_scan_number_string" title="spec2nexus.utils.split_scan_number_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">split_scan_number_string</span></code></a>(key)</p></td>
+<td><p>Split a string scan number into its parts.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.utils.strip_first_word" title="spec2nexus.utils.strip_first_word"><code class="xref py py-obj docutils literal notranslate"><span class="pre">strip_first_word</span></code></a>(line)</p></td>
+<td><p>return everything after the first space on the line from the spec data file</p></td>
 </tr>
 </tbody>
 </table></div>
@@ -332,6 +338,24 @@ the rule that valid names cannot start with a digit.</p>
 <dt class="sig sig-object py" id="spec2nexus.utils.split_column_labels">
 <span class="sig-prename descclassname"><span class="pre">spec2nexus.utils.</span></span><span class="sig-name descname"><span class="pre">split_column_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/utils.html#split_column_labels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.utils.split_column_labels" title="Permalink to this definition">#</a></dt>
 <dd><p>SPEC labels may contain one space</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="spec2nexus.utils.split_scan_number_string">
+<span class="sig-prename descclassname"><span class="pre">spec2nexus.utils.</span></span><span class="sig-name descname"><span class="pre">split_scan_number_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/utils.html#split_scan_number_string"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.utils.split_scan_number_string" title="Permalink to this definition">#</a></dt>
+<dd><p>Split a string scan number into its parts.</p>
+<dl class="simple">
+<dt>key str:</dt><dd><p>A value from the list returned by <a class="reference internal" href="spec.html#spec2nexus.spec.SpecDataFile.getScanNumbers" title="spec2nexus.spec.SpecDataFile.getScanNumbers"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getScanNumbers()</span></code></a>.</p>
+</dd>
+<dt>returns:</dt><dd><p>tuple of (<cite>#S</cite> number, repeat occurrence number)</p>
+</dd>
+</dl>
+<p>EXAMPLES:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">split_scan_number_string</span><span class="p">(</span><span class="s2">"0"</span><span class="p">)</span>
+<span class="go">(0, 0)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">split_scan_number_string</span><span class="p">(</span><span class="s2">"0.5"</span><span class="p">)</span>
+<span class="go">(0, 5)</span>
+</pre></div>
+</div>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="spec2nexus.utils.strip_first_word">

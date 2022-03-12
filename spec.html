@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="spec2nexus.charts" href="charts.html" /><link rel="prev" title="specplot_gallery" href="specplot_gallery.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.03.04"/>
-        <title>spec2nexus.spec - spec2nexus 2021.1.11 (39.g6a05f85)</title>
+        <title>spec2nexus.spec - spec2nexus 2021.1.11 (46.g48038d3)</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=935aa2abcc5c1da4283d1dc201fb1f0add16d23a" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -122,7 +122,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">spec2nexus 2021.1.11 (39.g6a05f85)</div></a>
+      <a href="index.html"><div class="brand">spec2nexus 2021.1.11 (46.g48038d3)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -145,7 +145,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.1.11 (39.g6a05f85)</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.1.11 (46.g48038d3)</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -268,6 +268,16 @@ Here is a quick example how to use <a class="reference internal" href="#module-s
 <span class="n">ascan</span>  <span class="k">del</span> <span class="mf">84.3269</span> <span class="mf">84.9269</span>  <span class="mi">30</span> <span class="mi">1</span>
 </pre></div>
 </div>
+<p>Alternatively, it is possible to use choose a scan using <cite>[scan_number]</cite> syntax.
+This code is equivalent to the above:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">spec2nexus.spec</span> <span class="kn">import</span> <span class="n">SpecDataFile</span>
+
+<span class="n">specfile</span> <span class="o">=</span> <span class="n">SpecDataFile</span><span class="p">(</span><span class="s1">'data/33id_spec.dat'</span><span class="p">)</span>
+<span class="n">specscan</span> <span class="o">=</span> <span class="n">specfile</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+<span class="nb">print</span> <span class="n">specscan</span><span class="o">.</span><span class="n">scanNum</span>
+<span class="nb">print</span> <span class="n">specscan</span><span class="o">.</span><span class="n">scanCmd</span>
+</pre></div>
+</div>
 <p>The data columns are provided in a dictionary.  Using the example above,
 the dictionary is <code class="docutils literal notranslate"><span class="pre">specscan.data</span></code> where the keys are the column labels (from the
 #L line) and the values are from each row.  It is possible to make a default
@@ -281,27 +291,182 @@ plot of the last column vs. the first column.  Here’s how to find that data:</
 </section>
 <section id="get-a-list-of-the-scans">
 <h3>Get a list of the scans<a class="headerlink" href="#get-a-list-of-the-scans" title="Permalink to this headline">#</a></h3>
-<p>The complete list of scan numbers from the data file is obtained
-(sorting is necessary since the list of dictionary keys is returned
-in a scrambled order):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">all_scans</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">specfile</span><span class="o">.</span><span class="n">scans</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<p>The complete list of scan numbers from the data file is obtained, sorted
+alphabetically by scan number:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">all_scans</span> <span class="o">=</span> <span class="n">specfile</span><span class="o">.</span><span class="n">getScanNumbers</span><span class="p">()</span>
 </pre></div>
 </div>
+<p>Same list sorted by date &amp; time:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">all_scans</span> <span class="o">=</span> <span class="n">specfile</span><span class="o">.</span><span class="n">getScanNumbersChronological</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="select-from-the-list-of-the-scans">
+<h3>Select from the list of the scans<a class="headerlink" href="#select-from-the-list-of-the-scans" title="Permalink to this headline">#</a></h3>
+<p>Get a scan (or list of scans) by _slicing_ from the
+<a class="reference internal" href="#spec2nexus.spec.SpecDataFile" title="spec2nexus.spec.SpecDataFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFile()</span></code></a> object.</p>
+<p>EXAMPLES:</p>
+<p>First, read a SPEC data file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">spec2nexus.spec</span> <span class="kn">import</span> <span class="n">SpecDataFile</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">specfile</span> <span class="o">=</span> <span class="n">SpecDataFile</span><span class="p">(</span><span class="s1">'data/CdOsO'</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Show scan number 5:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">specscan</span> <span class="o">=</span> <span class="n">specfile</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">specscan</span><span class="p">)</span>
+<span class="go">5  ascan  stblx 1.925 3.925  50 1</span>
+</pre></div>
+</div>
+<p>Show the last scan:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">specfile</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="go">73  ascan  micro_y 6.7515 7.1515  20 1</span>
+</pre></div>
+</div>
+<p>Show scan numbers below 4.  Since the slice uses <cite>:</cite> characters, it returns a
+list of scans:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">specscan</span> <span class="ow">in</span> <span class="n">specfile</span><span class="p">[:</span><span class="mi">4</span><span class="p">]:</span>
+<span class="gp">... </span>   <span class="nb">print</span><span class="p">(</span><span class="n">specscan</span><span class="p">)</span>
+<span class="go">1  ascan  herixE -17.3368 -7.33676  40 1</span>
+<span class="go">1  ascan  herixE -1.00571 18.9943  20 30</span>
+<span class="go">2  ascan  herixE -22.3505 -12.3505  40 1</span>
+<span class="go">3  ascan  micro_y 4.75 6.75  50 1</span>
+</pre></div>
+</div>
+<p>Note there are two scans with scan number <cite>1</cite>.  Slice the first scan number 1:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">specscan</span> <span class="ow">in</span> <span class="n">specfile</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="mi">0</span><span class="p">]:</span>
+<span class="gp">... </span>   <span class="nb">print</span><span class="p">(</span><span class="n">specscan</span><span class="p">)</span>
+<span class="go">1  ascan  herixE -17.3368 -7.33676  40 1</span>
+</pre></div>
+</div>
+<p>Slice the second scan number 1:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">specscan</span> <span class="ow">in</span> <span class="n">specfile</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="mi">1</span><span class="p">]:</span>
+<span class="gp">... </span>   <span class="nb">print</span><span class="p">(</span><span class="n">specscan</span><span class="p">)</span>
+<span class="go">1  ascan  herixE -1.00571 18.9943  20 30</span>
+</pre></div>
+</div>
+<p>Slice the last one scan number (same result):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">specscan</span> <span class="ow">in</span> <span class="n">specfile</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>  <span class="c1"># slice the last one (same result)</span>
+<span class="gp">... </span>   <span class="nb">print</span><span class="p">(</span><span class="n">specscan</span><span class="p">)</span>
+<span class="go">1  ascan  herixE -1.00571 18.9943  20 30</span>
+</pre></div>
+</div>
+<p>Compare slicing methods.  Same scan:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">specfile</span><span class="o">.</span><span class="n">getScan</span><span class="p">(</span><span class="mf">1.1</span><span class="p">)</span> <span class="o">==</span> <span class="n">specfile</span><span class="p">[</span><span class="mf">1.1</span><span class="p">]</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>These are different scans:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">specfile</span><span class="o">.</span><span class="n">getScan</span><span class="p">(</span><span class="mf">1.1</span><span class="p">)</span> <span class="o">==</span> <span class="n">specfile</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<p>Note that <cite>getScan()</cite> returns a single scan while slicing (using <cite>:</cite>) returns a
+list.  This fails:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">specfile</span><span class="o">.</span><span class="n">getScan</span><span class="p">(</span><span class="mf">1.1</span><span class="p">)</span> <span class="o">==</span> <span class="n">specfile</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<p>and this succeeds:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">specfile</span><span class="o">.</span><span class="n">getScan</span><span class="p">(</span><span class="mf">1.1</span><span class="p">)]</span> <span class="o">==</span> <span class="n">specfile</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<section id="slice-parameters">
+<span id="index-1"></span><span id="id1"></span><h4>Slice Parameters<a class="headerlink" href="#slice-parameters" title="Permalink to this headline">#</a></h4>
+<p>When slicing the data file object for scans (<code class="docutils literal notranslate"><span class="pre">specfile[given]</span></code>), consider that
+the <code class="docutils literal notranslate"><span class="pre">given</span></code> slice has the parameters in the following table:</p>
+<div class="table-wrapper"><table class="docutils align-default">
+<colgroup>
+<col style="width: 17%"/>
+<col style="width: 83%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>slice</p></th>
+<th class="head"><p>meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">i</span></code></p></td>
+<td><p>one scan referenced by <code class="docutils literal notranslate"><span class="pre">i</span></code> (or <code class="docutils literal notranslate"><span class="pre">None</span></code> if not found)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">start:</span></code></p></td>
+<td><p>scan list from <code class="docutils literal notranslate"><span class="pre">start</span></code> (start &lt;= scan_number)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">:finish</span></code></p></td>
+<td><p>scan list up to <code class="docutils literal notranslate"><span class="pre">stop</span></code> (scan_number &lt; stop)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">::which</span></code></p></td>
+<td><p>scan list selecting from identical <code class="docutils literal notranslate"><span class="pre">#S</span></code> scan_number</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">start:finish:which</span></code></p></td>
+<td><p>scan list with full slicing syntax</p></td>
+</tr>
+<tr class="row-odd"><td><p>empty</p></td>
+<td><p>raises <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code> if <code class="docutils literal notranslate"><span class="pre">[]</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td><p>raises <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> if <code class="docutils literal notranslate"><span class="pre">[None]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">start:finish</span></code></p></td>
+<td><p>raises <code class="docutils literal notranslate"><span class="pre">IndexError</span></code> if <code class="docutils literal notranslate"><span class="pre">start</span></code> and <code class="docutils literal notranslate"><span class="pre">finish</span></code> have opposite signs (can’t mix relative and absolute slicing)</p></td>
+</tr>
+</tbody>
+</table></div>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">start</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">finish</span></code> take these meanings:</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code> : match all</p></li>
+<li><p>string : will be converted to integer</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;=0</span></code> : match by scan number (from SPEC data file <code class="docutils literal notranslate"><span class="pre">#S</span></code> lines)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;0</span></code> : match by relative position in the list of scans from <a class="reference internal" href="#spec2nexus.spec.SpecDataFile.getScanNumbersChronological" title="spec2nexus.spec.SpecDataFile.getScanNumbersChronological"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getScanNumbersChronological()</span></code></a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<aside class="sidebar">
+<p class="sidebar-title">duplicated scan numbers</p>
+<p>When there are _many_ duplicates of a scan number, it may be necessary to
+use a string representation to distinguish between, for example <code class="docutils literal notranslate"><span class="pre">.1</span></code> (second
+occurrence) and <code class="docutils literal notranslate"><span class="pre">.10</span></code> (eleventh occurrence).</p>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">specfile</span><span class="p">[</span><span class="s1">'4.10'</span><span class="p">]</span> <span class="o">!=</span> <span class="n">specfile</span><span class="p">[</span><span class="mf">4.10</span><span class="p">]</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">specfile</span><span class="p">[</span><span class="s1">'4.1'</span><span class="p">]</span> <span class="o">==</span> <span class="n">specfile</span><span class="p">[</span><span class="mf">4.10</span><span class="p">]</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</aside>
+<ul>
+<li><dl>
+<dt><cite>which</cite> takes these meanings:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code> : match all</p></li>
+<li><p>string : will be converted to integer</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;0</span></code> : match by relative position in the list of duplicated scan numbers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;=0</span></code> : match by specific number in the list of duplicated scan numbers</p></li>
+</ul>
+<p>Example: <code class="docutils literal notranslate"><span class="pre">which=1</span></code> will only match scan numbers with <code class="docutils literal notranslate"><span class="pre">.1</span></code>
+while <code class="docutils literal notranslate"><span class="pre">which=-1</span></code> will match the last of every scan number.</p>
+</dd>
+</dl>
+</li>
+</ul>
 <hr class="docutils"/>
 </section>
 </section>
+</section>
 <section id="spec-data-files">
-<span id="spec-keys"></span><span id="index-1"></span><h2>SPEC data files<a class="headerlink" href="#spec-data-files" title="Permalink to this headline">#</a></h2>
-<p>The SPEC data file format is described in the SPEC manual. <a class="footnote-reference brackets" href="#id2" id="id1">1</a>
+<span id="spec-keys"></span><span id="index-2"></span><h2>SPEC data files<a class="headerlink" href="#spec-data-files" title="Permalink to this headline">#</a></h2>
+<p>The SPEC data file format is described in the SPEC manual. <a class="footnote-reference brackets" href="#id3" id="id2">1</a>
 This manual is taken as a suggested starting point for most users.
 Data files with deviations from this standard are produced at some facilities.</p>
 <dl class="footnote brackets">
-<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
 <dd><p>SPEC manual: <a class="reference external" href="https://www.certif.com/spec_manual/user_1_4_1.html">https://www.certif.com/spec_manual/user_1_4_1.html</a></p>
 </dd>
 </dl>
-<span class="target" id="index-2"></span><span class="target" id="index-3"></span><span class="target" id="index-4"></span><section id="assumptions-about-data-file-structure">
-<span id="index-5"></span><h3>Assumptions about data file structure<a class="headerlink" href="#assumptions-about-data-file-structure" title="Permalink to this headline">#</a></h3>
+<span class="target" id="index-3"></span><span class="target" id="index-4"></span><span class="target" id="index-5"></span><section id="assumptions-about-data-file-structure">
+<span id="index-6"></span><h3>Assumptions about data file structure<a class="headerlink" href="#assumptions-about-data-file-structure" title="Permalink to this headline">#</a></h3>
 <p>These assumptions are used to parse SPEC data files:</p>
 <ol class="arabic">
 <li><p>SPEC data files are text files organized by lines.
@@ -318,13 +483,13 @@ The lines can be categorized as: <strong>control lines</strong>, <strong>data li
 </thead>
 <tbody>
 <tr class="row-even"><td><p><em>control</em></p></td>
-<td><p>contain a # character in the first column followed by a command word <a class="footnote-reference brackets" href="#id6" id="id3">2</a></p></td>
+<td><p>contain a # character in the first column followed by a command word <a class="footnote-reference brackets" href="#id7" id="id4">2</a></p></td>
 </tr>
 <tr class="row-odd"><td><p><em>data</em></p></td>
 <td><p>generally contain a row of numbers (the scan data)</p></td>
 </tr>
 <tr class="row-even"><td><p><em>special data</em></p></td>
-<td><p>containing MCA data <a class="footnote-reference brackets" href="#id7" id="id4">3</a></p></td>
+<td><p>containing MCA data <a class="footnote-reference brackets" href="#id8" id="id5">3</a></p></td>
 </tr>
 </tbody>
 </table></div>
@@ -337,7 +502,7 @@ without creating a new file.  SPEC users are encouraged to <em>always</em> start
 data file after changing the list of positioners.)
 A block consists of a series of control, data, and blank lines.</p>
 <p>SPEC data files are composed of a sequence of a single file header block
-and zero or more scan blocks. <a class="footnote-reference brackets" href="#id8" id="id5">4</a></p>
+and zero or more scan blocks. <a class="footnote-reference brackets" href="#id9" id="id6">4</a></p>
 </li>
 <li><p>A SPEC data file always begins with this control lines: #F, such as:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#F samplecheck_7_17_03</span>
@@ -359,20 +524,20 @@ and zero or more scan blocks. <a class="footnote-reference brackets" href="#id8"
 </li>
 </ol>
 <dl class="footnote brackets">
-<dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id3">2</a></span></dt>
+<dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id4">2</a></span></dt>
 <dd><p>See <a class="reference internal" href="#control-line-examples"><span class="std std-ref">Example of Control Lines</span></a></p>
 </dd>
-<dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id4">3</a></span></dt>
+<dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id5">3</a></span></dt>
 <dd><p>See <a class="reference internal" href="#mca-data-example"><span class="std std-ref">Example of MCA data lines</span></a></p>
 </dd>
-<dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id5">4</a></span></dt>
+<dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id6">4</a></span></dt>
 <dd><p>It is very unusual to have more than one file header block in a SPEC data file.</p>
 </dd>
 </dl>
 </section>
 <section id="control-lines-keys-defined-by-spec">
 <span id="plugin-list"></span><h3>Control lines (keys) defined by SPEC<a class="headerlink" href="#control-lines-keys-defined-by-spec" title="Permalink to this headline">#</a></h3>
-<p>Here is a list <a class="footnote-reference brackets" href="#id10" id="id9">5</a> of keys (command words) from the comments in the <em>file.mac</em> (SPEC v6) macro source file:</p>
+<p>Here is a list <a class="footnote-reference brackets" href="#id11" id="id10">5</a> of keys (command words) from the comments in the <em>file.mac</em> (SPEC v6) macro source file:</p>
 <div class="table-wrapper"><table class="docutils align-default">
 <colgroup>
 <col style="width: 15%"/>
@@ -471,12 +636,12 @@ and zero or more scan blocks. <a class="footnote-reference brackets" href="#id8"
 </tbody>
 </table></div>
 <dl class="footnote brackets">
-<dt class="label" id="id10"><span class="brackets"><a class="fn-backref" href="#id9">5</a></span></dt>
+<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id10">5</a></span></dt>
 <dd><p>Compare with <a class="reference internal" href="plugin_core.html#supplied-plugins"><span class="std std-ref">Supplied spec plugin modules</span></a></p>
 </dd>
 </dl>
 <section id="example-of-control-lines">
-<span id="control-line-examples"></span><span id="index-6"></span><h4>Example of Control Lines<a class="headerlink" href="#example-of-control-lines" title="Permalink to this headline">#</a></h4>
+<span id="control-line-examples"></span><span id="index-7"></span><h4>Example of Control Lines<a class="headerlink" href="#example-of-control-lines" title="Permalink to this headline">#</a></h4>
 <p>The command word of a control line may have a number at the end,
 indicating it is part of a sequence, such as these control lines
 (see <a class="reference internal" href="#plugin-list"><span class="std std-ref">Control lines (keys) defined by SPEC</span></a> for how to interpret):</p>
@@ -497,7 +662,7 @@ indicating it is part of a sequence, such as these control lines
 </div>
 </section>
 <section id="example-of-mca-data-lines">
-<span id="mca-data-example"></span><span id="index-7"></span><h4>Example of MCA data lines<a class="headerlink" href="#example-of-mca-data-lines" title="Permalink to this headline">#</a></h4>
+<span id="mca-data-example"></span><span id="index-8"></span><h4>Example of MCA data lines<a class="headerlink" href="#example-of-mca-data-lines" title="Permalink to this headline">#</a></h4>
 <p>Lines with MCA array data begin with the <strong>@A</strong> command word.
 (If such a data line ends with a continuation character <code class="docutils literal notranslate"><span class="pre">\</span></code>,
 the next line is read as part of this line.)</p>
@@ -1106,7 +1271,7 @@ myLastScan = sdf.last_scan</p>
 <dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – path/to/possible/spec/data.file</p>
 </dd>
 </dl>
-<p><em>filename</em> is a SPEC file only if the file starts <a class="footnote-reference brackets" href="#id12" id="id11">6</a>
+<p><em>filename</em> is a SPEC file only if the file starts <a class="footnote-reference brackets" href="#id13" id="id12">6</a>
 with these control lines in order:</p>
 <ul class="simple">
 <li><p>#F    - original filename</p></li>
@@ -1122,7 +1287,7 @@ with these control lines in order:</p>
 </pre></div>
 </div>
 <dl class="footnote brackets">
-<dt class="label" id="id12"><span class="brackets"><a class="fn-backref" href="#id11">6</a></span></dt>
+<dt class="label" id="id13"><span class="brackets"><a class="fn-backref" href="#id12">6</a></span></dt>
 <dd><p>SPEC manual, <em>Standard Data File Format</em>, <a class="reference external" href="https://www.certif.com/spec_manual/user_1_4_1.html">https://www.certif.com/spec_manual/user_1_4_1.html</a></p>
 </dd>
 </dl>
@@ -1192,6 +1357,10 @@ with these control lines in order:</p>
 <li><a class="reference internal" href="#how-to-use-spec2nexus-spec">How to use <code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a><ul>
 <li><a class="reference internal" href="#how-to-read-one-scan">How to read one scan</a></li>
 <li><a class="reference internal" href="#get-a-list-of-the-scans">Get a list of the scans</a></li>
+<li><a class="reference internal" href="#select-from-the-list-of-the-scans">Select from the list of the scans</a><ul>
+<li><a class="reference internal" href="#slice-parameters">Slice Parameters</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#spec-data-files">SPEC data files</a><ul>
