@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.03.04"/>
-        <title>spec2nexus.writer - spec2nexus 2021.1.11 (51.g8747be0)</title>
+        <title>spec2nexus.writer - spec2nexus 2021.1.11 (52.g402e967)</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=935aa2abcc5c1da4283d1dc201fb1f0add16d23a" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -121,7 +121,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">spec2nexus 2021.1.11 (51.g8747be0)</div></a>
+      <a href="../../index.html"><div class="brand">spec2nexus 2021.1.11 (52.g402e967)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -144,7 +144,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.1.11 (51.g8747be0)</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.1.11 (52.g402e967)</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -156,6 +156,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../contents.html">Contents</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../spec2nexus.html">spec2nexus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../extractSpecScan.html">extractSpecScan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nexus_file_layout.html">NeXus File Layout</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../specplot.html">specplot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../specplot_gallery.html">specplot_gallery</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../spec.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a></li>
@@ -265,29 +266,6 @@
 <span class="sd">        save the information in this SPEC data file to a NeXus HDF5 file</span>
 
 <span class="sd">        Each scan in scan_list will be converted to a **NXentry** group.</span>
-<span class="sd">        Scan data will be placed in a **NXdata** group where the attribute **signal=1** is the</span>
-<span class="sd">        last column and the corresponding attribute **axes=&lt;name of the first column&gt;**.</span>
-<span class="sd">        There are variations on this for 2-D and higher dimensionality data, such as mesh scans.</span>
-
-<span class="sd">        In general, the tree structure of the NeXus HDF5 file is::</span>
-
-<span class="sd">            hdf5_file: NXroot</span>
-<span class="sd">                @default="S1"</span>
-<span class="sd">                definition="NXspecdata"</span>
-<span class="sd">                # attributes</span>
-<span class="sd">                S1:NXentry</span>
-<span class="sd">                    @default="data"</span>
-<span class="sd">                    # attributes and metadata fields</span>
-<span class="sd">                    data:NXdata</span>
-<span class="sd">                        @signal=&lt;name of signal field&gt;</span>
-<span class="sd">                        @axes=&lt;name(s) of axes of signal&gt;</span>
-<span class="sd">                        @&lt;axis&gt;_indices=&lt;list of indices in "axis1"&gt;</span>
-<span class="sd">                        &lt;signal_is_the_last_column&gt;:NX_NUMBER[number of points] = ... data ...</span>
-<span class="sd">                            @signal=1</span>
-<span class="sd">                            @axes='&lt;axis_is_name_of_first_column&gt;'</span>
-<span class="sd">                            @&lt;axis&gt;_indices=&lt;list of indices in "axis1" used as dimension scales of the "signal"&gt;</span>
-<span class="sd">                        &lt;axis_is_name_of_first_column&gt;:NX_NUMBER[number of points] = ... data ...</span>
-<span class="sd">                        # other columns from the scan</span>
 
 <span class="sd">        :param str hdf_file: name of NeXus/HDF5 file to be written</span>
 <span class="sd">        :param [int] scanlist: list of scan numbers to be read</span>
@@ -299,9 +277,9 @@
             <span class="n">nxentry</span> <span class="o">=</span> <span class="n">eznx</span><span class="o">.</span><span class="n">makeGroup</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s2">"S"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">),</span> <span class="s2">"NXentry"</span><span class="p">)</span>
             <span class="n">eznx</span><span class="o">.</span><span class="n">makeDataset</span><span class="p">(</span>
                 <span class="n">nxentry</span><span class="p">,</span>
-                <span class="s2">"definition"</span><span class="p">,</span>
-                <span class="s2">"NXspecdata"</span><span class="p">,</span>
-                <span class="n">description</span><span class="o">=</span><span class="s2">"NeXus application definition (status pending)"</span><span class="p">,</span>
+                <span class="s2">"experiment_description"</span><span class="p">,</span>
+                <span class="s2">"SPEC scan"</span><span class="p">,</span>
+                <span class="n">description</span><span class="o">=</span><span class="s2">"SPEC data file scan"</span><span class="p">,</span>
             <span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">save_scan</span><span class="p">(</span><span class="n">nxentry</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">getScan</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
             <span class="k">if</span> <span class="n">pick_first_entry</span><span class="p">:</span>
@@ -363,7 +341,11 @@
         <span class="n">scan</span><span class="o">.</span><span class="n">interpret</span><span class="p">()</span>  <span class="c1"># ensure interpretation is complete</span>
         <span class="n">eznx</span><span class="o">.</span><span class="n">addAttributes</span><span class="p">(</span><span class="n">nxentry</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">"data"</span><span class="p">)</span>
         <span class="n">eznx</span><span class="o">.</span><span class="n">write_dataset</span><span class="p">(</span><span class="n">nxentry</span><span class="p">,</span> <span class="s2">"title"</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">scan</span><span class="p">))</span>
-        <span class="n">eznx</span><span class="o">.</span><span class="n">write_dataset</span><span class="p">(</span><span class="n">nxentry</span><span class="p">,</span> <span class="s2">"scan_number"</span><span class="p">,</span> <span class="n">scan</span><span class="o">.</span><span class="n">scanNum</span><span class="p">)</span>
+        <span class="n">scan_number_tuple</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">split_scan_number_string</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">scanNum</span><span class="p">)</span>
+        <span class="n">ds</span> <span class="o">=</span> <span class="n">eznx</span><span class="o">.</span><span class="n">write_dataset</span><span class="p">(</span><span class="n">nxentry</span><span class="p">,</span> <span class="s2">"scan_number"</span><span class="p">,</span> <span class="n">scan_number_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">eznx</span><span class="o">.</span><span class="n">addAttributes</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="n">spec_name</span><span class="o">=</span><span class="s2">"SCAN_N"</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">scan_number_tuple</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">eznx</span><span class="o">.</span><span class="n">addAttributes</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="n">scan_number_tuple</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
         <span class="n">eznx</span><span class="o">.</span><span class="n">write_dataset</span><span class="p">(</span><span class="n">nxentry</span><span class="p">,</span> <span class="s2">"command"</span><span class="p">,</span> <span class="n">scan</span><span class="o">.</span><span class="n">scanCmd</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">func</span> <span class="ow">in</span> <span class="n">scan</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">h5writers</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
             <span class="c1"># ask the header plugins to save their part</span>
