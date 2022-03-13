@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="spec2nexus.writer" href="writer.html" /><link rel="prev" title="How to write a custom scan handling for specplot" href="specplot_custom_scan_macro.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.03.04"/>
-        <title>spec2nexus.eznx - spec2nexus 2021.1.11 (52.g402e967)</title>
+        <title>spec2nexus.eznx - spec2nexus 2021.1.11 (57.gea0989c)</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=935aa2abcc5c1da4283d1dc201fb1f0add16d23a" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -122,7 +122,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">spec2nexus 2021.1.11 (52.g402e967)</div></a>
+      <a href="index.html"><div class="brand">spec2nexus 2021.1.11 (57.gea0989c)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -145,7 +145,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.1.11 (52.g402e967)</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.1.11 (57.gea0989c)</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -396,7 +396,7 @@ It has this general structure (indentation shows HDF5 groups,
 <td><p>create a NeXus group</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.eznx.openGroup" title="spec2nexus.eznx.openGroup"><code class="xref py py-obj docutils literal notranslate"><span class="pre">openGroup</span></code></a></p></td>
-<td><p>open or create the NeXus/HDF5 group, return the object</p></td>
+<td><p>open or create the NeXus HDF5 group, return the object</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.eznx.makeLink" title="spec2nexus.eznx.makeLink"><code class="xref py py-obj docutils literal notranslate"><span class="pre">makeLink</span></code></a></p></td>
 <td><p>create an internal NeXus (hard) link in an HDF5 file</p></td>
@@ -408,7 +408,7 @@ It has this general structure (indentation shows HDF5 groups,
 <td><p>return the fields in the NeXus group as a dict(name=dataset)</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.eznx.write_dataset" title="spec2nexus.eznx.write_dataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_dataset</span></code></a></p></td>
-<td><p>write to the NeXus/HDF5 dataset, create it if necessary, return the object</p></td>
+<td><p>write to the NeXus HDF5 dataset, create it if necessary, return the object</p></td>
 </tr>
 </tbody>
 </table></div>
@@ -584,7 +584,7 @@ such as <code class="docutils literal notranslate"><span class="pre">/entry/data
 <dl class="py function">
 <dt class="sig sig-object py" id="spec2nexus.eznx.openGroup">
 <span class="sig-prename descclassname"><span class="pre">spec2nexus.eznx.</span></span><span class="sig-name descname"><span class="pre">openGroup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nx_class</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">attr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/eznx.html#openGroup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.eznx.openGroup" title="Permalink to this definition">#</a></dt>
-<dd><p>open or create the NeXus/HDF5 group, return the object</p>
+<dd><p>open or create the NeXus HDF5 group, return the object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -635,7 +635,7 @@ of datasets (NeXus fields) in an HDF5 group.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="spec2nexus.eznx.write_dataset">
 <span class="sig-prename descclassname"><span class="pre">spec2nexus.eznx.</span></span><span class="sig-name descname"><span class="pre">write_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">attr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/eznx.html#write_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.eznx.write_dataset" title="Permalink to this definition">#</a></dt>
-<dd><p>write to the NeXus/HDF5 dataset, create it if necessary, return the object</p>
+<dd><p>write to the NeXus HDF5 dataset, create it if necessary, return the object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">

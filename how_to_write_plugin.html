@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Common Methods: spec2nexus.utils" href="utils.html" /><link rel="prev" title="#UXML: UXML metadata plugin" href="supplied_plugins/uxml.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.03.04"/>
-        <title>How to write a custom plugin module - spec2nexus 2021.1.11 (52.g402e967)</title>
+        <title>How to write a custom plugin module - spec2nexus 2021.1.11 (57.gea0989c)</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=935aa2abcc5c1da4283d1dc201fb1f0add16d23a" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -122,7 +122,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">spec2nexus 2021.1.11 (52.g402e967)</div></a>
+      <a href="index.html"><div class="brand">spec2nexus 2021.1.11 (57.gea0989c)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -145,7 +145,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.1.11 (52.g402e967)</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.1.11 (57.gea0989c)</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -226,8 +226,8 @@
 <span id="how-to-write-plugin"></span><h1>How to write a custom plugin module<a class="headerlink" href="#how-to-write-a-custom-plugin-module" title="Permalink to this headline">#</a></h1>
 <aside class="sidebar">
 <p class="sidebar-title">The code to write plugins has changed with release 2021.0.0.</p>
-<p>The changes are summarized in the
-section below titled <a class="reference internal" href="#howto-changes-plugin-2021-release"><span class="std std-ref">Changes in plugin format with release 2021.0.0</span></a>.</p>
+<p>The changes are summarized in the <a class="reference internal" href="#howto-changes-plugin-2022-release"><span class="std std-ref">Changes in plugin format with release 2021.2.0</span></a>
+and <a class="reference internal" href="#howto-changes-plugin-2021-release"><span class="std std-ref">Changes in plugin format with release 2021.0.0</span></a> sections below.</p>
 </aside>
 <p><strong>Sections</strong></p>
 <ul class="simple">
@@ -278,13 +278,12 @@ working directory, there must be a <code class="docutils literal notranslate"><s
 <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">&lt;MODULE&gt;</span></code>.</p>
 <p>Please view the existing plugins in <a class="reference internal" href="supplied_plugins/spec_common.html#module-spec2nexus.plugins.spec_common" title="spec2nexus.plugins.spec_common: SPEC standard data file support."><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec_common</span></code></a> for
 examples.  The custom plugin module should contain, at minimum one subclass of
-<a class="reference internal" href="plugin_core.html#spec2nexus.plugin_core.ControlLineBase" title="spec2nexus.plugin_core.ControlLineBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">spec2nexus.plugin_core.ControlLineBase</span></code></a> which allows them to register
+<a class="reference internal" href="plugin_core.html#spec2nexus.plugin_core.ControlLineBase" title="spec2nexus.plugin_core.ControlLineBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">ControlLineBase</span></code></a> which allows them to register
 themselves when their module is imported. A custom plugin module can contain
 many such handlers, as needs dictate.</p>
 <aside class="sidebar">
-<p class="sidebar-title">Useful <code class="docutils literal notranslate"><span class="pre">import</span></code></p>
-<p>It is also useful to import the
-<a class="reference internal" href="utils.html#spec2nexus.utils.strip_first_word" title="spec2nexus.utils.strip_first_word"><code class="xref py py-meth docutils literal notranslate"><span class="pre">strip_first_word()</span></code></a>
+<p class="sidebar-title"><em>tip</em> : import <code class="docutils literal notranslate"><span class="pre">strip_first_word()</span></code></p>
+<p>It is also to import the <a class="reference internal" href="utils.html#spec2nexus.utils.strip_first_word" title="spec2nexus.utils.strip_first_word"><code class="xref py py-meth docutils literal notranslate"><span class="pre">strip_first_word()</span></code></a>
 utility method.</p>
 </aside>
 <p>These imports are necessary to to write plugins for <em>spec2nexus</em>:</p>
@@ -305,10 +304,9 @@ control lines.
 Caution is advised to avoid introducing instability.</p>
 <p><strong>Attribute: ``scan_attributes_defined`` (optional)</strong></p>
 <p>If your plugin creates any attributes to the
-<code class="xref py py-class docutils literal notranslate"><span class="pre">spec2nexus.spec.SpecDataScan</span></code> object
-(such as the hypotetical <code class="docutils literal notranslate"><span class="pre">scan.hdf5_path</span></code> and <code class="docutils literal notranslate"><span class="pre">scan.hdf5_file</span></code>),
-you declare the new attributes in the
-<code class="docutils literal notranslate"><span class="pre">scan_attributes_defined</span></code> list.  Such as this:</p>
+<code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataScan()</span></code> object (such as the hypothetical
+<code class="docutils literal notranslate"><span class="pre">scan.hdf5_path</span></code> and <code class="docutils literal notranslate"><span class="pre">scan.hdf5_file</span></code>), you declare the new attributes in
+the <code class="docutils literal notranslate"><span class="pre">scan_attributes_defined</span></code> list.  Such as this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">scan_attributes_defined</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'hdf5_path'</span><span class="p">,</span> <span class="s1">'hdf5_file'</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -336,7 +334,7 @@ Then, define a <code class="docutils literal notranslate"><span class="pre">post
 </pre></div>
 </div>
 <p>See section <a class="reference internal" href="#howto-postprocessing"><span class="std std-ref">Postprocessing</span></a> below for more details.
-See <a class="reference internal" href="supplied_plugins/spec_common.html#module-spec2nexus.plugins.spec_common" title="spec2nexus.plugins.spec_common: SPEC standard data file support."><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.plugins.spec_common</span></code></a> for many examples.</p>
+See <a class="reference internal" href="supplied_plugins/spec_common.html#module-spec2nexus.plugins.spec_common" title="spec2nexus.plugins.spec_common: SPEC standard data file support."><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec_common</span></code></a> for many examples.</p>
 <p><strong>Method: ``writer()`` (optional)</strong></p>
 <p>Writing a NeXus HDF5 data file is one of the main goals of the <em>spec2nexus</em>
 package.  If you intend data from your custom control line handler to
@@ -485,7 +483,7 @@ as a vector rather than matrix.  The matrix must be constructed only after all t
 scan data has been read.  Such postprocessing is handled in a method in a plugin file.
 The postprocessing method is registered from the control line handler by calling the
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">addPostProcessor()</span></code> method of the <code class="docutils literal notranslate"><span class="pre">spec_obj</span></code> argument received by the
-handler’s <code class="xref py py-meth docutils literal notranslate"><span class="pre">process()</span></code> method.  A key name <a class="footnote-reference brackets" href="#id8" id="id1">1</a> is supplied when registering to avoid
+handler’s <code class="xref py py-meth docutils literal notranslate"><span class="pre">process()</span></code> method.  A key name <a class="footnote-reference brackets" href="#id9" id="id1">1</a> is supplied when registering to avoid
 registering this same code more than once.  The postprocessing function will be called
 with the instance of <a class="reference internal" href="spec.html#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileScan</span></code></a> as its only argument.</p>
 <p>An important role of the postprocessing is to store the result in the scan object.
@@ -565,31 +563,39 @@ of the handler:</p>
 will be written to the HDF5+NeXus data file.  The writer will
 be called with several arguments:</p>
 <p><strong>h5parent</strong>: <em>obj</em> : the HDF5 group that will hold this plugin’s data</p>
-<p><strong>writer</strong>:   <em>obj</em> : instance of <a class="reference internal" href="writer.html#spec2nexus.writer.Writer" title="spec2nexus.writer.Writer"><code class="xref py py-class docutils literal notranslate"><span class="pre">spec2nexus.writer.Writer</span></code></a> that manages the content of the HDF5 file</p>
-<p><strong>scan</strong>:     <em>obj</em> : instance of <a class="reference internal" href="spec.html#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><code class="xref py py-class docutils literal notranslate"><span class="pre">spec2nexus.spec.SpecDataFileScan</span></code></a> containing this scan’s data</p>
+<p><strong>writer</strong>:   <em>obj</em> : instance of <a class="reference internal" href="writer.html#spec2nexus.writer.Writer" title="spec2nexus.writer.Writer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Writer()</span></code></a> that manages the content of the HDF5 file</p>
+<p><strong>scan</strong>:     <em>obj</em> : instance of <a class="reference internal" href="spec.html#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileScan()</span></code></a> containing this scan’s data</p>
 <p><strong>nxclass</strong>:  <em>str</em> : (optional) name of NeXus base class to be created</p>
-<p>Since the file is being written according to the NeXus data standard <a class="footnote-reference brackets" href="#id9" id="id2">2</a>,
-use the NeXus base classes <a class="footnote-reference brackets" href="#id10" id="id3">3</a> as references for how to structure the data
+<p>Since the file is being written according to the NeXus data standard <a class="footnote-reference brackets" href="#id10" id="id2">2</a>,
+use the NeXus base classes <a class="footnote-reference brackets" href="#id11" id="id3">3</a> as references for how to structure the data
 written by the custom HDF5 writer.</p>
 <p>One responsibility of a custom HDF5 writer method is to create
 <em>unique</em> names for every object written in the <em>h5parent</em> group.
-Usually, this will be a <em>NXentry</em> <a class="footnote-reference brackets" href="#id11" id="id4">4</a> group.  You can determine the
+Usually, this will be a <em>NXentry</em> <a class="footnote-reference brackets" href="#id12" id="id4">4</a> group.  You can determine the
 NeXus base class of this group using code such as this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">h5parent</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">'NX_class'</span><span class="p">]</span>
 <span class="linenos">2</span><span class="go">&lt;&lt;&lt; NXentry</span>
 </pre></div>
 </div>
-<p>If your custom HDF5 writer
-must create group and you are uncertain which base class to select,
-it is recommended to use a <strong>NXcollection</strong> <a class="footnote-reference brackets" href="#id12" id="id5">5</a> (an unvalidated catch-all
-base class) which can store any content.
-But, you are encouraged to find one of the other NeXus base classes that
+<section id="choice-of-nexus-base-class">
+<h3>Choice of NeXus base class<a class="headerlink" href="#choice-of-nexus-base-class" title="Permalink to this headline">#</a></h3>
+<p>If your custom HDF5 writer must create a group and you are uncertain which base
+class to select, it is recommended to use the <strong>NXnote</strong> <a class="footnote-reference brackets" href="#nxnote" id="id5">5</a> base
+class.</p>
+<p>If your data does not fit the structure of the <strong>NXnote</strong> base class,
+you are encouraged to find one of the other NeXus base classes that
 best fits your data.  Look at the source code of the supplied plugins
 for examples.</p>
-<p>The writer uses the <a class="reference internal" href="eznx.html#module-spec2nexus.eznx" title="spec2nexus.eznx: (Easy NeXus) support reading &amp; writing NeXus HDF5 files using h5py"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.eznx</span></code></a> module to create and write
+<p>As a last resort, if your content cannot fit within the parameters of the NeXus
+standard, use <strong>NXcollection</strong>, <a class="footnote-reference brackets" href="#nxcollection" id="id6">6</a> an unvalidated catch-all base
+class) which can store any content.</p>
+<p>The writer uses the <a class="reference internal" href="eznx.html#module-spec2nexus.eznx" title="spec2nexus.eznx: (Easy NeXus) support reading &amp; writing NeXus HDF5 files using h5py"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eznx</span></code></a> module to create and write
 the various parts of the HDF5 file.</p>
+</section>
+<section id="example-writer-method">
+<h3>Example <code class="docutils literal notranslate"><span class="pre">writer()</span></code> method<a class="headerlink" href="#example-writer-method" title="Permalink to this headline">#</a></h3>
 <p>Here is an example <code class="xref py py-meth docutils literal notranslate"><span class="pre">writer()</span></code> method from the
-<a class="reference internal" href="supplied_plugins/unicat.html#module-spec2nexus.plugins.unicat" title="spec2nexus.plugins.unicat: Metadata in SPEC data files as defined by APS UNICAT."><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.plugins.unicat</span></code></a> module:</p>
+<a class="reference internal" href="supplied_plugins/unicat.html#module-spec2nexus.plugins.unicat" title="spec2nexus.plugins.unicat: Metadata in SPEC data files as defined by APS UNICAT."><code class="xref py py-mod docutils literal notranslate"><span class="pre">unicat</span></code></a> module:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span> <span class="k">def</span> <span class="nf">writer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h5parent</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="n">scan</span><span class="p">,</span> <span class="n">nxclass</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">):</span>
 <span class="linenos">2</span>     <span class="sd">'''Describe how to store this data in an HDF5 NeXus file'''</span>
 <span class="linenos">3</span>     <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">scan</span><span class="p">,</span> <span class="s1">'metadata'</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
@@ -599,8 +605,9 @@ the various parts of the HDF5 file.</p>
 </pre></div>
 </div>
 </section>
+</section>
 <section id="custom-key-match-function">
-<span id="id6"></span><h2>Custom key match function<a class="headerlink" href="#custom-key-match-function" title="Permalink to this headline">#</a></h2>
+<span id="id7"></span><h2>Custom key match function<a class="headerlink" href="#custom-key-match-function" title="Permalink to this headline">#</a></h2>
 <p>The default test that a given line
 matches a specific <a class="reference internal" href="plugin_core.html#spec2nexus.plugin_core.ControlLineBase" title="spec2nexus.plugin_core.ControlLineBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">spec2nexus.plugin_core.ControlLineBase</span></code></a> subclass
 is to use a regular expression match.</p>
@@ -633,59 +640,61 @@ method.  Here is an example from
 </section>
 <section id="summary-requirements-for-custom-plugin">
 <span id="howto-summary-requirements"></span><h2>Summary Requirements for custom plugin<a class="headerlink" href="#summary-requirements-for-custom-plugin" title="Permalink to this headline">#</a></h2>
-<aside class="sidebar">
-<p class="sidebar-title">Needs Review</p>
-<p>These notes need review.  It may not be possible at this writing to add a
-custom plugin.  Check the code in the loader
-<code class="xref py py-func docutils literal notranslate"><span class="pre">spec2nexus.control_lines._plugin_files()</span></code> for how it handles
-<cite>user_plugin_list</cite>.</p>
-</aside>
 <ul class="simple">
-<li><p>file can go in your working directory</p></li>
-<li><p>directory does not need a <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file</p></li>
+<li><p>file can go in any directory</p></li>
+<li><p>directory containing does not need a <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file</p></li>
 <li><p>multiple control line handlers (plugins) can go in a single file</p></li>
 <li><p>for each control line:</p>
 <ul>
-<li><p>subclass <a class="reference internal" href="plugin_core.html#spec2nexus.plugin_core.ControlLineBase" title="spec2nexus.plugin_core.ControlLineBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">spec2nexus.plugin_core.ControlLineBase</span></code></a></p></li>
+<li><p>subclass <a class="reference internal" href="plugin_core.html#spec2nexus.plugin_core.ControlLineBase" title="spec2nexus.plugin_core.ControlLineBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">ControlLineBase</span></code></a></p></li>
 <li><p>identify the control line pattern</p></li>
-<li><p>define <code class="docutils literal notranslate"><span class="pre">key</span></code> with a regular expression to match <a class="footnote-reference brackets" href="#id13" id="id7">6</a></p>
+<li><p>define <code class="docutils literal notranslate"><span class="pre">key</span></code> with a regular expression to match <a class="footnote-reference brackets" href="#id13" id="id8">7</a></p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">key</span></code> is used to identify control line handlers</p></li>
 <li><p>redefine existing supported <span class="target" id="index-2"></span>control line control lines to replace supplied behavior (use caution!)</p></li>
-<li><p>Note: <code class="docutils literal notranslate"><span class="pre">key="scan</span> <span class="pre">data"</span></code> is used to process the scan data: <a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_DataLine" title="spec2nexus.plugins.spec_common.SPEC_DataLine"><code class="xref py py-meth docutils literal notranslate"><span class="pre">spec2nexus.plugins.spec_common.SPEC_DataLine()</span></code></a></p></li>
+<li><p>Note: <code class="docutils literal notranslate"><span class="pre">key="scan</span> <span class="pre">data"</span></code> is used to process the scan data:
+<a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_DataLine" title="spec2nexus.plugins.spec_common.SPEC_DataLine"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SPEC_DataLine()</span></code></a></p></li>
 </ul>
 </li>
-<li><p>define <code class="xref py py-meth docutils literal notranslate"><span class="pre">process()</span></code> to handle the supplied text</p></li>
-<li><p>define <code class="xref py py-meth docutils literal notranslate"><span class="pre">writer()</span></code> to write the in-memory data structure from this plugin to HDF5+NeXus data file</p></li>
+<li><p>define a <code class="docutils literal notranslate"><span class="pre">process()</span></code> method to handle the supplied text</p></li>
+<li><p>(optional) define a <code class="docutils literal notranslate"><span class="pre">postprocess()</span></code> method to coordinate data from several <code class="docutils literal notranslate"><span class="pre">process()</span></code> steps</p></li>
+<li><p>define a <code class="docutils literal notranslate"><span class="pre">writer()</span></code> method to write the in-memory data structure from this plugin to HDF5+NeXus data file</p></li>
 <li><p>(optional) define <code class="xref py py-meth docutils literal notranslate"><span class="pre">match_key()</span></code> to override the default regular expression to match the key</p></li>
 </ul>
 </li>
-<li><p>for each postprocessing function:</p>
+<li><p>for each postprocessing method:</p>
 <ul>
-<li><p>write the function</p></li>
-<li><p>register the function with spec_obj.addPostProcessor(key_name, the_function) in the handler’s <code class="xref py py-meth docutils literal notranslate"><span class="pre">process()</span></code></p></li>
+<li><p>write the method</p></li>
+<li><p>register the method with <code class="docutils literal notranslate"><span class="pre">spec_obj.addPostProcessor(key_name,</span> <span class="pre">the_method)</span></code>
+in the handler’s <a class="reference internal" href="plugin_core.html#spec2nexus.plugin_core.ControlLineBase.process" title="spec2nexus.plugin_core.ControlLineBase.process"><code class="xref py py-meth docutils literal notranslate"><span class="pre">process()</span></code></a> method.</p></li>
 </ul>
 </li>
-<li><p>for each plugin file you want to load
-* call <a class="reference internal" href="plugin_core.html#spec2nexus.plugin_core.install_user_plugin" title="spec2nexus.plugin_core.install_user_plugin"><code class="xref py py-func docutils literal notranslate"><span class="pre">spec2nexus.plugin_core.install_user_plugin()</span></code></a> with the absolute path to the file</p></li>
+<li><p>for each plugin file you want to load:</p>
+<ul>
+<li><p>call <a class="reference internal" href="plugin_core.html#spec2nexus.plugin_core.install_user_plugin" title="spec2nexus.plugin_core.install_user_plugin"><code class="xref py py-func docutils literal notranslate"><span class="pre">install_user_plugin()</span></code></a> with the absolute path to the file</p></li>
+</ul>
+</li>
 </ul>
 <hr class="docutils"/>
 </section>
 <section id="changes-in-plugin-format-with-release-2021-2-0">
 <span id="howto-changes-plugin-2022-release"></span><h2>Changes in plugin format with release 2021.2.0<a class="headerlink" href="#changes-in-plugin-format-with-release-2021-2-0" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>subclassing is easier (no need for <code class="docutils literal notranslate"><span class="pre">metaclass</span></code> kwarg)</p></li>
-<li><p>now, subclass from <a class="reference internal" href="plugin_core.html#spec2nexus.plugin_core.ControlLineBase" title="spec2nexus.plugin_core.ControlLineBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">ControlLineBase</span></code></a></p></li>
+<li><p>subclassing and installing is easier (no need for <code class="docutils literal notranslate"><span class="pre">metaclass</span></code> kwarg)</p>
+<ul>
+<li><p>subclass from <a class="reference internal" href="plugin_core.html#spec2nexus.plugin_core.ControlLineBase" title="spec2nexus.plugin_core.ControlLineBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">ControlLineBase</span></code></a></p></li>
+<li><p>call <a class="reference internal" href="plugin_core.html#spec2nexus.plugin_core.install_user_plugin" title="spec2nexus.plugin_core.install_user_plugin"><code class="xref py py-func docutils literal notranslate"><span class="pre">install_user_plugin()</span></code></a> to install</p></li>
+</ul>
+</li>
 </ul>
 </section>
 <section id="changes-in-plugin-format-with-release-2021-0-0">
 <span id="howto-changes-plugin-2021-release"></span><h2>Changes in plugin format with release 2021.0.0<a class="headerlink" href="#changes-in-plugin-format-with-release-2021-0-0" title="Permalink to this headline">#</a></h2>
-<p>With release <em>2021.0.0</em>, the code to setup plugins has changed.
-The new code allows all plugins in a module to auto-register themselves
-<em>as long as the module is imported</em>.
-<strong>All</strong> custom plugins must be modified and import code revised
-to work with new system.
-See the <a class="reference internal" href="supplied_plugins/spec_common.html#module-spec2nexus.plugins.spec_common" title="spec2nexus.plugins.spec_common: SPEC standard data file support."><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.plugins.spec_common</span></code></a> source code for many examples.</p>
+<p>With release <em>2021.0.0</em>, the code to setup plugins has changed. The new code
+allows all plugins in a module to auto-register themselves <em>as long as the
+module is imported</em>. <strong>All</strong> custom plugins must be modified and import code
+revised to work with new system. See the <a class="reference internal" href="supplied_plugins/spec_common.html#module-spec2nexus.plugins.spec_common" title="spec2nexus.plugins.spec_common: SPEC standard data file support."><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.plugins.spec_common</span></code></a>
+source code for many examples.</p>
 <ul class="simple">
 <li><p>SAME: The basics of writing the plugins remains the same.</p></li>
 <li><p>CHANGED: The method of registering the plugins has changed.</p></li>
@@ -699,23 +708,26 @@ See the <a class="reference internal" href="supplied_plugins/spec_common.html#mo
 <section id="footnotes">
 <span id="howto-footnotes"></span><h2>Footnotes<a class="headerlink" href="#footnotes" title="Permalink to this headline">#</a></h2>
 <dl class="footnote brackets">
-<dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
 <dd><p>The key name must be unique amongst all postprocessing functions.
 A good choice is the name of the postprocessing function itself.</p>
 </dd>
-<dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dt class="label" id="id10"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
 <dd><p><a class="reference external" href="https://nexusformat.org">https://nexusformat.org</a></p>
 </dd>
-<dt class="label" id="id10"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
 <dd><p><a class="reference external" href="https://download.nexusformat.org/doc/html/classes/base_classes/">https://download.nexusformat.org/doc/html/classes/base_classes/</a></p>
 </dd>
-<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
+<dt class="label" id="id12"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
 <dd><p><a class="reference external" href="https://download.nexusformat.org/doc/html/classes/base_classes/NXentry.html">https://download.nexusformat.org/doc/html/classes/base_classes/NXentry.html</a></p>
 </dd>
-<dt class="label" id="id12"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
+<dt class="label" id="nxnote"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
+<dd><p><a class="reference external" href="https://download.nexusformat.org/doc/html/classes/base_classes/NXnote.html">https://download.nexusformat.org/doc/html/classes/base_classes/NXnote.html</a></p>
+</dd>
+<dt class="label" id="nxcollection"><span class="brackets"><a class="fn-backref" href="#id6">6</a></span></dt>
 <dd><p><a class="reference external" href="https://download.nexusformat.org/doc/html/classes/base_classes/NXcollection.html">https://download.nexusformat.org/doc/html/classes/base_classes/NXcollection.html</a></p>
 </dd>
-<dt class="label" id="id13"><span class="brackets"><a class="fn-backref" href="#id7">6</a></span></dt>
+<dt class="label" id="id13"><span class="brackets"><a class="fn-backref" href="#id8">7</a></span></dt>
 <dd><p>It is possible to override the default regular expression match
 in the subclass with a custom match function.  See the
 <a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_DataLine.match_key" title="spec2nexus.plugins.spec_common.SPEC_DataLine.match_key"><code class="xref py py-meth docutils literal notranslate"><span class="pre">match_key()</span></code></a>
@@ -792,7 +804,11 @@ method for an example.</p>
 <li><a class="reference internal" href="#summary-example-custom-plugin-with-postprocessing">Summary Example Custom Plugin with postprocessing</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#custom-hdf5-writer">Custom HDF5 writer</a></li>
+<li><a class="reference internal" href="#custom-hdf5-writer">Custom HDF5 writer</a><ul>
+<li><a class="reference internal" href="#choice-of-nexus-base-class">Choice of NeXus base class</a></li>
+<li><a class="reference internal" href="#example-writer-method">Example <code class="docutils literal notranslate"><span class="pre">writer()</span></code> method</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#custom-key-match-function">Custom key match function</a></li>
 <li><a class="reference internal" href="#summary-requirements-for-custom-plugin">Summary Requirements for custom plugin</a></li>
 <li><a class="reference internal" href="#changes-in-plugin-format-with-release-2021-2-0">Changes in plugin format with release 2021.2.0</a></li>
