@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="specplot" href="specplot.html" /><link rel="prev" title="extractSpecScan" href="extractSpecScan.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.03.04"/>
-        <title>NeXus File Layout - spec2nexus 2021.1.11 (59.g47f9427)</title>
+        <title>NeXus File Layout - spec2nexus 2021.1.11 (61.gea7afb7)</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=935aa2abcc5c1da4283d1dc201fb1f0add16d23a" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -122,7 +122,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">spec2nexus 2021.1.11 (59.g47f9427)</div></a>
+      <a href="index.html"><div class="brand">spec2nexus 2021.1.11 (61.gea7afb7)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -145,7 +145,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.1.11 (59.g47f9427)</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.1.11 (61.gea7afb7)</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -235,8 +235,8 @@
 <p>SPEC data files contain data from one or more measurements called <em>scans</em>
 written according to the <strong>Standard Data-File Format</strong>. <a class="footnote-reference brackets" href="#spec-format" id="id2">1</a>  Each
 scan is numbered (where the number is not necessarily unique within a data
-file).  NeXus files are written <a class="footnote-reference brackets" href="#id16" id="id3">3</a> as HDF5 files with a tree structure <a class="footnote-reference brackets" href="#id17" id="id4">4</a>
-where the groups use the NeXus base class <a class="footnote-reference brackets" href="#id18" id="id5">5</a> definitions.</p>
+file).  NeXus files are written <a class="footnote-reference brackets" href="#id23" id="id3">3</a> as HDF5 files with a tree structure <a class="footnote-reference brackets" href="#id24" id="id4">4</a>
+where the groups use the NeXus base class <a class="footnote-reference brackets" href="#id25" id="id5">5</a> definitions.</p>
 <p>HDF5 files are binary (not human readable); in this documentation, the tree
 structure (hierarchy) of the file will be shown.  Various terms are shown
 symbolically, as described in the next table.</p>
@@ -263,7 +263,7 @@ symbolically, as described in the next table.</p>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">@{NAME}</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">@default</span></code></p></td>
-<td><p>HDF5 attribute of the parent group or field <a class="footnote-reference brackets" href="#nx-field" id="id6">9</a></p></td>
+<td><p>HDF5 attribute of the parent group or field <a class="footnote-reference brackets" href="#nx-field" id="id6">11</a></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">NX_{datatype}</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">NX_NUMBER</span></code></p></td>
@@ -271,7 +271,7 @@ symbolically, as described in the next table.</p>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">NX_{unittype}</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">NX_CHAR</span></code></p></td>
-<td><p>uses this NeXus unit type <a class="footnote-reference brackets" href="#nx-unittype" id="id8">8</a></p></td>
+<td><p>uses this NeXus unit type <a class="footnote-reference brackets" href="#nx-unittype" id="id8">10</a></p></td>
 </tr>
 </tbody>
 </table></div>
@@ -296,19 +296,15 @@ root of any NeXus data file.  In fact, it is very rare to find this attribute
 in any NeXus HDF5 file.  We only show it here for guidance in how to build
 a file using the NeXus standard.</p>
 </aside>
-<p>The root level of the file uses the structure of the NeXus <strong>NXroot</strong> <a class="footnote-reference brackets" href="#nxroot" id="id9">17</a>
+<p>The root level of the file uses the structure of the NeXus <strong>NXroot</strong> <a class="footnote-reference brackets" href="#nxroot" id="id9">19</a>
 base class.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">@default</span></code> attribute points the way to the default plottable data.
-See the NeXus documentation <a class="footnote-reference brackets" href="#nx-default" id="id10">10</a> for more details.</p>
+See the NeXus documentation <a class="footnote-reference brackets" href="#nx-default" id="id10">12</a> for more details.</p>
 <p>Here, <code class="docutils literal notranslate"><span class="pre">AXIS</span></code> and <code class="docutils literal notranslate"><span class="pre">SIGNAL</span></code> are the names of the first and last columns,
 respectively, of the scan and <code class="docutils literal notranslate"><span class="pre">SCAN_N</span></code> is the scan number from the scan’s
 <code class="docutils literal notranslate"><span class="pre">#S</span></code> <span class="target" id="index-2"></span>control line <a class="footnote-reference brackets" href="#spec-format" id="id11">1</a>, <a class="footnote-reference brackets" href="#control-line" id="id12">6</a> in the data file.</p>
-<p>A NeXus <strong>NXentry</strong> <a class="footnote-reference brackets" href="#nxentry" id="id13">13</a> group will be created for each scan to be
-written.  The name of the group is composed from the scan number (<code class="docutils literal notranslate"><span class="pre">SCAN_N</span></code>) as
-<code class="docutils literal notranslate"><span class="pre">S{SCAN_N}</span></code> (such as <code class="docutils literal notranslate"><span class="pre">S1</span></code> for <code class="docutils literal notranslate"><span class="pre">SCAN_N=1</span></code>).  If there is more than one scan
-<code class="docutils literal notranslate"><span class="pre">#S</span> <span class="pre">1</span></code> in the data file, there may be an additional decimal point and then a
-sequence number indicating the specific (such as <code class="docutils literal notranslate"><span class="pre">S1</span></code>, <code class="docutils literal notranslate"><span class="pre">S1.1</span></code> and <code class="docutils literal notranslate"><span class="pre">S1.2</span></code>
-for the first, second, and third scans, respectively, with <code class="docutils literal notranslate"><span class="pre">#S</span> <span class="pre">1</span></code>)</p>
+<p>A NeXus <strong>NXentry</strong> <a class="footnote-reference brackets" href="#nxentry" id="id13">15</a> group will be created for each scan to be
+written.  See section <a class="reference internal" href="#data-file-scan"><span class="std std-ref">Scan</span></a> below for more details.</p>
 <aside class="sidebar">
 <p class="sidebar-title">image detectors</p>
 <p>SPEC data files do not usually contain data from a 2-D image
@@ -317,11 +313,12 @@ to describe the location of an external file containing such data
 and how to find the image frame from that file.  No standard
 pattern exists for SPEC data files to reference such images.</p>
 </aside>
-<p>The scan data will be placed in a <strong>NXdata</strong> <a class="footnote-reference brackets" href="#nxdata" id="id14">11</a> group named
-<code class="docutils literal notranslate"><span class="pre">data</span></code> below the <strong>NXentry</strong> group. Other information from the scan will be
-written as described in the sections below. There are variations on the tree
-structure as the complexity of a scan increases. Examples of such variation
-include:</p>
+<p>The scan data will be placed in a <strong>NXdata</strong> <a class="footnote-reference brackets" href="#nxdata" id="id14">13</a> group named <code class="docutils literal notranslate"><span class="pre">data</span></code>
+below the <strong>NXentry</strong> group.   See section <a class="reference internal" href="#data-file-scan-data"><span class="std std-ref">Scan Data</span></a> below for
+more details.</p>
+<p>Other information from the scan will be written as described in the sections
+below. There are variations on the tree structure as the complexity of a scan
+increases. Examples of such variation include:</p>
 <ul class="simple">
 <li><p>multi-axis scans (such as <code class="docutils literal notranslate"><span class="pre">a2scan</span></code>, <code class="docutils literal notranslate"><span class="pre">a3scan</span></code>, <code class="docutils literal notranslate"><span class="pre">a4scan</span></code>)</p></li>
 <li><p>multi-channel detectors</p></li>
@@ -336,32 +333,33 @@ been removed) is a one-dimensional step scan of a counter named <code class="doc
 column) versus a motor named <code class="docutils literal notranslate"><span class="pre">Two</span> <span class="pre">Theta</span></code> (first column) using a counting time
 of 1 second per point. Data collection was configured to include data from an
 additional counter named <code class="docutils literal notranslate"><span class="pre">ic0</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> <span class="c1">#F /home/sricat/POLAR/data/CMR/lmn40.spe</span>
-<span class="linenos"> 2</span> <span class="c1">#E 918630612</span>
-<span class="linenos"> 3</span> <span class="c1">#D Wed Feb 10 01:10:12 1999</span>
-<span class="linenos"> 4</span> <span class="c1">#C spec1ID  User = polar</span>
-<span class="linenos"> 5</span> <span class="c1">#O0    Theta  Two Theta  sample x  sample y</span>
-<span class="linenos"> 6</span>
-<span class="linenos"> 7</span> <span class="c1">#S 1  ascan  tth -0.7 -0.5  101 1</span>
-<span class="linenos"> 8</span> <span class="c1">#D Wed Feb 10 01:11:25 1999</span>
-<span class="linenos"> 9</span> <span class="c1">#T 1  (Seconds)</span>
-<span class="linenos">10</span> <span class="c1">#P0 -0.80000004 -0.60000003 -0.15875 0.16375</span>
-<span class="linenos">11</span> <span class="c1">#N 5</span>
-<span class="linenos">12</span> <span class="c1">#L Two Theta    Epoch  Seconds  ic0  winCZT</span>
-<span class="linenos">13</span> <span class="o">-</span><span class="mf">0.70000003</span>  <span class="mi">75</span> <span class="mi">1</span> <span class="mi">340592</span> <span class="mi">1</span>
-<span class="linenos">14</span> <span class="o">-</span><span class="mf">0.69812503</span>  <span class="mi">76</span> <span class="mi">1</span> <span class="mi">340979</span> <span class="mi">1</span>
-<span class="linenos">15</span> <span class="o">-</span><span class="mf">0.69612503</span>  <span class="mi">78</span> <span class="mi">1</span> <span class="mi">341782</span> <span class="mi">1</span>
-<span class="linenos">16</span> <span class="o">-</span><span class="mf">0.69412503</span>  <span class="mi">79</span> <span class="mi">1</span> <span class="mi">342594</span> <span class="mi">1</span>
-<span class="linenos">17</span> <span class="o">-</span><span class="mf">0.69212503</span>  <span class="mi">80</span> <span class="mi">1</span> <span class="mi">343300</span> <span class="mi">0</span>
-<span class="linenos">18</span> <span class="o">-</span><span class="mf">0.69012503</span>  <span class="mi">82</span> <span class="mi">1</span> <span class="mi">341851</span> <span class="mi">0</span>
-<span class="linenos">19</span> <span class="o">-</span><span class="mf">0.68812503</span>  <span class="mi">83</span> <span class="mi">1</span> <span class="mi">342126</span> <span class="mi">1</span>
-<span class="linenos">20</span> <span class="o">-</span><span class="mf">0.68612503</span>  <span class="mi">85</span> <span class="mi">1</span> <span class="mi">342311</span> <span class="mi">0</span>
-<span class="linenos">21</span> <span class="o">-</span><span class="mf">0.68425003</span>  <span class="mi">86</span> <span class="mi">1</span> <span class="mi">343396</span> <span class="mi">1</span>
-<span class="linenos">22</span> <span class="o">-</span><span class="mf">0.68225003</span>  <span class="mi">88</span> <span class="mi">1</span> <span class="mi">343772</span> <span class="mi">1</span>
-<span class="linenos">23</span> <span class="o">-</span><span class="mf">0.68025003</span>  <span class="mi">89</span> <span class="mi">1</span> <span class="mi">343721</span> <span class="mi">1</span>
-<span class="linenos">24</span> <span class="o">-</span><span class="mf">0.67825003</span>  <span class="mi">91</span> <span class="mi">1</span> <span class="mi">341127</span> <span class="mi">2</span>
-<span class="linenos">25</span> <span class="o">-</span><span class="mf">0.67625003</span>  <span class="mi">92</span> <span class="mi">1</span> <span class="mi">343733</span> <span class="mi">0</span>
-<span class="linenos">26</span> <span class="c1">#C Wed Feb 10 01:12:39 1999.  More scan content removed for brevity.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1">#F /home/sricat/POLAR/data/CMR/lmn40.spe</span>
+<span class="linenos"> 2</span><span class="c1">#E 918630612</span>
+<span class="linenos"> 3</span><span class="c1">#D Wed Feb 10 01:10:12 1999</span>
+<span class="linenos"> 4</span><span class="c1">#C spec1ID  User = polar</span>
+<span class="linenos"> 5</span><span class="c1">#O0    Theta  Two Theta  sample x  sample y</span>
+<span class="linenos"> 6</span><span class="c1">#o0 th tth samx samy</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="c1">#S 1  ascan  tth -0.7 -0.5  101 1</span>
+<span class="linenos"> 9</span><span class="c1">#D Wed Feb 10 01:11:25 1999</span>
+<span class="linenos">10</span><span class="c1">#T 1  (Seconds)</span>
+<span class="linenos">11</span><span class="c1">#P0 -0.80000004 -0.60000003 -0.15875 0.16375</span>
+<span class="linenos">12</span><span class="c1">#N 5</span>
+<span class="linenos">13</span><span class="c1">#L Two Theta    Epoch  Seconds  ic0  winCZT</span>
+<span class="linenos">14</span><span class="o">-</span><span class="mf">0.70000003</span>  <span class="mi">75</span> <span class="mi">1</span> <span class="mi">340592</span> <span class="mi">1</span>
+<span class="linenos">15</span><span class="o">-</span><span class="mf">0.69812503</span>  <span class="mi">76</span> <span class="mi">1</span> <span class="mi">340979</span> <span class="mi">1</span>
+<span class="linenos">16</span><span class="o">-</span><span class="mf">0.69612503</span>  <span class="mi">78</span> <span class="mi">1</span> <span class="mi">341782</span> <span class="mi">1</span>
+<span class="linenos">17</span><span class="o">-</span><span class="mf">0.69412503</span>  <span class="mi">79</span> <span class="mi">1</span> <span class="mi">342594</span> <span class="mi">1</span>
+<span class="linenos">18</span><span class="o">-</span><span class="mf">0.69212503</span>  <span class="mi">80</span> <span class="mi">1</span> <span class="mi">343300</span> <span class="mi">0</span>
+<span class="linenos">19</span><span class="o">-</span><span class="mf">0.69012503</span>  <span class="mi">82</span> <span class="mi">1</span> <span class="mi">341851</span> <span class="mi">0</span>
+<span class="linenos">20</span><span class="o">-</span><span class="mf">0.68812503</span>  <span class="mi">83</span> <span class="mi">1</span> <span class="mi">342126</span> <span class="mi">1</span>
+<span class="linenos">21</span><span class="o">-</span><span class="mf">0.68612503</span>  <span class="mi">85</span> <span class="mi">1</span> <span class="mi">342311</span> <span class="mi">0</span>
+<span class="linenos">22</span><span class="o">-</span><span class="mf">0.68425003</span>  <span class="mi">86</span> <span class="mi">1</span> <span class="mi">343396</span> <span class="mi">1</span>
+<span class="linenos">23</span><span class="o">-</span><span class="mf">0.68225003</span>  <span class="mi">88</span> <span class="mi">1</span> <span class="mi">343772</span> <span class="mi">1</span>
+<span class="linenos">24</span><span class="o">-</span><span class="mf">0.68025003</span>  <span class="mi">89</span> <span class="mi">1</span> <span class="mi">343721</span> <span class="mi">1</span>
+<span class="linenos">25</span><span class="o">-</span><span class="mf">0.67825003</span>  <span class="mi">91</span> <span class="mi">1</span> <span class="mi">341127</span> <span class="mi">2</span>
+<span class="linenos">26</span><span class="o">-</span><span class="mf">0.67625003</span>  <span class="mi">92</span> <span class="mi">1</span> <span class="mi">343733</span> <span class="mi">0</span>
+<span class="linenos">27</span><span class="c1">#C Wed Feb 10 01:12:39 1999.  More scan content removed for brevity.</span>
 </pre></div>
 </div>
 <p>The SPEC data file is written to a NeXus HDF5 file with this tree structure (for
@@ -431,21 +429,200 @@ file.</p>
 </section>
 <section id="scan">
 <span id="data-file-scan"></span><h3>Scan<a class="headerlink" href="#scan" title="Permalink to this headline">#</a></h3>
-<p>TODO: #S</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">#S</span></code> control line marks the beginning of each scan in a SPEC data file.
+It provides the scan number (<code class="docutils literal notranslate"><span class="pre">SCAN_N</span></code> in SPEC) and the scan command.  Consider
+this example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1">#S 1  ascan  tth -0.7 -0.5  101 1</span>
+<span class="linenos"> 2</span><span class="c1">#D Wed Feb 10 01:11:25 1999</span>
+<span class="linenos"> 3</span><span class="c1">#T 1  (Seconds)</span>
+<span class="linenos"> 4</span><span class="c1">#P0 -0.80000004 -0.60000003 -0.15875 0.16375</span>
+<span class="linenos"> 5</span><span class="c1">#N 5</span>
+<span class="linenos"> 6</span><span class="c1">#L Two Theta    Epoch  Seconds  ic0  winCZT</span>
+<span class="linenos"> 7</span><span class="o">-</span><span class="mf">0.70000003</span>  <span class="mi">75</span> <span class="mi">1</span> <span class="mi">340592</span> <span class="mi">1</span>
+<span class="linenos"> 8</span><span class="o">-</span><span class="mf">0.69812503</span>  <span class="mi">76</span> <span class="mi">1</span> <span class="mi">340979</span> <span class="mi">1</span>
+<span class="linenos"> 9</span><span class="o">-</span><span class="mf">0.69612503</span>  <span class="mi">78</span> <span class="mi">1</span> <span class="mi">341782</span> <span class="mi">1</span>
+<span class="linenos">10</span><span class="o">-</span><span class="mf">0.69412503</span>  <span class="mi">79</span> <span class="mi">1</span> <span class="mi">342594</span> <span class="mi">1</span>
+<span class="linenos">11</span><span class="o">-</span><span class="mf">0.69212503</span>  <span class="mi">80</span> <span class="mi">1</span> <span class="mi">343300</span> <span class="mi">0</span>
+<span class="linenos">12</span><span class="o">-</span><span class="mf">0.69012503</span>  <span class="mi">82</span> <span class="mi">1</span> <span class="mi">341851</span> <span class="mi">0</span>
+<span class="linenos">13</span><span class="o">-</span><span class="mf">0.68812503</span>  <span class="mi">83</span> <span class="mi">1</span> <span class="mi">342126</span> <span class="mi">1</span>
+<span class="linenos">14</span><span class="o">-</span><span class="mf">0.68612503</span>  <span class="mi">85</span> <span class="mi">1</span> <span class="mi">342311</span> <span class="mi">0</span>
+<span class="linenos">15</span><span class="o">-</span><span class="mf">0.68425003</span>  <span class="mi">86</span> <span class="mi">1</span> <span class="mi">343396</span> <span class="mi">1</span>
+<span class="linenos">16</span><span class="o">-</span><span class="mf">0.68225003</span>  <span class="mi">88</span> <span class="mi">1</span> <span class="mi">343772</span> <span class="mi">1</span>
+<span class="linenos">17</span><span class="o">-</span><span class="mf">0.68025003</span>  <span class="mi">89</span> <span class="mi">1</span> <span class="mi">343721</span> <span class="mi">1</span>
+<span class="linenos">18</span><span class="o">-</span><span class="mf">0.67825003</span>  <span class="mi">91</span> <span class="mi">1</span> <span class="mi">341127</span> <span class="mi">2</span>
+<span class="linenos">19</span><span class="o">-</span><span class="mf">0.67625003</span>  <span class="mi">92</span> <span class="mi">1</span> <span class="mi">343733</span> <span class="mi">0</span>
+<span class="linenos">20</span><span class="c1">#C Wed Feb 10 01:12:39 1999.  More scan content removed for brevity.</span>
+</pre></div>
+</div>
+<p>From this example, this structure (from <code class="docutils literal notranslate"><span class="pre">#S</span></code>, <code class="docutils literal notranslate"><span class="pre">#D</span></code>, <code class="docutils literal notranslate"><span class="pre">#T</span></code>, and <code class="docutils literal notranslate"><span class="pre">#C</span></code>
+control lines) is written as a new <strong>NXentry</strong> [#NXentry] group at the root of
+the NeXus HDF5 file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="n">S1</span><span class="p">:</span><span class="n">NXentry</span>
+<span class="linenos"> 2</span>  <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">"NXentry"</span>
+<span class="linenos"> 3</span>  <span class="nd">@default</span> <span class="o">=</span> <span class="s2">"data"</span>
+<span class="linenos"> 4</span>  <span class="n">T</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="linenos"> 5</span>    <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"SPEC scan with constant counting time"</span>
+<span class="linenos"> 6</span>    <span class="nd">@units</span> <span class="o">=</span> <span class="s2">"s"</span>
+<span class="linenos"> 7</span>  <span class="n">command</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'ascan  tth -0.7 -0.5  101 1'</span><span class="p">]</span>
+<span class="linenos"> 8</span>  <span class="n">comments</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'Wed Feb 10 01:12:39 1999.  More scan content removed for brevity.'</span><span class="p">]</span>
+<span class="linenos"> 9</span>  <span class="n">counting_basis</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'SPEC scan with constant counting time'</span><span class="p">]</span>
+<span class="linenos">10</span>  <span class="n">date</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'1999-02-10T01:11:25'</span><span class="p">]</span>
+<span class="linenos">11</span>  <span class="n">experiment_description</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'SPEC scan'</span><span class="p">]</span>
+<span class="linenos">12</span>    <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"SPEC data file scan"</span>
+<span class="linenos">13</span>  <span class="n">scan_number</span><span class="p">:</span><span class="n">NX_INT64</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="linenos">14</span>    <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"SCAN_N"</span>
+<span class="linenos">15</span>  <span class="n">title</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'1  ascan  tth -0.7 -0.5  101 1'</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>The name of the group is composed from the scan number (<code class="docutils literal notranslate"><span class="pre">SCAN_N</span></code>) as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">S</span><span class="p">{</span><span class="n">SCAN_N</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>(such as <code class="docutils literal notranslate"><span class="pre">S1</span></code> for <code class="docutils literal notranslate"><span class="pre">SCAN_N=1</span></code>).</p>
+<p>If there is more than one scan with the same <code class="docutils literal notranslate"><span class="pre">SCAN_N</span></code> (such as <code class="docutils literal notranslate"><span class="pre">#S</span> <span class="pre">1</span></code>) in
+the data file, the <em>additional scans</em> will be named with an additional decimal
+point and then a sequence number (described here as <code class="docutils literal notranslate"><span class="pre">REPEAT_NUMBER</span></code>)
+indicating the specific repeat:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">S</span><span class="p">{</span><span class="n">SCAN_N</span><span class="p">}</span><span class="o">.</span><span class="p">{</span><span class="n">REPEAT_NUMBER</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>(such as <code class="docutils literal notranslate"><span class="pre">S1</span></code>, <code class="docutils literal notranslate"><span class="pre">S1.1</span></code> and <code class="docutils literal notranslate"><span class="pre">S1.2</span></code> for the first, second, and third scans,
+respectively, with <code class="docutils literal notranslate"><span class="pre">#S</span> <span class="pre">1</span></code>) The <a class="reference internal" href="#data-file-scan-data"><span class="std std-ref">Scan Data</span></a> will be described in
+the next section.</p>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">command</span></code> and <code class="docutils literal notranslate"><span class="pre">title</span></code> are almost* the same content but not exactly
+the same.  The difference is that <code class="docutils literal notranslate"><span class="pre">command</span></code> is the <code class="docutils literal notranslate"><span class="pre">title</span></code> with the scan
+number removed from the beginning.</p>
 </section>
 <section id="scan-data">
 <span id="data-file-scan-data"></span><h3>Scan Data<a class="headerlink" href="#scan-data" title="Permalink to this headline">#</a></h3>
-<p>TODO:  #L, #N, #M, #T, data</p>
+<p>Consider the SPEC scan data shown in section <a class="reference internal" href="#data-file-scan"><span class="std std-ref">Scan</span></a> above.  The
+<code class="docutils literal notranslate"><span class="pre">#L</span></code>, <code class="docutils literal notranslate"><span class="pre">#N</span></code>, <code class="docutils literal notranslate"><span class="pre">#M</span></code>, <code class="docutils literal notranslate"><span class="pre">#T</span></code>, and data lines (those with no <code class="docutils literal notranslate"><span class="pre">#</span></code> at the start
+of the line) are written as a new <strong>NXdata</strong> <a class="footnote-reference brackets" href="#nxdata" id="id15">13</a> group as a child of the scan
+group (<strong>NXentry</strong>) of the NeXus HDF5 file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="n">data</span><span class="p">:</span><span class="n">NXdata</span>
+<span class="linenos"> 2</span>  <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">"NXdata"</span>
+<span class="linenos"> 3</span>  <span class="nd">@Two_Theta_indices</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos"> 4</span>  <span class="nd">@axes</span> <span class="o">=</span> <span class="s2">"Two_Theta"</span>
+<span class="linenos"> 5</span>  <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"SPEC scan data"</span>
+<span class="linenos"> 6</span>  <span class="nd">@signal</span> <span class="o">=</span> <span class="s2">"winCZT"</span>
+<span class="linenos"> 7</span>  <span class="n">Epoch</span><span class="p">:</span><span class="n">NX_FLOAT64</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">75.0</span><span class="p">,</span> <span class="mf">76.0</span><span class="p">,</span> <span class="mf">78.0</span><span class="p">,</span> <span class="s1">'...'</span><span class="p">,</span> <span class="mf">92.0</span><span class="p">]</span>
+<span class="linenos"> 8</span>    <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"Epoch"</span>
+<span class="linenos"> 9</span>  <span class="n">Seconds</span><span class="p">:</span><span class="n">NX_FLOAT64</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">'...'</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
+<span class="linenos">10</span>    <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"Seconds"</span>
+<span class="linenos">11</span>  <span class="n">Two_Theta</span><span class="p">:</span><span class="n">NX_FLOAT64</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.70000003</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.69812503</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.69612503</span><span class="p">,</span> <span class="s1">'...'</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.67625003</span><span class="p">]</span>
+<span class="linenos">12</span>    <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"Two Theta"</span>
+<span class="linenos">13</span>  <span class="n">ic0</span><span class="p">:</span><span class="n">NX_FLOAT64</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">340592.0</span><span class="p">,</span> <span class="mf">340979.0</span><span class="p">,</span> <span class="mf">341782.0</span><span class="p">,</span> <span class="s1">'...'</span><span class="p">,</span> <span class="mf">343733.0</span><span class="p">]</span>
+<span class="linenos">14</span>    <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"ic0"</span>
+<span class="linenos">15</span>  <span class="n">winCZT</span><span class="p">:</span><span class="n">NX_FLOAT64</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">'...'</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+<span class="linenos">16</span>    <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"winCZT"</span>
+</pre></div>
+</div>
+</section>
+<section id="positioners">
+<span id="data-file-positioners"></span><h3>Positioners<a class="headerlink" href="#positioners" title="Permalink to this headline">#</a></h3>
+<p>Consider the SPEC scan data shown in section <a class="reference internal" href="#data-file-scan"><span class="std std-ref">Scan</span></a> above,
+associated with the scan header data shown in section <a class="reference internal" href="#data-file-header"><span class="std std-ref">File header</span></a>.
+The <code class="docutils literal notranslate"><span class="pre">#O</span></code> lines in the header provide the <em>names</em> of the positioners while the
+<code class="docutils literal notranslate"><span class="pre">#P</span></code> lines report the positioner values at the start of the scan. The lines
+are numbered with a sequential index (starting at <code class="docutils literal notranslate"><span class="pre">0</span></code>) to keep the line
+lengths within page limits. When present (such as this example), the <code class="docutils literal notranslate"><span class="pre">#o</span></code>
+lines provide the <em>mnemonic</em> (also known as <em>mne</em>) names corresponding to the
+positioner names from the <code class="docutils literal notranslate"><span class="pre">#O</span></code> lines.</p>
+<p>The data from the <code class="docutils literal notranslate"><span class="pre">#O</span></code> and <code class="docutils literal notranslate"><span class="pre">#P</span></code> lines is written to a <strong>NXnote</strong>
+<a class="footnote-reference brackets" href="#nxnote" id="id16">17</a> group named <code class="docutils literal notranslate"><span class="pre">positioners</span></code>.
+The <code class="docutils literal notranslate"><span class="pre">positioners</span></code> group is written as a child of the scan group (<strong>NXentry</strong>)
+of the NeXus HDF5 file.
+This group is also linked to the <code class="docutils literal notranslate"><span class="pre">instrument</span></code> group. <a class="footnote-reference brackets" href="#nxinstrument" id="id17">16</a> See the
+<a class="reference internal" href="#data-file-instrument"><span class="std std-ref">Instrument</span></a> section below.</p>
+<p>Each positioner (name and value) is written to a <strong>NXpositioner</strong>
+<a class="footnote-reference brackets" href="#nxpositioner" id="id18">18</a> group with a name derived (via
+<a class="reference internal" href="utils.html#spec2nexus.utils.clean_name" title="spec2nexus.utils.clean_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">clean_name()</span></code></a>) from the name provided in the SPEC scan.
+_This change of names ensures the field names in the NeXus HDF5 file conform to
+the NeXus standard. [#NX.naming.datarules]  If the SPEC menmonic is available in
+the data file, it is also written as a <code class="docutils literal notranslate"><span class="pre">@spec_mne</span></code> attribute with both the
+<code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">value</span></code> fields. The <strong>NXpositioner</strong> groups are written as
+children of the <code class="docutils literal notranslate"><span class="pre">positioners</span></code> group.</p>
+<div class="admonition note" id="index-3">
+<p class="admonition-title">Note</p>
+<p>Engineering units are not written</p>
+<p>No <code class="docutils literal notranslate"><span class="pre">@units</span></code> attribute is provided for any of the values written by
+<strong>spec2nexus</strong> (except where provided by custom support). SPEC data files do
+not provide the engineering units for any of the values and it is not
+possible to guess the appropriate type of units <a class="footnote-reference brackets" href="#nx-unittype" id="id19">10</a> to use. The
+NeXus documentation about data units <a class="footnote-reference brackets" href="#nx-units-datarules" id="id20">8</a> states:</p>
+<blockquote>
+<div><p>… any field must have a units attribute which describes the units.</p>
+</div></blockquote>
+<p>yet this is not a strict requirement.  (The <code class="docutils literal notranslate"><span class="pre">@units</span></code> attribute is not marked
+required in the NeXus NXDL schema.)</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="n">positioners</span><span class="p">:</span><span class="n">NXnote</span>
+<span class="linenos"> 2</span>   <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">"NXnote"</span>
+<span class="linenos"> 3</span>   <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"SPEC positioners (#P &amp; #O lines)"</span>
+<span class="linenos"> 4</span>   <span class="nd">@target</span> <span class="o">=</span> <span class="s2">"/S1/positioners"</span>
+<span class="linenos"> 5</span>   <span class="n">Theta</span><span class="p">:</span><span class="n">NXpositioner</span>
+<span class="linenos"> 6</span>     <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">"NXpositioner"</span>
+<span class="linenos"> 7</span>     <span class="n">name</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'Theta'</span><span class="p">]</span>
+<span class="linenos"> 8</span>       <span class="nd">@spec_mne</span> <span class="o">=</span> <span class="s2">"th"</span>
+<span class="linenos"> 9</span>       <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"Theta"</span>
+<span class="linenos">10</span>     <span class="n">value</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.80000004</span>
+<span class="linenos">11</span>       <span class="nd">@spec_mne</span> <span class="o">=</span> <span class="s2">"th"</span>
+<span class="linenos">12</span>       <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"Theta"</span>
+<span class="linenos">13</span>   <span class="n">Two_Theta</span><span class="p">:</span><span class="n">NXpositioner</span>
+<span class="linenos">14</span>     <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">"NXpositioner"</span>
+<span class="linenos">15</span>     <span class="n">name</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'Two_Theta'</span><span class="p">]</span>
+<span class="linenos">16</span>       <span class="nd">@spec_mne</span> <span class="o">=</span> <span class="s2">"tth"</span>
+<span class="linenos">17</span>       <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"Two Theta"</span>
+<span class="linenos">18</span>     <span class="n">value</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.60000003</span>
+<span class="linenos">19</span>       <span class="nd">@spec_mne</span> <span class="o">=</span> <span class="s2">"tth"</span>
+<span class="linenos">20</span>       <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"Two Theta"</span>
+<span class="linenos">21</span>   <span class="n">sample_x</span><span class="p">:</span><span class="n">NXpositioner</span>
+<span class="linenos">22</span>     <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">"NXpositioner"</span>
+<span class="linenos">23</span>     <span class="n">name</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'sample_x'</span><span class="p">]</span>
+<span class="linenos">24</span>       <span class="nd">@spec_mne</span> <span class="o">=</span> <span class="s2">"samx"</span>
+<span class="linenos">25</span>       <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"sample x"</span>
+<span class="linenos">26</span>     <span class="n">value</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.15875</span>
+<span class="linenos">27</span>       <span class="nd">@spec_mne</span> <span class="o">=</span> <span class="s2">"samx"</span>
+<span class="linenos">28</span>       <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"sample x"</span>
+<span class="linenos">29</span>   <span class="n">sample_y</span><span class="p">:</span><span class="n">NXpositioner</span>
+<span class="linenos">30</span>     <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">"NXpositioner"</span>
+<span class="linenos">31</span>     <span class="n">name</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'sample_y'</span><span class="p">]</span>
+<span class="linenos">32</span>       <span class="nd">@spec_mne</span> <span class="o">=</span> <span class="s2">"samy"</span>
+<span class="linenos">33</span>       <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"sample y"</span>
+<span class="linenos">34</span>     <span class="n">value</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.16375</span>
+<span class="linenos">35</span>       <span class="nd">@spec_mne</span> <span class="o">=</span> <span class="s2">"samy"</span>
+<span class="linenos">36</span>       <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"sample y"</span>
+</pre></div>
+</div>
+<p>When the <code class="docutils literal notranslate"><span class="pre">#o</span></code> lines are present in the scan’s header, a <strong>NXnote</strong> <a class="footnote-reference brackets" href="#nxnote" id="id21">17</a>
+group named <code class="docutils literal notranslate"><span class="pre">positioner_cross_reference</span></code> is written as a child of the scan
+group (<strong>NXentry</strong>) of the NeXus HDF5 file.  This group describes a
+cross-reference between the <em>field</em> names of the <code class="docutils literal notranslate"><span class="pre">positioner</span></code> group and the
+positioner names used in the SPEC scan.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="n">positioner_cross_reference</span><span class="p">:</span><span class="n">NXnote</span>
+<span class="linenos"> 2</span>   <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">"NXnote"</span>
+<span class="linenos"> 3</span>   <span class="nd">@comment</span> <span class="o">=</span> <span class="s2">"keys are SPEC positioner mnemonics, values are SPEC positioner names"</span>
+<span class="linenos"> 4</span>   <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"cross-reference SPEC positioner mnemonics and names"</span>
+<span class="linenos"> 5</span>   <span class="n">samx</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'sample x'</span><span class="p">]</span>
+<span class="linenos"> 6</span>     <span class="nd">@field_name</span> <span class="o">=</span> <span class="s2">"sample_x"</span>
+<span class="linenos"> 7</span>     <span class="nd">@mne</span> <span class="o">=</span> <span class="s2">"samx"</span>
+<span class="linenos"> 8</span>   <span class="n">samy</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'sample y'</span><span class="p">]</span>
+<span class="linenos"> 9</span>     <span class="nd">@field_name</span> <span class="o">=</span> <span class="s2">"sample_y"</span>
+<span class="linenos">10</span>     <span class="nd">@mne</span> <span class="o">=</span> <span class="s2">"samy"</span>
+<span class="linenos">11</span>   <span class="n">th</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'Theta'</span><span class="p">]</span>
+<span class="linenos">12</span>     <span class="nd">@field_name</span> <span class="o">=</span> <span class="s2">"Theta"</span>
+<span class="linenos">13</span>     <span class="nd">@mne</span> <span class="o">=</span> <span class="s2">"th"</span>
+<span class="linenos">14</span>   <span class="n">tth</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'Two Theta'</span><span class="p">]</span>
+<span class="linenos">15</span>     <span class="nd">@field_name</span> <span class="o">=</span> <span class="s2">"Two_Theta"</span>
+<span class="linenos">16</span>     <span class="nd">@mne</span> <span class="o">=</span> <span class="s2">"tth"</span>
+</pre></div>
+</div>
 </section>
 <section id="counters">
 <span id="data-file-counters"></span><h3>Counters<a class="headerlink" href="#counters" title="Permalink to this headline">#</a></h3>
 <p>#J &amp; #j</p>
 <p>TODO: names and mnemonics</p>
-</section>
-<section id="positioners">
-<span id="data-file-positioners"></span><h3>Positioners<a class="headerlink" href="#positioners" title="Permalink to this headline">#</a></h3>
-<p>#O, #o, &amp; #P</p>
-<p>TODO: names and mnemonics</p>
+<p>TODO: counter_cross_reference</p>
 </section>
 <section id="geometry">
 <span id="data-file-geometry"></span><h3>Geometry<a class="headerlink" href="#geometry" title="Permalink to this headline">#</a></h3>
@@ -456,6 +633,11 @@ file.</p>
 <section id="instrument">
 <span id="data-file-instrument"></span><h3>Instrument<a class="headerlink" href="#instrument" title="Permalink to this headline">#</a></h3>
 <p>TODO:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">instrument</span><span class="p">:</span><span class="n">NXinstrument</span>
+<span class="linenos">2</span>  <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">"NXinstrument"</span>
+<span class="linenos">3</span>  <span class="n">positioners</span> <span class="o">--&gt;</span> <span class="o">/</span><span class="n">S1</span><span class="o">/</span><span class="n">positioners</span>
+</pre></div>
+</div>
 </section>
 <section id="comments">
 <span id="data-file-comments"></span><h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">#</a></h3>
@@ -468,7 +650,7 @@ file.</p>
 </pre></div>
 </div>
 <p>are written to the <a class="reference internal" href="#data-file-scan"><span class="std std-ref">Scan</span></a> entry as a single NeXus <em>field</em>
-<a class="footnote-reference brackets" href="#nx-field" id="id15">9</a> named <code class="docutils literal notranslate"><span class="pre">comments</span></code> where all the scan’s comments are joined together
+<a class="footnote-reference brackets" href="#nx-field" id="id22">11</a> named <code class="docutils literal notranslate"><span class="pre">comments</span></code> where all the scan’s comments are joined together
 by newline (<code class="docutils literal notranslate"><span class="pre">\n</span></code>) characters:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">comments</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'Fri Mar 11 16:29:51 2022.  plan_type = generator</span><span class="se">\n</span><span class="s1">Fri Mar 11 16:29:51 2022.  uid = dccc572d-9a5b-4f72-87d7-233b2fd33e4e</span><span class="se">\n</span><span class="s1">Fri Mar 11 16:29:57 2022.  num_events_baseline = 2</span><span class="se">\n</span><span class="s1">Fri Mar 11 16:29:57 2022.  num_events_primary = 10</span><span class="se">\n</span><span class="s1">Fri Mar 11 16:29:57 2022.  exit_status = success'</span><span class="p">]</span>
 </pre></div>
@@ -498,15 +680,15 @@ by newline (<code class="docutils literal notranslate"><span class="pre">\n</spa
 <dd><p>Visualize NeXus file tree structure :
 <a class="reference external" href="https://prjemian.github.io/punx/tree.html#tree">https://prjemian.github.io/punx/tree.html#tree</a></p>
 </dd>
-<dt class="label" id="id16"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dt class="label" id="id23"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
 <dd><p>NeXus objects and terms:
 <a class="reference external" href="https://manual.nexusformat.org/design.html#nexus-objects-and-terms">https://manual.nexusformat.org/design.html#nexus-objects-and-terms</a></p>
 </dd>
-<dt class="label" id="id17"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
+<dt class="label" id="id24"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
 <dd><p>NeXus tree structure:
 <a class="reference external" href="https://manual.nexusformat.org/introduction.html#example-of-a-nexus-file">https://manual.nexusformat.org/introduction.html#example-of-a-nexus-file</a></p>
 </dd>
-<dt class="label" id="id18"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
+<dt class="label" id="id25"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
 <dd><p>NeXus groups (base classes):
 <a class="reference external" href="https://manual.nexusformat.org/classes/base_classes/">https://manual.nexusformat.org/classes/base_classes/</a></p>
 </dd>
@@ -518,44 +700,50 @@ control lines provided with <strong>spec2nexus</strong>.</p>
 <dd><p>List of NeXus data types:
 <a class="reference external" href="https://manual.nexusformat.org/nxdl-types.html#field-types-allowed-in-nxdl-specifications">https://manual.nexusformat.org/nxdl-types.html#field-types-allowed-in-nxdl-specifications</a></p>
 </dd>
-<dt class="label" id="nx-unittype"><span class="brackets"><a class="fn-backref" href="#id8">8</a></span></dt>
+<dt class="label" id="nx-units-datarules"><span class="brackets"><a class="fn-backref" href="#id20">8</a></span></dt>
+<dd><p><a class="reference external" href="https://manual.nexusformat.org/datarules.html#design-units">https://manual.nexusformat.org/datarules.html#design-units</a></p>
+</dd>
+<dt class="label" id="nx-naming-datarules"><span class="brackets">9</span></dt>
+<dd><p><a class="reference external" href="https://manual.nexusformat.org/datarules.html#naming-conventions">https://manual.nexusformat.org/datarules.html#naming-conventions</a></p>
+</dd>
+<dt class="label" id="nx-unittype"><span class="brackets">10</span><span class="fn-backref">(<a href="#id8">1</a>,<a href="#id19">2</a>)</span></dt>
 <dd><p>List of NeXus unit categories:
 <a class="reference external" href="https://manual.nexusformat.org/nxdl-types.html#unit-categories-allowed-in-nxdl-specifications">https://manual.nexusformat.org/nxdl-types.html#unit-categories-allowed-in-nxdl-specifications</a></p>
 </dd>
-<dt class="label" id="nx-field"><span class="brackets">9</span><span class="fn-backref">(<a href="#id6">1</a>,<a href="#id15">2</a>)</span></dt>
+<dt class="label" id="nx-field"><span class="brackets">11</span><span class="fn-backref">(<a href="#id6">1</a>,<a href="#id22">2</a>)</span></dt>
 <dd><p>A NeXus <strong>field</strong> is the same as an HDF5 <strong>dataset</strong>.  The rename is
 due to historical reasons in NeXus when XML was used as a back-end data file
 storage format.</p>
 </dd>
-<dt class="label" id="nx-default"><span class="brackets"><a class="fn-backref" href="#id10">10</a></span></dt>
+<dt class="label" id="nx-default"><span class="brackets"><a class="fn-backref" href="#id10">12</a></span></dt>
 <dd><p>Used to identify the default plottable data in a NeXus HDF5 file.
 <a class="reference external" href="https://manual.nexusformat.org/datarules.html#version-3">https://manual.nexusformat.org/datarules.html#version-3</a></p>
 </dd>
 </dl>
 <p>NeXus base classes</p>
 <dl class="footnote brackets">
-<dt class="label" id="nxdata"><span class="brackets"><a class="fn-backref" href="#id14">11</a></span></dt>
+<dt class="label" id="nxdata"><span class="brackets">13</span><span class="fn-backref">(<a href="#id14">1</a>,<a href="#id15">2</a>)</span></dt>
 <dd><p><strong>NXdata</strong>:   <a class="reference external" href="https://manual.nexusformat.org/classes/base_classes/NXdata.html">https://manual.nexusformat.org/classes/base_classes/NXdata.html</a></p>
 </dd>
-<dt class="label" id="nxdetector"><span class="brackets">12</span></dt>
+<dt class="label" id="nxdetector"><span class="brackets">14</span></dt>
 <dd><p><strong>NXdetector</strong>:   <a class="reference external" href="https://manual.nexusformat.org/classes/base_classes/NXdetector.html">https://manual.nexusformat.org/classes/base_classes/NXdetector.html</a></p>
 </dd>
-<dt class="label" id="nxentry"><span class="brackets"><a class="fn-backref" href="#id13">13</a></span></dt>
+<dt class="label" id="nxentry"><span class="brackets"><a class="fn-backref" href="#id13">15</a></span></dt>
 <dd><p><strong>NXentry</strong>:   <a class="reference external" href="https://manual.nexusformat.org/classes/base_classes/NXentry.html">https://manual.nexusformat.org/classes/base_classes/NXentry.html</a></p>
 </dd>
-<dt class="label" id="nxinstrument"><span class="brackets">14</span></dt>
+<dt class="label" id="nxinstrument"><span class="brackets"><a class="fn-backref" href="#id17">16</a></span></dt>
 <dd><p><strong>NXinstrument</strong>:   <a class="reference external" href="https://manual.nexusformat.org/classes/base_classes/NXinstrument.html">https://manual.nexusformat.org/classes/base_classes/NXinstrument.html</a></p>
 </dd>
-<dt class="label" id="nxnote"><span class="brackets">15</span></dt>
+<dt class="label" id="nxnote"><span class="brackets">17</span><span class="fn-backref">(<a href="#id16">1</a>,<a href="#id21">2</a>)</span></dt>
 <dd><p><strong>NXnote</strong>:   <a class="reference external" href="https://manual.nexusformat.org/classes/base_classes/NXnote.html">https://manual.nexusformat.org/classes/base_classes/NXnote.html</a></p>
 </dd>
-<dt class="label" id="nxpositioner"><span class="brackets">16</span></dt>
+<dt class="label" id="nxpositioner"><span class="brackets"><a class="fn-backref" href="#id18">18</a></span></dt>
 <dd><p><strong>NXpositioner</strong>:   <a class="reference external" href="https://manual.nexusformat.org/classes/base_classes/NXpositioner.html">https://manual.nexusformat.org/classes/base_classes/NXpositioner.html</a></p>
 </dd>
-<dt class="label" id="nxroot"><span class="brackets"><a class="fn-backref" href="#id9">17</a></span></dt>
+<dt class="label" id="nxroot"><span class="brackets"><a class="fn-backref" href="#id9">19</a></span></dt>
 <dd><p><strong>NXroot</strong>:   <a class="reference external" href="https://manual.nexusformat.org/classes/base_classes/NXroot.html">https://manual.nexusformat.org/classes/base_classes/NXroot.html</a></p>
 </dd>
-<dt class="label" id="nxsample"><span class="brackets">18</span></dt>
+<dt class="label" id="nxsample"><span class="brackets">20</span></dt>
 <dd><p><strong>NXsample</strong>:   <a class="reference external" href="https://manual.nexusformat.org/classes/base_classes/NXsample.html">https://manual.nexusformat.org/classes/base_classes/NXsample.html</a></p>
 </dd>
 </dl>
@@ -629,8 +817,8 @@ storage format.</p>
 <li><a class="reference internal" href="#file-header">File header</a></li>
 <li><a class="reference internal" href="#scan">Scan</a></li>
 <li><a class="reference internal" href="#scan-data">Scan Data</a></li>
-<li><a class="reference internal" href="#counters">Counters</a></li>
 <li><a class="reference internal" href="#positioners">Positioners</a></li>
+<li><a class="reference internal" href="#counters">Counters</a></li>
 <li><a class="reference internal" href="#geometry">Geometry</a></li>
 <li><a class="reference internal" href="#instrument">Instrument</a></li>
 <li><a class="reference internal" href="#comments">Comments</a></li>

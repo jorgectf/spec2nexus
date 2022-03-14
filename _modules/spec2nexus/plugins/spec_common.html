@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.03.04"/>
-        <title>spec2nexus.plugins.spec_common - spec2nexus 2021.1.11 (59.g47f9427)</title>
+        <title>spec2nexus.plugins.spec_common - spec2nexus 2021.1.11 (61.gea7afb7)</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=935aa2abcc5c1da4283d1dc201fb1f0add16d23a" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -121,7 +121,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../../index.html"><div class="brand">spec2nexus 2021.1.11 (59.g47f9427)</div></a>
+      <a href="../../../index.html"><div class="brand">spec2nexus 2021.1.11 (61.gea7afb7)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -144,7 +144,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.1.11 (59.g47f9427)</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.1.11 (61.gea7afb7)</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -1006,8 +1006,9 @@
             <span class="n">description</span><span class="o">=</span><span class="n">desc</span><span class="p">,</span>
             <span class="n">comment</span><span class="o">=</span><span class="n">comment</span><span class="p">,</span>
         <span class="p">)</span>
-        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">positioner_xref</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
-            <span class="n">write_dataset</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></div></div>
+        <span class="k">for</span> <span class="n">mne</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">positioner_xref</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+            <span class="n">attrs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">mne</span><span class="o">=</span><span class="n">mne</span><span class="p">,</span> <span class="n">field_name</span><span class="o">=</span><span class="n">clean_name</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+            <span class="n">write_dataset</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">mne</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div></div>
 
 
 <span class="k">def</span> <span class="nf">positioner_xref_postprocessing</span><span class="p">(</span><span class="n">header</span><span class="p">):</span>
@@ -1085,11 +1086,19 @@
             <span class="n">h5parent</span><span class="p">,</span> <span class="s2">"positioners"</span><span class="p">,</span> <span class="n">nxclass</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="n">desc</span>
         <span class="p">)</span>
         <span class="c1"># writer.save_dict(group, scan.positioner)</span>
-        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">scan</span><span class="o">.</span><span class="n">positioner</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="n">safe_name</span> <span class="o">=</span> <span class="n">clean_name</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
-            <span class="n">pg</span> <span class="o">=</span> <span class="n">openGroup</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">safe_name</span><span class="p">,</span> <span class="s2">"NXpositioner"</span><span class="p">)</span>
-            <span class="n">write_dataset</span><span class="p">(</span><span class="n">pg</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">,</span> <span class="n">safe_name</span><span class="p">,</span> <span class="n">spec_name</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
-            <span class="n">write_dataset</span><span class="p">(</span><span class="n">pg</span><span class="p">,</span> <span class="s2">"value"</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">spec_name</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">nv</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">positioner</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+            <span class="n">spec_name</span><span class="p">,</span> <span class="n">field_value</span> <span class="o">=</span> <span class="n">nv</span>
+            <span class="n">field_name</span> <span class="o">=</span> <span class="n">clean_name</span><span class="p">(</span><span class="n">spec_name</span><span class="p">)</span>
+            <span class="n">pg</span> <span class="o">=</span> <span class="n">openGroup</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">field_name</span><span class="p">,</span> <span class="s2">"NXpositioner"</span><span class="p">)</span>
+            <span class="n">attrs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">spec_name</span><span class="o">=</span><span class="n">spec_name</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">header</span><span class="p">,</span> <span class="s2">"positioner_xref"</span><span class="p">):</span>
+                <span class="c1"># Cannot trust spec_name to be unique.</span>
+                <span class="c1"># Reference the mnemonic by position in the positioner_xref</span>
+                <span class="c1"># since the list of positioners is stored in an ordered dict</span>
+                <span class="n">mne_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">positioner_xref</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+                <span class="n">attrs</span><span class="p">[</span><span class="s2">"spec_mne"</span><span class="p">]</span> <span class="o">=</span> <span class="n">mne_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">write_dataset</span><span class="p">(</span><span class="n">pg</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">,</span> <span class="n">field_name</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span>
+            <span class="n">write_dataset</span><span class="p">(</span><span class="n">pg</span><span class="p">,</span> <span class="s2">"value"</span><span class="p">,</span> <span class="n">field_value</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span>
         <span class="n">nxinstrument</span> <span class="o">=</span> <span class="n">openGroup</span><span class="p">(</span><span class="n">h5parent</span><span class="p">,</span> <span class="s2">"instrument"</span><span class="p">,</span> <span class="s2">"NXinstrument"</span><span class="p">)</span>
         <span class="n">makeLink</span><span class="p">(</span><span class="n">h5parent</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">nxinstrument</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s2">"/positioners"</span><span class="p">)</span></div></div>
 
