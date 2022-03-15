@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="specplot" href="specplot.html" /><link rel="prev" title="extractSpecScan" href="extractSpecScan.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.03.04"/>
-        <title>NeXus File Layout - spec2nexus 2021.1.11 (63.g35941eb)</title>
+        <title>NeXus File Layout - spec2nexus 2021.1.11 (64.g5345aab)</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=935aa2abcc5c1da4283d1dc201fb1f0add16d23a" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -122,7 +122,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">spec2nexus 2021.1.11 (63.g35941eb)</div></a>
+      <a href="index.html"><div class="brand">spec2nexus 2021.1.11 (64.g5345aab)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -145,7 +145,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.1.11 (63.g35941eb)</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.1.11 (64.g5345aab)</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -235,8 +235,8 @@
 <p>SPEC data files contain data from one or more measurements called <em>scans</em>
 written according to the <strong>Standard Data-File Format</strong>. <a class="footnote-reference brackets" href="#spec-format" id="id2">1</a>  Each
 scan is numbered (where the number is not necessarily unique within a data
-file).  NeXus files are written <a class="footnote-reference brackets" href="#id28" id="id3">3</a> as HDF5 files with a tree structure <a class="footnote-reference brackets" href="#id29" id="id4">4</a>
-where the groups use the NeXus base class <a class="footnote-reference brackets" href="#id30" id="id5">5</a> definitions.</p>
+file).  NeXus files are written <a class="footnote-reference brackets" href="#id29" id="id3">3</a> as HDF5 files with a tree structure <a class="footnote-reference brackets" href="#id30" id="id4">4</a>
+where the groups use the NeXus base class <a class="footnote-reference brackets" href="#id31" id="id5">5</a> definitions.</p>
 <p>HDF5 files are binary (not human readable); in this documentation, the tree
 structure (hierarchy) of the file will be shown.  Various terms are shown
 symbolically, as described in the next table.</p>
@@ -998,7 +998,12 @@ as a child of the scan group.</p>
 </section>
 <section id="instrument">
 <span id="data-file-instrument"></span><h3>Instrument<a class="headerlink" href="#instrument" title="Permalink to this headline">#</a></h3>
-<p>TODO:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">/SCAN/instrument</span></code> group <a class="footnote-reference brackets" href="#nxinstrument" id="id26">16</a> is a NeXus base class
+that provides a standardized way to describe the scientific instrument.
+It has provisions to describe detectors, positioners, slits, monochromators,
+and many other items used.</p>
+<p>In the sample shown here, the <code class="docutils literal notranslate"><span class="pre">/SCAN/instrument/positioners</span></code> group is
+linked to the content in <code class="docutils literal notranslate"><span class="pre">/SCAN/positioners</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">instrument</span><span class="p">:</span><span class="n">NXinstrument</span>
 <span class="linenos">2</span>  <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">"NXinstrument"</span>
 <span class="linenos">3</span>  <span class="n">positioners</span> <span class="o">--&gt;</span> <span class="o">/</span><span class="n">S1</span><span class="o">/</span><span class="n">positioners</span>
@@ -1016,7 +1021,7 @@ as a child of the scan group.</p>
 </pre></div>
 </div>
 <p>are written to the <a class="reference internal" href="#data-file-scan"><span class="std std-ref">Scan</span></a> entry as a single NeXus <em>field</em>
-<a class="footnote-reference brackets" href="#nx-field" id="id26">11</a> named <code class="docutils literal notranslate"><span class="pre">comments</span></code> where all the scan’s comments are joined together
+<a class="footnote-reference brackets" href="#nx-field" id="id27">11</a> named <code class="docutils literal notranslate"><span class="pre">comments</span></code> where all the scan’s comments are joined together
 by newline (<code class="docutils literal notranslate"><span class="pre">\n</span></code>) characters:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">comments</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'Fri Mar 11 16:29:51 2022.  plan_type = generator</span><span class="se">\n</span><span class="s1">Fri Mar 11 16:29:51 2022.  uid = dccc572d-9a5b-4f72-87d7-233b2fd33e4e</span><span class="se">\n</span><span class="s1">Fri Mar 11 16:29:57 2022.  num_events_baseline = 2</span><span class="se">\n</span><span class="s1">Fri Mar 11 16:29:57 2022.  num_events_primary = 10</span><span class="se">\n</span><span class="s1">Fri Mar 11 16:29:57 2022.  exit_status = success'</span><span class="p">]</span>
 </pre></div>
@@ -1037,7 +1042,7 @@ by newline (<code class="docutils literal notranslate"><span class="pre">\n</spa
 <section id="unrecognized-control-line">
 <span id="data-file-unrecognized"></span><h3>Unrecognized Control Line<a class="headerlink" href="#unrecognized-control-line" title="Permalink to this headline">#</a></h3>
 <p>Any control line that is not recognized by a plugin (see <a class="reference internal" href="spec.html#plugin-list"><span class="std std-ref">Control lines (keys) defined by SPEC</span></a>)
-will be written to a <strong>NXnote</strong> <a class="footnote-reference brackets" href="#nxnote" id="id27">19</a> group named <code class="docutils literal notranslate"><span class="pre">unrecognized_{N}</span></code>
+will be written to a <strong>NXnote</strong> <a class="footnote-reference brackets" href="#nxnote" id="id28">19</a> group named <code class="docutils literal notranslate"><span class="pre">unrecognized_{N}</span></code>
 (where <code class="docutils literal notranslate"><span class="pre">{N}</span></code>) is a numbered index starting at <code class="docutils literal notranslate"><span class="pre">1</span></code>. (The algorithm looks for
 the first available name not already used.)  Each unrecognized control line will
 be added to this group in a separate field. Here is an example from a SPEC data
@@ -1070,15 +1075,15 @@ file with two such lines:</p>
 <dd><p>Visualize NeXus file tree structure :
 <a class="reference external" href="https://prjemian.github.io/punx/tree.html#tree">https://prjemian.github.io/punx/tree.html#tree</a></p>
 </dd>
-<dt class="label" id="id28"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dt class="label" id="id29"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
 <dd><p>NeXus objects and terms:
 <a class="reference external" href="https://manual.nexusformat.org/design.html#nexus-objects-and-terms">https://manual.nexusformat.org/design.html#nexus-objects-and-terms</a></p>
 </dd>
-<dt class="label" id="id29"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
+<dt class="label" id="id30"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
 <dd><p>NeXus tree structure:
 <a class="reference external" href="https://manual.nexusformat.org/introduction.html#example-of-a-nexus-file">https://manual.nexusformat.org/introduction.html#example-of-a-nexus-file</a></p>
 </dd>
-<dt class="label" id="id30"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
+<dt class="label" id="id31"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
 <dd><p>NeXus groups (base classes):
 <a class="reference external" href="https://manual.nexusformat.org/classes/base_classes/">https://manual.nexusformat.org/classes/base_classes/</a></p>
 </dd>
@@ -1100,7 +1105,7 @@ control lines provided with <strong>spec2nexus</strong>.</p>
 <dd><p>List of NeXus unit categories:
 <a class="reference external" href="https://manual.nexusformat.org/nxdl-types.html#unit-categories-allowed-in-nxdl-specifications">https://manual.nexusformat.org/nxdl-types.html#unit-categories-allowed-in-nxdl-specifications</a></p>
 </dd>
-<dt class="label" id="nx-field"><span class="brackets">11</span><span class="fn-backref">(<a href="#id6">1</a>,<a href="#id26">2</a>)</span></dt>
+<dt class="label" id="nx-field"><span class="brackets">11</span><span class="fn-backref">(<a href="#id6">1</a>,<a href="#id27">2</a>)</span></dt>
 <dd><p>A NeXus <strong>field</strong> is the same as an HDF5 <strong>dataset</strong>.  The rename is
 due to historical reasons in NeXus when XML was used as a back-end data file
 storage format.</p>
@@ -1121,7 +1126,7 @@ storage format.</p>
 <dt class="label" id="nxentry"><span class="brackets"><a class="fn-backref" href="#id13">15</a></span></dt>
 <dd><p><strong>NXentry</strong>:   <a class="reference external" href="https://manual.nexusformat.org/classes/base_classes/NXentry.html">https://manual.nexusformat.org/classes/base_classes/NXentry.html</a></p>
 </dd>
-<dt class="label" id="nxinstrument"><span class="brackets"><a class="fn-backref" href="#id18">16</a></span></dt>
+<dt class="label" id="nxinstrument"><span class="brackets">16</span><span class="fn-backref">(<a href="#id18">1</a>,<a href="#id26">2</a>)</span></dt>
 <dd><p><strong>NXinstrument</strong>:   <a class="reference external" href="https://manual.nexusformat.org/classes/base_classes/NXinstrument.html">https://manual.nexusformat.org/classes/base_classes/NXinstrument.html</a></p>
 </dd>
 <dt class="label" id="nxmonitor"><span class="brackets"><a class="fn-backref" href="#id15">17</a></span></dt>
@@ -1130,7 +1135,7 @@ storage format.</p>
 <dt class="label" id="nxmonochromator"><span class="brackets">18</span></dt>
 <dd><p><strong>NXmonochromator</strong>:   <a class="reference external" href="https://manual.nexusformat.org/classes/base_classes/NXmonochromator.html">https://manual.nexusformat.org/classes/base_classes/NXmonochromator.html</a></p>
 </dd>
-<dt class="label" id="nxnote"><span class="brackets">19</span><span class="fn-backref">(<a href="#id17">1</a>,<a href="#id22">2</a>,<a href="#id23">3</a>,<a href="#id24">4</a>,<a href="#id27">5</a>)</span></dt>
+<dt class="label" id="nxnote"><span class="brackets">19</span><span class="fn-backref">(<a href="#id17">1</a>,<a href="#id22">2</a>,<a href="#id23">3</a>,<a href="#id24">4</a>,<a href="#id28">5</a>)</span></dt>
 <dd><p><strong>NXnote</strong>:   <a class="reference external" href="https://manual.nexusformat.org/classes/base_classes/NXnote.html">https://manual.nexusformat.org/classes/base_classes/NXnote.html</a></p>
 </dd>
 <dt class="label" id="nxpositioner"><span class="brackets"><a class="fn-backref" href="#id19">20</a></span></dt>
