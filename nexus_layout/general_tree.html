@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="SPEC Data File" href="spec_data_file.html" /><link rel="prev" title="Basic Tree Structure" href="basic_tree.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.03.04"/>
-        <title>General Tree Structure - spec2nexus 2021.1.11 (72.g49d3c97)</title>
+        <title>General Tree Structure - spec2nexus 2021.1.11 (74.g08b5381)</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=935aa2abcc5c1da4283d1dc201fb1f0add16d23a" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -122,7 +122,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">spec2nexus 2021.1.11 (72.g49d3c97)</div></a>
+      <a href="../index.html"><div class="brand">spec2nexus 2021.1.11 (74.g08b5381)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -145,7 +145,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.1.11 (72.g49d3c97)</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.1.11 (74.g08b5381)</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -243,14 +243,13 @@
         <article role="main">
           <section id="general-tree-structure">
 <h1>General Tree Structure<a class="headerlink" href="#general-tree-structure" title="Permalink to this headline">#</a></h1>
-<p>FIXME: links have changed direction, new contents added</p>
 <p>The <strong>general tree structure</strong> (with parts described in the sections below)
 will follow this outline:</p>
 <div class="table-wrapper"><table class="docutils align-default">
 <colgroup>
-<col style="width: 46%"/>
-<col style="width: 20%"/>
-<col style="width: 34%"/>
+<col style="width: 51%"/>
+<col style="width: 17%"/>
+<col style="width: 33%"/>
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>HDF5 address</p></th>
@@ -259,247 +258,247 @@ will follow this outline:</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>/</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/</span></code></p></td>
 <td><p>(NXroot)</p></td>
 <td><p><a class="reference internal" href="spec_data_file.html#data-file"><span class="std std-ref">SPEC Data File</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="mailto:/%40default">/<span>@</span>default</a></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/@default</span></code></p></td>
 <td><p>NX_CHAR</p></td>
 <td><p><a class="reference internal" href="spec_data_file.html#data-file"><span class="std std-ref">SPEC Data File</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="mailto:/%40SPEC_num_headers">/<span>@</span>SPEC_num_headers</a></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/@SPEC_num_headers</span></code></p></td>
 <td><p>NX_INT</p></td>
 <td><p><a class="reference internal" href="spec_data_file.html#data-file"><span class="std std-ref">SPEC Data File</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>/SCAN</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN</span></code></p></td>
 <td><p>NXentry</p></td>
 <td><p><a class="reference internal" href="spec_scan.html#data-file-scan"><span class="std std-ref">Scan</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="mailto:/SCAN/%40default">/SCAN/<span>@</span>default</a></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/@default</span></code></p></td>
 <td><p>NX_CHAR</p></td>
 <td><p><a class="reference internal" href="spec_scan.html#data-file-scan"><span class="std std-ref">Scan</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>/SCAN/command</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/command</span></code></p></td>
 <td><p>NX_CHAR</p></td>
 <td><p><a class="reference internal" href="spec_scan.html#data-file-scan"><span class="std std-ref">Scan</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>/SCAN/comments</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/comments</span></code></p></td>
 <td><p>NX_CHAR</p></td>
 <td><p><a class="reference internal" href="spec_scan.html#data-file-scan"><span class="std std-ref">Scan</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>/SCAN/counter_cross_reference</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/counter_cross_reference</span></code></p></td>
 <td><p>NXnote</p></td>
 <td><p><a class="reference internal" href="counters.html#data-file-counters"><span class="std std-ref">Counters</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>/SCAN/counting_basis</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/counting_basis</span></code></p></td>
 <td><p>NX_CHAR</p></td>
 <td><p><a class="reference internal" href="spec_scan.html#data-file-scan"><span class="std std-ref">Scan</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>/SCAN/data</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/data</span></code></p></td>
 <td><p>NXdata</p></td>
 <td><p><a class="reference internal" href="scan_data.html#data-file-scan-data"><span class="std std-ref">Scan Data</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="mailto:/SCAN/data/%40axes">/SCAN/data/<span>@</span>axes</a></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/data/@axes</span></code></p></td>
 <td><p>NX_CHAR</p></td>
 <td><p><a class="reference internal" href="scan_data.html#data-file-scan-data"><span class="std std-ref">Scan Data</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="mailto:/SCAN/data/%40signal">/SCAN/data/<span>@</span>signal</a></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/data/@signal</span></code></p></td>
 <td><p>NX_CHAR</p></td>
 <td><p><a class="reference internal" href="scan_data.html#data-file-scan-data"><span class="std std-ref">Scan Data</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>/SCAN/data/{AXIS}</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/data/{AXIS}</span></code></p></td>
 <td><p>NX_NUMBER</p></td>
 <td><p><a class="reference internal" href="scan_data.html#data-file-scan-data"><span class="std std-ref">Scan Data</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>/SCAN/data/{COLUMN}</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/data/{COLUMN}</span></code></p></td>
 <td><p>NX_NUMBER</p></td>
 <td><p><a class="reference internal" href="scan_data.html#data-file-scan-data"><span class="std std-ref">Scan Data</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>/SCAN/data/{SIGNAL}</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/data/{SIGNAL}</span></code></p></td>
 <td><p>NX_NUMBER</p></td>
 <td><p><a class="reference internal" href="scan_data.html#data-file-scan-data"><span class="std std-ref">Scan Data</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>/SCAN/date</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/date</span></code></p></td>
 <td><p>NX_DATE_TIME</p></td>
 <td><p><a class="reference internal" href="spec_scan.html#data-file-scan"><span class="std std-ref">Scan</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>/SCAN/DEGC_SP</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/DEGC_SP</span></code></p></td>
 <td><p>NX_NUMBER</p></td>
 <td><p><a class="reference internal" href="spec_scan.html#data-file-scan"><span class="std std-ref">Scan</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>/SCAN/experiment_description</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/experiment_description</span></code></p></td>
 <td><p>NX_CHAR</p></td>
 <td><p><a class="reference internal" href="spec_scan.html#data-file-scan"><span class="std std-ref">Scan</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>/SCAN/G</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/G</span></code></p></td>
 <td><p>NXnote</p></td>
 <td><p><a class="reference internal" href="geometry.html#data-file-geometry"><span class="std std-ref">Geometry</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>/SCAN/G/G0</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/G/G0</span></code></p></td>
 <td><p>NX_NUMBER[]</p></td>
 <td><p><a class="reference internal" href="geometry.html#data-file-geometry"><span class="std std-ref">Geometry</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>/SCAN/G/G1</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/G/G1</span></code></p></td>
 <td><p>NX_NUMBER[]</p></td>
 <td><p><a class="reference internal" href="geometry.html#data-file-geometry"><span class="std std-ref">Geometry</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>/SCAN/G/G3</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/G/G3</span></code></p></td>
 <td><p>NX_NUMBER[]</p></td>
 <td><p><a class="reference internal" href="geometry.html#data-file-geometry"><span class="std std-ref">Geometry</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>/SCAN/G/G4</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/G/G4</span></code></p></td>
 <td><p>NX_NUMBER[]</p></td>
 <td><p><a class="reference internal" href="geometry.html#data-file-geometry"><span class="std std-ref">Geometry</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>/SCAN/instrument</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/instrument</span></code></p></td>
 <td><p>NXinstrument</p></td>
 <td><p><a class="reference internal" href="instrument.html#data-file-instrument"><span class="std std-ref">Instrument</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>/SCAN/instrument/geometry_parameters</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/instrument/geometry_parameters</span></code></p></td>
 <td><p>NXnote</p></td>
 <td><p><a class="reference internal" href="geometry.html#data-file-geometry"><span class="std std-ref">Geometry</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>/SCAN/instrument/name</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/instrument/name</span></code></p></td>
 <td><p>NX_CHAR</p></td>
 <td><p><a class="reference internal" href="geometry.html#data-file-geometry"><span class="std std-ref">Geometry</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>/SCAN/instrument/monochromator</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/instrument/monochromator</span></code></p></td>
 <td><p>NXmonochromator</p></td>
 <td><p><a class="reference internal" href="geometry.html#data-file-geometry"><span class="std std-ref">Geometry</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>/SCAN/instrument/monochromator/wavelength</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/instrument/monochromator/wavelength</span></code></p></td>
 <td><p>NX_NUMBER</p></td>
 <td><p><a class="reference internal" href="geometry.html#data-file-geometry"><span class="std std-ref">Geometry</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>/SCAN/instrument/positioners</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/instrument/positioners</span></code></p></td>
 <td><p>NXnote</p></td>
 <td><p><a class="reference internal" href="positioners.html#data-file-positioners"><span class="std std-ref">Positioners</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>/SCAN/M</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/M</span></code></p></td>
 <td><p>NX_NUMBER</p></td>
 <td><p><a class="reference internal" href="spec_scan.html#data-file-scan"><span class="std std-ref">Scan</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>/SCAN/MCA</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/MCA</span></code></p></td>
 <td><p>NXnote</p></td>
 <td><p><a class="reference internal" href="mca.html#data-file-mca"><span class="std std-ref">Multi-channel analyzer</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>/SCAN/monitor</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/monitor</span></code></p></td>
 <td><p>NXmonitor</p></td>
 <td><p><a class="reference internal" href="spec_scan.html#data-file-scan"><span class="std std-ref">Scan</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>/SCAN/monitor/preset</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/monitor/preset</span></code></p></td>
 <td><p>NX_NUMBER</p></td>
 <td><p><a class="reference internal" href="spec_scan.html#data-file-scan"><span class="std std-ref">Scan</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>/SCAN/positioner_cross_reference</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/positioner_cross_reference</span></code></p></td>
 <td><p>NXnote</p></td>
 <td><p><a class="reference internal" href="positioners.html#data-file-positioners"><span class="std std-ref">Positioners</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>/SCAN/positioners</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/positioners</span></code></p></td>
 <td><p>NXnote</p></td>
 <td><p><a class="reference internal" href="positioners.html#data-file-positioners"><span class="std std-ref">Positioners</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>/SCAN/positioners/{POSITIONER}</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/positioners/{POSITIONER}</span></code></p></td>
 <td><p>NXpositioner</p></td>
 <td><p><a class="reference internal" href="positioners.html#data-file-positioners"><span class="std std-ref">Positioners</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>/SCAN/Q</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/Q</span></code></p></td>
 <td><p>NX_NUMBER[3]</p></td>
 <td><p><a class="reference internal" href="geometry.html#data-file-geometry"><span class="std std-ref">Geometry</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>/SCAN/sample</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/sample</span></code></p></td>
 <td><p>NXsample</p></td>
 <td><p><a class="reference internal" href="sample.html#data-file-sample"><span class="std std-ref">Sample</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>/SCAN/sample/diffractometer_mode</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/sample/diffractometer_mode</span></code></p></td>
 <td><p>NX_CHAR</p></td>
 <td><p><a class="reference internal" href="geometry.html#data-file-geometry"><span class="std std-ref">Geometry</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>/SCAN/sample/diffractometer_sector</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/sample/diffractometer_sector</span></code></p></td>
 <td><p>NX_NUMBER</p></td>
 <td><p><a class="reference internal" href="geometry.html#data-file-geometry"><span class="std std-ref">Geometry</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>/SCAN/sample/ub_matrix</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/sample/ub_matrix</span></code></p></td>
 <td><p>NX_NUMBER[3,3]</p></td>
 <td><p><a class="reference internal" href="geometry.html#data-file-geometry"><span class="std std-ref">Geometry</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>/SCAN/sample/unit_cell</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/sample/unit_cell</span></code></p></td>
 <td><p>NX_NUMBER[6]</p></td>
 <td><p><a class="reference internal" href="geometry.html#data-file-geometry"><span class="std std-ref">Geometry</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>/SCAN/sample/unit_cell_abc</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/sample/unit_cell_abc</span></code></p></td>
 <td><p>NX_NUMBER[3]</p></td>
 <td><p><a class="reference internal" href="geometry.html#data-file-geometry"><span class="std std-ref">Geometry</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>/SCAN/sample/unit_cell_alphabetagamma</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/sample/unit_cell_alphabetagamma</span></code></p></td>
 <td><p>NX_NUMBER[3]</p></td>
 <td><p><a class="reference internal" href="geometry.html#data-file-geometry"><span class="std std-ref">Geometry</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>/SCAN/sample/beam</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/sample/beam</span></code></p></td>
 <td><p>NXbeam</p></td>
 <td><p><a class="reference internal" href="geometry.html#data-file-geometry"><span class="std std-ref">Geometry</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>/SCAN/sample/beam/incident_wavelength</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/sample/beam/incident_wavelength</span></code></p></td>
 <td><p>NX_NUMBER</p></td>
 <td><p><a class="reference internal" href="geometry.html#data-file-geometry"><span class="std std-ref">Geometry</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>/SCAN/sample/or0</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/sample/or0</span></code></p></td>
 <td><p>NXnote</p></td>
 <td><p><a class="reference internal" href="geometry.html#data-file-geometry"><span class="std std-ref">Geometry</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>/SCAN/sample/or0/{ANGLE}</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/sample/or0/{ANGLE}</span></code></p></td>
 <td><p>NX_NUMBER</p></td>
 <td><p><a class="reference internal" href="geometry.html#data-file-geometry"><span class="std std-ref">Geometry</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>/SCAN/sample/or0/{HKL}</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/sample/or0/{HKL}</span></code></p></td>
 <td><p>NX_NUMBER</p></td>
 <td><p><a class="reference internal" href="geometry.html#data-file-geometry"><span class="std std-ref">Geometry</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>/SCAN/sample/or0/wavelength</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/sample/or0/wavelength</span></code></p></td>
 <td><p>NX_NUMBER</p></td>
 <td><p><a class="reference internal" href="geometry.html#data-file-geometry"><span class="std std-ref">Geometry</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>/SCAN/sample/or1</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/sample/or1</span></code></p></td>
 <td><p>NXnote</p></td>
 <td><p><a class="reference internal" href="geometry.html#data-file-geometry"><span class="std std-ref">Geometry</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>/SCAN/sample/or1/{ANGLE}</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/sample/or1/{ANGLE}</span></code></p></td>
 <td><p>NX_NUMBER</p></td>
 <td><p><a class="reference internal" href="geometry.html#data-file-geometry"><span class="std std-ref">Geometry</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>/SCAN/sample/or1/{HKL}</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/sample/or1/{HKL}</span></code></p></td>
 <td><p>NX_NUMBER</p></td>
 <td><p><a class="reference internal" href="geometry.html#data-file-geometry"><span class="std std-ref">Geometry</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>/SCAN/sample/or1/wavelength</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/sample/or1/wavelength</span></code></p></td>
 <td><p>NX_NUMBER</p></td>
 <td><p><a class="reference internal" href="geometry.html#data-file-geometry"><span class="std std-ref">Geometry</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>/SCAN/sample/temperature</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/sample/temperature</span></code></p></td>
 <td><p>NXlog</p></td>
 <td><p><a class="reference internal" href="temperature.html#data-file-temperature"><span class="std std-ref">Temperature</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>/SCAN/scan_number</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/scan_number</span></code></p></td>
 <td><p>NX_INT</p></td>
 <td><p><a class="reference internal" href="spec_scan.html#data-file-scan"><span class="std std-ref">Scan</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>/SCAN/T</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/T</span></code></p></td>
 <td><p>NX_NUMBER</p></td>
 <td><p><a class="reference internal" href="spec_scan.html#data-file-scan"><span class="std std-ref">Scan</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>/SCAN/TEMP_SP</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/TEMP_SP</span></code></p></td>
 <td><p>NX_NUMBER</p></td>
 <td><p><a class="reference internal" href="spec_scan.html#data-file-scan"><span class="std std-ref">Scan</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>/SCAN/title</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/title</span></code></p></td>
 <td><p>NX_CHAR</p></td>
 <td><p><a class="reference internal" href="spec_scan.html#data-file-scan"><span class="std std-ref">Scan</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>/SCAN/{UNRECOGNIZED}</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/{UNRECOGNIZED}</span></code></p></td>
 <td><p>NXnote</p></td>
 <td><p><a class="reference internal" href="unrecognized_content.html#data-file-unrecognized"><span class="std std-ref">Unrecognized Control Line</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>/SCAN/UserReserved</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/UserReserved</span></code></p></td>
 <td><p>NXnote</p></td>
 <td><p><a class="reference internal" href="metadata.html#data-file-metadata"><span class="std std-ref">Metadata</span></a></p></td>
 </tr>

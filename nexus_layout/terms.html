@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Basic Tree Structure" href="basic_tree.html" /><link rel="prev" title="Example 1-D scan" href="example_1d_scan.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.03.04"/>
-        <title>Nomenclature - spec2nexus 2021.1.11 (72.g49d3c97)</title>
+        <title>Nomenclature - spec2nexus 2021.1.11 (74.g08b5381)</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=935aa2abcc5c1da4283d1dc201fb1f0add16d23a" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -122,7 +122,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">spec2nexus 2021.1.11 (72.g49d3c97)</div></a>
+      <a href="../index.html"><div class="brand">spec2nexus 2021.1.11 (74.g08b5381)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -145,7 +145,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.1.11 (72.g49d3c97)</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.1.11 (74.g08b5381)</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -243,14 +243,6 @@
         <article role="main">
           <section id="nomenclature">
 <h1>Nomenclature<a class="headerlink" href="#nomenclature" title="Permalink to this headline">#</a></h1>
-<aside class="sidebar">
-<p class="sidebar-title"><em>for reference</em>: tree view</p>
-<p>In this documentation, the command <a class="footnote-reference brackets" href="#punx" id="id1">1</a>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">punx</span> <span class="n">tree</span> <span class="n">FILENAME</span><span class="o">.</span><span class="n">hdf5</span>
-</pre></div>
-</div>
-<p>is used to generate a tree view of an HDF5 file’s structure.</p>
-</aside>
 <p>This page documents the terms used in the documentation of the NeXus files written
 by <strong>spec2nexus</strong>.</p>
 <div class="table-wrapper"><table class="docutils align-default">
@@ -276,15 +268,15 @@ by <strong>spec2nexus</strong>.</p>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">@{NAME}</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">@default</span></code></p></td>
-<td><p>HDF5 attribute of the parent group or field <a class="footnote-reference brackets" href="#nx-field" id="id2">3</a></p></td>
+<td><p>HDF5 attribute of the parent group or field <a class="footnote-reference brackets" href="#nx-field" id="id1">2</a></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">NX_{datatype}</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">NX_NUMBER</span></code></p></td>
-<td><p>uses this NeXus data type <a class="footnote-reference brackets" href="#nx-datatype" id="id3">4</a></p></td>
+<td><p>uses this NeXus data type <a class="footnote-reference brackets" href="#nx-datatype" id="id2">3</a></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">NX_{unittype}</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">NX_CHAR</span></code></p></td>
-<td><p>uses this NeXus unit type <a class="footnote-reference brackets" href="#nx-unittype" id="id4">5</a></p></td>
+<td><p>uses this NeXus unit type <a class="footnote-reference brackets" href="#nx-unittype" id="id3">4</a></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">/S1.1</span></code></p></td>
@@ -292,27 +284,36 @@ by <strong>spec2nexus</strong>.</p>
 </tr>
 </tbody>
 </table></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><em>for reference</em>: tree views</p>
+<p>In this documentation, the command <a class="footnote-reference brackets" href="#punx" id="id4">5</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">punx</span> <span class="n">tree</span> <span class="n">FILENAME</span><span class="o">.</span><span class="n">hdf5</span>
+</pre></div>
+</div>
+<p>is used to generate a tree view of an HDF5 file’s structure.</p>
+</div>
 <dl class="footnote brackets">
-<dt class="label" id="punx"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>Visualize NeXus file tree structure :
-<a class="reference external" href="https://prjemian.github.io/punx/tree.html#tree">https://prjemian.github.io/punx/tree.html#tree</a></p>
-</dd>
-<dt class="label" id="spec-format"><span class="brackets">2</span></dt>
+<dt class="label" id="spec-format"><span class="brackets">1</span></dt>
 <dd><p>SPEC <strong>Standard Data-File Format</strong> :
 <a class="reference external" href="https://certif.com/spec_manual/mac_3_13.html">https://certif.com/spec_manual/mac_3_13.html</a></p>
 </dd>
-<dt class="label" id="nx-field"><span class="brackets"><a class="fn-backref" href="#id2">3</a></span></dt>
+<dt class="label" id="nx-field"><span class="brackets"><a class="fn-backref" href="#id1">2</a></span></dt>
 <dd><p>A NeXus <strong>field</strong> is the same as an HDF5 <strong>dataset</strong>.  The rename is
 due to historical reasons in NeXus when XML was used as a back-end data file
 storage format.</p>
 </dd>
-<dt class="label" id="nx-datatype"><span class="brackets"><a class="fn-backref" href="#id3">4</a></span></dt>
+<dt class="label" id="nx-datatype"><span class="brackets"><a class="fn-backref" href="#id2">3</a></span></dt>
 <dd><p>List of NeXus data types:
 <a class="reference external" href="https://manual.nexusformat.org/nxdl-types.html#field-types-allowed-in-nxdl-specifications">https://manual.nexusformat.org/nxdl-types.html#field-types-allowed-in-nxdl-specifications</a></p>
 </dd>
-<dt class="label" id="nx-unittype"><span class="brackets"><a class="fn-backref" href="#id4">5</a></span></dt>
+<dt class="label" id="nx-unittype"><span class="brackets"><a class="fn-backref" href="#id3">4</a></span></dt>
 <dd><p>List of NeXus unit categories:
 <a class="reference external" href="https://manual.nexusformat.org/nxdl-types.html#unit-categories-allowed-in-nxdl-specifications">https://manual.nexusformat.org/nxdl-types.html#unit-categories-allowed-in-nxdl-specifications</a></p>
+</dd>
+<dt class="label" id="punx"><span class="brackets"><a class="fn-backref" href="#id4">5</a></span></dt>
+<dd><p>Visualize NeXus file tree structure :
+<a class="reference external" href="https://prjemian.github.io/punx/tree.html#tree">https://prjemian.github.io/punx/tree.html#tree</a></p>
 </dd>
 </dl>
 <p>NeXus base classes</p>
