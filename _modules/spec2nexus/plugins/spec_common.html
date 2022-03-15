@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.03.04"/>
-        <title>spec2nexus.plugins.spec_common - spec2nexus 2021.1.11 (61.gea7afb7)</title>
+        <title>spec2nexus.plugins.spec_common - spec2nexus 2021.1.11 (63.g35941eb)</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=935aa2abcc5c1da4283d1dc201fb1f0add16d23a" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -121,7 +121,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../../index.html"><div class="brand">spec2nexus 2021.1.11 (61.gea7afb7)</div></a>
+      <a href="../../../index.html"><div class="brand">spec2nexus 2021.1.11 (63.g35941eb)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -144,7 +144,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.1.11 (61.gea7afb7)</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.1.11 (63.g35941eb)</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -745,15 +745,16 @@
         <span class="n">comment</span> <span class="o">=</span> <span class="s2">"keys are SPEC counter mnemonics, values are SPEC counter names"</span>
         <span class="k">if</span> <span class="n">nxclass</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">nxclass</span> <span class="o">=</span> <span class="n">CONTAINER_CLASS</span>
-        <span class="n">group</span> <span class="o">=</span> <span class="n">makeGroup</span><span class="p">(</span>
-            <span class="n">h5parent</span><span class="p">,</span>
-            <span class="s2">"counter_cross_reference"</span><span class="p">,</span>
-            <span class="n">nxclass</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="n">desc</span><span class="p">,</span>
-            <span class="n">comment</span><span class="o">=</span><span class="n">comment</span><span class="p">,</span>
-        <span class="p">)</span>
-        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">counter_xref</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
-            <span class="n">write_dataset</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></div></div>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">counter_xref</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">group</span> <span class="o">=</span> <span class="n">makeGroup</span><span class="p">(</span>
+                <span class="n">h5parent</span><span class="p">,</span>
+                <span class="s2">"counter_cross_reference"</span><span class="p">,</span>
+                <span class="n">nxclass</span><span class="p">,</span>
+                <span class="n">description</span><span class="o">=</span><span class="n">desc</span><span class="p">,</span>
+                <span class="n">comment</span><span class="o">=</span><span class="n">comment</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">counter_xref</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+                <span class="n">write_dataset</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></div></div>
 
 
 <div class="viewcode-block" id="SPEC_CounterMnemonics"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_CounterMnemonics">[docs]</a><span class="k">class</span> <span class="nc">SPEC_CounterMnemonics</span><span class="p">(</span><span class="n">ControlLineBase</span><span class="p">):</span>
@@ -994,21 +995,22 @@
 <div class="viewcode-block" id="SPEC_PositionerMnemonics.writer"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_PositionerMnemonics.writer">[docs]</a>    <span class="k">def</span> <span class="nf">writer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h5parent</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="n">header</span><span class="p">,</span> <span class="n">nxclass</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">):</span>
         <span class="sd">"""Describe how to store this data in an HDF5 NeXus file"""</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">header</span><span class="p">,</span> <span class="s2">"positioner_xref"</span><span class="p">):</span>
-            <span class="n">header</span><span class="o">.</span><span class="n">counter_xref</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># mnemonic:name</span>
+            <span class="n">header</span><span class="o">.</span><span class="n">positioner_xref</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># mnemonic:name</span>
         <span class="n">desc</span> <span class="o">=</span> <span class="s2">"cross-reference SPEC positioner mnemonics and names"</span>
         <span class="n">comment</span> <span class="o">=</span> <span class="s2">"keys are SPEC positioner mnemonics, values are SPEC positioner names"</span>
         <span class="k">if</span> <span class="n">nxclass</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">nxclass</span> <span class="o">=</span> <span class="n">CONTAINER_CLASS</span>
-        <span class="n">group</span> <span class="o">=</span> <span class="n">makeGroup</span><span class="p">(</span>
-            <span class="n">h5parent</span><span class="p">,</span>
-            <span class="s2">"positioner_cross_reference"</span><span class="p">,</span>
-            <span class="n">nxclass</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="n">desc</span><span class="p">,</span>
-            <span class="n">comment</span><span class="o">=</span><span class="n">comment</span><span class="p">,</span>
-        <span class="p">)</span>
-        <span class="k">for</span> <span class="n">mne</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">positioner_xref</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
-            <span class="n">attrs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">mne</span><span class="o">=</span><span class="n">mne</span><span class="p">,</span> <span class="n">field_name</span><span class="o">=</span><span class="n">clean_name</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
-            <span class="n">write_dataset</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">mne</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div></div>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">positioner_xref</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">group</span> <span class="o">=</span> <span class="n">makeGroup</span><span class="p">(</span>
+                <span class="n">h5parent</span><span class="p">,</span>
+                <span class="s2">"positioner_cross_reference"</span><span class="p">,</span>
+                <span class="n">nxclass</span><span class="p">,</span>
+                <span class="n">description</span><span class="o">=</span><span class="n">desc</span><span class="p">,</span>
+                <span class="n">comment</span><span class="o">=</span><span class="n">comment</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="k">for</span> <span class="n">mne</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">positioner_xref</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+                <span class="n">attrs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">mne</span><span class="o">=</span><span class="n">mne</span><span class="p">,</span> <span class="n">field_name</span><span class="o">=</span><span class="n">clean_name</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+                <span class="n">write_dataset</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">mne</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div></div>
 
 
 <span class="k">def</span> <span class="nf">positioner_xref_postprocessing</span><span class="p">(</span><span class="n">header</span><span class="p">):</span>
