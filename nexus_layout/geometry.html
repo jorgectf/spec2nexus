@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Instrument" href="instrument.html" /><link rel="prev" title="Counters" href="counters.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.03.04"/>
-        <title>Geometry - spec2nexus 2021.2.0rc2 (5.gfbca6eb)</title>
+        <title>Geometry - spec2nexus 2021.2.0rc2 (8.g3da5d66)</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=935aa2abcc5c1da4283d1dc201fb1f0add16d23a" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -122,7 +122,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">spec2nexus 2021.2.0rc2 (5.gfbca6eb)</div></a>
+      <a href="../index.html"><div class="brand">spec2nexus 2021.2.0rc2 (8.g3da5d66)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -145,7 +145,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.0rc2 (5.gfbca6eb)</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.0rc2 (8.g3da5d66)</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -354,8 +354,9 @@ as shown below, the geometry is inferred as <strong>fourc</strong>.</p>
 <span class="linenos">11</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"G4"</span>
 </pre></div>
 </div>
-<p>The interpreted information from the <code class="docutils literal notranslate"><span class="pre">G[]</span></code> array is written to <code class="docutils literal notranslate"><span class="pre">/SCAN/instrument/geometry_parameters</span></code>
-(see section <a class="reference internal" href="#data-file-geometry"><span class="std std-ref">Geometry</span></a>).  Text description
+<p>The interpreted information from the <code class="docutils literal notranslate"><span class="pre">G[]</span></code> array is written to
+<code class="docutils literal notranslate"><span class="pre">/SCAN/instrument/diffractometer</span></code> (and linked to
+<code class="docutils literal notranslate"><span class="pre">/SCAN/instrument/geometry_parameters</span></code>).  Text description
 of each parameter is provided when available.</p>
 <p>If it was possible to determine the name of the diffractometer geometry, that
 name will be reported in the <code class="docutils literal notranslate"><span class="pre">name</span></code> field.  In SPEC, some of the geometries
@@ -371,7 +372,7 @@ descrption of any of the geometry information.</p>
 <span class="linenos">  2</span>   <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">"NXinstrument"</span>
 <span class="linenos">  3</span>   <span class="n">name</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'fourc.default'</span><span class="p">]</span>
 <span class="linenos">  4</span>   <span class="n">positioners</span> <span class="o">--&gt;</span> <span class="o">/</span><span class="n">S1</span><span class="o">/</span><span class="n">positioners</span>
-<span class="linenos">  5</span>   <span class="n">geometry_parameters</span><span class="p">:</span><span class="n">NXnote</span>
+<span class="linenos">  5</span>   <span class="n">diffractometer</span><span class="p">:</span><span class="n">NXnote</span>
 <span class="linenos">  6</span>     <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">"NXnote"</span>
 <span class="linenos">  7</span>     <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"SPEC geometry arrays, interpreted"</span>
 <span class="linenos">  8</span>     <span class="n">ALPHA</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>

@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.03.04"/>
-        <title>spec2nexus.writer - spec2nexus 2021.2.0rc2 (5.gfbca6eb)</title>
+        <title>spec2nexus.writer - spec2nexus 2021.2.0rc2 (8.g3da5d66)</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=935aa2abcc5c1da4283d1dc201fb1f0add16d23a" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -121,7 +121,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">spec2nexus 2021.2.0rc2 (5.gfbca6eb)</div></a>
+      <a href="../../index.html"><div class="brand">spec2nexus 2021.2.0rc2 (8.g3da5d66)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -144,7 +144,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.0rc2 (5.gfbca6eb)</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.0rc2 (8.g3da5d66)</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -402,6 +402,13 @@
         <span class="k">for</span> <span class="n">func</span> <span class="ow">in</span> <span class="n">scan</span><span class="o">.</span><span class="n">h5writers</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
             <span class="c1"># ask the scan plugins to save their part</span>
             <span class="n">func</span><span class="p">(</span><span class="n">nxentry</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">scan</span><span class="p">,</span> <span class="n">nxclass</span><span class="o">=</span><span class="n">CONTAINER_CLASS</span><span class="p">)</span>
+
+        <span class="c1"># additions: links</span>
+        <span class="k">if</span> <span class="s2">"instrument/geometry_parameters"</span> <span class="ow">in</span> <span class="n">nxentry</span><span class="p">:</span>
+            <span class="n">nxinstrument</span> <span class="o">=</span> <span class="n">nxentry</span><span class="p">[</span><span class="s2">"instrument"</span><span class="p">]</span>
+            <span class="n">nxinstrument</span><span class="p">[</span><span class="s2">"diffractometer"</span><span class="p">]</span> <span class="o">=</span> <span class="n">nxinstrument</span><span class="p">[</span><span class="s2">"geometry_parameters"</span><span class="p">]</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="n">nxinstrument</span><span class="p">[</span><span class="s2">"diffractometer"</span><span class="p">]</span>
+            <span class="n">target</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">"target"</span><span class="p">]</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">name</span>
         <span class="k">if</span> <span class="p">(</span><span class="s2">"positioners"</span> <span class="ow">in</span> <span class="n">nxentry</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="s2">"instrument/positioners"</span> <span class="ow">in</span> <span class="n">nxentry</span><span class="p">):</span>
             <span class="n">target</span> <span class="o">=</span> <span class="n">nxentry</span><span class="p">[</span><span class="s2">"instrument/positioners"</span><span class="p">]</span>
             <span class="c1"># turn the link around</span>
