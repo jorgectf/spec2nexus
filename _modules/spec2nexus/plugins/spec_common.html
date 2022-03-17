@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.03.04"/>
-        <title>spec2nexus.plugins.spec_common - spec2nexus 2021.2.0rc2 (3.gfb56451)</title>
+        <title>spec2nexus.plugins.spec_common - spec2nexus 2021.2.0rc2 (5.gfbca6eb)</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=935aa2abcc5c1da4283d1dc201fb1f0add16d23a" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -121,7 +121,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../../index.html"><div class="brand">spec2nexus 2021.2.0rc2 (3.gfb56451)</div></a>
+      <a href="../../../index.html"><div class="brand">spec2nexus 2021.2.0rc2 (5.gfbca6eb)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -144,7 +144,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.0rc2 (3.gfb56451)</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.0rc2 (5.gfbca6eb)</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -275,6 +275,7 @@
 <span class="kn">from</span> <span class="nn">spec2nexus.plugin_core</span> <span class="kn">import</span> <span class="n">ControlLineBase</span>
 
 <span class="kn">from</span> <span class="nn">spec2nexus.diffractometers</span> <span class="kn">import</span> <span class="n">get_geometry_catalog</span><span class="p">,</span> <span class="n">Diffractometer</span>
+<span class="kn">from</span> <span class="nn">spec2nexus.diffractometers</span> <span class="kn">import</span> <span class="n">LatticeParameters3D</span>
 <span class="kn">from</span> <span class="nn">spec2nexus.eznx</span> <span class="kn">import</span> <span class="n">write_dataset</span><span class="p">,</span> <span class="n">makeGroup</span><span class="p">,</span> <span class="n">openGroup</span><span class="p">,</span> <span class="n">makeLink</span>
 <span class="kn">from</span> <span class="nn">spec2nexus.scanf</span> <span class="kn">import</span> <span class="n">scanf</span>
 <span class="kn">from</span> <span class="nn">spec2nexus.spec</span> <span class="kn">import</span> <span class="p">(</span>
@@ -613,7 +614,7 @@
             <span class="k">if</span> <span class="n">scan</span><span class="o">.</span><span class="n">diffractometer</span><span class="o">.</span><span class="n">lattice</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="n">nxsample</span> <span class="o">=</span> <span class="n">openGroup</span><span class="p">(</span><span class="n">h5parent</span><span class="p">,</span> <span class="s2">"sample"</span><span class="p">,</span> <span class="s2">"NXsample"</span><span class="p">)</span>
                 <span class="n">lattice</span> <span class="o">=</span> <span class="n">scan</span><span class="o">.</span><span class="n">diffractometer</span><span class="o">.</span><span class="n">lattice</span>
-                <span class="k">if</span> <span class="p">(</span><span class="nb">hasattr</span><span class="p">(</span><span class="n">lattice</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">))</span> <span class="ow">and</span> <span class="p">(</span><span class="nb">hasattr</span><span class="p">(</span><span class="n">lattice</span><span class="p">,</span> <span class="s2">"alpha"</span><span class="p">))</span> <span class="ow">and</span> <span class="p">(</span><span class="nb">hasattr</span><span class="p">(</span><span class="n">lattice</span><span class="p">,</span> <span class="s2">"beta"</span><span class="p">)):</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">lattice</span><span class="p">,</span> <span class="n">LatticeParameters3D</span><span class="p">):</span>
                     <span class="n">abc</span> <span class="o">=</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">lattice</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="s2">"a b c"</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
                     <span class="n">angles</span> <span class="o">=</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">lattice</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="s2">"alpha beta gamma"</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
                     <span class="n">write_dataset</span><span class="p">(</span>
@@ -630,8 +631,14 @@
                     <span class="p">)</span>
                 <span class="k">else</span><span class="p">:</span>  <span class="c1"># not a 3D lattice, so ad hoc structure</span>
                     <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">lattice</span><span class="o">.</span><span class="n">_fields</span><span class="p">:</span>
+                        <span class="n">v</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">lattice</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+                        <span class="n">egu</span> <span class="o">=</span> <span class="s2">"angstrom"</span>
+                        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                            <span class="c1"># Assumes lengths have single letters,</span>
+                            <span class="c1"># angles are spelled out.</span>
+                            <span class="n">egu</span> <span class="o">=</span> <span class="s2">"degrees"</span>
                         <span class="n">write_dataset</span><span class="p">(</span>
-                            <span class="n">nxsample</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"unit_cell_</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">lattice</span><span class="p">,</span> <span class="n">k</span><span class="p">),</span>
+                            <span class="n">nxsample</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"unit_cell_</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="n">egu</span><span class="p">,</span>
                         <span class="p">)</span>
             <span class="k">if</span> <span class="s2">"ub_matrix"</span> <span class="ow">in</span> <span class="n">gpar</span><span class="p">:</span>
                 <span class="n">nxsample</span> <span class="o">=</span> <span class="n">openGroup</span><span class="p">(</span><span class="n">h5parent</span><span class="p">,</span> <span class="s2">"sample"</span><span class="p">,</span> <span class="s2">"NXsample"</span><span class="p">)</span>
