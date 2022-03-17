@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.03.04"/>
-        <title>spec2nexus.diffractometers - spec2nexus 2021.2.0rc2 (1.g4514b17)</title>
+        <title>spec2nexus.diffractometers - spec2nexus 2021.2.0rc2 (3.gfb56451)</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=935aa2abcc5c1da4283d1dc201fb1f0add16d23a" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -121,7 +121,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">spec2nexus 2021.2.0rc2 (1.g4514b17)</div></a>
+      <a href="../../index.html"><div class="brand">spec2nexus 2021.2.0rc2 (3.gfb56451)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -144,7 +144,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.0rc2 (1.g4514b17)</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.0rc2 (3.gfb56451)</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -294,11 +294,17 @@
     <span class="s2">"KeyDescriptionValue"</span><span class="p">,</span> <span class="s2">"key description value"</span>
 <span class="p">)</span>
 
-<span class="n">LatticeParameters</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span>
-    <span class="s2">"LatticeParameters"</span><span class="p">,</span> <span class="s2">"a b c alpha beta gamma"</span>
+<span class="n">LatticeParameters2D</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span>
+    <span class="s2">"LatticeParameters2D"</span><span class="p">,</span> <span class="s2">"a b gamma"</span>
 <span class="p">)</span>
 
-<span class="n">Reflections</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">"Reflections"</span><span class="p">,</span> <span class="s2">"h k l wavelength angles"</span><span class="p">)</span>
+<span class="n">LatticeParameters3D</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span>
+    <span class="s2">"LatticeParameters3D"</span><span class="p">,</span> <span class="s2">"a b c alpha beta gamma"</span>
+<span class="p">)</span>
+
+<span class="n">Reflections2D</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">"Reflections2D"</span><span class="p">,</span> <span class="s2">"h k wavelength angles"</span><span class="p">)</span>
+
+<span class="n">Reflections3D</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">"Reflections3D"</span><span class="p">,</span> <span class="s2">"h k l wavelength angles"</span><span class="p">)</span>
 
 
 <span class="c1"># lattice constants, orientation reflections</span>
@@ -528,14 +534,12 @@
                         <span class="k">for</span> <span class="n">v</span><span class="p">,</span> <span class="n">kd</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">g1</span><span class="p">,</span> <span class="n">gonio_U</span><span class="p">)</span>
                     <span class="p">}</span>
                 <span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">lattice</span> <span class="o">=</span> <span class="n">LatticeParameters</span><span class="p">(</span>
-                    <span class="n">U</span><span class="p">[</span><span class="s2">"g_aa"</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
-                    <span class="n">U</span><span class="p">[</span><span class="s2">"g_bb"</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
-                    <span class="n">U</span><span class="p">[</span><span class="s2">"g_cc"</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
-                    <span class="n">U</span><span class="p">[</span><span class="s2">"g_al"</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
-                    <span class="n">U</span><span class="p">[</span><span class="s2">"g_be"</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
-                    <span class="n">U</span><span class="p">[</span><span class="s2">"g_ga"</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
-                <span class="p">)</span>
+                <span class="k">if</span> <span class="p">(</span><span class="s2">"g_cc"</span> <span class="ow">in</span> <span class="n">U</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="s2">"g_al"</span> <span class="ow">in</span> <span class="n">U</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="s2">"g_be"</span> <span class="ow">in</span> <span class="n">U</span><span class="p">):</span>
+                    <span class="n">_parms</span> <span class="o">=</span> <span class="p">[</span><span class="n">U</span><span class="p">[</span><span class="sa">f</span><span class="s2">"g_</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">"</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="s2">"aa bb cc al be ga"</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">lattice</span> <span class="o">=</span> <span class="n">LatticeParameters3D</span><span class="p">(</span><span class="o">*</span><span class="n">_parms</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>  <span class="c1"># twoc</span>
+                    <span class="n">_parms</span> <span class="o">=</span> <span class="p">[</span><span class="n">U</span><span class="p">[</span><span class="sa">f</span><span class="s2">"g_</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">"</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="s2">"aa bb ga"</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">lattice</span> <span class="o">=</span> <span class="n">LatticeParameters2D</span><span class="p">(</span><span class="o">*</span><span class="n">_parms</span><span class="p">)</span>
                 <span class="k">for</span> <span class="n">ref_num</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
                     <span class="n">template</span> <span class="o">=</span> <span class="s2">"g_u</span><span class="si">%d%%</span><span class="s2">d"</span> <span class="o">%</span> <span class="n">ref_num</span>
                     <span class="n">variant</span> <span class="o">=</span> <span class="n">dgc</span><span class="o">.</span><span class="n">get_variant</span><span class="p">(</span><span class="n">gonio</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">variant</span><span class="p">)</span>
@@ -544,13 +548,17 @@
                         <span class="n">k</span> <span class="o">=</span> <span class="n">template</span> <span class="o">%</span> <span class="n">i</span>
                         <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">U</span><span class="p">:</span>
                             <span class="n">angles</span><span class="p">[</span><span class="n">mne</span><span class="p">]</span> <span class="o">=</span> <span class="n">U</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
-                    <span class="n">ref</span> <span class="o">=</span> <span class="n">Reflections</span><span class="p">(</span>
-                        <span class="n">U</span><span class="p">[</span><span class="s2">"g_h</span><span class="si">%d</span><span class="s2">"</span> <span class="o">%</span> <span class="n">ref_num</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
-                        <span class="n">U</span><span class="p">[</span><span class="s2">"g_k</span><span class="si">%d</span><span class="s2">"</span> <span class="o">%</span> <span class="n">ref_num</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
-                        <span class="n">U</span><span class="p">[</span><span class="s2">"g_l</span><span class="si">%d</span><span class="s2">"</span> <span class="o">%</span> <span class="n">ref_num</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
-                        <span class="n">U</span><span class="p">[</span><span class="s2">"g_lambda</span><span class="si">%d</span><span class="s2">"</span> <span class="o">%</span> <span class="n">ref_num</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
-                        <span class="n">angles</span><span class="p">,</span>
-                    <span class="p">)</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="s2">"g_lambda"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">U</span><span class="p">):</span>
+                        <span class="n">_parms</span> <span class="o">=</span> <span class="p">[</span><span class="n">U</span><span class="p">[</span><span class="sa">f</span><span class="s2">"g_</span><span class="si">{</span><span class="n">k</span><span class="si">}{</span><span class="n">ref_num</span><span class="si">}</span><span class="s2">"</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="s2">"h k l lambda"</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
+                        <span class="n">_parms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">angles</span><span class="p">)</span>
+                        <span class="n">ref</span> <span class="o">=</span> <span class="n">Reflections3D</span><span class="p">(</span><span class="o">*</span><span class="n">_parms</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>  <span class="c1"># twoc</span>
+                        <span class="k">if</span> <span class="n">ref_num</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                            <span class="k">break</span>  <span class="c1"># at most, 1 reflection is defined</span>
+                        <span class="n">_parms</span> <span class="o">=</span> <span class="p">[</span><span class="n">U</span><span class="p">[</span><span class="sa">f</span><span class="s2">"g_</span><span class="si">{</span><span class="n">k</span><span class="si">}{</span><span class="n">ref_num</span><span class="si">}</span><span class="s2">"</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="s2">"h k"</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
+                        <span class="n">_parms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">U</span><span class="p">[</span><span class="s2">"g_lambda"</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+                        <span class="n">_parms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">angles</span><span class="p">)</span>
+                        <span class="n">ref</span> <span class="o">=</span> <span class="n">Reflections2D</span><span class="p">(</span><span class="o">*</span><span class="n">_parms</span><span class="p">)</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">reflections</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ref</span><span class="p">)</span>
 
                 <span class="bp">self</span><span class="o">.</span><span class="n">geometry_parameters</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">U</span><span class="p">)</span>
