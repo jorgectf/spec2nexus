@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>spec2nexus.plugins.spec_common - spec2nexus 2021.2.0 (4.gcb8d0e0)</title>
+        <title>spec2nexus.plugins.spec_common - spec2nexus 2021.2.0 (7.g335b7e9)</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -123,7 +123,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../../index.html"><div class="brand">spec2nexus 2021.2.0 (4.gcb8d0e0)</div></a>
+      <a href="../../../index.html"><div class="brand">spec2nexus 2021.2.0 (7.g335b7e9)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -146,7 +146,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.0 (4.gcb8d0e0)</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.0 (7.g335b7e9)</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -1178,6 +1178,52 @@
         <span class="n">write_dataset</span><span class="p">(</span><span class="n">h5parent</span><span class="p">,</span> <span class="s2">"Q"</span><span class="p">,</span> <span class="n">scan</span><span class="o">.</span><span class="n">Q</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="n">desc</span><span class="p">)</span></div></div>
 
 
+<div class="viewcode-block" id="SPEC_UserResults"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_UserResults">[docs]</a><span class="k">class</span> <span class="nc">SPEC_UserResults</span><span class="p">(</span><span class="n">ControlLineBase</span><span class="p">):</span>
+
+    <span class="sd">"""</span>
+<span class="sd">    **#R** -- Reserved for user results</span>
+
+<span class="sd">    IN-MEMORY REPRESENTATION</span>
+
+<span class="sd">    * (SpecDataFileHeader): **R**, [*str*]</span>
+<span class="sd">    * (SpecDataFileScan): **R**, [*str*]</span>
+
+<span class="sd">    HDF5/NeXus REPRESENTATION</span>
+
+<span class="sd">    * Within a *NXnote* group named **UserResults** in the *NXentry* group:</span>
+<span class="sd">      dataset(s) named **header_##** (from the SPEC data file header</span>
+<span class="sd">      section) or **item_##** (from the SPEC data file scan section),</span>
+<span class="sd">      such as */S1/UserResults/header_1* and  */S1/UserResults/item_5*</span>
+<span class="sd">    """</span>
+
+    <span class="n">key</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"#R"</span>
+    <span class="n">scan_attributes_defined</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"R"</span><span class="p">]</span>
+
+<div class="viewcode-block" id="SPEC_UserResults.process"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_UserResults.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">sdf_object</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">):</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">strip_first_word</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">sdf_object</span><span class="p">,</span> <span class="s2">"R"</span><span class="p">):</span>
+            <span class="n">sdf_object</span><span class="o">.</span><span class="n">R</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">sdf_object</span><span class="o">.</span><span class="n">R</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+
+        <span class="n">sdf_object</span><span class="o">.</span><span class="n">addH5writer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">writer</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SPEC_UserResults.writer"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_UserResults.writer">[docs]</a>    <span class="k">def</span> <span class="nf">writer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h5parent</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="n">sdf_object</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">):</span>
+        <span class="sd">"""Describe how to store this data in an HDF5 NeXus file"""</span>
+        <span class="n">desc</span> <span class="o">=</span> <span class="s1">'SPEC control line "#R: Reserved for user results"'</span>
+        <span class="n">group</span> <span class="o">=</span> <span class="n">openGroup</span><span class="p">(</span>
+            <span class="n">h5parent</span><span class="p">,</span> <span class="s2">"UserResults"</span><span class="p">,</span> <span class="s2">"NXnote"</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="n">desc</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">sdf_object</span><span class="p">,</span> <span class="n">SpecDataFileHeader</span><span class="p">):</span>
+            <span class="n">tag</span> <span class="o">=</span> <span class="s2">"header"</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">tag</span> <span class="o">=</span> <span class="s2">"item"</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">text</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sdf_object</span><span class="o">.</span><span class="n">R</span><span class="p">):</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="s2">"</span><span class="si">%s</span><span class="s2">_</span><span class="si">%d</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">write_dataset</span><span class="p">(</span>
+                <span class="n">group</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">"#R line </span><span class="si">%d</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="p">)</span></div></div>
+
+
 <div class="viewcode-block" id="SPEC_CountTime"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_CountTime">[docs]</a><span class="k">class</span> <span class="nc">SPEC_CountTime</span><span class="p">(</span><span class="n">ControlLineBase</span><span class="p">):</span>
 
     <span class="sd">"""</span>
@@ -1218,7 +1264,7 @@
 <div class="viewcode-block" id="SPEC_UserReserved"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_UserReserved">[docs]</a><span class="k">class</span> <span class="nc">SPEC_UserReserved</span><span class="p">(</span><span class="n">ControlLineBase</span><span class="p">):</span>
 
     <span class="sd">"""</span>
-<span class="sd">    **#U** -- Reserved for user</span>
+<span class="sd">    **#U** -- Reserved for user-defined information</span>
 
 <span class="sd">    IN-MEMORY REPRESENTATION</span>
 

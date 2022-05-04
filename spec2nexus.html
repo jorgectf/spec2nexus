@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="NeXus File Layout" href="nexus_layout/index.html" /><link rel="prev" title="Applications" href="applications.html" />
 
     <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>spec2nexus - spec2nexus 2021.2.0 (4.gcb8d0e0)</title>
+        <title>spec2nexus - spec2nexus 2021.2.0 (7.g335b7e9)</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">spec2nexus 2021.2.0 (4.gcb8d0e0)</div></a>
+      <a href="index.html"><div class="brand">spec2nexus 2021.2.0 (7.g335b7e9)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.0 (4.gcb8d0e0)</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.0 (7.g335b7e9)</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -312,29 +312,33 @@ sections.  See the <a class="reference internal" href="nexus_layout/example_1d_s
 <section id="command-line-options">
 <h2>command-line options<a class="headerlink" href="#command-line-options" title="Permalink to this headline">#</a></h2>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>  user@host ~$ spec2nexus.py -h
-<span class="linenos"> 2</span>  usage: spec2nexus [-h] [-e HDF5_EXTENSION] [-f] [-v] [-s SCAN_LIST] [-t]
-<span class="linenos"> 3</span>                    [--quiet | --verbose]
-<span class="linenos"> 4</span>                    infile [infile ...]
-<span class="linenos"> 5</span>
-<span class="linenos"> 6</span>  spec2nexus: Convert SPEC data file into a NeXus HDF5 file.
-<span class="linenos"> 7</span>
-<span class="linenos"> 8</span>  positional arguments:
-<span class="linenos"> 9</span>    infile                SPEC data file name(s)
-<span class="linenos">10</span>
-<span class="linenos">11</span>  optional arguments:
-<span class="linenos">12</span>    -h, --help            show this help message and exit
-<span class="linenos">13</span>    -e HDF5_EXTENSION, --hdf5-extension HDF5_EXTENSION
-<span class="linenos">14</span>                          NeXus HDF5 output file extension, default = .hdf5
-<span class="linenos">15</span>    -f, --force-overwrite
-<span class="linenos">16</span>                          overwrite output file if it exists
-<span class="linenos">17</span>    -v, --version         show program's version number and exit
-<span class="linenos">18</span>    -s SCAN_LIST, --scan SCAN_LIST
-<span class="linenos">19</span>                          specify which scans to save, such as: -s all or -s 1
-<span class="linenos">20</span>                          or -s 1,2,3-5 (no spaces!), default = all
-<span class="linenos">21</span>    --quiet                     suppress all program output (except errors), do not
-<span class="linenos">22</span>                          use with --verbose option
-<span class="linenos">23</span>    --verbose                   print more program output, do not use with --quiet
-<span class="linenos">24</span>                          option
+<span class="linenos"> 2</span>  usage: spec2nexus [-h] [-e HDF5_EXTENSION] [-f] [-v] [-s SCAN_LIST]
+<span class="linenos"> 3</span>                    [-o OUTPUT_FILENAME]
+<span class="linenos"> 4</span>                    [--quiet | --verbose]
+<span class="linenos"> 5</span>                    infile [infile ...]
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span>  spec2nexus: Convert SPEC data file into a NeXus HDF5 file.
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span>  positional arguments:
+<span class="linenos">10</span>    infile                SPEC data file name(s)
+<span class="linenos">11</span>
+<span class="linenos">12</span>  optional arguments:
+<span class="linenos">13</span>    -h, --help            show this help message and exit
+<span class="linenos">14</span>    -e HDF5_EXTENSION, --hdf5-extension HDF5_EXTENSION
+<span class="linenos">15</span>                          NeXus HDF5 output file extension, default = .hdf5
+<span class="linenos">16</span>    -f, --force-overwrite
+<span class="linenos">17</span>                          overwrite output file if it exists
+<span class="linenos">18</span>    -v, --version         show program's version number and exit
+<span class="linenos">19</span>    -s SCAN_LIST, --scan SCAN_LIST
+<span class="linenos">20</span>                          specify which scans to save, such as: -s all or -s 1
+<span class="linenos">21</span>                          or -s 1,2,3-5 (no spaces!), default = all
+<span class="linenos">22</span>    -o OUTPUT_FILENAME, --output OUTPUT_FILENAME
+<span class="linenos">23</span>                          explicitly set the output file (default is same as input file, but with
+<span class="linenos">24</span>                          the .spec extension changed to .hdf5)
+<span class="linenos">25</span>    --quiet                     suppress all program output (except errors), do not
+<span class="linenos">26</span>                          use with --verbose option
+<span class="linenos">27</span>    --verbose                   print more program output, do not use with --quiet
+<span class="linenos">28</span>                          option
 </pre></div>
 </div>
 <div class="admonition note">

@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="UIM plugin" href="uim.html" /><link rel="prev" title="Fallback plugin" href="fallback.html" />
 
     <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>SPEC standard plugin - spec2nexus 2021.2.0 (4.gcb8d0e0)</title>
+        <title>SPEC standard plugin - spec2nexus 2021.2.0 (7.g335b7e9)</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">spec2nexus 2021.2.0 (4.gcb8d0e0)</div></a>
+      <a href="../index.html"><div class="brand">spec2nexus 2021.2.0 (7.g335b7e9)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.0 (4.gcb8d0e0)</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.0 (7.g335b7e9)</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -1213,7 +1213,7 @@ If the conversion process fails for any reason in this implementation, the <em>#
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_UserReserved">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_UserReserved</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_UserReserved"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_UserReserved" title="Permalink to this definition">#</a></dt>
-<dd><p><strong>#U</strong> – Reserved for user</p>
+<dd><p><strong>#U</strong> – Reserved for user-defined information</p>
 <p>IN-MEMORY REPRESENTATION</p>
 <ul class="simple">
 <li><p>(SpecDataFileHeader): <strong>U</strong>, [<em>str</em>]</p></li>
@@ -1243,6 +1243,42 @@ such as <em>/S1/UserReserved/header_1</em> and  <em>/S1/UserReserved/item_5</em>
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_UserReserved.writer">
 <span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sdf_object</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_UserReserved.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_UserReserved.writer" title="Permalink to this definition">#</a></dt>
+<dd><p>Describe how to store this data in an HDF5 NeXus file</p>
+</dd></dl>
+</dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_UserResults">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.spec_common.</span></span><span class="sig-name descname"><span class="pre">SPEC_UserResults</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_UserResults"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_UserResults" title="Permalink to this definition">#</a></dt>
+<dd><p><strong>#R</strong> – Reserved for user results</p>
+<p>IN-MEMORY REPRESENTATION</p>
+<ul class="simple">
+<li><p>(SpecDataFileHeader): <strong>R</strong>, [<em>str</em>]</p></li>
+<li><p>(SpecDataFileScan): <strong>R</strong>, [<em>str</em>]</p></li>
+</ul>
+<p>HDF5/NeXus REPRESENTATION</p>
+<ul class="simple">
+<li><p>Within a <em>NXnote</em> group named <strong>UserResults</strong> in the <em>NXentry</em> group:
+dataset(s) named <strong>header_##</strong> (from the SPEC data file header
+section) or <strong>item_##</strong> (from the SPEC data file scan section),
+such as <em>/S1/UserResults/header_1</em> and  <em>/S1/UserResults/item_5</em></p></li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_UserResults.process">
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sdf_object</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_UserResults.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_UserResults.process" title="Permalink to this definition">#</a></dt>
+<dd><p><em>required:</em> Handle this line from a SPEC data file.</p>
+<p>PARAMETERS</p>
+<dl class="simple">
+<dt>text str:</dt><dd><p>?raw text?</p>
+</dd>
+<dt>spec_obj obj:</dt><dd><p>Instance of <a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFile" title="spec2nexus.spec.SpecDataFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFile</span></code></a>,
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileHeader" title="spec2nexus.spec.SpecDataFileHeader"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileHeader</span></code></a>, or
+<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileScan</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="spec2nexus.plugins.spec_common.SPEC_UserResults.writer">
+<span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sdf_object</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/spec_common.html#SPEC_UserResults.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.spec_common.SPEC_UserResults.writer" title="Permalink to this definition">#</a></dt>
 <dd><p>Describe how to store this data in an HDF5 NeXus file</p>
 </dd></dl>
 </dd></dl>
