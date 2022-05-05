@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="API" href="api.html" /><link rel="prev" title="How to write a custom control line handling plugin module for spec" href="how_to_write_plugin.html" />
 
     <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>How to write a custom scan handling class for specplot - spec2nexus 2021.2.0 (10.g6a794b8)</title>
+        <title>How to write a custom scan handling class for specplot - spec2nexus 2021.2.0 (15.g5d866e4)</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">spec2nexus 2021.2.0 (10.g6a794b8)</div></a>
+      <a href="index.html"><div class="brand">spec2nexus 2021.2.0 (15.g5d866e4)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.0 (10.g6a794b8)</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.0 (15.g5d866e4)</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -535,54 +535,56 @@ the <code class="xref py py-mod docutils literal notranslate"><span class="pre">
 <span class="linenos">21</span>        <span class="n">spec2nexus</span><span class="o">.</span><span class="n">specplot</span><span class="o">.</span><span class="n">LinePlotter</span><span class="o">.</span><span class="n">retrieve_plot_data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 <span class="linenos">22</span>
 <span class="linenos">23</span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">signal</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
-<span class="linenos">24</span>            <span class="k">if</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">signal</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
-<span class="linenos">25</span>                <span class="c1"># TODO: remove any data where Y &lt;= 0 (can't plot on log scale)</span>
-<span class="linenos">26</span>                <span class="n">msg</span> <span class="o">=</span> <span class="s2">"cannot plot Y&lt;0: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="p">)</span>
-<span class="linenos">27</span>                <span class="k">raise</span> <span class="n">spec2nexus</span><span class="o">.</span><span class="n">specplot</span><span class="o">.</span><span class="n">NotPlottable</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-<span class="linenos">28</span>
-<span class="linenos">29</span>        <span class="c1"># in the uascan, a name for the sample is given in `self.scan.comments[0]`</span>
-<span class="linenos">30</span>        <span class="bp">self</span><span class="o">.</span><span class="n">set_y_log</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="linenos">31</span>        <span class="bp">self</span><span class="o">.</span><span class="n">set_plot_subtitle</span><span class="p">(</span>
-<span class="linenos">32</span>            <span class="s2">"#</span><span class="si">%s</span><span class="s2"> uascan: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="o">.</span><span class="n">scanNum</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="o">.</span><span class="n">comments</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="linenos">33</span>        <span class="p">)</span>
-<span class="linenos">34</span>
-<span class="linenos">35</span>
-<span class="linenos">36</span><span class="k">def</span> <span class="nf">debugging_setup</span><span class="p">():</span>
-<span class="linenos">37</span>    <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
-<span class="linenos">38</span>    <span class="kn">import</span> <span class="nn">shutil</span>
-<span class="linenos">39</span>    <span class="kn">import</span> <span class="nn">ascan</span>
-<span class="linenos">40</span>
-<span class="linenos">41</span>    <span class="n">selector</span> <span class="o">=</span> <span class="n">spec2nexus</span><span class="o">.</span><span class="n">specplot</span><span class="o">.</span><span class="n">Selector</span><span class="p">()</span>
-<span class="linenos">42</span>    <span class="n">selector</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"ascan"</span><span class="p">,</span> <span class="n">ascan</span><span class="o">.</span><span class="n">Custom_Ascan</span><span class="p">)</span>  <span class="c1"># just for the demo</span>
-<span class="linenos">43</span>    <span class="n">path</span> <span class="o">=</span> <span class="s2">"__usaxs__"</span>
-<span class="linenos">44</span>    <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">ignore_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="linenos">45</span>    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-<span class="linenos">46</span>    <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"-d"</span><span class="p">)</span>
-<span class="linenos">47</span>    <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-<span class="linenos">48</span>    <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-<span class="linenos">49</span>        <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">".."</span><span class="p">,</span> <span class="s2">"src"</span><span class="p">,</span> <span class="s2">"spec2nexus"</span><span class="p">,</span> <span class="s2">"data"</span><span class="p">,</span> <span class="s2">"APS_spec_data.dat"</span><span class="p">)</span>
-<span class="linenos">50</span>    <span class="p">)</span>
-<span class="linenos">51</span>
-<span class="linenos">52</span>
-<span class="linenos">53</span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-<span class="linenos">54</span>    <span class="n">selector</span> <span class="o">=</span> <span class="n">spec2nexus</span><span class="o">.</span><span class="n">specplot</span><span class="o">.</span><span class="n">Selector</span><span class="p">()</span>
-<span class="linenos">55</span>    <span class="n">selector</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"uascan"</span><span class="p">,</span> <span class="n">UAscan_Plotter</span><span class="p">)</span>
-<span class="linenos">56</span>    <span class="n">spec2nexus</span><span class="o">.</span><span class="n">specplot_gallery</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
-<span class="linenos">57</span>
-<span class="linenos">58</span>
-<span class="linenos">59</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-<span class="linenos">60</span>    <span class="c1"># debugging_setup()</span>
-<span class="linenos">61</span>    <span class="n">main</span><span class="p">()</span>
-<span class="linenos">62</span>
-<span class="linenos">63</span><span class="c1"># -----------------------------------------------------------------------------</span>
-<span class="linenos">64</span><span class="c1"># :author:    Pete R. Jemian</span>
-<span class="linenos">65</span><span class="c1"># :email:     prjemian@gmail.com</span>
-<span class="linenos">66</span><span class="c1"># :copyright: (c) 2014-2022, Pete R. Jemian</span>
-<span class="linenos">67</span><span class="c1">#</span>
-<span class="linenos">68</span><span class="c1"># Distributed under the terms of the Creative Commons Attribution 4.0 International Public License.</span>
+<span class="linenos">24</span>            <span class="c1"># can't plot negative Y on log scale</span>
+<span class="linenos">25</span>            <span class="c1"># Alternative to raising NotPlottable would be</span>
+<span class="linenos">26</span>            <span class="c1"># to remove any data where Y &lt;= 0</span>
+<span class="linenos">27</span>            <span class="k">if</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">signal</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+<span class="linenos">28</span>                <span class="n">msg</span> <span class="o">=</span> <span class="s2">"cannot plot Y&lt;0: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="p">)</span>
+<span class="linenos">29</span>                <span class="k">raise</span> <span class="n">spec2nexus</span><span class="o">.</span><span class="n">specplot</span><span class="o">.</span><span class="n">NotPlottable</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="linenos">30</span>
+<span class="linenos">31</span>        <span class="c1"># in the uascan, a name for the sample is given in `self.scan.comments[0]`</span>
+<span class="linenos">32</span>        <span class="bp">self</span><span class="o">.</span><span class="n">set_y_log</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">33</span>        <span class="bp">self</span><span class="o">.</span><span class="n">set_plot_subtitle</span><span class="p">(</span>
+<span class="linenos">34</span>            <span class="s2">"#</span><span class="si">%s</span><span class="s2"> uascan: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="o">.</span><span class="n">scanNum</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="o">.</span><span class="n">comments</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="linenos">35</span>        <span class="p">)</span>
+<span class="linenos">36</span>
+<span class="linenos">37</span>
+<span class="linenos">38</span><span class="k">def</span> <span class="nf">debugging_setup</span><span class="p">():</span>
+<span class="linenos">39</span>    <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
+<span class="linenos">40</span>    <span class="kn">import</span> <span class="nn">shutil</span>
+<span class="linenos">41</span>    <span class="kn">import</span> <span class="nn">ascan</span>
+<span class="linenos">42</span>
+<span class="linenos">43</span>    <span class="n">selector</span> <span class="o">=</span> <span class="n">spec2nexus</span><span class="o">.</span><span class="n">specplot</span><span class="o">.</span><span class="n">Selector</span><span class="p">()</span>
+<span class="linenos">44</span>    <span class="n">selector</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"ascan"</span><span class="p">,</span> <span class="n">ascan</span><span class="o">.</span><span class="n">Custom_Ascan</span><span class="p">)</span>  <span class="c1"># just for the demo</span>
+<span class="linenos">45</span>    <span class="n">path</span> <span class="o">=</span> <span class="s2">"__usaxs__"</span>
+<span class="linenos">46</span>    <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">ignore_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">47</span>    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="linenos">48</span>    <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"-d"</span><span class="p">)</span>
+<span class="linenos">49</span>    <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="linenos">50</span>    <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+<span class="linenos">51</span>        <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">".."</span><span class="p">,</span> <span class="s2">"src"</span><span class="p">,</span> <span class="s2">"spec2nexus"</span><span class="p">,</span> <span class="s2">"data"</span><span class="p">,</span> <span class="s2">"APS_spec_data.dat"</span><span class="p">)</span>
+<span class="linenos">52</span>    <span class="p">)</span>
+<span class="linenos">53</span>
+<span class="linenos">54</span>
+<span class="linenos">55</span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="linenos">56</span>    <span class="n">selector</span> <span class="o">=</span> <span class="n">spec2nexus</span><span class="o">.</span><span class="n">specplot</span><span class="o">.</span><span class="n">Selector</span><span class="p">()</span>
+<span class="linenos">57</span>    <span class="n">selector</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"uascan"</span><span class="p">,</span> <span class="n">UAscan_Plotter</span><span class="p">)</span>
+<span class="linenos">58</span>    <span class="n">spec2nexus</span><span class="o">.</span><span class="n">specplot_gallery</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+<span class="linenos">59</span>
+<span class="linenos">60</span>
+<span class="linenos">61</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+<span class="linenos">62</span>    <span class="c1"># debugging_setup()</span>
+<span class="linenos">63</span>    <span class="n">main</span><span class="p">()</span>
+<span class="linenos">64</span>
+<span class="linenos">65</span><span class="c1"># -----------------------------------------------------------------------------</span>
+<span class="linenos">66</span><span class="c1"># :author:    Pete R. Jemian</span>
+<span class="linenos">67</span><span class="c1"># :email:     prjemian@gmail.com</span>
+<span class="linenos">68</span><span class="c1"># :copyright: (c) 2014-2022, Pete R. Jemian</span>
 <span class="linenos">69</span><span class="c1">#</span>
-<span class="linenos">70</span><span class="c1"># The full license is in the file LICENSE.txt, distributed with this software.</span>
-<span class="linenos">71</span><span class="c1"># -----------------------------------------------------------------------------</span>
+<span class="linenos">70</span><span class="c1"># Distributed under the terms of the Creative Commons Attribution 4.0 International Public License.</span>
+<span class="linenos">71</span><span class="c1">#</span>
+<span class="linenos">72</span><span class="c1"># The full license is in the file LICENSE.txt, distributed with this software.</span>
+<span class="linenos">73</span><span class="c1"># -----------------------------------------------------------------------------</span>
 </pre></div>
 </div>
 <p>Note that in the <em>uascan</em>, a name for the sample provided by the user
