@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="API" href="api.html" /><link rel="prev" title="How to write a custom control line handling plugin module for spec" href="how_to_write_plugin.html" />
 
     <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>How to write a custom scan handling class for specplot - spec2nexus 2021.2.0 (15.g5d866e4)</title>
+        <title>How to write a custom scan handling class for specplot - spec2nexus 2021.2.0 (17.g790117a)</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">spec2nexus 2021.2.0 (15.g5d866e4)</div></a>
+      <a href="index.html"><div class="brand">spec2nexus 2021.2.0 (17.g790117a)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.0 (15.g5d866e4)</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.0 (17.g790117a)</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -653,7 +653,7 @@ raw data to one-dimensional <span class="math notranslate nohighlight">\(I(Q)\)<
 reduced data is on a log-log plot to reveal the many decades of both <span class="math notranslate nohighlight">\(I\)</span> and
 <span class="math notranslate nohighlight">\(Q\)</span> covered by the measurement.</p>
 <p>With the default handling by <a class="reference internal" href="specplot.html#spec2nexus.specplot.LinePlotter" title="spec2nexus.specplot.LinePlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">LinePlotter</span></code></a>, no plot
-can be generated since the dfata is given in a separate HDF5 file.  That file
+can be generated since the data is given in a separate HDF5 file.  That file
 is read with the custom handling of the <cite>usaxs_flyscan.py</cite> demo:</p>
 <p class="rubric"><cite>usaxs_flyscan.py</cite> example</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="ch">#!/usr/bin/env python</span>
@@ -672,64 +672,64 @@ is read with the custom handling of the <cite>usaxs_flyscan.py</cite> demo:</p>
 <span class="linenos"> 14</span>
 <span class="linenos"> 15</span><span class="kn">import</span> <span class="nn">h5py</span>
 <span class="linenos"> 16</span><span class="kn">import</span> <span class="nn">numpy</span>
-<span class="linenos"> 17</span><span class="kn">import</span> <span class="nn">os</span>
+<span class="linenos"> 17</span><span class="kn">import</span> <span class="nn">pathlib</span>
 <span class="linenos"> 18</span>
 <span class="linenos"> 19</span><span class="kn">import</span> <span class="nn">spec2nexus.specplot</span>
 <span class="linenos"> 20</span><span class="kn">import</span> <span class="nn">spec2nexus.specplot_gallery</span>
 <span class="linenos"> 21</span>
-<span class="linenos"> 22</span>
-<span class="linenos"> 23</span><span class="c1"># methods picked (&amp; modified) from the USAXS livedata project</span>
-<span class="linenos"> 24</span><span class="k">def</span> <span class="nf">read_reduced_fly_scan_file</span><span class="p">(</span><span class="n">hdf5_file_name</span><span class="p">):</span>
-<span class="linenos"> 25</span>    <span class="sd">"""</span>
-<span class="linenos"> 26</span><span class="sd">    Read any and all reduced data from the HDF5 file, return in a dictionary.</span>
-<span class="linenos"> 27</span>
-<span class="linenos"> 28</span><span class="sd">    dictionary = {</span>
-<span class="linenos"> 29</span><span class="sd">      'full': dict(Q, R, R_max, ar, fwhm, centroid)</span>
-<span class="linenos"> 30</span><span class="sd">      '250':  dict(Q, R, dR)</span>
-<span class="linenos"> 31</span><span class="sd">      '5000': dict(Q, R, dR)</span>
-<span class="linenos"> 32</span><span class="sd">    }</span>
-<span class="linenos"> 33</span><span class="sd">    """</span>
-<span class="linenos"> 34</span>
-<span class="linenos"> 35</span>    <span class="n">reduced</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="linenos"> 36</span>    <span class="k">with</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">hdf5_file_name</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">hdf</span><span class="p">:</span>
-<span class="linenos"> 37</span>        <span class="n">entry</span> <span class="o">=</span> <span class="n">hdf</span><span class="p">[</span><span class="s2">"/entry"</span><span class="p">]</span>
-<span class="linenos"> 38</span>        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">entry</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-<span class="linenos"> 39</span>            <span class="k">if</span> <span class="n">key</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"flyScan_reduced_"</span><span class="p">):</span>
-<span class="linenos"> 40</span>                <span class="n">nxdata</span> <span class="o">=</span> <span class="n">entry</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-<span class="linenos"> 41</span>                <span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="linenos"> 42</span>                <span class="k">for</span> <span class="n">dsname</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"Q"</span><span class="p">,</span> <span class="s2">"R"</span><span class="p">]:</span>
-<span class="linenos"> 43</span>                    <span class="k">if</span> <span class="n">dsname</span> <span class="ow">in</span> <span class="n">nxdata</span><span class="p">:</span>
-<span class="linenos"> 44</span>                        <span class="n">value</span> <span class="o">=</span> <span class="n">nxdata</span><span class="p">[</span><span class="n">dsname</span><span class="p">]</span>
-<span class="linenos"> 45</span>                        <span class="k">if</span> <span class="n">value</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-<span class="linenos"> 46</span>                            <span class="n">d</span><span class="p">[</span><span class="n">dsname</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="linenos"> 47</span>                        <span class="k">else</span><span class="p">:</span>
-<span class="linenos"> 48</span>                            <span class="n">d</span><span class="p">[</span><span class="n">dsname</span><span class="p">]</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-<span class="linenos"> 49</span>                <span class="n">reduced</span><span class="p">[</span><span class="n">key</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="s2">"flyScan_reduced_"</span><span class="p">)</span> <span class="p">:]]</span> <span class="o">=</span> <span class="n">d</span>
-<span class="linenos"> 50</span>    <span class="k">return</span> <span class="n">reduced</span>
-<span class="linenos"> 51</span>
-<span class="linenos"> 52</span>
-<span class="linenos"> 53</span><span class="c1"># $URL: https://subversion.xray.aps.anl.gov/small_angle/USAXS/livedata/specplot.py $</span>
-<span class="linenos"> 54</span><span class="n">REDUCED_FLY_SCAN_BINS</span> <span class="o">=</span> <span class="mi">250</span>  <span class="c1"># the default</span>
+<span class="linenos"> 22</span><span class="c1"># $URL: https://subversion.xray.aps.anl.gov/small_angle/USAXS/livedata/specplot.py $</span>
+<span class="linenos"> 23</span><span class="n">REDUCED_FLY_SCAN_BINS</span> <span class="o">=</span> <span class="mi">250</span>  <span class="c1"># the default</span>
+<span class="linenos"> 24</span><span class="n">PLOT_AXES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Q"</span><span class="p">,</span> <span class="s2">"R"</span><span class="p">]</span>
+<span class="linenos"> 25</span>
+<span class="linenos"> 26</span>
+<span class="linenos"> 27</span><span class="c1"># methods picked (&amp; modified) from the USAXS livedata project</span>
+<span class="linenos"> 28</span><span class="k">def</span> <span class="nf">read_reduced_fly_scan_file</span><span class="p">(</span><span class="n">hdf5_file_name</span><span class="p">):</span>
+<span class="linenos"> 29</span>    <span class="sd">"""</span>
+<span class="linenos"> 30</span><span class="sd">    Read any and all reduced data from the HDF5 file, return in a dictionary.</span>
+<span class="linenos"> 31</span>
+<span class="linenos"> 32</span><span class="sd">    dictionary = {</span>
+<span class="linenos"> 33</span><span class="sd">      'full': (dictionary keys: Q, R, R_max, ar, fwhm, centroid)</span>
+<span class="linenos"> 34</span><span class="sd">      '250':  (dictionary keys: Q, R, dR)</span>
+<span class="linenos"> 35</span><span class="sd">      '5000': (dictionary keys: Q, R, dR)</span>
+<span class="linenos"> 36</span><span class="sd">    }</span>
+<span class="linenos"> 37</span><span class="sd">    """</span>
+<span class="linenos"> 38</span>
+<span class="linenos"> 39</span>    <span class="n">reduced</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="linenos"> 40</span>    <span class="k">with</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">hdf5_file_name</span><span class="p">),</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">hdf</span><span class="p">:</span>
+<span class="linenos"> 41</span>        <span class="n">entry</span> <span class="o">=</span> <span class="n">hdf</span><span class="p">[</span><span class="s2">"/entry"</span><span class="p">]</span>
+<span class="linenos"> 42</span>        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">entry</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+<span class="linenos"> 43</span>            <span class="k">if</span> <span class="n">key</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"flyScan_reduced_"</span><span class="p">):</span>
+<span class="linenos"> 44</span>                <span class="n">nxdata</span> <span class="o">=</span> <span class="n">entry</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+<span class="linenos"> 45</span>                <span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="linenos"> 46</span>                <span class="k">for</span> <span class="n">dsname</span> <span class="ow">in</span> <span class="n">PLOT_AXES</span><span class="p">:</span>
+<span class="linenos"> 47</span>                    <span class="k">if</span> <span class="n">dsname</span> <span class="ow">in</span> <span class="n">nxdata</span><span class="p">:</span>
+<span class="linenos"> 48</span>                        <span class="n">value</span> <span class="o">=</span> <span class="n">nxdata</span><span class="p">[</span><span class="n">dsname</span><span class="p">]</span>
+<span class="linenos"> 49</span>                        <span class="k">if</span> <span class="n">value</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<span class="linenos"> 50</span>                            <span class="n">d</span><span class="p">[</span><span class="n">dsname</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="linenos"> 51</span>                        <span class="k">else</span><span class="p">:</span>
+<span class="linenos"> 52</span>                            <span class="n">d</span><span class="p">[</span><span class="n">dsname</span><span class="p">]</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="linenos"> 53</span>                <span class="n">reduced</span><span class="p">[</span><span class="n">key</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="s2">"flyScan_reduced_"</span><span class="p">)</span> <span class="p">:]]</span> <span class="o">=</span> <span class="n">d</span>
+<span class="linenos"> 54</span>    <span class="k">return</span> <span class="n">reduced</span>
 <span class="linenos"> 55</span>
 <span class="linenos"> 56</span>
 <span class="linenos"> 57</span><span class="k">def</span> <span class="nf">retrieve_flyScanData</span><span class="p">(</span><span class="n">scan</span><span class="p">):</span>
 <span class="linenos"> 58</span>    <span class="sd">"""Retrieve reduced, rebinned data from USAXS Fly Scans."""</span>
-<span class="linenos"> 59</span>    <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">fileName</span><span class="p">)</span>
+<span class="linenos"> 59</span>    <span class="n">comment</span> <span class="o">=</span> <span class="n">scan</span><span class="o">.</span><span class="n">comments</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 <span class="linenos"> 60</span>    <span class="n">key_string</span> <span class="o">=</span> <span class="s2">"FlyScan file name = "</span>
-<span class="linenos"> 61</span>    <span class="n">comment</span> <span class="o">=</span> <span class="n">scan</span><span class="o">.</span><span class="n">comments</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<span class="linenos"> 62</span>    <span class="n">index</span> <span class="o">=</span> <span class="n">comment</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">key_string</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">key_string</span><span class="p">)</span>
-<span class="linenos"> 63</span>    <span class="n">hdf_file_name</span> <span class="o">=</span> <span class="n">comment</span><span class="p">[</span><span class="n">index</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="linenos"> 64</span>    <span class="n">abs_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">hdf_file_name</span><span class="p">))</span>
+<span class="linenos"> 61</span>    <span class="n">index</span> <span class="o">=</span> <span class="n">comment</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">key_string</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">key_string</span><span class="p">)</span>
+<span class="linenos"> 62</span>    <span class="n">hdf_file_name</span> <span class="o">=</span> <span class="n">comment</span><span class="p">[</span><span class="n">index</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="linenos"> 63</span>    <span class="n">path</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">fileName</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span>
+<span class="linenos"> 64</span>    <span class="n">abs_file</span> <span class="o">=</span> <span class="p">(</span><span class="n">path</span> <span class="o">/</span> <span class="n">hdf_file_name</span><span class="p">)</span><span class="o">.</span><span class="n">absolute</span><span class="p">()</span>
 <span class="linenos"> 65</span>
 <span class="linenos"> 66</span>    <span class="n">plotData</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="linenos"> 67</span>    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">abs_file</span><span class="p">):</span>
+<span class="linenos"> 67</span>    <span class="k">if</span> <span class="n">abs_file</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
 <span class="linenos"> 68</span>        <span class="n">reduced</span> <span class="o">=</span> <span class="n">read_reduced_fly_scan_file</span><span class="p">(</span><span class="n">abs_file</span><span class="p">)</span>
 <span class="linenos"> 69</span>        <span class="n">s_num_bins</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">REDUCED_FLY_SCAN_BINS</span><span class="p">)</span>
 <span class="linenos"> 70</span>
 <span class="linenos"> 71</span>        <span class="n">choice</span> <span class="o">=</span> <span class="n">reduced</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">s_num_bins</span><span class="p">)</span> <span class="ow">or</span> <span class="n">reduced</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"full"</span><span class="p">)</span>
 <span class="linenos"> 72</span>
 <span class="linenos"> 73</span>        <span class="k">if</span> <span class="n">choice</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="linenos"> 74</span>            <span class="n">plotData</span> <span class="o">=</span> <span class="p">{</span><span class="n">axis</span><span class="p">:</span> <span class="n">choice</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span> <span class="k">for</span> <span class="n">axis</span> <span class="ow">in</span> <span class="s2">"Q R"</span><span class="o">.</span><span class="n">split</span><span class="p">()}</span>
+<span class="linenos"> 74</span>            <span class="n">plotData</span> <span class="o">=</span> <span class="p">{</span><span class="n">axis</span><span class="p">:</span> <span class="n">choice</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span> <span class="k">for</span> <span class="n">axis</span> <span class="ow">in</span> <span class="n">PLOT_AXES</span><span class="p">}</span>
 <span class="linenos"> 75</span>
 <span class="linenos"> 76</span>    <span class="k">return</span> <span class="n">plotData</span>
 <span class="linenos"> 77</span>
@@ -752,7 +752,7 @@ is read with the custom handling of the <cite>usaxs_flyscan.py</cite> demo:</p>
 <span class="linenos"> 94</span>            <span class="k">raise</span> <span class="n">spec2nexus</span><span class="o">.</span><span class="n">specplot</span><span class="o">.</span><span class="n">NoDataToPlot</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="p">))</span>
 <span class="linenos"> 95</span>
 <span class="linenos"> 96</span>        <span class="bp">self</span><span class="o">.</span><span class="n">signal</span> <span class="o">=</span> <span class="s2">"R"</span>
-<span class="linenos"> 97</span>        <span class="bp">self</span><span class="o">.</span><span class="n">axes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Q"</span><span class="p">,</span> <span class="p">]</span>
+<span class="linenos"> 97</span>        <span class="bp">self</span><span class="o">.</span><span class="n">axes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Q"</span><span class="p">]</span>
 <span class="linenos"> 98</span>        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">fly_data</span>
 <span class="linenos"> 99</span>
 <span class="linenos">100</span>        <span class="c1"># customize the plot just a bit</span>
@@ -781,34 +781,36 @@ is read with the custom handling of the <cite>usaxs_flyscan.py</cite> demo:</p>
 <span class="linenos">123</span>    <span class="kn">import</span> <span class="nn">sys</span>
 <span class="linenos">124</span>    <span class="kn">import</span> <span class="nn">shutil</span>
 <span class="linenos">125</span>
-<span class="linenos">126</span>    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">".."</span><span class="p">,</span> <span class="s2">"src"</span><span class="p">))</span>
-<span class="linenos">127</span>    <span class="n">path</span> <span class="o">=</span> <span class="s2">"__usaxs__"</span>
-<span class="linenos">128</span>    <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">ignore_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="linenos">129</span>    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-<span class="linenos">130</span>    <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"-d"</span><span class="p">)</span>
-<span class="linenos">131</span>    <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-<span class="linenos">132</span>    <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">".."</span><span class="p">,</span> <span class="s2">"src"</span><span class="p">,</span> <span class="s2">"spec2nexus"</span><span class="p">,</span> <span class="s2">"data"</span><span class="p">,</span> <span class="s2">"02_03_setup.dat"</span><span class="p">))</span>
-<span class="linenos">133</span>
-<span class="linenos">134</span>
-<span class="linenos">135</span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-<span class="linenos">136</span>    <span class="n">selector</span> <span class="o">=</span> <span class="n">spec2nexus</span><span class="o">.</span><span class="n">specplot</span><span class="o">.</span><span class="n">Selector</span><span class="p">()</span>
-<span class="linenos">137</span>    <span class="n">selector</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"FlyScan"</span><span class="p">,</span> <span class="n">USAXS_FlyScan_Plotter</span><span class="p">)</span>
-<span class="linenos">138</span>    <span class="n">spec2nexus</span><span class="o">.</span><span class="n">specplot_gallery</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
-<span class="linenos">139</span>
-<span class="linenos">140</span>
-<span class="linenos">141</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-<span class="linenos">142</span>    <span class="c1"># debugging_setup()</span>
-<span class="linenos">143</span>    <span class="n">main</span><span class="p">()</span>
-<span class="linenos">144</span>
-<span class="linenos">145</span><span class="c1"># -----------------------------------------------------------------------------</span>
-<span class="linenos">146</span><span class="c1"># :author:    Pete R. Jemian</span>
-<span class="linenos">147</span><span class="c1"># :email:     prjemian@gmail.com</span>
-<span class="linenos">148</span><span class="c1"># :copyright: (c) 2014-2022, Pete R. Jemian</span>
-<span class="linenos">149</span><span class="c1">#</span>
-<span class="linenos">150</span><span class="c1"># Distributed under the terms of the Creative Commons Attribution 4.0 International Public License.</span>
+<span class="linenos">126</span>    <span class="n">path</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">".."</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"src"</span>
+<span class="linenos">127</span>    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+<span class="linenos">128</span>    <span class="n">path</span> <span class="o">=</span> <span class="s2">"__usaxs__"</span>
+<span class="linenos">129</span>    <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">ignore_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">130</span>    <span class="n">pathlib</span><span class="o">.</span><span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="linenos">131</span>    <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"-d"</span><span class="p">)</span>
+<span class="linenos">132</span>    <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="linenos">133</span>    <span class="n">data_file</span> <span class="o">=</span> <span class="n">path</span> <span class="o">/</span> <span class="s2">"spec2nexus"</span> <span class="o">/</span> <span class="s2">"data"</span> <span class="o">/</span> <span class="s2">"02_03_setup.dat"</span>
+<span class="linenos">134</span>    <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">data_file</span><span class="o">.</span><span class="n">absolute</span><span class="p">()))</span>
+<span class="linenos">135</span>
+<span class="linenos">136</span>
+<span class="linenos">137</span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="linenos">138</span>    <span class="n">selector</span> <span class="o">=</span> <span class="n">spec2nexus</span><span class="o">.</span><span class="n">specplot</span><span class="o">.</span><span class="n">Selector</span><span class="p">()</span>
+<span class="linenos">139</span>    <span class="n">selector</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"FlyScan"</span><span class="p">,</span> <span class="n">USAXS_FlyScan_Plotter</span><span class="p">)</span>
+<span class="linenos">140</span>    <span class="n">spec2nexus</span><span class="o">.</span><span class="n">specplot_gallery</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+<span class="linenos">141</span>
+<span class="linenos">142</span>
+<span class="linenos">143</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+<span class="linenos">144</span>    <span class="c1"># debugging_setup()</span>
+<span class="linenos">145</span>    <span class="n">main</span><span class="p">()</span>
+<span class="linenos">146</span>
+<span class="linenos">147</span><span class="c1"># -----------------------------------------------------------------------------</span>
+<span class="linenos">148</span><span class="c1"># :author:    Pete R. Jemian</span>
+<span class="linenos">149</span><span class="c1"># :email:     prjemian@gmail.com</span>
+<span class="linenos">150</span><span class="c1"># :copyright: (c) 2014-2022, Pete R. Jemian</span>
 <span class="linenos">151</span><span class="c1">#</span>
-<span class="linenos">152</span><span class="c1"># The full license is in the file LICENSE.txt, distributed with this software.</span>
-<span class="linenos">153</span><span class="c1"># -----------------------------------------------------------------------------</span>
+<span class="linenos">152</span><span class="c1"># Distributed under the terms of the Creative Commons Attribution 4.0 International Public License.</span>
+<span class="linenos">153</span><span class="c1">#</span>
+<span class="linenos">154</span><span class="c1"># The full license is in the file LICENSE.txt, distributed with this software.</span>
+<span class="linenos">155</span><span class="c1"># -----------------------------------------------------------------------------</span>
 </pre></div>
 </div>
 <p>The data is then rendered in a customized log-log plot of <span class="math notranslate nohighlight">\(I(Q)\)</span>:</p>

@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Unrecognized Control Line" href="unrecognized_content.html" /><link rel="prev" title="Sample" href="sample.html" />
 
     <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>Temperature - spec2nexus 2021.2.0 (15.g5d866e4)</title>
+        <title>Temperature - spec2nexus 2021.2.0 (17.g790117a)</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">spec2nexus 2021.2.0 (15.g5d866e4)</div></a>
+      <a href="../index.html"><div class="brand">spec2nexus 2021.2.0 (17.g790117a)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.0 (15.g5d866e4)</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.0 (17.g790117a)</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -298,13 +298,13 @@ format that does not fail) for the two values shown in the next table.</p>
 <p>These values will be reported in the <code class="docutils literal notranslate"><span class="pre">NXentry</span></code> <a class="footnote-reference brackets" href="#nxentry" id="id3">3</a> group
 and also linked into a new <code class="docutils literal notranslate"><span class="pre">temperature</span></code> subgroup <a class="footnote-reference brackets" href="#nxlog" id="id4">4</a> of the
 <code class="docutils literal notranslate"><span class="pre">sample</span></code>, as shown below:</p>
-<div class="highlight-:linenos: notranslate"><div class="highlight"><pre><span></span>#X Control: 298.873K  Sample: 299.036K
-
-  DEGC_SP:NX_FLOAT64 = 299.036
-  TEMP_SP:NX_FLOAT64 = 298.873
-  /SCAN/sample/temperature:NXlog
-      value --&gt; /SCAN/DEGC_SP
-      target_value --&gt; /SCAN/TEMP_SP
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1">#X Control: 298.873K  Sample: 299.036K</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span> <span class="n">DEGC_SP</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">299.036</span>
+<span class="linenos">4</span> <span class="n">TEMP_SP</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">298.873</span>
+<span class="linenos">5</span> <span class="o">/</span><span class="n">SCAN</span><span class="o">/</span><span class="n">sample</span><span class="o">/</span><span class="n">temperature</span><span class="p">:</span><span class="n">NXlog</span>
+<span class="linenos">6</span>     <span class="n">value</span> <span class="o">--&gt;</span> <span class="o">/</span><span class="n">SCAN</span><span class="o">/</span><span class="n">DEGC_SP</span>
+<span class="linenos">7</span>     <span class="n">target_value</span> <span class="o">--&gt;</span> <span class="o">/</span><span class="n">SCAN</span><span class="o">/</span><span class="n">TEMP_SP</span>
 </pre></div>
 </div>
 <p>As an alternative, the <em>NXsensor</em> <a class="footnote-reference brackets" href="#nxsensor" id="id5">5</a> base class has additional fields
