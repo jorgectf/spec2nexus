@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>spec2nexus.plugins.spec_common - spec2nexus 2021.2.0 (19.g963abb1)</title>
+        <title>spec2nexus.plugins.spec_common - spec2nexus 2021.2.0 (22.g56d8e40)</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -123,7 +123,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../../index.html"><div class="brand">spec2nexus 2021.2.0 (19.g963abb1)</div></a>
+      <a href="../../../index.html"><div class="brand">spec2nexus 2021.2.0 (22.g56d8e40)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -146,7 +146,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.0 (19.g963abb1)</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.0 (22.g56d8e40)</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -272,6 +272,7 @@
 
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">import</span> <span class="nn">time</span>
 
 <span class="kn">from</span> <span class="nn">spec2nexus.plugin_core</span> <span class="kn">import</span> <span class="n">ControlLineBase</span>
@@ -295,6 +296,7 @@
 <span class="kn">from</span> <span class="nn">spec2nexus.writer</span> <span class="kn">import</span> <span class="n">CONTAINER_CLASS</span>
 
 
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 <span class="n">SCAN_DATA_KEY</span> <span class="o">=</span> <span class="s2">"scan_data"</span>
 
 <span class="c1"># - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
@@ -385,8 +387,6 @@
 
 <div class="viewcode-block" id="SPEC_Date.process"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_Date.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">sdf_object</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">):</span>
         <span class="n">text</span> <span class="o">=</span> <span class="n">strip_first_word</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-        <span class="c1"># if isinstance(sdf_object, SpecDataFileScan):</span>
-        <span class="c1">#     sdf_object = sdf_object.header</span>
         <span class="n">sp</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sp</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">sdf_object</span><span class="o">.</span><span class="n">epoch</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
@@ -400,10 +400,18 @@
             <span class="n">sdf_object</span><span class="o">.</span><span class="n">epoch</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">mktime</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">sdf_object</span><span class="p">,</span> <span class="n">SpecDataFileScan</span><span class="p">):</span>
             <span class="n">sdf_object</span><span class="o">.</span><span class="n">addH5writer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">writer</span><span class="p">)</span>
-            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sdf_object</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="n">sdf_object</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">text</span>
-                <span class="n">sdf_object</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">epoch</span> <span class="o">=</span> <span class="n">sdf_object</span><span class="o">.</span><span class="n">epoch</span></div>
-            <span class="c1"># TODO: what if header date is greater than this scan's date?</span>
+            <span class="n">header</span> <span class="o">=</span> <span class="n">sdf_object</span><span class="o">.</span><span class="n">header</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">header</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">text</span>
+                <span class="n">header</span><span class="o">.</span><span class="n">epoch</span> <span class="o">=</span> <span class="n">sdf_object</span><span class="o">.</span><span class="n">epoch</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Report if header date is greater than this scan's date.</span>
+                <span class="k">if</span> <span class="n">header</span><span class="o">.</span><span class="n">epoch</span> <span class="o">&gt;</span> <span class="n">sdf_object</span><span class="o">.</span><span class="n">epoch</span><span class="p">:</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                        <span class="s2">"Header epoch (</span><span class="si">%s</span><span class="s2">) is younger than scan (</span><span class="si">%s</span><span class="s2">)"</span><span class="p">,</span>
+                        <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">epoch</span><span class="p">)),</span>
+                        <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">sdf_object</span><span class="o">.</span><span class="n">epoch</span><span class="p">)),</span>
+                    <span class="p">)</span></div>
 
 <div class="viewcode-block" id="SPEC_Date.writer"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_Date.writer">[docs]</a>    <span class="k">def</span> <span class="nf">writer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h5parent</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="n">sdf_object</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">):</span>
         <span class="sd">"""Describe how to store this data in an HDF5 NeXus file"""</span>
@@ -485,7 +493,7 @@
 <div class="viewcode-block" id="SPEC_Scan.process"><a class="viewcode-back" href="../../../supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_Scan.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">part</span><span class="p">,</span> <span class="n">sdf</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sdf</span><span class="o">.</span><span class="n">headers</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="c1"># make a header if none exists now</span>
-            <span class="n">raw</span> <span class="o">=</span> <span class="s2">""</span>  <span class="c1"># TODO: what default content to use?</span>
+            <span class="n">raw</span> <span class="o">=</span> <span class="s2">""</span>
             <span class="n">header</span> <span class="o">=</span> <span class="n">SpecDataFileHeader</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">sdf</span><span class="p">)</span>
             <span class="n">sdf</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">header</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>

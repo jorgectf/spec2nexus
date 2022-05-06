@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="API" href="api.html" /><link rel="prev" title="How to write a custom control line handling plugin module for spec" href="how_to_write_plugin.html" />
 
     <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>How to write a custom scan handling class for specplot - spec2nexus 2021.2.0 (19.g963abb1)</title>
+        <title>How to write a custom scan handling class for specplot - spec2nexus 2021.2.0 (22.g56d8e40)</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">spec2nexus 2021.2.0 (19.g963abb1)</div></a>
+      <a href="index.html"><div class="brand">spec2nexus 2021.2.0 (22.g56d8e40)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.0 (19.g963abb1)</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.0 (22.g56d8e40)</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -261,13 +261,12 @@
         <article role="main">
           <section id="how-to-write-a-custom-scan-handling-class-for-specplot">
 <span id="how-to-write-custom-scan-macro-handling"></span><h1>How to write a custom scan handling class for <em>specplot</em><a class="headerlink" href="#how-to-write-a-custom-scan-handling-class-for-specplot" title="Permalink to this headline">#</a></h1>
-<p>Sometimes, it will be obvious that a certain scan macro never generates
-any plot images, or that the default handling creates a plot that
-is a poor representation of the data, such as the
-<a class="reference internal" href="#custom-hklscan-specplot"><span class="std std-ref">hklscan</span></a> where
-only one of the the axes <em>hkl</em> is scanned.  To pick the scanned axis
-for plotting, it is necessary to prepare custom handling and replace
-the default handling.</p>
+<p>Sometimes, it will be obvious that a certain scan macro never generates any plot
+images, or that the default handling creates a plot that is a poor
+representation of the data, such as the <a class="reference internal" href="#custom-hklscan-specplot"><span class="std std-ref">hklscan</span></a>
+where only one of the the axes <em>hkl</em> is scanned.  To pick the scanned axis for
+plotting, it is necessary to prepare custom handling and replace the default
+handling.</p>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h2>
 <p>It is possible to add in additional handling by writing a Python module.
@@ -286,14 +285,13 @@ example described below: <a class="reference internal" href="#custom-ascan-specp
 </section>
 <section id="data-model">
 <h2>Data Model<a class="headerlink" href="#data-model" title="Permalink to this headline">#</a></h2>
-<p>The data to be plotted is kept in an appropriate subclass
-of <code class="xref py py-class docutils literal notranslate"><span class="pre">PlotDataStructure</span></code> in attributes
-show in the next table.  The data model is an adaptation of the
-NeXus <em>NXdata</em> base class. <a class="footnote-reference brackets" href="#id3" id="id1">1</a></p>
+<p>The data to be plotted is kept in an appropriate subclass of
+<code class="xref py py-class docutils literal notranslate"><span class="pre">PlotDataStructure</span></code> in attributes show in the next
+table.  The data model is an adaptation of the NeXus <em>NXdata</em> base class. <a class="footnote-reference brackets" href="#id3" id="id1">1</a></p>
 <div class="table-wrapper"><table class="docutils align-default">
 <colgroup>
-<col style="width: 18%"/>
-<col style="width: 82%"/>
+<col style="width: 19%"/>
+<col style="width: 81%"/>
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>attribute</p></th>
@@ -301,14 +299,14 @@ NeXus <em>NXdata</em> base class. <a class="footnote-reference brackets" href="#
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><cite>self.signal</cite></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">self.signal</span></code></p></td>
 <td><p>name of the dependent data (<em>y</em> axis or image) to be plotted</p></td>
 </tr>
-<tr class="row-odd"><td><p><cite>self.axes</cite></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">self.axes</span></code></p></td>
 <td><p>list of names of the independent axes <a class="footnote-reference brackets" href="#id4" id="id2">2</a></p></td>
 </tr>
-<tr class="row-even"><td><p><cite>self.data</cite></p></td>
-<td><p>dictionary with the data, indexed by name</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">self.data</span></code></p></td>
+<td><p>dictionary with the data, indexed by name (<span class="math notranslate nohighlight">\(Q\)</span> &amp; <span class="math notranslate nohighlight">\(R\)</span>)</p></td>
 </tr>
 </tbody>
 </table></div>
@@ -328,43 +326,43 @@ For 2-D data, <cite>self.axes</cite> has two names and the <em>signal</em> data 
 <section id="steps">
 <h2>Steps<a class="headerlink" href="#steps" title="Permalink to this headline">#</a></h2>
 <p>In all cases, custom handling of a specific SPEC macro name is provided by
-creating a subclass of <a class="reference internal" href="specplot.html#spec2nexus.specplot.ImageMaker" title="spec2nexus.specplot.ImageMaker"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageMaker</span></code></a> and defining
-one or more of its methods.  In the simplest case, certain settings may be
-changed by calling <code class="xref py py-meth docutils literal notranslate"><span class="pre">spec2nexus.specplot.ImageMaker.configure()</span></code> with
-the custom values.  Examples of further customization are provided below, such
-as when the data to be plotted is stored outside of the SPEC data file.  This
-is common for images from area detectors.</p>
-<p>It may also be necessary to create a subclass
-of <code class="xref py py-class docutils literal notranslate"><span class="pre">PlotDataStructure</span></code> to gather the data to be plotted
-or override the default <a class="reference internal" href="specplot.html#spec2nexus.specplot.ImageMaker.plottable" title="spec2nexus.specplot.ImageMaker.plottable"><code class="xref py py-meth docutils literal notranslate"><span class="pre">spec2nexus.specplot.ImageMaker.plottable()</span></code></a> method.
-An example of this is shown with the <a class="reference internal" href="specplot.html#spec2nexus.specplot.MeshPlotter" title="spec2nexus.specplot.MeshPlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">MeshPlotter</span></code></a> and
-associated <code class="xref py py-class docutils literal notranslate"><span class="pre">MeshStructure</span></code> classes.</p>
+creating a subclass of <a class="reference internal" href="specplot.html#spec2nexus.specplot.ImageMaker" title="spec2nexus.specplot.ImageMaker"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageMaker</span></code></a> and defining one
+or more of its methods.  In the simplest case, certain settings may be changed
+by calling <code class="xref py py-meth docutils literal notranslate"><span class="pre">spec2nexus.specplot.ImageMaker.configure()</span></code> with the custom
+values.  Examples of further customization are provided below, such as when the
+data to be plotted is stored outside of the SPEC data file.  This is common for
+images from area detectors.</p>
+<p>It may also be necessary to create a subclass of
+<code class="xref py py-class docutils literal notranslate"><span class="pre">PlotDataStructure</span></code> to gather the data to be
+plotted or override the default <a class="reference internal" href="specplot.html#spec2nexus.specplot.ImageMaker.plottable" title="spec2nexus.specplot.ImageMaker.plottable"><code class="xref py py-meth docutils literal notranslate"><span class="pre">spec2nexus.specplot.ImageMaker.plottable()</span></code></a>
+method. An example of this is shown with the
+<a class="reference internal" href="specplot.html#spec2nexus.specplot.MeshPlotter" title="spec2nexus.specplot.MeshPlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">MeshPlotter</span></code></a> and associated
+<code class="xref py py-class docutils literal notranslate"><span class="pre">MeshStructure</span></code> classes.</p>
 </section>
 <section id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">#</a></h2>
-<p>A few exmaples of custom macro handling are provided, some simple, some complex.
+<p>A few examples of custom macro handling are provided, some simple, some complex.
 In each example, decisions have been made about where to provide the desired features.</p>
 <section id="change-the-plot-title-text-in-ascan-macros">
 <span id="custom-ascan-specplot"></span><h3>Change the plot title text in <em>ascan</em> macros<a class="headerlink" href="#change-the-plot-title-text-in-ascan-macros" title="Permalink to this headline">#</a></h3>
-<p>The SPEC <em>ascan</em> macro is a workhorse and records the scan
-of a positioner and the measurement of data in a counter.
-Since this macro name ends with “scan”, the default selection
-in <em>specplot</em> images this data
-using the <a class="reference internal" href="specplot.html#spec2nexus.specplot.LinePlotter" title="spec2nexus.specplot.LinePlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">LinePlotter</span></code></a> class.
-Here is a plot of the default handling of data from the <em>ascan</em> macro:</p>
+<p>The SPEC <em>ascan</em> macro is a workhorse and records the scan of a positioner and
+the measurement of data in a counter. Since this macro name ends with “scan”,
+the default selection in <em>specplot</em> images this data using the
+<a class="reference internal" href="specplot.html#spec2nexus.specplot.LinePlotter" title="spec2nexus.specplot.LinePlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">LinePlotter</span></code></a> class. Here is a plot of the default
+handling of data from the <em>ascan</em> macro:</p>
 <figure class="align-default" id="id7">
 <a class="reference internal image-reference" href="_images/ascan.png"><img alt="_images/ascan.png" src="_images/ascan.png" style="width: 95%;"/></a>
 <figcaption>
 <p><span class="caption-text">Standard plot of data from <em>ascan</em> macro</span><a class="headerlink" href="#id7" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>We will show how to change the plot title as a means to illustrate
-how to customize the handling for a scan macro.</p>
+<p>We will show how to change the plot title as a means to illustrate how to
+customize the handling for a scan macro.</p>
 <p>We write <code class="xref py py-class docutils literal notranslate"><span class="pre">Custom_Ascan</span></code> which is a subclass of
-<a class="reference internal" href="specplot.html#spec2nexus.specplot.LinePlotter" title="spec2nexus.specplot.LinePlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">LinePlotter</span></code></a>.  The <code class="xref py py-mod docutils literal notranslate"><span class="pre">get_plot_data</span></code> method is written
-(overrides the default method) to gain access to the place
-where we can introduce the change.  The change is made by the call to
-the <code class="xref py py-mod docutils literal notranslate"><span class="pre">configure</span></code> method (defined in the superclass).  Here’s the code:</p>
+<a class="reference internal" href="specplot.html#spec2nexus.specplot.LinePlotter" title="spec2nexus.specplot.LinePlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">LinePlotter</span></code></a>.  The <code class="xref py py-mod docutils literal notranslate"><span class="pre">get_plot_data</span></code> method is
+written (overrides the default method) to gain access to the place where we can
+introduce the change.  The change is made by the call to the <code class="xref py py-mod docutils literal notranslate"><span class="pre">configure</span></code>
+method (defined in the superclass).  Here’s the code:</p>
 <p class="rubric"><cite>ascan.py</cite> example</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/usr/bin/env python</span>
 <span class="linenos"> 2</span>
@@ -419,8 +417,8 @@ the <code class="xref py py-mod docutils literal notranslate"><span class="pre">
 </section>
 <section id="make-the-y-axis-log-scale">
 <span id="custom-y-log-specplot"></span><h3>Make the <em>y</em>-axis log scale<a class="headerlink" href="#make-the-y-axis-log-scale" title="Permalink to this headline">#</a></h3>
-<p>A very simple customization can make the Y axis to be logarithmic scale.
-(This customization is planned for an added feature <a class="footnote-reference brackets" href="#id6" id="id5">3</a> in a future relase of the
+<p>A very simple customization can make the Y axis to be logarithmic scale. (This
+customization is planned for an added feature <a class="footnote-reference brackets" href="#id6" id="id5">3</a> in a future relase of the
 <em>spec2nexus</em> package.)  We present two examples.</p>
 <section id="modify-handling-of-a2scan">
 <h4>modify handling of <cite>a2scan</cite><a class="headerlink" href="#modify-handling-of-a2scan" title="Permalink to this headline">#</a></h4>
@@ -496,21 +494,21 @@ scale on the Y axis.  Here’s the code:</p>
 </section>
 <section id="custom-uascan">
 <h4>custom <cite>uascan</cite><a class="headerlink" href="#custom-uascan" title="Permalink to this headline">#</a></h4>
-<p>The APS USAXS instrument uses a custom scan macro called <em>uascan</em> for routine step scans.
-Since this macro name ends with “scan”, the default selection in <em>specplot</em> images this data
-using the <a class="reference internal" href="specplot.html#spec2nexus.specplot.LinePlotter" title="spec2nexus.specplot.LinePlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">LinePlotter</span></code></a> class.
-Here is a plot of the default handling of data from the <em>uascan</em> macro:</p>
+<p>The APS USAXS instrument uses a custom scan macro called <em>uascan</em> for routine
+step scans. Since this macro name ends with “scan”, the default selection in
+<em>specplot</em> images this data using the <a class="reference internal" href="specplot.html#spec2nexus.specplot.LinePlotter" title="spec2nexus.specplot.LinePlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">LinePlotter</span></code></a>
+class. Here is a plot of the default handling of data from the <em>uascan</em> macro:</p>
 <figure class="align-default" id="id9">
 <a class="reference internal image-reference" href="_images/uascan_as_ascan.png"><img alt="_images/uascan_as_ascan.png" src="_images/uascan_as_ascan.png" style="width: 95%;"/></a>
 <figcaption>
 <p><span class="caption-text">USAXS <em>uascan</em>, handled as <a class="reference internal" href="specplot.html#spec2nexus.specplot.LinePlotter" title="spec2nexus.specplot.LinePlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">LinePlotter</span></code></a></span><a class="headerlink" href="#id9" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The can be changed by making the <em>y</em> axis log scale.
-To do this, a custom version of <a class="reference internal" href="specplot.html#spec2nexus.specplot.LinePlotter" title="spec2nexus.specplot.LinePlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">LinePlotter</span></code></a>
-is created as <code class="xref py py-class docutils literal notranslate"><span class="pre">Custom_Ascan</span></code>.  The <code class="xref py py-mod docutils literal notranslate"><span class="pre">get_plot_data</span></code> method is written
-(overrides the default method) to make the <em>y</em> axis log-scale by calling
-the <code class="xref py py-mod docutils literal notranslate"><span class="pre">configure</span></code> method (defined in the superclass).  Here’s the code:</p>
+<p>The can be changed by making the <em>y</em> axis log scale. To do this, a custom
+version of <a class="reference internal" href="specplot.html#spec2nexus.specplot.LinePlotter" title="spec2nexus.specplot.LinePlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">LinePlotter</span></code></a> is created as
+<code class="xref py py-class docutils literal notranslate"><span class="pre">Custom_Ascan</span></code>.  The <code class="xref py py-mod docutils literal notranslate"><span class="pre">get_plot_data</span></code> method is written (overrides
+the default method) to make the <em>y</em> axis log-scale by calling the
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">configure</span></code> method (defined in the superclass).  Here’s the code:</p>
 <p class="rubric"><cite>usaxs_uascan.py</cite> example</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/usr/bin/env python</span>
 <span class="linenos"> 2</span>
@@ -587,20 +585,18 @@ the <code class="xref py py-mod docutils literal notranslate"><span class="pre">
 <span class="linenos">73</span><span class="c1"># -----------------------------------------------------------------------------</span>
 </pre></div>
 </div>
-<p>Note that in the <em>uascan</em>, a name for the sample provided by the user
-is given in <cite>self.scan.comments[0]</cite>.  The plot title is changed to
-include this and the scan number.
-The customized plot has a logarithmic <em>y</em> axis:</p>
+<p>Note that in the <em>uascan</em>, a name for the sample provided by the user is given
+in <cite>self.scan.comments[0]</cite>.  The plot title is changed to include this and the
+scan number. The customized plot has a logarithmic <em>y</em> axis:</p>
 <figure class="align-default" id="id10">
 <a class="reference internal image-reference" href="_images/uascan_log_y.png"><img alt="_images/uascan_log_y.png" src="_images/uascan_log_y.png" style="width: 95%;"/></a>
 <figcaption>
 <p><span class="caption-text">USAXS <em>uascan</em>, with logarithmic <em>y</em> axis</span><a class="headerlink" href="#id10" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The most informative view of this data is when the raw data are
-reduced to <span class="math notranslate nohighlight">\(I(Q)\)</span> and viewed on a log-log plot,
-but that process is beyond this simple example.
-See the example <a class="reference internal" href="#custom-usaxs-specplot"><span class="std std-ref">Get xy data from HDF5 file</span></a> below.</p>
+<p>The most informative view of this data is when the raw data are reduced to
+<span class="math notranslate nohighlight">\(I(Q)\)</span> and viewed on a log-log plot, but that process is beyond this
+simple example. See the example <a class="reference internal" href="#custom-usaxs-specplot"><span class="std std-ref">Get xy data from HDF5 file</span></a> below.</p>
 <dl class="footnote brackets">
 <dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id5">3</a></span></dt>
 <dd><p><a class="reference external" href="https://github.com/prjemian/spec2nexus/issues/102">specplot: add option for default log(signal)</a></p>
@@ -610,13 +606,13 @@ See the example <a class="reference internal" href="#custom-usaxs-specplot"><spa
 </section>
 <section id="spec-s-hklscan-macro">
 <span id="custom-hklscan-specplot"></span><h3>SPEC’s <em>hklscan</em> macro<a class="headerlink" href="#spec-s-hklscan-macro" title="Permalink to this headline">#</a></h3>
-<p>The SPEC <em>hklscan</em> macro appears in a SPEC data file due to
-either a <em>hscan</em>, <em>kscan</em>, or <em>lscan</em>.  In each of these one of the <em>hkl</em>
-vectors is scanned while the other two remain constant.</p>
-<p>The normal handling of the <em>ascan</em> macro plots the last data column
-against the first.  This works for data collected with the <em>hscan</em>.
-For <em>kscan</em> or <em>lscan</em> macros, the <em>h</em> axis is still plotted by default
-since it is in the first column.</p>
+<p>The SPEC <em>hklscan</em> macro appears in a SPEC data file due to either a <em>hscan</em>,
+<em>kscan</em>, or <em>lscan</em>.  In each of these one of the <em>hkl</em> vectors is scanned while
+the other two remain constant.</p>
+<p>The normal handling of the <em>ascan</em> macro plots the last data column against the
+first.  This works for data collected with the <em>hscan</em>. For <em>kscan</em> or <em>lscan</em>
+macros, the <em>h</em> axis is still plotted by default since it is in the first
+column.</p>
 <figure class="align-default" id="id11">
 <a class="reference internal image-reference" href="_images/hklscan_as_ascan.png"><img alt="_images/hklscan_as_ascan.png" src="_images/hklscan_as_ascan.png" style="width: 95%;"/></a>
 <figcaption>
@@ -625,9 +621,9 @@ since it is in the first column.</p>
 </figure>
 <p>To display the scanned axis, it is necessary to examine the data in a custom
 subclass of <a class="reference internal" href="specplot.html#spec2nexus.specplot.LinePlotter" title="spec2nexus.specplot.LinePlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">LinePlotter</span></code></a>.  The
-<a class="reference internal" href="specplot.html#spec2nexus.specplot.HKLScanPlotter" title="spec2nexus.specplot.HKLScanPlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">HKLScanPlotter</span></code></a> subclass,
-provided with <em>specplot</em>, defines the <code class="xref py py-meth docutils literal notranslate"><span class="pre">get_plot_data()</span></code> method
-determines the scanned axis, setting it by name:</p>
+<a class="reference internal" href="specplot.html#spec2nexus.specplot.HKLScanPlotter" title="spec2nexus.specplot.HKLScanPlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">HKLScanPlotter</span></code></a> subclass, provided with <em>specplot</em>,
+defines the <code class="xref py py-meth docutils literal notranslate"><span class="pre">get_plot_data()</span></code> method determines the scanned axis, setting it
+by name:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="o">.</span><span class="n">axes</span> <span class="o">=</span> <span class="p">[</span><span class="n">axis</span><span class="p">,]</span>
 <span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="o">.</span><span class="n">column_first</span> <span class="o">=</span> <span class="n">axis</span>
 </pre></div>
@@ -646,6 +642,8 @@ uses this information to make the plot.</p>
 <p>One example of complexity is when SPEC has been used to direct data collection
 but the data is not stored in the SPEC data file.  The SPEC data file scan
 must provide some indication about where the collected scan data has been stored.</p>
+<section id="custom-usaxs-flyscan">
+<h4>custom <cite>usaxs_flyscan</cite><a class="headerlink" href="#custom-usaxs-flyscan" title="Permalink to this headline">#</a></h4>
 <p>The USAXS instrument at APS has a <em>FlyScan</em> macro that commands the instrument
 to collect data continuously over the desired <span class="math notranslate nohighlight">\(Q\)</span> range.  The data is written
 to a NeXus HDF5 data file.  Later, a data reduction process converts the arrays of
@@ -717,100 +715,101 @@ is read with the custom handling of the <cite>usaxs_flyscan.py</cite> demo:</p>
 <span class="linenos"> 59</span>    <span class="n">comment</span> <span class="o">=</span> <span class="n">scan</span><span class="o">.</span><span class="n">comments</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 <span class="linenos"> 60</span>    <span class="n">key_string</span> <span class="o">=</span> <span class="s2">"FlyScan file name = "</span>
 <span class="linenos"> 61</span>    <span class="n">index</span> <span class="o">=</span> <span class="n">comment</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">key_string</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">key_string</span><span class="p">)</span>
-<span class="linenos"> 62</span>    <span class="n">hdf_file_name</span> <span class="o">=</span> <span class="n">comment</span><span class="p">[</span><span class="n">index</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="linenos"> 63</span>    <span class="n">path</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">fileName</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span>
-<span class="linenos"> 64</span>    <span class="n">abs_file</span> <span class="o">=</span> <span class="p">(</span><span class="n">path</span> <span class="o">/</span> <span class="n">hdf_file_name</span><span class="p">)</span><span class="o">.</span><span class="n">absolute</span><span class="p">()</span>
-<span class="linenos"> 65</span>
-<span class="linenos"> 66</span>    <span class="n">plotData</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="linenos"> 67</span>    <span class="k">if</span> <span class="n">abs_file</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
-<span class="linenos"> 68</span>        <span class="n">reduced</span> <span class="o">=</span> <span class="n">read_reduced_fly_scan_file</span><span class="p">(</span><span class="n">abs_file</span><span class="p">)</span>
-<span class="linenos"> 69</span>        <span class="n">s_num_bins</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">REDUCED_FLY_SCAN_BINS</span><span class="p">)</span>
-<span class="linenos"> 70</span>
-<span class="linenos"> 71</span>        <span class="n">choice</span> <span class="o">=</span> <span class="n">reduced</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">s_num_bins</span><span class="p">)</span> <span class="ow">or</span> <span class="n">reduced</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"full"</span><span class="p">)</span>
-<span class="linenos"> 72</span>
-<span class="linenos"> 73</span>        <span class="k">if</span> <span class="n">choice</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="linenos"> 74</span>            <span class="n">plotData</span> <span class="o">=</span> <span class="p">{</span><span class="n">axis</span><span class="p">:</span> <span class="n">choice</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span> <span class="k">for</span> <span class="n">axis</span> <span class="ow">in</span> <span class="n">PLOT_AXES</span><span class="p">}</span>
-<span class="linenos"> 75</span>
-<span class="linenos"> 76</span>    <span class="k">return</span> <span class="n">plotData</span>
-<span class="linenos"> 77</span>
+<span class="linenos"> 62</span>
+<span class="linenos"> 63</span>    <span class="n">hdf_file_name</span> <span class="o">=</span> <span class="n">comment</span><span class="p">[</span><span class="n">index</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="linenos"> 64</span>    <span class="n">path</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">fileName</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span>
+<span class="linenos"> 65</span>    <span class="n">abs_file</span> <span class="o">=</span> <span class="p">(</span><span class="n">path</span> <span class="o">/</span> <span class="n">hdf_file_name</span><span class="p">)</span><span class="o">.</span><span class="n">absolute</span><span class="p">()</span>
+<span class="linenos"> 66</span>
+<span class="linenos"> 67</span>    <span class="n">plotData</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="linenos"> 68</span>    <span class="k">if</span> <span class="n">abs_file</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+<span class="linenos"> 69</span>        <span class="n">reduced</span> <span class="o">=</span> <span class="n">read_reduced_fly_scan_file</span><span class="p">(</span><span class="n">abs_file</span><span class="p">)</span>
+<span class="linenos"> 70</span>        <span class="n">s_num_bins</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">REDUCED_FLY_SCAN_BINS</span><span class="p">)</span>
+<span class="linenos"> 71</span>
+<span class="linenos"> 72</span>        <span class="n">choice</span> <span class="o">=</span> <span class="n">reduced</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">s_num_bins</span><span class="p">)</span> <span class="ow">or</span> <span class="n">reduced</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"full"</span><span class="p">)</span>
+<span class="linenos"> 73</span>
+<span class="linenos"> 74</span>        <span class="k">if</span> <span class="n">choice</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos"> 75</span>            <span class="n">plotData</span> <span class="o">=</span> <span class="p">{</span><span class="n">axis</span><span class="p">:</span> <span class="n">choice</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span> <span class="k">for</span> <span class="n">axis</span> <span class="ow">in</span> <span class="n">PLOT_AXES</span><span class="p">}</span>
+<span class="linenos"> 76</span>
+<span class="linenos"> 77</span>    <span class="k">return</span> <span class="n">plotData</span>
 <span class="linenos"> 78</span>
-<span class="linenos"> 79</span><span class="k">class</span> <span class="nc">USAXS_FlyScan_Plotter</span><span class="p">(</span><span class="n">spec2nexus</span><span class="o">.</span><span class="n">specplot</span><span class="o">.</span><span class="n">LinePlotter</span><span class="p">):</span>
-<span class="linenos"> 80</span>    <span class="sd">"""</span>
-<span class="linenos"> 81</span><span class="sd">    Customize `FlyScan` handling, plot :math:`log(I)` *vs.* :math:`log(Q)`.</span>
-<span class="linenos"> 82</span>
-<span class="linenos"> 83</span><span class="sd">    The USAXS FlyScan data is stored in a NeXus HDF5 file in a subdirectory</span>
-<span class="linenos"> 84</span><span class="sd">    below the SPEC data file.  This code uses existing code from the</span>
-<span class="linenos"> 85</span><span class="sd">    USAXS instrument to read that file.</span>
-<span class="linenos"> 86</span><span class="sd">    """</span>
-<span class="linenos"> 87</span>
-<span class="linenos"> 88</span>    <span class="k">def</span> <span class="nf">retrieve_plot_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="linenos"> 89</span>        <span class="sd">"""Retrieve reduced data from the FlyScan's HDF5 file."""</span>
-<span class="linenos"> 90</span>        <span class="c1"># get the data from the HDF5 file</span>
-<span class="linenos"> 91</span>        <span class="n">fly_data</span> <span class="o">=</span> <span class="n">retrieve_flyScanData</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="p">)</span>
-<span class="linenos"> 92</span>
-<span class="linenos"> 93</span>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">fly_data</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
-<span class="linenos"> 94</span>            <span class="k">raise</span> <span class="n">spec2nexus</span><span class="o">.</span><span class="n">specplot</span><span class="o">.</span><span class="n">NoDataToPlot</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="p">))</span>
-<span class="linenos"> 95</span>
-<span class="linenos"> 96</span>        <span class="bp">self</span><span class="o">.</span><span class="n">signal</span> <span class="o">=</span> <span class="s2">"R"</span>
-<span class="linenos"> 97</span>        <span class="bp">self</span><span class="o">.</span><span class="n">axes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Q"</span><span class="p">]</span>
-<span class="linenos"> 98</span>        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">fly_data</span>
-<span class="linenos"> 99</span>
-<span class="linenos">100</span>        <span class="c1"># customize the plot just a bit</span>
-<span class="linenos">101</span>        <span class="c1"># sample name as given by the user?</span>
-<span class="linenos">102</span>        <span class="n">subtitle</span> <span class="o">=</span> <span class="s2">"#"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="o">.</span><span class="n">scanNum</span><span class="p">)</span>
-<span class="linenos">103</span>        <span class="n">subtitle</span> <span class="o">+=</span> <span class="s2">" FlyScan: "</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="o">.</span><span class="n">comments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="linenos">104</span>        <span class="bp">self</span><span class="o">.</span><span class="n">set_plot_subtitle</span><span class="p">(</span><span class="n">subtitle</span><span class="p">)</span>
-<span class="linenos">105</span>        <span class="bp">self</span><span class="o">.</span><span class="n">set_x_log</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="linenos">106</span>        <span class="bp">self</span><span class="o">.</span><span class="n">set_y_log</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="linenos">107</span>        <span class="bp">self</span><span class="o">.</span><span class="n">set_x_title</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$|\vec</span><span class="si">{Q}</span><span class="s2">|, 1/\AA$"</span><span class="p">)</span>
-<span class="linenos">108</span>        <span class="bp">self</span><span class="o">.</span><span class="n">set_y_title</span><span class="p">(</span><span class="sa">r</span><span class="s2">"USAXS $R(|\vec</span><span class="si">{Q}</span><span class="s2">|)$, a.u."</span><span class="p">)</span>
-<span class="linenos">109</span>
-<span class="linenos">110</span>    <span class="k">def</span> <span class="nf">plottable</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="linenos">111</span>        <span class="sd">"""</span>
-<span class="linenos">112</span><span class="sd">        Can this data be plotted as expected?</span>
-<span class="linenos">113</span><span class="sd">        """</span>
-<span class="linenos">114</span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">signal</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
-<span class="linenos">115</span>            <span class="n">signal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">signal</span><span class="p">]</span>
-<span class="linenos">116</span>            <span class="k">if</span> <span class="n">signal</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-<span class="linenos">117</span>                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]]):</span>
-<span class="linenos">118</span>                    <span class="k">return</span> <span class="kc">True</span>
-<span class="linenos">119</span>        <span class="k">return</span> <span class="kc">False</span>
-<span class="linenos">120</span>
+<span class="linenos"> 79</span>
+<span class="linenos"> 80</span><span class="k">class</span> <span class="nc">USAXS_FlyScan_Plotter</span><span class="p">(</span><span class="n">spec2nexus</span><span class="o">.</span><span class="n">specplot</span><span class="o">.</span><span class="n">LinePlotter</span><span class="p">):</span>
+<span class="linenos"> 81</span>    <span class="sd">"""</span>
+<span class="linenos"> 82</span><span class="sd">    Customize `FlyScan` handling, plot :math:`log(I)` *vs.* :math:`log(Q)`.</span>
+<span class="linenos"> 83</span>
+<span class="linenos"> 84</span><span class="sd">    The USAXS FlyScan data is stored in a NeXus HDF5 file in a subdirectory</span>
+<span class="linenos"> 85</span><span class="sd">    below the SPEC data file.  This code uses existing code from the</span>
+<span class="linenos"> 86</span><span class="sd">    USAXS instrument to read that file.</span>
+<span class="linenos"> 87</span><span class="sd">    """</span>
+<span class="linenos"> 88</span>
+<span class="linenos"> 89</span>    <span class="k">def</span> <span class="nf">retrieve_plot_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 90</span>        <span class="sd">"""Retrieve reduced data from the FlyScan's HDF5 file."""</span>
+<span class="linenos"> 91</span>        <span class="c1"># get the data from the HDF5 file</span>
+<span class="linenos"> 92</span>        <span class="n">fly_data</span> <span class="o">=</span> <span class="n">retrieve_flyScanData</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="p">)</span>
+<span class="linenos"> 93</span>
+<span class="linenos"> 94</span>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">fly_data</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+<span class="linenos"> 95</span>            <span class="k">raise</span> <span class="n">spec2nexus</span><span class="o">.</span><span class="n">specplot</span><span class="o">.</span><span class="n">NoDataToPlot</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="p">))</span>
+<span class="linenos"> 96</span>
+<span class="linenos"> 97</span>        <span class="bp">self</span><span class="o">.</span><span class="n">signal</span> <span class="o">=</span> <span class="s2">"R"</span>
+<span class="linenos"> 98</span>        <span class="bp">self</span><span class="o">.</span><span class="n">axes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Q"</span><span class="p">]</span>
+<span class="linenos"> 99</span>        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">fly_data</span>
+<span class="linenos">100</span>
+<span class="linenos">101</span>        <span class="c1"># customize the plot just a bit</span>
+<span class="linenos">102</span>        <span class="c1"># sample name as given by the user?</span>
+<span class="linenos">103</span>        <span class="n">subtitle</span> <span class="o">=</span> <span class="s2">"#"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="o">.</span><span class="n">scanNum</span><span class="p">)</span>
+<span class="linenos">104</span>        <span class="n">subtitle</span> <span class="o">+=</span> <span class="s2">" FlyScan: "</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="o">.</span><span class="n">comments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos">105</span>        <span class="bp">self</span><span class="o">.</span><span class="n">set_plot_subtitle</span><span class="p">(</span><span class="n">subtitle</span><span class="p">)</span>
+<span class="linenos">106</span>        <span class="bp">self</span><span class="o">.</span><span class="n">set_x_log</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">107</span>        <span class="bp">self</span><span class="o">.</span><span class="n">set_y_log</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">108</span>        <span class="bp">self</span><span class="o">.</span><span class="n">set_x_title</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$|\vec</span><span class="si">{Q}</span><span class="s2">|, 1/\AA$"</span><span class="p">)</span>
+<span class="linenos">109</span>        <span class="bp">self</span><span class="o">.</span><span class="n">set_y_title</span><span class="p">(</span><span class="sa">r</span><span class="s2">"USAXS $R(|\vec</span><span class="si">{Q}</span><span class="s2">|)$, a.u."</span><span class="p">)</span>
+<span class="linenos">110</span>
+<span class="linenos">111</span>    <span class="k">def</span> <span class="nf">plottable</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">112</span>        <span class="sd">"""</span>
+<span class="linenos">113</span><span class="sd">        Can this data be plotted as expected?</span>
+<span class="linenos">114</span><span class="sd">        """</span>
+<span class="linenos">115</span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">signal</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+<span class="linenos">116</span>            <span class="n">signal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">signal</span><span class="p">]</span>
+<span class="linenos">117</span>            <span class="k">if</span> <span class="n">signal</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<span class="linenos">118</span>                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]]):</span>
+<span class="linenos">119</span>                    <span class="k">return</span> <span class="kc">True</span>
+<span class="linenos">120</span>        <span class="k">return</span> <span class="kc">False</span>
 <span class="linenos">121</span>
-<span class="linenos">122</span><span class="k">def</span> <span class="nf">debugging_setup</span><span class="p">():</span>
-<span class="linenos">123</span>    <span class="kn">import</span> <span class="nn">sys</span>
-<span class="linenos">124</span>    <span class="kn">import</span> <span class="nn">shutil</span>
-<span class="linenos">125</span>
-<span class="linenos">126</span>    <span class="n">path</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">".."</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"src"</span>
-<span class="linenos">127</span>    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
-<span class="linenos">128</span>    <span class="n">path</span> <span class="o">=</span> <span class="s2">"__usaxs__"</span>
-<span class="linenos">129</span>    <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">ignore_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="linenos">130</span>    <span class="n">pathlib</span><span class="o">.</span><span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-<span class="linenos">131</span>    <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"-d"</span><span class="p">)</span>
-<span class="linenos">132</span>    <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-<span class="linenos">133</span>    <span class="n">data_file</span> <span class="o">=</span> <span class="n">path</span> <span class="o">/</span> <span class="s2">"spec2nexus"</span> <span class="o">/</span> <span class="s2">"data"</span> <span class="o">/</span> <span class="s2">"02_03_setup.dat"</span>
-<span class="linenos">134</span>    <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">data_file</span><span class="o">.</span><span class="n">absolute</span><span class="p">()))</span>
-<span class="linenos">135</span>
+<span class="linenos">122</span>
+<span class="linenos">123</span><span class="k">def</span> <span class="nf">debugging_setup</span><span class="p">():</span>
+<span class="linenos">124</span>    <span class="kn">import</span> <span class="nn">sys</span>
+<span class="linenos">125</span>    <span class="kn">import</span> <span class="nn">shutil</span>
+<span class="linenos">126</span>
+<span class="linenos">127</span>    <span class="n">path</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">".."</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"src"</span>
+<span class="linenos">128</span>    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+<span class="linenos">129</span>    <span class="n">path</span> <span class="o">=</span> <span class="s2">"__usaxs__"</span>
+<span class="linenos">130</span>    <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">ignore_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">131</span>    <span class="n">pathlib</span><span class="o">.</span><span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="linenos">132</span>    <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"-d"</span><span class="p">)</span>
+<span class="linenos">133</span>    <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="linenos">134</span>    <span class="n">data_file</span> <span class="o">=</span> <span class="n">path</span> <span class="o">/</span> <span class="s2">"spec2nexus"</span> <span class="o">/</span> <span class="s2">"data"</span> <span class="o">/</span> <span class="s2">"02_03_setup.dat"</span>
+<span class="linenos">135</span>    <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">data_file</span><span class="o">.</span><span class="n">absolute</span><span class="p">()))</span>
 <span class="linenos">136</span>
-<span class="linenos">137</span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-<span class="linenos">138</span>    <span class="n">selector</span> <span class="o">=</span> <span class="n">spec2nexus</span><span class="o">.</span><span class="n">specplot</span><span class="o">.</span><span class="n">Selector</span><span class="p">()</span>
-<span class="linenos">139</span>    <span class="n">selector</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"FlyScan"</span><span class="p">,</span> <span class="n">USAXS_FlyScan_Plotter</span><span class="p">)</span>
-<span class="linenos">140</span>    <span class="n">spec2nexus</span><span class="o">.</span><span class="n">specplot_gallery</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
-<span class="linenos">141</span>
+<span class="linenos">137</span>
+<span class="linenos">138</span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="linenos">139</span>    <span class="n">selector</span> <span class="o">=</span> <span class="n">spec2nexus</span><span class="o">.</span><span class="n">specplot</span><span class="o">.</span><span class="n">Selector</span><span class="p">()</span>
+<span class="linenos">140</span>    <span class="n">selector</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"FlyScan"</span><span class="p">,</span> <span class="n">USAXS_FlyScan_Plotter</span><span class="p">)</span>
+<span class="linenos">141</span>    <span class="n">spec2nexus</span><span class="o">.</span><span class="n">specplot_gallery</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
 <span class="linenos">142</span>
-<span class="linenos">143</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-<span class="linenos">144</span>    <span class="c1"># debugging_setup()</span>
-<span class="linenos">145</span>    <span class="n">main</span><span class="p">()</span>
-<span class="linenos">146</span>
-<span class="linenos">147</span><span class="c1"># -----------------------------------------------------------------------------</span>
-<span class="linenos">148</span><span class="c1"># :author:    Pete R. Jemian</span>
-<span class="linenos">149</span><span class="c1"># :email:     prjemian@gmail.com</span>
-<span class="linenos">150</span><span class="c1"># :copyright: (c) 2014-2022, Pete R. Jemian</span>
-<span class="linenos">151</span><span class="c1">#</span>
-<span class="linenos">152</span><span class="c1"># Distributed under the terms of the Creative Commons Attribution 4.0 International Public License.</span>
-<span class="linenos">153</span><span class="c1">#</span>
-<span class="linenos">154</span><span class="c1"># The full license is in the file LICENSE.txt, distributed with this software.</span>
-<span class="linenos">155</span><span class="c1"># -----------------------------------------------------------------------------</span>
+<span class="linenos">143</span>
+<span class="linenos">144</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+<span class="linenos">145</span>    <span class="c1"># debugging_setup()</span>
+<span class="linenos">146</span>    <span class="n">main</span><span class="p">()</span>
+<span class="linenos">147</span>
+<span class="linenos">148</span><span class="c1"># -----------------------------------------------------------------------------</span>
+<span class="linenos">149</span><span class="c1"># :author:    Pete R. Jemian</span>
+<span class="linenos">150</span><span class="c1"># :email:     prjemian@gmail.com</span>
+<span class="linenos">151</span><span class="c1"># :copyright: (c) 2014-2022, Pete R. Jemian</span>
+<span class="linenos">152</span><span class="c1">#</span>
+<span class="linenos">153</span><span class="c1"># Distributed under the terms of the Creative Commons Attribution 4.0 International Public License.</span>
+<span class="linenos">154</span><span class="c1">#</span>
+<span class="linenos">155</span><span class="c1"># The full license is in the file LICENSE.txt, distributed with this software.</span>
+<span class="linenos">156</span><span class="c1"># -----------------------------------------------------------------------------</span>
 </pre></div>
 </div>
 <p>The data is then rendered in a customized log-log plot of <span class="math notranslate nohighlight">\(I(Q)\)</span>:</p>
@@ -820,6 +819,19 @@ is read with the custom handling of the <cite>usaxs_flyscan.py</cite> demo:</p>
 <p><span class="caption-text">USAXS <em>FlyScan</em>, handled by <code class="xref py py-class docutils literal notranslate"><span class="pre">USAXS_FlyScan_Plotter</span></code></span><a class="headerlink" href="#id13" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
+<p>The <code class="docutils literal notranslate"><span class="pre">USAXS_FlyScan_Plotter()</span></code> class provides custom methods for
+<code class="docutils literal notranslate"><span class="pre">retrieve_plot_data()</span></code> and <code class="docutils literal notranslate"><span class="pre">plottable()</span></code> which will be called from
+<a class="reference internal" href="specplot.html#spec2nexus.specplot.ImageMaker.plot_scan" title="spec2nexus.specplot.ImageMaker.plot_scan"><code class="xref py py-meth docutils literal notranslate"><span class="pre">spec2nexus.specplot.ImageMaker.plot_scan()</span></code></a>.</p>
+<p>Method <code class="docutils literal notranslate"><span class="pre">USAXS_FlyScan_Plotter.plottable()</span></code> returns a boolean value if the data
+can be plotted.</p>
+<p>Method <code class="docutils literal notranslate"><span class="pre">USAXS_FlyScan_Plotter.retrieve_plot_data()</span></code> gets the data from the
+scan by calling <code class="docutils literal notranslate"><span class="pre">retrieve_flyScanData()</span></code> with the <code class="docutils literal notranslate"><span class="pre">scan</span></code> object.  Then the
+method customizes the plot details.</p>
+<p>Function <code class="docutils literal notranslate"><span class="pre">retrieve_flyScanData(scan)</span></code> gets the name of the NeXus/HDF5 file
+from the scan and reads the HDF5 file, returning either the reduced data with
+the number of points (as described in <code class="docutils literal notranslate"><span class="pre">REDUCED_FLY_SCAN_BINS</span></code>) or the full
+data set.</p>
+</section>
 </section>
 </section>
 <section id="usage">
@@ -934,7 +946,10 @@ optional arguments:
 </ul>
 </li>
 <li><a class="reference internal" href="#spec-s-hklscan-macro">SPEC’s <em>hklscan</em> macro</a></li>
-<li><a class="reference internal" href="#get-xy-data-from-hdf5-file">Get <em>xy</em> data from HDF5 file</a></li>
+<li><a class="reference internal" href="#get-xy-data-from-hdf5-file">Get <em>xy</em> data from HDF5 file</a><ul>
+<li><a class="reference internal" href="#custom-usaxs-flyscan">custom <cite>usaxs_flyscan</cite></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#usage">Usage</a></li>
