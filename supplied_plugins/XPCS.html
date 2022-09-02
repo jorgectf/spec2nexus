@@ -1,14 +1,14 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="apstools SpecWriterCallback metadata plugin" href="apstools_specwriter.html" /><link rel="prev" title="spec2nexus.plugin" href="../plugin_core.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>XPCS plugin - spec2nexus 2021.2.1</title>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
+        <title>XPCS plugin - spec2nexus 2021.2.1 (2.g4f4a891)</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">spec2nexus 2021.2.1</div></a>
+      <a href="../index.html"><div class="brand">spec2nexus 2021.2.1 (2.g4f4a891)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.1</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.1 (2.g4f4a891)</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -217,6 +217,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../scanf.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.scanf</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../singletons.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.singletons</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spec.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../writer.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code></a></li>
 </ul>
@@ -245,7 +246,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -260,7 +262,7 @@
         </div>
         <article role="main">
           <section id="module-spec2nexus.plugins.XPCS">
-<span id="xpcs-plugin"></span><span id="xpcs"></span><h1>XPCS plugin<a class="headerlink" href="#module-spec2nexus.plugins.XPCS" title="Permalink to this headline">#</a></h1>
+<span id="xpcs-plugin"></span><span id="xpcs"></span><h1>XPCS plugin<a class="headerlink" href="#module-spec2nexus.plugins.XPCS" title="Permalink to this heading">#</a></h1>
 <p>SPEC data file control lines unique to the APS XPCS instrument</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.plugins.XPCS.XPCS_CCD">
@@ -280,12 +282,15 @@
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.XPCS.XPCS_CCD.writer">
 <span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/XPCS.html#XPCS_CCD.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.XPCS.XPCS_CCD.writer" title="Permalink to this definition">#</a></dt>
 <dd><p><em>optional:</em> Describe how to store this data in a NeXus HDF5 file.</p>
 </dd></dl>
+
 </dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.plugins.XPCS.XPCS_VA">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.XPCS.</span></span><span class="sig-name descname"><span class="pre">XPCS_VA</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/XPCS.html#XPCS_VA"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.XPCS.XPCS_VA" title="Permalink to this definition">#</a></dt>
@@ -304,12 +309,15 @@
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.XPCS.XPCS_VA.writer">
 <span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/XPCS.html#XPCS_VA.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.XPCS.XPCS_VA.writer" title="Permalink to this definition">#</a></dt>
 <dd><p>Describe how to write VA data</p>
 </dd></dl>
+
 </dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.plugins.XPCS.XPCS_VD">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.XPCS.</span></span><span class="sig-name descname"><span class="pre">XPCS_VD</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/XPCS.html#XPCS_VD"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.XPCS.XPCS_VD" title="Permalink to this definition">#</a></dt>
@@ -328,12 +336,15 @@
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.XPCS.XPCS_VD.writer">
 <span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/XPCS.html#XPCS_VD.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.XPCS.XPCS_VD.writer" title="Permalink to this definition">#</a></dt>
 <dd><p>Describe how to write VD data</p>
 </dd></dl>
+
 </dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.plugins.XPCS.XPCS_VE">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.XPCS.</span></span><span class="sig-name descname"><span class="pre">XPCS_VE</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/XPCS.html#XPCS_VE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.XPCS.XPCS_VE" title="Permalink to this definition">#</a></dt>
@@ -352,12 +363,15 @@
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.XPCS.XPCS_VE.writer">
 <span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/XPCS.html#XPCS_VE.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.XPCS.XPCS_VE.writer" title="Permalink to this definition">#</a></dt>
 <dd><p>Describe how to write VE data</p>
 </dd></dl>
+
 </dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.plugins.XPCS.XPCS_XPCS">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.XPCS.</span></span><span class="sig-name descname"><span class="pre">XPCS_XPCS</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/XPCS.html#XPCS_XPCS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.XPCS.XPCS_XPCS" title="Permalink to this definition">#</a></dt>
@@ -376,12 +390,15 @@
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.XPCS.XPCS_XPCS.writer">
 <span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/XPCS.html#XPCS_XPCS.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.XPCS.XPCS_XPCS.writer" title="Permalink to this definition">#</a></dt>
 <dd><p><em>optional:</em> Describe how to store this data in a NeXus HDF5 file.</p>
 </dd></dl>
+
 </dd></dl>
+
 </section>
 
         </article>
@@ -438,6 +455,7 @@
 </div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/scripts/furo.js"></script>
     </body>

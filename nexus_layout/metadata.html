@@ -1,14 +1,14 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Positioners" href="positioners.html" /><link rel="prev" title="Multi-channel analyzer" href="mca.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>Metadata - spec2nexus 2021.2.1</title>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
+        <title>Metadata - spec2nexus 2021.2.1 (2.g4f4a891)</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">spec2nexus 2021.2.1</div></a>
+      <a href="../index.html"><div class="brand">spec2nexus 2021.2.1 (2.g4f4a891)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.1</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.1 (2.g4f4a891)</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -217,6 +217,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../scanf.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.scanf</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../singletons.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.singletons</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spec.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../writer.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code></a></li>
 </ul>
@@ -245,7 +246,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -260,15 +262,12 @@
         </div>
         <article role="main">
           <section id="metadata">
-<span id="data-file-metadata"></span><h1>Metadata<a class="headerlink" href="#metadata" title="Permalink to this headline">#</a></h1>
+<span id="data-file-metadata"></span><h1>Metadata<a class="headerlink" href="#metadata" title="Permalink to this heading">#</a></h1>
 <p>Metadata in SPEC data files may be described using various
 control lines.  The following table describes how each
 control line is handled and written in a NeXus/HDF5 data file.</p>
-<div class="table-wrapper"><table class="docutils align-default">
-<colgroup>
-<col style="width: 33%"/>
-<col style="width: 67%"/>
-</colgroup>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>control line</p></th>
 <th class="head"><p>section</p></th>
@@ -288,10 +287,11 @@ control line is handled and written in a NeXus/HDF5 data file.</p>
 <td><p><a class="reference internal" href="#data-file-metadata-uxml"><span class="std std-ref">UXML</span></a></p></td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
 <section id="spec-userresults">
-<span id="data-file-metadata-r"></span><h2>SPEC UserResults<a class="headerlink" href="#spec-userresults" title="Permalink to this headline">#</a></h2>
-<p>The SPEC data file header control line <code class="docutils literal notranslate"><span class="pre">#R</span></code> is reserved <a class="footnote-reference brackets" href="#spec-control-lines" id="id1">1</a>
+<span id="data-file-metadata-r"></span><h2>SPEC UserResults<a class="headerlink" href="#spec-userresults" title="Permalink to this heading">#</a></h2>
+<p>The SPEC data file header control line <code class="docutils literal notranslate"><span class="pre">#R</span></code> is reserved <a class="footnote-reference brackets" href="#spec-control-lines" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>
 for users to describe any information of their choosing.  This control line may
 be used in a scan.  It is optional but may be appear more than once.  Here are
 examples from various SPEC data files:</p>
@@ -299,21 +299,21 @@ examples from various SPEC data files:</p>
 <span class="linenos">2</span><span class="c1">#R 11  Max: 83356  at 5.469   FWHM: 0.0165099  at 5.48551   COM: 5.48525   SUM: 3.47646e+06</span>
 </pre></div>
 </div>
-<p>When present in a scan, then <code class="docutils literal notranslate"><span class="pre">/SCAN/UserResults</span></code> (a <strong>NXnote</strong> <a class="footnote-reference brackets" href="#nxnote" id="id2">2</a>
+<p>When present in a scan, then <code class="docutils literal notranslate"><span class="pre">/SCAN/UserResults</span></code> (a <strong>NXnote</strong> <a class="footnote-reference brackets" href="#nxnote" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>
 group) is created.  The value is written <strong>as text</strong> (any leading or trailing
 white space is removed) into a field within this group as <code class="docutils literal notranslate"><span class="pre">item_1</span></code> (where the
 number increments for each item in the scan).  Here is the <code class="docutils literal notranslate"><span class="pre">UserResults</span></code> group
 created by the above example <code class="docutils literal notranslate"><span class="pre">#R</span></code> lines:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">UserResults</span><span class="p">:</span><span class="n">NXnote</span>
-<span class="linenos">2</span>   <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">"NXnote"</span>
-<span class="linenos">3</span>   <span class="n">item_1</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'2'</span><span class="p">]</span>
-<span class="linenos">4</span>   <span class="n">item_2</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'11  Max: 83356  at 5.469   FWHM: 0.0165099  at 5.48551   COM: 5.48525   SUM: 3.47646e+06'</span><span class="p">]</span>
+<span class="linenos">2</span>   <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">&quot;NXnote&quot;</span>
+<span class="linenos">3</span>   <span class="n">item_1</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">&#39;2&#39;</span><span class="p">]</span>
+<span class="linenos">4</span>   <span class="n">item_2</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">&#39;11  Max: 83356  at 5.469   FWHM: 0.0165099  at 5.48551   COM: 5.48525   SUM: 3.47646e+06&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </section>
 <section id="spec-userreserved">
-<span id="data-file-metadata-u"></span><h2>SPEC UserReserved<a class="headerlink" href="#spec-userreserved" title="Permalink to this headline">#</a></h2>
-<p>The SPEC data file header control line <code class="docutils literal notranslate"><span class="pre">#U</span></code> is reserved <a class="footnote-reference brackets" href="#spec-control-lines" id="id3">1</a>
+<span id="data-file-metadata-u"></span><h2>SPEC UserReserved<a class="headerlink" href="#spec-userreserved" title="Permalink to this heading">#</a></h2>
+<p>The SPEC data file header control line <code class="docutils literal notranslate"><span class="pre">#U</span></code> is reserved <a class="footnote-reference brackets" href="#spec-control-lines" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>
 for users to describe any information of their choosing.  This control line may
 be used in both the header and a scan.  It is optional but may be appear more
 than once.  Here are examples from various SPEC data files:</p>
@@ -329,23 +329,23 @@ than once.  Here are examples from various SPEC data files:</p>
 </pre></div>
 </div>
 <p>When present in either the scan or its header, then <code class="docutils literal notranslate"><span class="pre">/SCAN/UserReserved</span></code> (a
-<strong>NXnote</strong> <a class="footnote-reference brackets" href="#nxnote" id="id4">2</a> group) is created.  The value is written <strong>as text</strong> (any
+<strong>NXnote</strong> <a class="footnote-reference brackets" href="#nxnote" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> group) is created.  The value is written <strong>as text</strong> (any
 leading or trailing white space is removed) into a field within this group as
 <code class="docutils literal notranslate"><span class="pre">header_1</span></code> or <code class="docutils literal notranslate"><span class="pre">item_1</span></code> (where the number increments for each item in
 the header or scan, respectively).  Here is the <code class="docutils literal notranslate"><span class="pre">UserReserved</span></code> group created
 by the above example <code class="docutils literal notranslate"><span class="pre">#U</span></code> lines:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">UserReserved</span><span class="p">:</span><span class="n">NXnote</span>
-<span class="linenos">2</span>   <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">"NXnote"</span>
-<span class="linenos">3</span>   <span class="n">header_1</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'p09user'</span><span class="p">]</span>
-<span class="linenos">4</span>   <span class="n">item_1</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'Beam Current: 101.9'</span><span class="p">]</span>
-<span class="linenos">5</span>   <span class="n">item_2</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'Energy: 5.5000'</span><span class="p">]</span>
-<span class="linenos">6</span>   <span class="n">item_3</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'EntSlits:  1.000 x  1.000 @  0.000, 37.775'</span><span class="p">]</span>
-<span class="linenos">7</span>   <span class="n">item_4</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'Undulator Tracking is on; Offset:0.070'</span><span class="p">]</span>
+<span class="linenos">2</span>   <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">&quot;NXnote&quot;</span>
+<span class="linenos">3</span>   <span class="n">header_1</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">&#39;p09user&#39;</span><span class="p">]</span>
+<span class="linenos">4</span>   <span class="n">item_1</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">&#39;Beam Current: 101.9&#39;</span><span class="p">]</span>
+<span class="linenos">5</span>   <span class="n">item_2</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">&#39;Energy: 5.5000&#39;</span><span class="p">]</span>
+<span class="linenos">6</span>   <span class="n">item_3</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">&#39;EntSlits:  1.000 x  1.000 @  0.000, 37.775&#39;</span><span class="p">]</span>
+<span class="linenos">7</span>   <span class="n">item_4</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">&#39;Undulator Tracking is on; Offset:0.070&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </section>
 <section id="unicat-style-metadata">
-<span id="data-file-metadata-hv"></span><h2>UNICAT-style metadata<a class="headerlink" href="#unicat-style-metadata" title="Permalink to this headline">#</a></h2>
+<span id="data-file-metadata-hv"></span><h2>UNICAT-style metadata<a class="headerlink" href="#unicat-style-metadata" title="Permalink to this heading">#</a></h2>
 <p>UNICAT-style metadata consists of key:value pairs encoded using the <code class="docutils literal notranslate"><span class="pre">#H</span></code> and
 <code class="docutils literal notranslate"><span class="pre">#V</span></code> control lines which describe keys and values, respectively.  The design
 is similar to that used to describe positioner, using <code class="docutils literal notranslate"><span class="pre">#O</span></code> and <code class="docutils literal notranslate"><span class="pre">#P</span></code> lines
@@ -365,61 +365,65 @@ values on each line.  For example:</p>
 <span class="linenos">3</span><span class="c1">#V2 18 0.688801 18.1723 1 0.2 10.4046 10.318091</span>
 </pre></div>
 </div>
-<p>When present in a scan, then <code class="docutils literal notranslate"><span class="pre">/SCAN/metadata</span></code> (a <strong>NXnote</strong> <a class="footnote-reference brackets" href="#nxnote" id="id5">2</a> group)
+<p>When present in a scan, then <code class="docutils literal notranslate"><span class="pre">/SCAN/metadata</span></code> (a <strong>NXnote</strong> <a class="footnote-reference brackets" href="#nxnote" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> group)
 is created.  Within this group, a field is written for each key:value pair. It
 may be necessary to change the name of a key, to make it unique, so all fields
 will have the original name of the key written as the <code class="docutils literal notranslate"><span class="pre">spec_name</span></code> attribute.
 Here is the <code class="docutils literal notranslate"><span class="pre">metadata</span></code> group created by the above example <code class="docutils literal notranslate"><span class="pre">#H</span></code> and <code class="docutils literal notranslate"><span class="pre">#V</span></code>
 lines:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="n">metadata</span><span class="p">:</span><span class="n">NXnote</span>
-<span class="linenos"> 2</span>   <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">"NXnote"</span>
-<span class="linenos"> 3</span>   <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"SPEC metadata (UNICAT-style #H &amp; #V lines)"</span>
-<span class="linenos"> 4</span>   <span class="nd">@target</span> <span class="o">=</span> <span class="s2">"/S1/metadata"</span>
+<span class="linenos"> 2</span>   <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">&quot;NXnote&quot;</span>
+<span class="linenos"> 3</span>   <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;SPEC metadata (UNICAT-style #H &amp; #V lines)&quot;</span>
+<span class="linenos"> 4</span>   <span class="nd">@target</span> <span class="o">=</span> <span class="s2">&quot;/S1/metadata&quot;</span>
 <span class="linenos"> 5</span>   <span class="n">DCM_energy</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">18.0</span>
-<span class="linenos"> 6</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"DCM_energy"</span>
+<span class="linenos"> 6</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">&quot;DCM_energy&quot;</span>
 <span class="linenos"> 7</span>   <span class="n">DCM_lambda</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.688801</span>
-<span class="linenos"> 8</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"DCM_lambda"</span>
+<span class="linenos"> 8</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">&quot;DCM_lambda&quot;</span>
 <span class="linenos"> 9</span>   <span class="n">SR_BPM_HA</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">28.0838</span>
-<span class="linenos">10</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"SR_BPM_HA"</span>
+<span class="linenos">10</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">&quot;SR_BPM_HA&quot;</span>
 <span class="linenos">11</span>   <span class="n">SR_BPM_HP</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.0201432</span>
-<span class="linenos">12</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"SR_BPM_HP"</span>
+<span class="linenos">12</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">&quot;SR_BPM_HP&quot;</span>
 <span class="linenos">13</span>   <span class="n">SR_BPM_VA</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">11.7067</span>
-<span class="linenos">14</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"SR_BPM_VA"</span>
+<span class="linenos">14</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">&quot;SR_BPM_VA&quot;</span>
 <span class="linenos">15</span>   <span class="n">SR_BPM_VP</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.110706</span>
-<span class="linenos">16</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"SR_BPM_VP"</span>
+<span class="linenos">16</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">&quot;SR_BPM_VP&quot;</span>
 <span class="linenos">17</span>   <span class="n">SR_current</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">102.23</span>
-<span class="linenos">18</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"SR_current"</span>
+<span class="linenos">18</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">&quot;SR_current&quot;</span>
 <span class="linenos">19</span>   <span class="n">UND_energy</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">18.1723</span>
-<span class="linenos">20</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"UND_energy"</span>
+<span class="linenos">20</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">&quot;UND_energy&quot;</span>
 <span class="linenos">21</span>   <span class="n">UND_offset</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.2</span>
-<span class="linenos">22</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"UND_offset"</span>
+<span class="linenos">22</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">&quot;UND_offset&quot;</span>
 <span class="linenos">23</span>   <span class="n">UND_tracking</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">1.0</span>
-<span class="linenos">24</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"UND_tracking"</span>
+<span class="linenos">24</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">&quot;UND_tracking&quot;</span>
 <span class="linenos">25</span>   <span class="n">arEnc</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">10.318091</span>
-<span class="linenos">26</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"arEnc"</span>
+<span class="linenos">26</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">&quot;arEnc&quot;</span>
 <span class="linenos">27</span>   <span class="n">barometer_mbar</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">981.665</span>
-<span class="linenos">28</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"barometer_mbar"</span>
+<span class="linenos">28</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">&quot;barometer_mbar&quot;</span>
 <span class="linenos">29</span>   <span class="n">mrEnc</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">10.4046</span>
-<span class="linenos">30</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"mrEnc"</span>
+<span class="linenos">30</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">&quot;mrEnc&quot;</span>
 </pre></div>
 </div>
 <p>See section <a class="reference internal" href="../supplied_plugins/unicat.html#unicat-plugin"><span class="std std-ref">unicat plugin</span></a> for the API documentation.</p>
 </section>
 <section id="uxml">
-<span id="data-file-metadata-uxml"></span><h2>UXML<a class="headerlink" href="#uxml" title="Permalink to this headline">#</a></h2>
+<span id="data-file-metadata-uxml"></span><h2>UXML<a class="headerlink" href="#uxml" title="Permalink to this heading">#</a></h2>
 <p>See section <a class="reference internal" href="../supplied_plugins/uxml.html#uxml-plugin"><span class="std std-ref">#UXML: UXML metadata plugin</span></a> for more details about the <code class="docutils literal notranslate"><span class="pre">#UXML</span></code> control line
 and the API documentation.  The <code class="docutils literal notranslate"><span class="pre">#UXML</span></code> lines provide an XML document
 description in a scan’s metadata. It is used at APS sector 33 but not so
 much elsewhere.</p>
-<hr class="docutils"/>
-<dl class="footnote brackets">
-<dt class="label" id="spec-control-lines"><span class="brackets">1</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id3">2</a>)</span></dt>
-<dd><p><a class="reference external" href="https://certif.com/spec_help/scans.html">https://certif.com/spec_help/scans.html</a></p>
-</dd>
-<dt class="label" id="nxnote"><span class="brackets">2</span><span class="fn-backref">(<a href="#id2">1</a>,<a href="#id4">2</a>,<a href="#id5">3</a>)</span></dt>
-<dd><p><strong>NXnote</strong>:   <a class="reference external" href="https://manual.nexusformat.org/classes/base_classes/NXnote.html">https://manual.nexusformat.org/classes/base_classes/NXnote.html</a></p>
-</dd>
-</dl>
+<hr class="docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="spec-control-lines" role="note">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id3">2</a>)</span>
+<p><a class="reference external" href="https://certif.com/spec_help/scans.html">https://certif.com/spec_help/scans.html</a></p>
+</aside>
+<aside class="footnote brackets" id="nxnote" role="note">
+<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id4">2</a>,<a role="doc-backlink" href="#id5">3</a>)</span>
+<p><strong>NXnote</strong>:   <a class="reference external" href="https://manual.nexusformat.org/classes/base_classes/NXnote.html">https://manual.nexusformat.org/classes/base_classes/NXnote.html</a></p>
+</aside>
+</aside>
 </section>
 </section>
 
@@ -499,6 +503,7 @@ much elsewhere.</p>
 </div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/scripts/furo.js"></script>
     </body>

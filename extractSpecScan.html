@@ -1,14 +1,14 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="specplot" href="specplot.html" /><link rel="prev" title="Unrecognized Control Line" href="nexus_layout/unrecognized_content.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>extractSpecScan - spec2nexus 2021.2.1</title>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
+        <title>extractSpecScan - spec2nexus 2021.2.1 (2.g4f4a891)</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">spec2nexus 2021.2.1</div></a>
+      <a href="index.html"><div class="brand">spec2nexus 2021.2.1 (2.g4f4a891)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.1</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.1 (2.g4f4a891)</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -217,6 +217,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="scanf.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.scanf</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="singletons.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.singletons</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="spec.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="writer.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code></a></li>
 </ul>
@@ -245,7 +246,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -260,10 +262,10 @@
         </div>
         <article role="main">
           <section id="extractspecscan">
-<span id="id1"></span><h1>extractSpecScan<a class="headerlink" href="#extractspecscan" title="Permalink to this headline">#</a></h1>
+<span id="id1"></span><h1>extractSpecScan<a class="headerlink" href="#extractspecscan" title="Permalink to this heading">#</a></h1>
 <p>Command line tool to extract scan data from a SPEC data file.</p>
 <section id="how-to-use-extractspecscan">
-<span id="index-0"></span><h2>How to use <strong>extractSpecScan</strong><a class="headerlink" href="#how-to-use-extractspecscan" title="Permalink to this headline">#</a></h2>
+<span id="index-0"></span><h2>How to use <strong>extractSpecScan</strong><a class="headerlink" href="#how-to-use-extractspecscan" title="Permalink to this heading">#</a></h2>
 <p>Extract one scan from a SPEC data file:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>user@host ~$ extractSpecScan data/APS_spec_data.dat -s 1 -c mr USAXS_PD I0 seconds
 </pre></div>
@@ -315,7 +317,7 @@ optional arguments:
 </div>
 </section>
 <section id="example">
-<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">#</a></h2>
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this heading">#</a></h2>
 <p>Extract four columns (mr, USAXS_PD, I0, seconds) from two
 scans (1, 6) in a SPEC data file:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ extractSpecScan data/APS_spec_data.dat -s 1 6 -c mr USAXS_PD I0 seconds
@@ -363,7 +365,7 @@ wrote: data/APS_spec_data_6.dat
 </div>
 </section>
 <section id="module-spec2nexus.extractSpecScan">
-<span id="source-code-documentation"></span><h2>source code documentation<a class="headerlink" href="#module-spec2nexus.extractSpecScan" title="Permalink to this headline">#</a></h2>
+<span id="source-code-documentation"></span><h2>source code documentation<a class="headerlink" href="#module-spec2nexus.extractSpecScan" title="Permalink to this heading">#</a></h2>
 <p>Save columns from SPEC data file scan(s) to TSV files</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -384,12 +386,13 @@ wrote: data/APS_spec_data_6.dat
 <span class="sig-prename descclassname"><span class="pre">spec2nexus.extractSpecScan.</span></span><span class="sig-name descname"><span class="pre">get_user_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/extractSpecScan.html#get_user_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.extractSpecScan.get_user_parameters" title="Permalink to this definition">#</a></dt>
 <dd><p>configure user’s command line parameters from sys.argv</p>
 </dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="spec2nexus.extractSpecScan.main">
 <span class="sig-prename descclassname"><span class="pre">spec2nexus.extractSpecScan.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/extractSpecScan.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.extractSpecScan.main" title="Permalink to this definition">#</a></dt>
 <dd><p>read the data file, find each scan, find the columns, save the data</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>cmdArgs</strong> (<em>[</em><em>str</em><em>]</em>) – Namespace from argparse, returned from get_user_parameters()</p>
 </dd>
 </dl>
@@ -407,12 +410,13 @@ in each chosen SPEC scan number or the program will skip that particular scan</p
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="spec2nexus.extractSpecScan.makeOutputFileName">
 <span class="sig-prename descclassname"><span class="pre">spec2nexus.extractSpecScan.</span></span><span class="sig-name descname"><span class="pre">makeOutputFileName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">specFile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scanNum</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/extractSpecScan.html#makeOutputFileName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.extractSpecScan.makeOutputFileName" title="Permalink to this definition">#</a></dt>
 <dd><p>return an output file name based on specFile and scanNum</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>specFile</strong> (<em>str</em>) – name of existing SPEC data file to be read</p></li>
 <li><p><strong>scanNum</strong> (<em>str</em>) – number of chosen SPEC scan</p></li>
@@ -424,12 +428,8 @@ in each chosen SPEC scan number or the program will skip that particular scan</p
 <p>Always add a file extension to the output file.
 If none is present, use “.dat”.</p>
 <p>Examples:</p>
-<div class="table-wrapper"><table class="docutils align-default">
-<colgroup>
-<col style="width: 32%"/>
-<col style="width: 24%"/>
-<col style="width: 44%"/>
-</colgroup>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>specFile</p></th>
 <th class="head"><p>scanNum</p></th>
@@ -450,8 +450,10 @@ If none is present, use “.dat”.</p>
 <td><p>CeCoIn5_5_1.dat</p></td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
 </dd></dl>
+
 </section>
 </section>
 
@@ -530,6 +532,7 @@ If none is present, use “.dat”.</p>
 </div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/scripts/furo.js"></script>
     </body>

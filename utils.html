@@ -1,14 +1,14 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Unit Testing" href="unit_testing.html" /><link rel="prev" title="spec2nexus.singletons" href="singletons.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>spec2nexus.utils - spec2nexus 2021.2.1</title>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
+        <title>spec2nexus.utils - spec2nexus 2021.2.1 (2.g4f4a891)</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">spec2nexus 2021.2.1</div></a>
+      <a href="index.html"><div class="brand">spec2nexus 2021.2.1 (2.g4f4a891)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.1</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.1 (2.g4f4a891)</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -217,6 +217,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="scanf.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.scanf</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="singletons.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.singletons</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="spec.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a></li>
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="writer.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code></a></li>
 </ul>
@@ -245,7 +246,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -260,16 +262,13 @@
         </div>
         <article role="main">
           <section id="spec2nexus-utils">
-<span id="utils"></span><h1><a class="reference internal" href="#module-spec2nexus.utils" title="spec2nexus.utils: common methods used by **spec2nexus** modules"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a><a class="headerlink" href="#spec2nexus-utils" title="Permalink to this headline">#</a></h1>
+<span id="utils"></span><h1><a class="reference internal" href="#module-spec2nexus.utils" title="spec2nexus.utils: common methods used by **spec2nexus** modules"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a><a class="headerlink" href="#spec2nexus-utils" title="Permalink to this heading">#</a></h1>
 <p>Common methods used throughout the package.</p>
 <section id="module-spec2nexus.utils">
-<span id="source-code-documentation"></span><h2>source code documentation<a class="headerlink" href="#module-spec2nexus.utils" title="Permalink to this headline">#</a></h2>
+<span id="source-code-documentation"></span><h2>source code documentation<a class="headerlink" href="#module-spec2nexus.utils" title="Permalink to this heading">#</a></h2>
 <p>(internal library) common methods used in <strong>spec2nexus</strong> modules</p>
-<div class="table-wrapper"><table class="autosummary longtable docutils align-default">
-<colgroup>
-<col style="width: 10%"/>
-<col style="width: 90%"/>
-</colgroup>
+<div class="table-wrapper autosummary longtable docutils container">
+<table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.utils.clean_name" title="spec2nexus.utils.clean_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clean_name</span></code></a>(key)</p></td>
 <td><p>create a name that is allowed by both HDF5 and NeXus rules</p></td>
@@ -277,10 +276,10 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.utils.iso8601" title="spec2nexus.utils.iso8601"><code class="xref py py-obj docutils literal notranslate"><span class="pre">iso8601</span></code></a>(date)</p></td>
 <td><p>convert SPEC time (example: Wed Nov 03 13:39:34 2010) into ISO8601 string</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.utils.reshape_data" title="spec2nexus.utils.reshape_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reshape_data</span></code></a>(scan_data, scan_shape)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.utils.reshape_data" title="spec2nexus.utils.reshape_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reshape_data</span></code></a>(scan_data, scan_shape)</p></td>
 <td><p>Shape scan data from raw to different dimensionality</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.utils.sanitize_name" title="spec2nexus.utils.sanitize_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sanitize_name</span></code></a>(group, key)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.utils.sanitize_name" title="spec2nexus.utils.sanitize_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sanitize_name</span></code></a>(group, key)</p></td>
 <td><p>make name that is allowed by HDF5 and NeXus rules</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.utils.split_column_labels" title="spec2nexus.utils.split_column_labels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">split_column_labels</span></code></a>(text)</p></td>
@@ -293,16 +292,17 @@
 <td><p>return everything after the first space on the line from the spec data file</p></td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
 <dl class="py function">
 <dt class="sig sig-object py" id="spec2nexus.utils.clean_name">
 <span class="sig-prename descclassname"><span class="pre">spec2nexus.utils.</span></span><span class="sig-name descname"><span class="pre">clean_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/utils.html#clean_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.utils.clean_name" title="Permalink to this definition">#</a></dt>
 <dd><p>create a name that is allowed by both HDF5 and NeXus rules</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>key</strong> (<em>str</em>) – identifying string from SPEC data file</p>
 </dd>
-<dt class="field-even">See</dt>
+<dt class="field-even">See<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://download.nexusformat.org/doc/html/datarules.html">https://download.nexusformat.org/doc/html/datarules.html</a></p>
 </dd>
 </dl>
@@ -313,31 +313,33 @@
 <p>An easier expression might be:  <code class="docutils literal notranslate"><span class="pre">[\w_]*</span></code> but this will not pass
 the rule that valid NeXus group or field names cannot start with a digit.</p>
 </dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="spec2nexus.utils.iso8601">
 <span class="sig-prename descclassname"><span class="pre">spec2nexus.utils.</span></span><span class="sig-name descname"><span class="pre">iso8601</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/utils.html#iso8601"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.utils.iso8601" title="Permalink to this definition">#</a></dt>
 <dd><p>convert SPEC time (example: Wed Nov 03 13:39:34 2010) into ISO8601 string</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>date</strong> (<em>str</em>) – time string from SPEC data file</p>
 </dd>
 </dl>
 <p><strong>Example</strong></p>
 <dl class="field-list simple">
-<dt class="field-odd">SPEC</dt>
+<dt class="field-odd">SPEC<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Wed Nov 03 13:39:34 2010</p>
 </dd>
-<dt class="field-even">ISO8601</dt>
+<dt class="field-even">ISO8601<span class="colon">:</span></dt>
 <dd class="field-even"><p>2010-11-03T13:39:34</p>
 </dd>
-<dt class="field-odd">SPOCK</dt>
+<dt class="field-odd">SPOCK<span class="colon">:</span></dt>
 <dd class="field-odd"><p>09/15/17 04:39:10</p>
 </dd>
-<dt class="field-even">ISO8601</dt>
+<dt class="field-even">ISO8601<span class="colon">:</span></dt>
 <dd class="field-even"><p>2017-09-15T04:39:10</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="spec2nexus.utils.reshape_data">
 <span class="sig-prename descclassname"><span class="pre">spec2nexus.utils.</span></span><span class="sig-name descname"><span class="pre">reshape_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scan_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan_shape</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/utils.html#reshape_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.utils.reshape_data" title="Permalink to this definition">#</a></dt>
@@ -348,21 +350,22 @@ For further processing (such as plotting), the scan data
 needs to be reshaped according to its intended dimensionality.</p>
 <p>modified from nexpy.readers.readspec.reshape_data</p>
 </dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="spec2nexus.utils.sanitize_name">
 <span class="sig-prename descclassname"><span class="pre">spec2nexus.utils.</span></span><span class="sig-name descname"><span class="pre">sanitize_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/utils.html#sanitize_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.utils.sanitize_name" title="Permalink to this definition">#</a></dt>
 <dd><p>make name that is allowed by HDF5 and NeXus rules</p>
 <dl class="field-list simple">
-<dt class="field-odd">Note</dt>
+<dt class="field-odd">Note<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>deprecated</strong>  use <a class="reference internal" href="#spec2nexus.utils.clean_name" title="spec2nexus.utils.clean_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">clean_name()</span></code></a> instead (<code class="docutils literal notranslate"><span class="pre">group</span></code> is never used)</p>
 </dd>
-<dt class="field-even">Parameters</dt>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>group</strong> (<em>str</em>) – unused</p></li>
 <li><p><strong>key</strong> (<em>str</em>) – identifying string from SPEC data file</p></li>
 </ul>
 </dd>
-<dt class="field-odd">See</dt>
+<dt class="field-odd">See<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://download.nexusformat.org/doc/html/datarules.html">https://download.nexusformat.org/doc/html/datarules.html</a></p>
 </dd>
 </dl>
@@ -373,11 +376,13 @@ needs to be reshaped according to its intended dimensionality.</p>
 <p>An easier expression might be:  <code class="docutils literal notranslate"><span class="pre">[\w_]*</span></code> but this will not pass
 the rule that valid names cannot start with a digit.</p>
 </dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="spec2nexus.utils.split_column_labels">
 <span class="sig-prename descclassname"><span class="pre">spec2nexus.utils.</span></span><span class="sig-name descname"><span class="pre">split_column_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/utils.html#split_column_labels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.utils.split_column_labels" title="Permalink to this definition">#</a></dt>
 <dd><p>SPEC labels may contain one space</p>
 </dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="spec2nexus.utils.split_scan_number_string">
 <span class="sig-prename descclassname"><span class="pre">spec2nexus.utils.</span></span><span class="sig-name descname"><span class="pre">split_scan_number_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/utils.html#split_scan_number_string"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.utils.split_scan_number_string" title="Permalink to this definition">#</a></dt>
@@ -389,18 +394,20 @@ the rule that valid names cannot start with a digit.</p>
 </dd>
 </dl>
 <p>EXAMPLES:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">split_scan_number_string</span><span class="p">(</span><span class="s2">"0"</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">split_scan_number_string</span><span class="p">(</span><span class="s2">&quot;0&quot;</span><span class="p">)</span>
 <span class="go">(0, 0)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">split_scan_number_string</span><span class="p">(</span><span class="s2">"0.5"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">split_scan_number_string</span><span class="p">(</span><span class="s2">&quot;0.5&quot;</span><span class="p">)</span>
 <span class="go">(0, 5)</span>
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="spec2nexus.utils.strip_first_word">
 <span class="sig-prename descclassname"><span class="pre">spec2nexus.utils.</span></span><span class="sig-name descname"><span class="pre">strip_first_word</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/utils.html#strip_first_word"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.utils.strip_first_word" title="Permalink to this definition">#</a></dt>
 <dd><p>return everything after the first space on the line from the spec data file</p>
 </dd></dl>
+
 </section>
 </section>
 
@@ -477,6 +484,7 @@ the rule that valid names cannot start with a digit.</p>
 </div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/scripts/furo.js"></script>
     </body>

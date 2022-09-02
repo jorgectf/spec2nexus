@@ -1,14 +1,14 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Nomenclature" href="terms.html" /><link rel="prev" title="NeXus File Layout" href="index.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>Example 1-D scan - spec2nexus 2021.2.1</title>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
+        <title>Example 1-D scan - spec2nexus 2021.2.1 (2.g4f4a891)</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">spec2nexus 2021.2.1</div></a>
+      <a href="../index.html"><div class="brand">spec2nexus 2021.2.1 (2.g4f4a891)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.1</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.1 (2.g4f4a891)</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -217,6 +217,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../scanf.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.scanf</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../singletons.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.singletons</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spec.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../writer.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code></a></li>
 </ul>
@@ -245,7 +246,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -260,7 +262,7 @@
         </div>
         <article role="main">
           <section id="example-1-d-scan">
-<span id="example-1d-ascan"></span><h1>Example 1-D scan<a class="headerlink" href="#example-1-d-scan" title="Permalink to this headline">#</a></h1>
+<span id="example-1d-ascan"></span><h1>Example 1-D scan<a class="headerlink" href="#example-1-d-scan" title="Permalink to this heading">#</a></h1>
 <p>This SPEC data file (where for brevity of this example, additional content has
 been removed) is a one-dimensional step scan of a counter named <code class="docutils literal notranslate"><span class="pre">winCZT</span></code> (last
 column) versus a motor named <code class="docutils literal notranslate"><span class="pre">Two</span> <span class="pre">Theta</span></code> (first column) using a counting time
@@ -297,22 +299,22 @@ additional counter named <code class="docutils literal notranslate"><span class=
 </div>
 <p>The SPEC data file is written to a NeXus HDF5 file with this tree structure (for
 brevity, additional structure has been removed):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="nd">@default</span> <span class="o">=</span> <span class="s2">"S1"</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="nd">@default</span> <span class="o">=</span> <span class="s2">&quot;S1&quot;</span>
 <span class="linenos"> 2</span><span class="n">S1</span><span class="p">:</span><span class="n">NXentry</span>
-<span class="linenos"> 3</span>  <span class="nd">@default</span> <span class="o">=</span> <span class="s2">"data"</span>
+<span class="linenos"> 3</span>  <span class="nd">@default</span> <span class="o">=</span> <span class="s2">&quot;data&quot;</span>
 <span class="linenos"> 4</span>  <span class="n">data</span><span class="p">:</span><span class="n">NXdata</span>
-<span class="linenos"> 5</span>    <span class="nd">@axes</span> <span class="o">=</span> <span class="s2">"Two_Theta"</span>
-<span class="linenos"> 6</span>    <span class="nd">@signal</span> <span class="o">=</span> <span class="s2">"winCZT"</span>
-<span class="linenos"> 7</span>    <span class="n">Epoch</span><span class="p">:</span><span class="n">NX_FLOAT64</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">75.0</span><span class="p">,</span> <span class="mf">76.0</span><span class="p">,</span> <span class="mf">78.0</span><span class="p">,</span> <span class="s1">'...'</span><span class="p">,</span> <span class="mf">92.0</span><span class="p">]</span>
-<span class="linenos"> 8</span>      <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"Epoch"</span>
-<span class="linenos"> 9</span>    <span class="n">Seconds</span><span class="p">:</span><span class="n">NX_FLOAT64</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">'...'</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
-<span class="linenos">10</span>      <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"Seconds"</span>
-<span class="linenos">11</span>    <span class="n">Two_Theta</span><span class="p">:</span><span class="n">NX_FLOAT64</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.70000003</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.69812503</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.69612503</span><span class="p">,</span> <span class="s1">'...'</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.67625003</span><span class="p">]</span>
-<span class="linenos">12</span>      <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"Two Theta"</span>
-<span class="linenos">13</span>    <span class="n">ic0</span><span class="p">:</span><span class="n">NX_FLOAT64</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">340592.0</span><span class="p">,</span> <span class="mf">340979.0</span><span class="p">,</span> <span class="mf">341782.0</span><span class="p">,</span> <span class="s1">'...'</span><span class="p">,</span> <span class="mf">343733.0</span><span class="p">]</span>
-<span class="linenos">14</span>      <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"ic0"</span>
-<span class="linenos">15</span>    <span class="n">winCZT</span><span class="p">:</span><span class="n">NX_FLOAT64</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">'...'</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
-<span class="linenos">16</span>      <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"winCZT"</span>
+<span class="linenos"> 5</span>    <span class="nd">@axes</span> <span class="o">=</span> <span class="s2">&quot;Two_Theta&quot;</span>
+<span class="linenos"> 6</span>    <span class="nd">@signal</span> <span class="o">=</span> <span class="s2">&quot;winCZT&quot;</span>
+<span class="linenos"> 7</span>    <span class="n">Epoch</span><span class="p">:</span><span class="n">NX_FLOAT64</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">75.0</span><span class="p">,</span> <span class="mf">76.0</span><span class="p">,</span> <span class="mf">78.0</span><span class="p">,</span> <span class="s1">&#39;...&#39;</span><span class="p">,</span> <span class="mf">92.0</span><span class="p">]</span>
+<span class="linenos"> 8</span>      <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">&quot;Epoch&quot;</span>
+<span class="linenos"> 9</span>    <span class="n">Seconds</span><span class="p">:</span><span class="n">NX_FLOAT64</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;...&#39;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
+<span class="linenos">10</span>      <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">&quot;Seconds&quot;</span>
+<span class="linenos">11</span>    <span class="n">Two_Theta</span><span class="p">:</span><span class="n">NX_FLOAT64</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.70000003</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.69812503</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.69612503</span><span class="p">,</span> <span class="s1">&#39;...&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.67625003</span><span class="p">]</span>
+<span class="linenos">12</span>      <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">&quot;Two Theta&quot;</span>
+<span class="linenos">13</span>    <span class="n">ic0</span><span class="p">:</span><span class="n">NX_FLOAT64</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">340592.0</span><span class="p">,</span> <span class="mf">340979.0</span><span class="p">,</span> <span class="mf">341782.0</span><span class="p">,</span> <span class="s1">&#39;...&#39;</span><span class="p">,</span> <span class="mf">343733.0</span><span class="p">]</span>
+<span class="linenos">14</span>      <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">&quot;ic0&quot;</span>
+<span class="linenos">15</span>    <span class="n">winCZT</span><span class="p">:</span><span class="n">NX_FLOAT64</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;...&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+<span class="linenos">16</span>      <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">&quot;winCZT&quot;</span>
 </pre></div>
 </div>
 </section>
@@ -371,6 +373,7 @@ brevity, additional structure has been removed):</p>
 </div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/scripts/furo.js"></script>
     </body>

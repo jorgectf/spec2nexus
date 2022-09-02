@@ -1,13 +1,13 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>spec2nexus.writer - spec2nexus 2021.2.1</title>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
+        <title>spec2nexus.writer - spec2nexus 2021.2.1 (2.g4f4a891)</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -123,7 +123,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">spec2nexus 2021.2.1</div></a>
+      <a href="../../index.html"><div class="brand">spec2nexus 2021.2.1 (2.g4f4a891)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -146,7 +146,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.1</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.1 (2.g4f4a891)</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -216,6 +216,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../scanf.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.scanf</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../singletons.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.singletons</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../spec.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../writer.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code></a></li>
 </ul>
@@ -244,7 +245,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -262,13 +264,13 @@
 <span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
-<span class="sd">"""</span>
+<span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">(internal library) Parses SPEC data using spec2nexus.eznx API (only requires h5py).</span>
 
 <span class="sd">.. autosummary::</span>
 
 <span class="sd">    ~Writer</span>
-<span class="sd">"""</span>
+<span class="sd">&quot;&quot;&quot;</span>
 
 
 <span class="kn">import</span> <span class="nn">h5py</span>
@@ -280,10 +282,10 @@
 
 
 <span class="c1"># see: https://download.nexusformat.org/doc/html/classes/base_classes/index.html</span>
-<span class="c1"># CONTAINER_CLASS = 'NXlog'          # information that is recorded against time</span>
-<span class="n">CONTAINER_CLASS</span> <span class="o">=</span> <span class="s2">"NXnote"</span>  <span class="c1"># any additional freeform information not covered by the other base classes</span>
-<span class="c1"># CONTAINER_CLASS = 'NXparameters'   # Container for parameters, usually used in processing or analysis</span>
-<span class="c1"># CONTAINER_CLASS = 'NXcollection'    # Use NXcollection to gather together any set of terms</span>
+<span class="c1"># CONTAINER_CLASS = &#39;NXlog&#39;          # information that is recorded against time</span>
+<span class="n">CONTAINER_CLASS</span> <span class="o">=</span> <span class="s2">&quot;NXnote&quot;</span>  <span class="c1"># any additional freeform information not covered by the other base classes</span>
+<span class="c1"># CONTAINER_CLASS = &#39;NXparameters&#39;   # Container for parameters, usually used in processing or analysis</span>
+<span class="c1"># CONTAINER_CLASS = &#39;NXcollection&#39;    # Use NXcollection to gather together any set of terms</span>
 
 
 <span class="c1"># - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
@@ -291,7 +293,7 @@
 
 <div class="viewcode-block" id="Writer"><a class="viewcode-back" href="../../writer.html#spec2nexus.writer.Writer">[docs]</a><span class="k">class</span> <span class="nc">Writer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    writes out scans from SPEC data file to NeXus HDF5 file</span>
 
 <span class="sd">    :param obj spec_data: instance of :class:`~spec2nexus.spec.SpecDataFile`</span>
@@ -307,73 +309,73 @@
 <span class="sd">        ~save_dict</span>
 <span class="sd">        ~save_scan</span>
 <span class="sd">        ~write_ds</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spec_data</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">spec</span> <span class="o">=</span> <span class="n">spec_data</span>
 
 <div class="viewcode-block" id="Writer.save"><a class="viewcode-back" href="../../writer.html#spec2nexus.writer.Writer.save">[docs]</a>    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hdf_file</span><span class="p">,</span> <span class="n">scan_list</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">"""</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        save the information in this SPEC data file to a NeXus HDF5 file</span>
 
 <span class="sd">        Each scan in scan_list will be converted to a **NXentry** group.</span>
 
 <span class="sd">        :param str hdf_file: name of NeXus HDF5 file to be written</span>
 <span class="sd">        :param [int] scanlist: list of scan numbers to be read</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">scan_list</span> <span class="o">=</span> <span class="n">scan_list</span> <span class="ow">or</span> <span class="p">[]</span>
         <span class="n">root</span> <span class="o">=</span> <span class="n">eznx</span><span class="o">.</span><span class="n">makeFile</span><span class="p">(</span><span class="n">hdf_file</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">root_attributes</span><span class="p">())</span>
         <span class="n">pick_first_entry</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">scan_list</span><span class="p">:</span>
-            <span class="n">nxentry</span> <span class="o">=</span> <span class="n">eznx</span><span class="o">.</span><span class="n">makeGroup</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s2">"S"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">),</span> <span class="s2">"NXentry"</span><span class="p">)</span>
+            <span class="n">nxentry</span> <span class="o">=</span> <span class="n">eznx</span><span class="o">.</span><span class="n">makeGroup</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s2">&quot;S&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">),</span> <span class="s2">&quot;NXentry&quot;</span><span class="p">)</span>
             <span class="n">eznx</span><span class="o">.</span><span class="n">makeDataset</span><span class="p">(</span>
                 <span class="n">nxentry</span><span class="p">,</span>
-                <span class="s2">"experiment_description"</span><span class="p">,</span>
-                <span class="s2">"SPEC scan"</span><span class="p">,</span>
-                <span class="n">description</span><span class="o">=</span><span class="s2">"SPEC data file scan"</span><span class="p">,</span>
+                <span class="s2">&quot;experiment_description&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;SPEC scan&quot;</span><span class="p">,</span>
+                <span class="n">description</span><span class="o">=</span><span class="s2">&quot;SPEC data file scan&quot;</span><span class="p">,</span>
             <span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">save_scan</span><span class="p">(</span><span class="n">nxentry</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">getScan</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
             <span class="k">if</span> <span class="n">pick_first_entry</span><span class="p">:</span>
                 <span class="n">pick_first_entry</span> <span class="o">=</span> <span class="kc">False</span>
-                <span class="n">eznx</span><span class="o">.</span><span class="n">addAttributes</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">"S"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
-            <span class="k">if</span> <span class="s2">"data"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">nxentry</span><span class="p">:</span>
+                <span class="n">eznx</span><span class="o">.</span><span class="n">addAttributes</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;S&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
+            <span class="k">if</span> <span class="s2">&quot;data&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">nxentry</span><span class="p">:</span>
                 <span class="c1"># NXentry MUST have a NXdata group with data for default plot</span>
                 <span class="n">nxdata</span> <span class="o">=</span> <span class="n">eznx</span><span class="o">.</span><span class="n">makeGroup</span><span class="p">(</span>
                     <span class="n">nxentry</span><span class="p">,</span>
-                    <span class="s2">"data"</span><span class="p">,</span>
-                    <span class="s2">"NXdata"</span><span class="p">,</span>
-                    <span class="n">signal</span><span class="o">=</span><span class="s2">"no_y_data"</span><span class="p">,</span>
-                    <span class="n">axes</span><span class="o">=</span><span class="s2">"no_x_data"</span><span class="p">,</span>
+                    <span class="s2">&quot;data&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;NXdata&quot;</span><span class="p">,</span>
+                    <span class="n">signal</span><span class="o">=</span><span class="s2">&quot;no_y_data&quot;</span><span class="p">,</span>
+                    <span class="n">axes</span><span class="o">=</span><span class="s2">&quot;no_x_data&quot;</span><span class="p">,</span>
                     <span class="n">no_x_data_indices</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
                 <span class="p">)</span>
                 <span class="n">eznx</span><span class="o">.</span><span class="n">makeDataset</span><span class="p">(</span>
                     <span class="n">nxdata</span><span class="p">,</span>
-                    <span class="s2">"no_x_data"</span><span class="p">,</span>
+                    <span class="s2">&quot;no_x_data&quot;</span><span class="p">,</span>
                     <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-                    <span class="n">units</span><span class="o">=</span><span class="s2">"none"</span><span class="p">,</span>
-                    <span class="n">long_name</span><span class="o">=</span><span class="s2">"no data points in this scan"</span><span class="p">,</span>
+                    <span class="n">units</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span>
+                    <span class="n">long_name</span><span class="o">=</span><span class="s2">&quot;no data points in this scan&quot;</span><span class="p">,</span>
                 <span class="p">)</span>
                 <span class="n">eznx</span><span class="o">.</span><span class="n">makeDataset</span><span class="p">(</span>
                     <span class="n">nxdata</span><span class="p">,</span>
-                    <span class="s2">"no_y_data"</span><span class="p">,</span>
+                    <span class="s2">&quot;no_y_data&quot;</span><span class="p">,</span>
                     <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-                    <span class="n">units</span><span class="o">=</span><span class="s2">"none"</span><span class="p">,</span>
-                    <span class="n">long_name</span><span class="o">=</span><span class="s2">"no data points in this scan"</span><span class="p">,</span>
+                    <span class="n">units</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span>
+                    <span class="n">long_name</span><span class="o">=</span><span class="s2">&quot;no data points in this scan&quot;</span><span class="p">,</span>
                 <span class="p">)</span>
         <span class="n">root</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>  <span class="c1"># be CERTAIN to close the file</span></div>
 
 <div class="viewcode-block" id="Writer.root_attributes"><a class="viewcode-back" href="../../writer.html#spec2nexus.writer.Writer.root_attributes">[docs]</a>    <span class="k">def</span> <span class="nf">root_attributes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""*internal*: returns the attributes to be written to the root element as a dict"""</span>
+        <span class="sd">&quot;&quot;&quot;*internal*: returns the attributes to be written to the root element as a dict&quot;&quot;&quot;</span>
         <span class="kn">from</span> <span class="nn">spec2nexus._version</span> <span class="kn">import</span> <span class="n">get_versions</span>
 
-        <span class="n">version</span> <span class="o">=</span> <span class="n">get_versions</span><span class="p">()[</span><span class="s2">"version"</span><span class="p">]</span>
+        <span class="n">version</span> <span class="o">=</span> <span class="n">get_versions</span><span class="p">()[</span><span class="s2">&quot;version&quot;</span><span class="p">]</span>
         <span class="n">header0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">dd</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
             <span class="n">spec2nexus_version</span><span class="o">=</span><span class="n">version</span><span class="p">,</span>
             <span class="n">SPEC_file</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">specFile</span><span class="p">,</span>
             <span class="n">SPEC_epoch</span><span class="o">=</span><span class="n">header0</span><span class="o">.</span><span class="n">epoch</span><span class="p">,</span>
             <span class="n">SPEC_date</span><span class="o">=</span><span class="n">utils</span><span class="o">.</span><span class="n">iso8601</span><span class="p">(</span><span class="n">header0</span><span class="o">.</span><span class="n">date</span><span class="p">),</span>
-            <span class="n">SPEC_comments</span><span class="o">=</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">header0</span><span class="o">.</span><span class="n">comments</span><span class="p">),</span>
+            <span class="n">SPEC_comments</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">header0</span><span class="o">.</span><span class="n">comments</span><span class="p">),</span>
             <span class="n">SPEC_num_headers</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">headers</span><span class="p">),</span>
             <span class="n">h5py_version</span><span class="o">=</span><span class="n">h5py</span><span class="o">.</span><span class="n">__version__</span><span class="p">,</span>
             <span class="n">HDF5_Version</span><span class="o">=</span><span class="n">h5py</span><span class="o">.</span><span class="n">version</span><span class="o">.</span><span class="n">hdf5_version</span><span class="p">,</span>
@@ -381,23 +383,23 @@
         <span class="p">)</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">c</span> <span class="o">=</span> <span class="n">header0</span><span class="o">.</span><span class="n">comments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-            <span class="n">user</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">"User = "</span><span class="p">):]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"="</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-            <span class="n">dd</span><span class="p">[</span><span class="s2">"SPEC_user"</span><span class="p">]</span> <span class="o">=</span> <span class="n">user</span>
+            <span class="n">user</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;User = &quot;</span><span class="p">):]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="n">dd</span><span class="p">[</span><span class="s2">&quot;SPEC_user&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">user</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
             <span class="k">pass</span>
         <span class="k">return</span> <span class="n">dd</span></div>
 
 <div class="viewcode-block" id="Writer.save_scan"><a class="viewcode-back" href="../../writer.html#spec2nexus.writer.Writer.save_scan">[docs]</a>    <span class="k">def</span> <span class="nf">save_scan</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nxentry</span><span class="p">,</span> <span class="n">scan</span><span class="p">):</span>
-        <span class="sd">"""*internal*: save the data from each SPEC scan to its own NXentry group"""</span>
+        <span class="sd">&quot;&quot;&quot;*internal*: save the data from each SPEC scan to its own NXentry group&quot;&quot;&quot;</span>
         <span class="n">scan</span><span class="o">.</span><span class="n">interpret</span><span class="p">()</span>  <span class="c1"># ensure interpretation is complete</span>
-        <span class="n">eznx</span><span class="o">.</span><span class="n">addAttributes</span><span class="p">(</span><span class="n">nxentry</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">"data"</span><span class="p">)</span>
-        <span class="n">eznx</span><span class="o">.</span><span class="n">write_dataset</span><span class="p">(</span><span class="n">nxentry</span><span class="p">,</span> <span class="s2">"title"</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">scan</span><span class="p">))</span>
+        <span class="n">eznx</span><span class="o">.</span><span class="n">addAttributes</span><span class="p">(</span><span class="n">nxentry</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;data&quot;</span><span class="p">)</span>
+        <span class="n">eznx</span><span class="o">.</span><span class="n">write_dataset</span><span class="p">(</span><span class="n">nxentry</span><span class="p">,</span> <span class="s2">&quot;title&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">scan</span><span class="p">))</span>
         <span class="n">scan_number_tuple</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">split_scan_number_string</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">scanNum</span><span class="p">)</span>
-        <span class="n">ds</span> <span class="o">=</span> <span class="n">eznx</span><span class="o">.</span><span class="n">write_dataset</span><span class="p">(</span><span class="n">nxentry</span><span class="p">,</span> <span class="s2">"scan_number"</span><span class="p">,</span> <span class="n">scan_number_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-        <span class="n">eznx</span><span class="o">.</span><span class="n">addAttributes</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="n">spec_name</span><span class="o">=</span><span class="s2">"SCAN_N"</span><span class="p">)</span>
+        <span class="n">ds</span> <span class="o">=</span> <span class="n">eznx</span><span class="o">.</span><span class="n">write_dataset</span><span class="p">(</span><span class="n">nxentry</span><span class="p">,</span> <span class="s2">&quot;scan_number&quot;</span><span class="p">,</span> <span class="n">scan_number_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">eznx</span><span class="o">.</span><span class="n">addAttributes</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="n">spec_name</span><span class="o">=</span><span class="s2">&quot;SCAN_N&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">scan_number_tuple</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">eznx</span><span class="o">.</span><span class="n">addAttributes</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="n">scan_number_tuple</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-        <span class="n">eznx</span><span class="o">.</span><span class="n">write_dataset</span><span class="p">(</span><span class="n">nxentry</span><span class="p">,</span> <span class="s2">"command"</span><span class="p">,</span> <span class="n">scan</span><span class="o">.</span><span class="n">scanCmd</span><span class="p">)</span>
+        <span class="n">eznx</span><span class="o">.</span><span class="n">write_dataset</span><span class="p">(</span><span class="n">nxentry</span><span class="p">,</span> <span class="s2">&quot;command&quot;</span><span class="p">,</span> <span class="n">scan</span><span class="o">.</span><span class="n">scanCmd</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">func</span> <span class="ow">in</span> <span class="n">scan</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">h5writers</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
             <span class="c1"># ask the header plugins to save their part</span>
             <span class="n">func</span><span class="p">(</span><span class="n">nxentry</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">scan</span><span class="o">.</span><span class="n">header</span><span class="p">,</span> <span class="n">nxclass</span><span class="o">=</span><span class="n">CONTAINER_CLASS</span><span class="p">)</span>
@@ -406,63 +408,63 @@
             <span class="n">func</span><span class="p">(</span><span class="n">nxentry</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">scan</span><span class="p">,</span> <span class="n">nxclass</span><span class="o">=</span><span class="n">CONTAINER_CLASS</span><span class="p">)</span>
 
         <span class="c1"># additions: links</span>
-        <span class="k">if</span> <span class="s2">"instrument/geometry_parameters"</span> <span class="ow">in</span> <span class="n">nxentry</span><span class="p">:</span>
-            <span class="n">nxinstrument</span> <span class="o">=</span> <span class="n">nxentry</span><span class="p">[</span><span class="s2">"instrument"</span><span class="p">]</span>
-            <span class="n">nxinstrument</span><span class="p">[</span><span class="s2">"diffractometer"</span><span class="p">]</span> <span class="o">=</span> <span class="n">nxinstrument</span><span class="p">[</span><span class="s2">"geometry_parameters"</span><span class="p">]</span>
-            <span class="n">target</span> <span class="o">=</span> <span class="n">nxinstrument</span><span class="p">[</span><span class="s2">"diffractometer"</span><span class="p">]</span>
-            <span class="n">target</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">"target"</span><span class="p">]</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">name</span>
-        <span class="k">if</span> <span class="p">(</span><span class="s2">"positioners"</span> <span class="ow">in</span> <span class="n">nxentry</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="s2">"instrument/positioners"</span> <span class="ow">in</span> <span class="n">nxentry</span><span class="p">):</span>
-            <span class="n">target</span> <span class="o">=</span> <span class="n">nxentry</span><span class="p">[</span><span class="s2">"instrument/positioners"</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s2">&quot;instrument/geometry_parameters&quot;</span> <span class="ow">in</span> <span class="n">nxentry</span><span class="p">:</span>
+            <span class="n">nxinstrument</span> <span class="o">=</span> <span class="n">nxentry</span><span class="p">[</span><span class="s2">&quot;instrument&quot;</span><span class="p">]</span>
+            <span class="n">nxinstrument</span><span class="p">[</span><span class="s2">&quot;diffractometer&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nxinstrument</span><span class="p">[</span><span class="s2">&quot;geometry_parameters&quot;</span><span class="p">]</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="n">nxinstrument</span><span class="p">[</span><span class="s2">&quot;diffractometer&quot;</span><span class="p">]</span>
+            <span class="n">target</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;target&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">name</span>
+        <span class="k">if</span> <span class="p">(</span><span class="s2">&quot;positioners&quot;</span> <span class="ow">in</span> <span class="n">nxentry</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="s2">&quot;instrument/positioners&quot;</span> <span class="ow">in</span> <span class="n">nxentry</span><span class="p">):</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="n">nxentry</span><span class="p">[</span><span class="s2">&quot;instrument/positioners&quot;</span><span class="p">]</span>
             <span class="c1"># turn the link around</span>
-            <span class="n">target</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">"target"</span><span class="p">]</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">name</span>
-        <span class="k">if</span> <span class="p">(</span><span class="s2">"M"</span> <span class="ow">in</span> <span class="n">nxentry</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="s2">"T"</span> <span class="ow">in</span> <span class="n">nxentry</span><span class="p">):</span>
-            <span class="k">if</span> <span class="s2">"M"</span> <span class="ow">in</span> <span class="n">nxentry</span><span class="p">:</span>
-                <span class="n">target</span> <span class="o">=</span> <span class="n">nxentry</span><span class="p">[</span><span class="s2">"M"</span><span class="p">]</span>
-            <span class="k">elif</span> <span class="s2">"T"</span> <span class="ow">in</span> <span class="n">nxentry</span><span class="p">:</span>
-                <span class="n">target</span> <span class="o">=</span> <span class="n">nxentry</span><span class="p">[</span><span class="s2">"T"</span><span class="p">]</span>
+            <span class="n">target</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;target&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">name</span>
+        <span class="k">if</span> <span class="p">(</span><span class="s2">&quot;M&quot;</span> <span class="ow">in</span> <span class="n">nxentry</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="s2">&quot;T&quot;</span> <span class="ow">in</span> <span class="n">nxentry</span><span class="p">):</span>
+            <span class="k">if</span> <span class="s2">&quot;M&quot;</span> <span class="ow">in</span> <span class="n">nxentry</span><span class="p">:</span>
+                <span class="n">target</span> <span class="o">=</span> <span class="n">nxentry</span><span class="p">[</span><span class="s2">&quot;M&quot;</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="s2">&quot;T&quot;</span> <span class="ow">in</span> <span class="n">nxentry</span><span class="p">:</span>
+                <span class="n">target</span> <span class="o">=</span> <span class="n">nxentry</span><span class="p">[</span><span class="s2">&quot;T&quot;</span><span class="p">]</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">"Should not get here."</span><span class="p">)</span>
-            <span class="n">nxmonitor</span> <span class="o">=</span> <span class="n">eznx</span><span class="o">.</span><span class="n">makeGroup</span><span class="p">(</span><span class="n">nxentry</span><span class="p">,</span> <span class="s2">"monitor"</span><span class="p">,</span> <span class="s2">"NXmonitor"</span><span class="p">)</span>
-            <span class="n">nxmonitor</span><span class="p">[</span><span class="s2">"preset"</span><span class="p">]</span> <span class="o">=</span> <span class="n">target</span>
-            <span class="n">target</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">"target"</span><span class="p">]</span> <span class="o">=</span> <span class="n">nxmonitor</span><span class="p">[</span><span class="s2">"preset"</span><span class="p">]</span><span class="o">.</span><span class="n">name</span>
-        <span class="k">if</span> <span class="p">(</span><span class="s2">"TEMP_SP"</span> <span class="ow">in</span> <span class="n">nxentry</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="s2">"DEGC_SP"</span> <span class="ow">in</span> <span class="n">nxentry</span><span class="p">):</span>
-            <span class="k">if</span> <span class="s2">"sample"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">nxentry</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;Should not get here.&quot;</span><span class="p">)</span>
+            <span class="n">nxmonitor</span> <span class="o">=</span> <span class="n">eznx</span><span class="o">.</span><span class="n">makeGroup</span><span class="p">(</span><span class="n">nxentry</span><span class="p">,</span> <span class="s2">&quot;monitor&quot;</span><span class="p">,</span> <span class="s2">&quot;NXmonitor&quot;</span><span class="p">)</span>
+            <span class="n">nxmonitor</span><span class="p">[</span><span class="s2">&quot;preset&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">target</span>
+            <span class="n">target</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;target&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nxmonitor</span><span class="p">[</span><span class="s2">&quot;preset&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">name</span>
+        <span class="k">if</span> <span class="p">(</span><span class="s2">&quot;TEMP_SP&quot;</span> <span class="ow">in</span> <span class="n">nxentry</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="s2">&quot;DEGC_SP&quot;</span> <span class="ow">in</span> <span class="n">nxentry</span><span class="p">):</span>
+            <span class="k">if</span> <span class="s2">&quot;sample&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">nxentry</span><span class="p">:</span>
                 <span class="k">pass</span>
-            <span class="n">nxsample</span> <span class="o">=</span> <span class="n">nxentry</span><span class="p">[</span><span class="s2">"sample"</span><span class="p">]</span>
-            <span class="n">nxtemperature</span> <span class="o">=</span> <span class="n">eznx</span><span class="o">.</span><span class="n">makeGroup</span><span class="p">(</span><span class="n">nxsample</span><span class="p">,</span> <span class="s2">"temperature"</span><span class="p">,</span> <span class="s2">"NXlog"</span><span class="p">)</span>
-            <span class="k">if</span> <span class="p">(</span><span class="s2">"TEMP_SP"</span> <span class="ow">in</span> <span class="n">nxentry</span><span class="p">):</span>
-                <span class="n">target</span> <span class="o">=</span> <span class="n">nxentry</span><span class="p">[</span><span class="s2">"TEMP_SP"</span><span class="p">]</span>
-                <span class="n">nxtemperature</span><span class="p">[</span><span class="s2">"target_value"</span><span class="p">]</span> <span class="o">=</span> <span class="n">target</span>
-                <span class="n">target</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">"target"</span><span class="p">]</span> <span class="o">=</span> <span class="n">nxtemperature</span><span class="p">[</span><span class="s2">"target_value"</span><span class="p">]</span><span class="o">.</span><span class="n">name</span>
-            <span class="k">if</span> <span class="p">(</span><span class="s2">"DEGC_SP"</span> <span class="ow">in</span> <span class="n">nxentry</span><span class="p">):</span>
-                <span class="n">target</span> <span class="o">=</span> <span class="n">nxentry</span><span class="p">[</span><span class="s2">"DEGC_SP"</span><span class="p">]</span>
-                <span class="n">nxtemperature</span><span class="p">[</span><span class="s2">"value"</span><span class="p">]</span> <span class="o">=</span> <span class="n">target</span>
-                <span class="n">target</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">"target"</span><span class="p">]</span> <span class="o">=</span> <span class="n">nxtemperature</span><span class="p">[</span><span class="s2">"value"</span><span class="p">]</span><span class="o">.</span><span class="n">name</span></div>
+            <span class="n">nxsample</span> <span class="o">=</span> <span class="n">nxentry</span><span class="p">[</span><span class="s2">&quot;sample&quot;</span><span class="p">]</span>
+            <span class="n">nxtemperature</span> <span class="o">=</span> <span class="n">eznx</span><span class="o">.</span><span class="n">makeGroup</span><span class="p">(</span><span class="n">nxsample</span><span class="p">,</span> <span class="s2">&quot;temperature&quot;</span><span class="p">,</span> <span class="s2">&quot;NXlog&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="s2">&quot;TEMP_SP&quot;</span> <span class="ow">in</span> <span class="n">nxentry</span><span class="p">):</span>
+                <span class="n">target</span> <span class="o">=</span> <span class="n">nxentry</span><span class="p">[</span><span class="s2">&quot;TEMP_SP&quot;</span><span class="p">]</span>
+                <span class="n">nxtemperature</span><span class="p">[</span><span class="s2">&quot;target_value&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">target</span>
+                <span class="n">target</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;target&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nxtemperature</span><span class="p">[</span><span class="s2">&quot;target_value&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">name</span>
+            <span class="k">if</span> <span class="p">(</span><span class="s2">&quot;DEGC_SP&quot;</span> <span class="ow">in</span> <span class="n">nxentry</span><span class="p">):</span>
+                <span class="n">target</span> <span class="o">=</span> <span class="n">nxentry</span><span class="p">[</span><span class="s2">&quot;DEGC_SP&quot;</span><span class="p">]</span>
+                <span class="n">nxtemperature</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">target</span>
+                <span class="n">target</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;target&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nxtemperature</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">name</span></div>
 
 <div class="viewcode-block" id="Writer.save_dict"><a class="viewcode-back" href="../../writer.html#spec2nexus.writer.Writer.save_dict">[docs]</a>    <span class="k">def</span> <span class="nf">save_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-        <span class="sd">"""*internal*: store a dictionary"""</span>
+        <span class="sd">&quot;&quot;&quot;*internal*: store a dictionary&quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">write_ds</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Writer.save_data"><a class="viewcode-back" href="../../writer.html#spec2nexus.writer.Writer.save_data">[docs]</a>    <span class="k">def</span> <span class="nf">save_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nxdata</span><span class="p">,</span> <span class="n">scan</span><span class="p">):</span>
-        <span class="sd">"""*internal*: store the scan data"""</span>
+        <span class="sd">&quot;&quot;&quot;*internal*: store the scan data&quot;&quot;&quot;</span>
         <span class="n">scan_type</span> <span class="o">=</span> <span class="n">scan</span><span class="o">.</span><span class="n">scanCmd</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
 
-        <span class="k">if</span> <span class="n">scan_type</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"mesh"</span><span class="p">,</span> <span class="s2">"hklmesh"</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">scan_type</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;mesh&quot;</span><span class="p">,</span> <span class="s2">&quot;hklmesh&quot;</span><span class="p">):</span>
             <span class="c1"># hklmesh  H 1.9 2.1 100  K 1.9 2.1 100  -800000</span>
             <span class="n">signal</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mesh</span><span class="p">(</span><span class="n">nxdata</span><span class="p">,</span> <span class="n">scan</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">scan_type</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"hscan"</span><span class="p">,</span> <span class="s2">"kscan"</span><span class="p">,</span> <span class="s2">"lscan"</span><span class="p">,</span> <span class="s2">"hklscan"</span><span class="p">):</span>
+        <span class="k">elif</span> <span class="n">scan_type</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;hscan&quot;</span><span class="p">,</span> <span class="s2">&quot;kscan&quot;</span><span class="p">,</span> <span class="s2">&quot;lscan&quot;</span><span class="p">,</span> <span class="s2">&quot;hklscan&quot;</span><span class="p">):</span>
             <span class="c1"># hklscan  1.00133 1.00133  1.00133 1.00133  2.85 3.05  200 -400000</span>
             <span class="n">signal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">oneD</span><span class="p">(</span><span class="n">nxdata</span><span class="p">,</span> <span class="n">scan</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
             <span class="n">axes</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="n">h_0</span><span class="p">,</span> <span class="n">h_N</span><span class="p">,</span> <span class="n">k_0</span><span class="p">,</span> <span class="n">k_N</span><span class="p">,</span> <span class="n">l_0</span><span class="p">,</span> <span class="n">l_N</span> <span class="o">=</span> <span class="n">scan</span><span class="o">.</span><span class="n">scanCmd</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">:</span><span class="mi">7</span><span class="p">]</span>
             <span class="k">if</span> <span class="n">h_0</span> <span class="o">!=</span> <span class="n">h_N</span><span class="p">:</span>
-                <span class="n">axes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"H"</span><span class="p">)</span>
+                <span class="n">axes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">k_0</span> <span class="o">!=</span> <span class="n">k_N</span><span class="p">:</span>
-                <span class="n">axes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"K"</span><span class="p">)</span>
+                <span class="n">axes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;K&quot;</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">l_0</span> <span class="o">!=</span> <span class="n">l_N</span><span class="p">:</span>
-                <span class="n">axes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"L"</span><span class="p">)</span>
-            <span class="n">axes</span> <span class="o">=</span> <span class="s2">":"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">axes</span><span class="p">)</span>
+                <span class="n">axes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;L&quot;</span><span class="p">)</span>
+            <span class="n">axes</span> <span class="o">=</span> <span class="s2">&quot;:&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">axes</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">signal</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">oneD</span><span class="p">(</span><span class="n">nxdata</span><span class="p">,</span> <span class="n">scan</span><span class="p">)</span>
 
@@ -470,41 +472,41 @@
         <span class="c1"># if len(signal) == 0:</span>
         <span class="c1">#     pass</span>
 
-        <span class="k">if</span> <span class="n">axes</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">":"</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">axes</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
             <span class="c1"># Syntax of axes attribute ():</span>
 
-            <span class="c1"># @axes="H:K"       INCOREECT</span>
-            <span class="c1"># @axes="H", "K"    CORRECT</span>
+            <span class="c1"># @axes=&quot;H:K&quot;       INCOREECT</span>
+            <span class="c1"># @axes=&quot;H&quot;, &quot;K&quot;    CORRECT</span>
 
             <span class="c1"># see: https://wiki.nexusformat.org/2014_axes_and_uncertainties</span>
 
             <span class="k">def</span> <span class="nf">fixer</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
-                <span class="sd">"""</span>
+                <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">                h5py requires list of strings to be encoded</span>
 
 <span class="sd">                see: https://stackoverflow.com/questions/23220513/storing-a-list-of-strings-to-a-hdf5-dataset-from-python</span>
-<span class="sd">                """</span>
-                <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">"ascii"</span><span class="p">,</span> <span class="s2">"ignore"</span><span class="p">)</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+                <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;ascii&quot;</span><span class="p">,</span> <span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
 
-            <span class="n">axes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">fixer</span><span class="p">,</span> <span class="n">axes</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)))</span>
+            <span class="n">axes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">fixer</span><span class="p">,</span> <span class="n">axes</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)))</span>
 
         <span class="n">eznx</span><span class="o">.</span><span class="n">addAttributes</span><span class="p">(</span><span class="n">nxdata</span><span class="p">,</span> <span class="n">signal</span><span class="o">=</span><span class="n">signal</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="n">axes</span><span class="p">)</span>
         <span class="n">indices</span> <span class="o">=</span> <span class="p">[</span>
             <span class="mi">0</span><span class="p">,</span>
         <span class="p">]</span>  <span class="c1"># 0-based reference</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-            <span class="n">eznx</span><span class="o">.</span><span class="n">addAttributes</span><span class="p">(</span><span class="n">nxdata</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="n">axes</span> <span class="o">+</span> <span class="s2">"_indices"</span><span class="p">:</span> <span class="n">indices</span><span class="p">})</span>
+            <span class="n">eznx</span><span class="o">.</span><span class="n">addAttributes</span><span class="p">(</span><span class="n">nxdata</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="n">axes</span> <span class="o">+</span> <span class="s2">&quot;_indices&quot;</span><span class="p">:</span> <span class="n">indices</span><span class="p">})</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">axis_name</span> <span class="ow">in</span> <span class="n">axes</span><span class="p">:</span>
-                <span class="n">axis_name</span> <span class="o">=</span> <span class="n">axis_name</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">)</span>
-                <span class="c1"># assume here that "axis_name" has rank=1</span>
+                <span class="n">axis_name</span> <span class="o">=</span> <span class="n">axis_name</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+                <span class="c1"># assume here that &quot;axis_name&quot; has rank=1</span>
                 <span class="c1"># if scan.data[axis_name] != 1:</span>
                 <span class="c1">#     pass    # TODO: and do what?</span>
-                <span class="n">k</span> <span class="o">=</span> <span class="s2">"</span><span class="si">%s%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">axis_name</span><span class="p">,</span> <span class="s2">"_indices"</span><span class="p">)</span>
+                <span class="n">k</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">axis_name</span><span class="p">,</span> <span class="s2">&quot;_indices&quot;</span><span class="p">)</span>
                 <span class="n">eznx</span><span class="o">.</span><span class="n">addAttributes</span><span class="p">(</span><span class="n">nxdata</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">indices</span><span class="p">})</span></div>
 
 <div class="viewcode-block" id="Writer.oneD"><a class="viewcode-back" href="../../writer.html#spec2nexus.writer.Writer.oneD">[docs]</a>    <span class="k">def</span> <span class="nf">oneD</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nxdata</span><span class="p">,</span> <span class="n">scan</span><span class="p">):</span>
-        <span class="sd">"""*internal*: generic data parser for 1-D column data, returns signal and axis"""</span>
+        <span class="sd">&quot;&quot;&quot;*internal*: generic data parser for 1-D column data, returns signal and axis&quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">scan</span><span class="o">.</span><span class="n">L</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">write_ds</span><span class="p">(</span><span class="n">nxdata</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">scan</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">column</span><span class="p">])</span>
 
@@ -514,16 +516,16 @@
         <span class="k">return</span> <span class="n">signal</span><span class="p">,</span> <span class="n">axis</span></div>
 
 <div class="viewcode-block" id="Writer.mca_spectra"><a class="viewcode-back" href="../../writer.html#spec2nexus.writer.Writer.mca_spectra">[docs]</a>    <span class="k">def</span> <span class="nf">mca_spectra</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nxdata</span><span class="p">,</span> <span class="n">scan</span><span class="p">,</span> <span class="n">primary_axis_label</span><span class="p">):</span>
-        <span class="sd">"""*internal*: parse for optional 2-D MCA spectra"""</span>
+        <span class="sd">&quot;&quot;&quot;*internal*: parse for optional 2-D MCA spectra&quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">spec</span><span class="o">.</span><span class="n">MCA_DATA_KEY</span> <span class="ow">in</span> <span class="n">scan</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
             <span class="c1"># calibration for all spectra</span>
             <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
-            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">scan</span><span class="p">,</span> <span class="s2">"MCA"</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">scan</span><span class="p">,</span> <span class="s2">&quot;MCA&quot;</span><span class="p">):</span>
                 <span class="n">mca</span> <span class="o">=</span> <span class="n">scan</span><span class="o">.</span><span class="n">MCA</span>
-                <span class="k">if</span> <span class="s2">"CALIB"</span> <span class="ow">in</span> <span class="n">mca</span><span class="p">:</span>
-                    <span class="n">a</span> <span class="o">=</span> <span class="n">mca</span><span class="p">[</span><span class="s2">"CALIB"</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-                    <span class="n">b</span> <span class="o">=</span> <span class="n">mca</span><span class="p">[</span><span class="s2">"CALIB"</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"b"</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-                    <span class="n">c</span> <span class="o">=</span> <span class="n">mca</span><span class="p">[</span><span class="s2">"CALIB"</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"c"</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="k">if</span> <span class="s2">&quot;CALIB&quot;</span> <span class="ow">in</span> <span class="n">mca</span><span class="p">:</span>
+                    <span class="n">a</span> <span class="o">=</span> <span class="n">mca</span><span class="p">[</span><span class="s2">&quot;CALIB&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+                    <span class="n">b</span> <span class="o">=</span> <span class="n">mca</span><span class="p">[</span><span class="s2">&quot;CALIB&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+                    <span class="n">c</span> <span class="o">=</span> <span class="n">mca</span><span class="p">[</span><span class="s2">&quot;CALIB&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span> <span class="ow">and</span> <span class="n">b</span> <span class="o">==</span> <span class="n">c</span> <span class="ow">and</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
 
@@ -531,10 +533,10 @@
             <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">spectrum</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span>
                 <span class="n">scan</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">spec</span><span class="o">.</span><span class="n">MCA_DATA_KEY</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
             <span class="p">):</span>
-                <span class="n">ds_name</span> <span class="o">=</span> <span class="s2">"_"</span> <span class="o">+</span> <span class="n">key</span> <span class="o">+</span> <span class="s2">"_"</span>
-                <span class="n">axes</span> <span class="o">=</span> <span class="n">primary_axis_label</span> <span class="o">+</span> <span class="s2">":"</span> <span class="o">+</span> <span class="n">ds_name</span> <span class="o">+</span> <span class="s2">"channel_"</span>
+                <span class="n">ds_name</span> <span class="o">=</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">key</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span>
+                <span class="n">axes</span> <span class="o">=</span> <span class="n">primary_axis_label</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span> <span class="o">+</span> <span class="n">ds_name</span> <span class="o">+</span> <span class="s2">&quot;channel_&quot;</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">write_ds</span><span class="p">(</span>
-                    <span class="n">nxdata</span><span class="p">,</span> <span class="n">ds_name</span><span class="p">,</span> <span class="n">spectrum</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="n">axes</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">"counts"</span>
+                    <span class="n">nxdata</span><span class="p">,</span> <span class="n">ds_name</span><span class="p">,</span> <span class="n">spectrum</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="n">axes</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;counts&quot;</span>
                 <span class="p">)</span>
 
                 <span class="c1"># save calibrated channel data for each spectrum, in case spectra are different lengths</span>
@@ -545,14 +547,14 @@
                 <span class="n">channels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">spectrum</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
                 <span class="n">_mca_x_</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">channels</span> <span class="o">*</span> <span class="p">(</span><span class="n">b</span> <span class="o">+</span> <span class="n">channels</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">write_ds</span><span class="p">(</span>
-                    <span class="n">nxdata</span><span class="p">,</span> <span class="n">ds_name</span> <span class="o">+</span> <span class="s2">"channel_"</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">"channel"</span>
+                    <span class="n">nxdata</span><span class="p">,</span> <span class="n">ds_name</span> <span class="o">+</span> <span class="s2">&quot;channel_&quot;</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;channel&quot;</span>
                 <span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">write_ds</span><span class="p">(</span>
-                    <span class="n">nxdata</span><span class="p">,</span> <span class="n">ds_name</span> <span class="o">+</span> <span class="s2">"channel_scaled_x"</span><span class="p">,</span> <span class="n">_mca_x_</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">""</span>
+                    <span class="n">nxdata</span><span class="p">,</span> <span class="n">ds_name</span> <span class="o">+</span> <span class="s2">&quot;channel_scaled_x&quot;</span><span class="p">,</span> <span class="n">_mca_x_</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
                 <span class="p">)</span></div>
 
 <div class="viewcode-block" id="Writer.mesh"><a class="viewcode-back" href="../../writer.html#spec2nexus.writer.Writer.mesh">[docs]</a>    <span class="k">def</span> <span class="nf">mesh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nxdata</span><span class="p">,</span> <span class="n">scan</span><span class="p">):</span>
-        <span class="sd">"""*internal*: data parser for 2-D mesh and hklmesh"""</span>
+        <span class="sd">&quot;&quot;&quot;*internal*: data parser for 2-D mesh and hklmesh&quot;&quot;&quot;</span>
         <span class="c1"># TODO: refactor to use NeXus data model: signal, axes, data</span>
 
         <span class="c1"># 2-D parser: https://www.certif.com/spec_help/mesh.html</span>
@@ -596,11 +598,11 @@
             <span class="n">column_labels</span> <span class="o">=</span> <span class="n">scan</span><span class="o">.</span><span class="n">L</span>
             <span class="n">column_labels</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">label1</span><span class="p">)</span>  <span class="c1"># special handling</span>
             <span class="n">column_labels</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">label2</span><span class="p">)</span>  <span class="c1"># special handling</span>
-            <span class="k">if</span> <span class="n">scan</span><span class="o">.</span><span class="n">scanCmd</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"hkl"</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">scan</span><span class="o">.</span><span class="n">scanCmd</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;hkl&quot;</span><span class="p">):</span>
                 <span class="c1"># find the reciprocal space axis held constant</span>
                 <span class="n">label3</span> <span class="o">=</span> <span class="p">[</span>
                     <span class="n">key</span>
-                    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"H"</span><span class="p">,</span> <span class="s2">"K"</span><span class="p">,</span> <span class="s2">"L"</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">,</span> <span class="s2">&quot;K&quot;</span><span class="p">,</span> <span class="s2">&quot;L&quot;</span><span class="p">)</span>
                     <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="n">label1</span><span class="p">,</span> <span class="n">label2</span><span class="p">)</span>
                 <span class="p">][</span><span class="mi">0</span><span class="p">]</span>
                 <span class="n">axis3</span> <span class="o">=</span> <span class="n">scan</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label3</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
@@ -621,7 +623,7 @@
                 <span class="c1">#     pass</span>
 
             <span class="n">signal</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">clean_name</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">column_last</span><span class="p">)</span>
-            <span class="n">axes</span> <span class="o">=</span> <span class="s2">":"</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">label1</span><span class="p">,</span> <span class="n">label2</span><span class="p">])</span>
+            <span class="n">axes</span> <span class="o">=</span> <span class="s2">&quot;:&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">label1</span><span class="p">,</span> <span class="n">label2</span><span class="p">])</span>
 
         <span class="k">if</span> <span class="n">spec</span><span class="o">.</span><span class="n">MCA_DATA_KEY</span> <span class="ow">in</span> <span class="n">scan</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>  <span class="c1"># 3-D array(s)</span>
             <span class="c1"># save each spectrum</span>
@@ -633,22 +635,22 @@
                 <span class="n">mca</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span>
                 <span class="n">data</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">reshape_data</span><span class="p">(</span><span class="n">mca</span><span class="p">,</span> <span class="n">data_shape</span><span class="p">)</span>
                 <span class="n">channels</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_channels</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-                <span class="n">ds_name</span> <span class="o">=</span> <span class="s2">"_"</span> <span class="o">+</span> <span class="n">key</span> <span class="o">+</span> <span class="s2">"_"</span>
+                <span class="n">ds_name</span> <span class="o">=</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">key</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">write_ds</span><span class="p">(</span>
                     <span class="n">nxdata</span><span class="p">,</span>
                     <span class="n">ds_name</span><span class="p">,</span>
                     <span class="n">data</span><span class="p">,</span>
-                    <span class="n">axes</span><span class="o">=</span><span class="n">axes</span> <span class="o">+</span> <span class="s2">":"</span> <span class="o">+</span> <span class="n">ds_name</span> <span class="o">+</span> <span class="s2">"channel_"</span><span class="p">,</span>
-                    <span class="n">units</span><span class="o">=</span><span class="s2">"counts"</span><span class="p">,</span>
+                    <span class="n">axes</span><span class="o">=</span><span class="n">axes</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span> <span class="o">+</span> <span class="n">ds_name</span> <span class="o">+</span> <span class="s2">&quot;channel_&quot;</span><span class="p">,</span>
+                    <span class="n">units</span><span class="o">=</span><span class="s2">&quot;counts&quot;</span><span class="p">,</span>
                 <span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">write_ds</span><span class="p">(</span>
-                    <span class="n">nxdata</span><span class="p">,</span> <span class="n">ds_name</span> <span class="o">+</span> <span class="s2">"channel_"</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">"channel"</span>
+                    <span class="n">nxdata</span><span class="p">,</span> <span class="n">ds_name</span> <span class="o">+</span> <span class="s2">&quot;channel_&quot;</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;channel&quot;</span>
                 <span class="p">)</span>
 
         <span class="k">return</span> <span class="n">signal</span><span class="p">,</span> <span class="n">axes</span></div>
 
 <div class="viewcode-block" id="Writer.write_ds"><a class="viewcode-back" href="../../writer.html#spec2nexus.writer.Writer.write_ds">[docs]</a>    <span class="k">def</span> <span class="nf">write_ds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">attr</span><span class="p">):</span>
-        <span class="sd">"""*internal*: writes a dataset to the HDF5 file, records the SPEC name as an attribute"""</span>
+        <span class="sd">&quot;&quot;&quot;*internal*: writes a dataset to the HDF5 file, records the SPEC name as an attribute&quot;&quot;&quot;</span>
         <span class="n">clean_name</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">clean_name</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
         <span class="n">eznx</span><span class="o">.</span><span class="n">write_dataset</span><span class="p">(</span>
             <span class="n">group</span><span class="p">,</span> <span class="n">clean_name</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">spec_name</span><span class="o">=</span><span class="n">label</span><span class="p">,</span> <span class="o">**</span><span class="n">attr</span>
@@ -700,6 +702,7 @@
 </div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
     </body>

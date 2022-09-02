@@ -1,14 +1,14 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Sample" href="sample.html" /><link rel="prev" title="Metadata" href="metadata.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>Positioners - spec2nexus 2021.2.1</title>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
+        <title>Positioners - spec2nexus 2021.2.1 (2.g4f4a891)</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">spec2nexus 2021.2.1</div></a>
+      <a href="../index.html"><div class="brand">spec2nexus 2021.2.1 (2.g4f4a891)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.1</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.1 (2.g4f4a891)</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -217,6 +217,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../scanf.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.scanf</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../singletons.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.singletons</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spec.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../writer.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code></a></li>
 </ul>
@@ -245,7 +246,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -260,7 +262,7 @@
         </div>
         <article role="main">
           <section id="positioners">
-<span id="data-file-positioners"></span><h1>Positioners<a class="headerlink" href="#positioners" title="Permalink to this headline">#</a></h1>
+<span id="data-file-positioners"></span><h1>Positioners<a class="headerlink" href="#positioners" title="Permalink to this heading">#</a></h1>
 <p>Consider the SPEC scan data shown in section <a class="reference internal" href="spec_scan.html#data-file-scan"><span class="std std-ref">Scan</span></a> above,
 associated with the scan header data shown in section <a class="reference internal" href="spec_data_file.html#data-file-header"><span class="std std-ref">File header</span></a>.
 The <code class="docutils literal notranslate"><span class="pre">#O</span></code> lines in the header provide the <em>names</em> of the positioners while the
@@ -270,115 +272,122 @@ lengths within page limits. When present (such as this example), the <code class
 lines provide the <em>mnemonic</em> (also known as <em>mne</em>) names corresponding to the
 positioner names from the <code class="docutils literal notranslate"><span class="pre">#O</span></code> lines.</p>
 <p>The data from the <code class="docutils literal notranslate"><span class="pre">#O</span></code> and <code class="docutils literal notranslate"><span class="pre">#P</span></code> lines is written to <code class="docutils literal notranslate"><span class="pre">/SCAN/positioners</span></code> (a
-<strong>NXnote</strong> <a class="footnote-reference brackets" href="#nxnote" id="id1">1</a> group). <code class="docutils literal notranslate"><span class="pre">/SCAN/positioners</span></code> is also linked to
+<strong>NXnote</strong> <a class="footnote-reference brackets" href="#nxnote" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> group). <code class="docutils literal notranslate"><span class="pre">/SCAN/positioners</span></code> is also linked to
 <code class="docutils literal notranslate"><span class="pre">/SCAN/instrument/positioners</span></code>. See the <a class="reference internal" href="instrument.html#data-file-instrument"><span class="std std-ref">Instrument</span></a> section
 below.</p>
 <p>Within the <code class="docutils literal notranslate"><span class="pre">/SCAN/positioners/</span></code> group, each positioner (name and value) is
-written to a <code class="docutils literal notranslate"><span class="pre">/SCAN/positioners/CLEAN_NAME</span></code> <strong>NXpositioner</strong> <a class="footnote-reference brackets" href="#nxpositioner" id="id2">2</a>
+written to a <code class="docutils literal notranslate"><span class="pre">/SCAN/positioners/CLEAN_NAME</span></code> <strong>NXpositioner</strong> <a class="footnote-reference brackets" href="#nxpositioner" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>
 group.  <code class="docutils literal notranslate"><span class="pre">CLEAN_NAME</span></code> is derived (via
 <code class="xref py py-func docutils literal notranslate"><span class="pre">clean_name(spec_positioner_name)()</span></code>). This change of
-names ensures the field <a class="footnote-reference brackets" href="#nx-field" id="id3">3</a> names in the NeXus HDF5 file conform to the
-NeXus standard. <a class="footnote-reference brackets" href="#nx-naming-datarules" id="id4">4</a></p>
+names ensures the field <a class="footnote-reference brackets" href="#nx-field" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> names in the NeXus HDF5 file conform to the
+NeXus standard. <a class="footnote-reference brackets" href="#nx-naming-datarules" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a></p>
 <p>If the SPEC menmonic for the positioner is available in the data file (from the
-<code class="docutils literal notranslate"><span class="pre">#o</span></code> control lines), it is also written as a <code class="docutils literal notranslate"><span class="pre">@spec_mne</span></code> attribute with both
+<code class="docutils literal notranslate"><span class="pre">#o</span></code> control lines), it is also written as a <code class="docutils literal notranslate"><span class="pre">&#64;spec_mne</span></code> attribute with both
 the <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">value</span></code> fields.</p>
 <div class="admonition note" id="index-0">
 <p class="admonition-title">Note</p>
 <p>Engineering units are not written</p>
-<p>Generally, the <code class="docutils literal notranslate"><span class="pre">@units</span></code> attribute is not provided for any of the values
+<p>Generally, the <code class="docutils literal notranslate"><span class="pre">&#64;units</span></code> attribute is not provided for any of the values
 written by <strong>spec2nexus</strong> (except where provided by custom support or for
 diffractometers as described later in section <a class="reference internal" href="geometry.html#data-file-geometry"><span class="std std-ref">Geometry</span></a>).
 SPEC data files do not provide the engineering units for any of the values
-and it is not possible to guess the appropriate type of units <a class="footnote-reference brackets" href="#nx-unittype" id="id5">5</a>
-to use. The NeXus documentation about data units <a class="footnote-reference brackets" href="#nx-units-datarules" id="id6">6</a>
+and it is not possible to guess the appropriate type of units <a class="footnote-reference brackets" href="#nx-unittype" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>
+to use. The NeXus documentation about data units <a class="footnote-reference brackets" href="#nx-units-datarules" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>
 states:</p>
 <blockquote>
 <div><p>… any field must have a units attribute which describes the units.</p>
 </div></blockquote>
-<p>yet this is not a strict requirement.  (The <code class="docutils literal notranslate"><span class="pre">@units</span></code> attribute is not marked
+<p>yet this is not a strict requirement.  (The <code class="docutils literal notranslate"><span class="pre">&#64;units</span></code> attribute is not marked
 required in the NeXus NXDL schema.)</p>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="n">positioners</span><span class="p">:</span><span class="n">NXnote</span>
-<span class="linenos"> 2</span>   <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">"NXnote"</span>
-<span class="linenos"> 3</span>   <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"SPEC positioners (#P &amp; #O lines)"</span>
-<span class="linenos"> 4</span>   <span class="nd">@target</span> <span class="o">=</span> <span class="s2">"/S1/positioners"</span>
+<span class="linenos"> 2</span>   <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">&quot;NXnote&quot;</span>
+<span class="linenos"> 3</span>   <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;SPEC positioners (#P &amp; #O lines)&quot;</span>
+<span class="linenos"> 4</span>   <span class="nd">@target</span> <span class="o">=</span> <span class="s2">&quot;/S1/positioners&quot;</span>
 <span class="linenos"> 5</span>   <span class="n">Theta</span><span class="p">:</span><span class="n">NXpositioner</span>
-<span class="linenos"> 6</span>     <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">"NXpositioner"</span>
-<span class="linenos"> 7</span>     <span class="n">name</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'Theta'</span><span class="p">]</span>
-<span class="linenos"> 8</span>       <span class="nd">@spec_mne</span> <span class="o">=</span> <span class="s2">"th"</span>
-<span class="linenos"> 9</span>       <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"Theta"</span>
+<span class="linenos"> 6</span>     <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">&quot;NXpositioner&quot;</span>
+<span class="linenos"> 7</span>     <span class="n">name</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">&#39;Theta&#39;</span><span class="p">]</span>
+<span class="linenos"> 8</span>       <span class="nd">@spec_mne</span> <span class="o">=</span> <span class="s2">&quot;th&quot;</span>
+<span class="linenos"> 9</span>       <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">&quot;Theta&quot;</span>
 <span class="linenos">10</span>     <span class="n">value</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.80000004</span>
-<span class="linenos">11</span>       <span class="nd">@spec_mne</span> <span class="o">=</span> <span class="s2">"th"</span>
-<span class="linenos">12</span>       <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"Theta"</span>
+<span class="linenos">11</span>       <span class="nd">@spec_mne</span> <span class="o">=</span> <span class="s2">&quot;th&quot;</span>
+<span class="linenos">12</span>       <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">&quot;Theta&quot;</span>
 <span class="linenos">13</span>   <span class="n">Two_Theta</span><span class="p">:</span><span class="n">NXpositioner</span>
-<span class="linenos">14</span>     <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">"NXpositioner"</span>
-<span class="linenos">15</span>     <span class="n">name</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'Two_Theta'</span><span class="p">]</span>
-<span class="linenos">16</span>       <span class="nd">@spec_mne</span> <span class="o">=</span> <span class="s2">"tth"</span>
-<span class="linenos">17</span>       <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"Two Theta"</span>
+<span class="linenos">14</span>     <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">&quot;NXpositioner&quot;</span>
+<span class="linenos">15</span>     <span class="n">name</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">&#39;Two_Theta&#39;</span><span class="p">]</span>
+<span class="linenos">16</span>       <span class="nd">@spec_mne</span> <span class="o">=</span> <span class="s2">&quot;tth&quot;</span>
+<span class="linenos">17</span>       <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">&quot;Two Theta&quot;</span>
 <span class="linenos">18</span>     <span class="n">value</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.60000003</span>
-<span class="linenos">19</span>       <span class="nd">@spec_mne</span> <span class="o">=</span> <span class="s2">"tth"</span>
-<span class="linenos">20</span>       <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"Two Theta"</span>
+<span class="linenos">19</span>       <span class="nd">@spec_mne</span> <span class="o">=</span> <span class="s2">&quot;tth&quot;</span>
+<span class="linenos">20</span>       <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">&quot;Two Theta&quot;</span>
 <span class="linenos">21</span>   <span class="n">sample_x</span><span class="p">:</span><span class="n">NXpositioner</span>
-<span class="linenos">22</span>     <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">"NXpositioner"</span>
-<span class="linenos">23</span>     <span class="n">name</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'sample_x'</span><span class="p">]</span>
-<span class="linenos">24</span>       <span class="nd">@spec_mne</span> <span class="o">=</span> <span class="s2">"samx"</span>
-<span class="linenos">25</span>       <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"sample x"</span>
+<span class="linenos">22</span>     <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">&quot;NXpositioner&quot;</span>
+<span class="linenos">23</span>     <span class="n">name</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">&#39;sample_x&#39;</span><span class="p">]</span>
+<span class="linenos">24</span>       <span class="nd">@spec_mne</span> <span class="o">=</span> <span class="s2">&quot;samx&quot;</span>
+<span class="linenos">25</span>       <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">&quot;sample x&quot;</span>
 <span class="linenos">26</span>     <span class="n">value</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.15875</span>
-<span class="linenos">27</span>       <span class="nd">@spec_mne</span> <span class="o">=</span> <span class="s2">"samx"</span>
-<span class="linenos">28</span>       <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"sample x"</span>
+<span class="linenos">27</span>       <span class="nd">@spec_mne</span> <span class="o">=</span> <span class="s2">&quot;samx&quot;</span>
+<span class="linenos">28</span>       <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">&quot;sample x&quot;</span>
 <span class="linenos">29</span>   <span class="n">sample_y</span><span class="p">:</span><span class="n">NXpositioner</span>
-<span class="linenos">30</span>     <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">"NXpositioner"</span>
-<span class="linenos">31</span>     <span class="n">name</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'sample_y'</span><span class="p">]</span>
-<span class="linenos">32</span>       <span class="nd">@spec_mne</span> <span class="o">=</span> <span class="s2">"samy"</span>
-<span class="linenos">33</span>       <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"sample y"</span>
+<span class="linenos">30</span>     <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">&quot;NXpositioner&quot;</span>
+<span class="linenos">31</span>     <span class="n">name</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">&#39;sample_y&#39;</span><span class="p">]</span>
+<span class="linenos">32</span>       <span class="nd">@spec_mne</span> <span class="o">=</span> <span class="s2">&quot;samy&quot;</span>
+<span class="linenos">33</span>       <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">&quot;sample y&quot;</span>
 <span class="linenos">34</span>     <span class="n">value</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.16375</span>
-<span class="linenos">35</span>       <span class="nd">@spec_mne</span> <span class="o">=</span> <span class="s2">"samy"</span>
-<span class="linenos">36</span>       <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"sample y"</span>
+<span class="linenos">35</span>       <span class="nd">@spec_mne</span> <span class="o">=</span> <span class="s2">&quot;samy&quot;</span>
+<span class="linenos">36</span>       <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">&quot;sample y&quot;</span>
 </pre></div>
 </div>
 <p>When the <code class="docutils literal notranslate"><span class="pre">#o</span></code> lines are present in the scan’s header, a cross-reference
 between mnemonic and name is written in <code class="docutils literal notranslate"><span class="pre">/SCAN/positioner_cross_reference</span></code> (a
-<strong>NXnote</strong> <a class="footnote-reference brackets" href="#nxnote" id="id7">1</a> group).  This group describes a cross-reference between
+<strong>NXnote</strong> <a class="footnote-reference brackets" href="#nxnote" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> group).  This group describes a cross-reference between
 the <em>field</em> names of the <code class="docutils literal notranslate"><span class="pre">positioner</span></code> group and the positioner names used in
 the SPEC scan.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="n">positioner_cross_reference</span><span class="p">:</span><span class="n">NXnote</span>
-<span class="linenos"> 2</span>   <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">"NXnote"</span>
-<span class="linenos"> 3</span>   <span class="nd">@comment</span> <span class="o">=</span> <span class="s2">"keys are SPEC positioner mnemonics, values are SPEC positioner names"</span>
-<span class="linenos"> 4</span>   <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"cross-reference SPEC positioner mnemonics and names"</span>
-<span class="linenos"> 5</span>   <span class="n">samx</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'sample x'</span><span class="p">]</span>
-<span class="linenos"> 6</span>     <span class="nd">@field_name</span> <span class="o">=</span> <span class="s2">"sample_x"</span>
-<span class="linenos"> 7</span>     <span class="nd">@mne</span> <span class="o">=</span> <span class="s2">"samx"</span>
-<span class="linenos"> 8</span>   <span class="n">samy</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'sample y'</span><span class="p">]</span>
-<span class="linenos"> 9</span>     <span class="nd">@field_name</span> <span class="o">=</span> <span class="s2">"sample_y"</span>
-<span class="linenos">10</span>     <span class="nd">@mne</span> <span class="o">=</span> <span class="s2">"samy"</span>
-<span class="linenos">11</span>   <span class="n">th</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'Theta'</span><span class="p">]</span>
-<span class="linenos">12</span>     <span class="nd">@field_name</span> <span class="o">=</span> <span class="s2">"Theta"</span>
-<span class="linenos">13</span>     <span class="nd">@mne</span> <span class="o">=</span> <span class="s2">"th"</span>
-<span class="linenos">14</span>   <span class="n">tth</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'Two Theta'</span><span class="p">]</span>
-<span class="linenos">15</span>     <span class="nd">@field_name</span> <span class="o">=</span> <span class="s2">"Two_Theta"</span>
-<span class="linenos">16</span>     <span class="nd">@mne</span> <span class="o">=</span> <span class="s2">"tth"</span>
+<span class="linenos"> 2</span>   <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">&quot;NXnote&quot;</span>
+<span class="linenos"> 3</span>   <span class="nd">@comment</span> <span class="o">=</span> <span class="s2">&quot;keys are SPEC positioner mnemonics, values are SPEC positioner names&quot;</span>
+<span class="linenos"> 4</span>   <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;cross-reference SPEC positioner mnemonics and names&quot;</span>
+<span class="linenos"> 5</span>   <span class="n">samx</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">&#39;sample x&#39;</span><span class="p">]</span>
+<span class="linenos"> 6</span>     <span class="nd">@field_name</span> <span class="o">=</span> <span class="s2">&quot;sample_x&quot;</span>
+<span class="linenos"> 7</span>     <span class="nd">@mne</span> <span class="o">=</span> <span class="s2">&quot;samx&quot;</span>
+<span class="linenos"> 8</span>   <span class="n">samy</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">&#39;sample y&#39;</span><span class="p">]</span>
+<span class="linenos"> 9</span>     <span class="nd">@field_name</span> <span class="o">=</span> <span class="s2">&quot;sample_y&quot;</span>
+<span class="linenos">10</span>     <span class="nd">@mne</span> <span class="o">=</span> <span class="s2">&quot;samy&quot;</span>
+<span class="linenos">11</span>   <span class="n">th</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">&#39;Theta&#39;</span><span class="p">]</span>
+<span class="linenos">12</span>     <span class="nd">@field_name</span> <span class="o">=</span> <span class="s2">&quot;Theta&quot;</span>
+<span class="linenos">13</span>     <span class="nd">@mne</span> <span class="o">=</span> <span class="s2">&quot;th&quot;</span>
+<span class="linenos">14</span>   <span class="n">tth</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">&#39;Two Theta&#39;</span><span class="p">]</span>
+<span class="linenos">15</span>     <span class="nd">@field_name</span> <span class="o">=</span> <span class="s2">&quot;Two_Theta&quot;</span>
+<span class="linenos">16</span>     <span class="nd">@mne</span> <span class="o">=</span> <span class="s2">&quot;tth&quot;</span>
 </pre></div>
 </div>
-<dl class="footnote brackets">
-<dt class="label" id="nxnote"><span class="brackets">1</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id7">2</a>)</span></dt>
-<dd><p><strong>NXnote</strong>:   <a class="reference external" href="https://manual.nexusformat.org/classes/base_classes/NXnote.html">https://manual.nexusformat.org/classes/base_classes/NXnote.html</a></p>
-</dd>
-<dt class="label" id="nxpositioner"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p><strong>NXpositioner</strong>:   <a class="reference external" href="https://manual.nexusformat.org/classes/base_classes/NXpositioner.html">https://manual.nexusformat.org/classes/base_classes/NXpositioner.html</a></p>
-</dd>
-<dt class="label" id="nx-field"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
-<dd><p>A NeXus <strong>field</strong> is the same as an HDF5 <strong>dataset</strong>.  The rename is   due to historical reasons in NeXus when XML was used as a back-end data file   storage format.</p>
-</dd>
-<dt class="label" id="nx-naming-datarules"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
-<dd><p><a class="reference external" href="https://manual.nexusformat.org/datarules.html#naming-conventions">https://manual.nexusformat.org/datarules.html#naming-conventions</a></p>
-</dd>
-<dt class="label" id="nx-unittype"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
-<dd><p>List of NeXus unit categories:   <a class="reference external" href="https://manual.nexusformat.org/nxdl-types.html#unit-categories-allowed-in-nxdl-specifications">https://manual.nexusformat.org/nxdl-types.html#unit-categories-allowed-in-nxdl-specifications</a></p>
-</dd>
-<dt class="label" id="nx-units-datarules"><span class="brackets"><a class="fn-backref" href="#id6">6</a></span></dt>
-<dd><p><a class="reference external" href="https://manual.nexusformat.org/datarules.html#design-units">https://manual.nexusformat.org/datarules.html#design-units</a></p>
-</dd>
-</dl>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="nxnote" role="note">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id7">2</a>)</span>
+<p><strong>NXnote</strong>:   <a class="reference external" href="https://manual.nexusformat.org/classes/base_classes/NXnote.html">https://manual.nexusformat.org/classes/base_classes/NXnote.html</a></p>
+</aside>
+<aside class="footnote brackets" id="nxpositioner" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p><strong>NXpositioner</strong>:   <a class="reference external" href="https://manual.nexusformat.org/classes/base_classes/NXpositioner.html">https://manual.nexusformat.org/classes/base_classes/NXpositioner.html</a></p>
+</aside>
+<aside class="footnote brackets" id="nx-field" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<p>A NeXus <strong>field</strong> is the same as an HDF5 <strong>dataset</strong>.  The rename is   due to historical reasons in NeXus when XML was used as a back-end data file   storage format.</p>
+</aside>
+<aside class="footnote brackets" id="nx-naming-datarules" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">4</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://manual.nexusformat.org/datarules.html#naming-conventions">https://manual.nexusformat.org/datarules.html#naming-conventions</a></p>
+</aside>
+<aside class="footnote brackets" id="nx-unittype" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">5</a><span class="fn-bracket">]</span></span>
+<p>List of NeXus unit categories:   <a class="reference external" href="https://manual.nexusformat.org/nxdl-types.html#unit-categories-allowed-in-nxdl-specifications">https://manual.nexusformat.org/nxdl-types.html#unit-categories-allowed-in-nxdl-specifications</a></p>
+</aside>
+<aside class="footnote brackets" id="nx-units-datarules" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">6</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://manual.nexusformat.org/datarules.html#design-units">https://manual.nexusformat.org/datarules.html#design-units</a></p>
+</aside>
+</aside>
 </section>
 
         </article>
@@ -435,6 +444,7 @@ the SPEC scan.</p>
 </div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/scripts/furo.js"></script>
     </body>

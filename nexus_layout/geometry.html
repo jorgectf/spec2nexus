@@ -1,14 +1,14 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Instrument" href="instrument.html" /><link rel="prev" title="Counters" href="counters.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>Geometry - spec2nexus 2021.2.1</title>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
+        <title>Geometry - spec2nexus 2021.2.1 (2.g4f4a891)</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">spec2nexus 2021.2.1</div></a>
+      <a href="../index.html"><div class="brand">spec2nexus 2021.2.1 (2.g4f4a891)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.1</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.1 (2.g4f4a891)</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -217,6 +217,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../scanf.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.scanf</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../singletons.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.singletons</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spec.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../writer.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code></a></li>
 </ul>
@@ -245,7 +246,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -260,18 +262,14 @@
         </div>
         <article role="main">
           <section id="geometry">
-<span id="data-file-geometry"></span><h1>Geometry<a class="headerlink" href="#geometry" title="Permalink to this headline">#</a></h1>
+<span id="data-file-geometry"></span><h1>Geometry<a class="headerlink" href="#geometry" title="Permalink to this heading">#</a></h1>
 <p><em>Geometry</em>, in the context of a SPEC data file, refers to the geometry of the
 <strong>diffractometer</strong> used for the measurements, its configuration, and information
 about the orientation of a specific crystalline sample on the diffractometer.</p>
 <p>When a diffractometer geometry is used, any of the control lines in the next table
 may be present in a scan.</p>
-<div class="table-wrapper"><table class="docutils align-default">
-<colgroup>
-<col style="width: 21%"/>
-<col style="width: 15%"/>
-<col style="width: 64%"/>
-</colgroup>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>control line</p></th>
 <th class="head"><p>array</p></th>
@@ -304,7 +302,8 @@ may be present in a scan.</p>
 <td><p><em>hkl</em> values at start of scan</p></td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
 <p>Information provided by each of these control lines is encoded in a very compact
 format, with just a sequence of values provided.  The content of some lines
 depends on the specific diffractometer geometry used for the measurements. The
@@ -313,14 +312,14 @@ identify the diffractometer geometry, it is necessary to examine the number and
 names of the first motors defined in the <code class="docutils literal notranslate"><span class="pre">#O</span></code> control lines, and compare the
 number of items in the various <code class="docutils literal notranslate"><span class="pre">#G</span></code> control lines with the SPEC standard
 macros to match.  The <strong>spec2nexus</strong> code has a small database
-<a class="footnote-reference brackets" href="#diffractometer-dict" id="id1">1</a> with this information to make a best efforts
+<a class="footnote-reference brackets" href="#diffractometer-dict" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> with this information to make a best efforts
 identification of the specific diffractometer geometry name.</p>
 <p>Since SPEC uses specific engineering <span class="target" id="index-0"></span>units when diffractometers are
-used, it is possible to add appropriate units: <a class="footnote-reference brackets" href="#nx-unittype" id="id2">2</a></p>
+used, it is possible to add appropriate units: <a class="footnote-reference brackets" href="#nx-unittype" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p>
 <ul class="simple">
-<li><p>motors (angles): <code class="docutils literal notranslate"><span class="pre">@units="degrees"</span></code> for motors</p></li>
-<li><p>wavelength: <code class="docutils literal notranslate"><span class="pre">@units="angstrom"</span></code></p></li>
-<li><p>crystal dimensions: <code class="docutils literal notranslate"><span class="pre">@units="angstrom"</span></code></p></li>
+<li><p>motors (angles): <code class="docutils literal notranslate"><span class="pre">&#64;units=&quot;degrees&quot;</span></code> for motors</p></li>
+<li><p>wavelength: <code class="docutils literal notranslate"><span class="pre">&#64;units=&quot;angstrom&quot;</span></code></p></li>
+<li><p>crystal dimensions: <code class="docutils literal notranslate"><span class="pre">&#64;units=&quot;angstrom&quot;</span></code></p></li>
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1">#G0 0 0 1 0 0 1 0 0 0 0 0 0 50 0 0.1 0 68 68 50 -1 1 1 3.13542 3.13542 0 463.6 838.8</span>
 <span class="linenos">2</span><span class="c1">#G1 5.139 5.139 5.139 90 90 90 1.222647462 1.222647462 1.222647462 90 90 90 2 2 0 0 0 2 60 30 90 0 0 0 60 30 0 0 0 0 0.8265814273 0.8265814273</span>
@@ -338,22 +337,22 @@ as shown below, the geometry is inferred as <strong>fourc</strong>.</p>
 </div>
 <p>The <em>hkl</em> values at the start of the scan are written to <code class="docutils literal notranslate"><span class="pre">/SCAN/Q</span></code> as shown here:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">Q</span><span class="p">:</span><span class="n">NX_FLOAT64</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.98617</span><span class="p">,</span> <span class="mf">4.00013</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
-<span class="linenos">2</span>   <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"hkl at start of scan"</span>
+<span class="linenos">2</span>   <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;hkl at start of scan&quot;</span>
 </pre></div>
 </div>
 <p>The uninterpreted information from the <code class="docutils literal notranslate"><span class="pre">#G</span></code> control lines is written to
 <code class="docutils literal notranslate"><span class="pre">/SCAN/G</span></code> as shown here:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="n">G</span><span class="p">:</span><span class="n">NXnote</span>
-<span class="linenos"> 2</span>   <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">"NXnote"</span>
-<span class="linenos"> 3</span>   <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"SPEC geometry arrays, meanings defined by SPEC diffractometer support"</span>
-<span class="linenos"> 4</span>   <span class="n">G0</span><span class="p">:</span><span class="n">NX_FLOAT64</span><span class="p">[</span><span class="mi">27</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">'...'</span><span class="p">,</span> <span class="mf">838.8</span><span class="p">]</span>
-<span class="linenos"> 5</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"G0"</span>
-<span class="linenos"> 6</span>   <span class="n">G1</span><span class="p">:</span><span class="n">NX_FLOAT64</span><span class="p">[</span><span class="mi">32</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">5.139</span><span class="p">,</span> <span class="mf">5.139</span><span class="p">,</span> <span class="mf">5.139</span><span class="p">,</span> <span class="s1">'...'</span><span class="p">,</span> <span class="mf">0.8265814273</span><span class="p">]</span>
-<span class="linenos"> 7</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"G1"</span>
-<span class="linenos"> 8</span>   <span class="n">G3</span><span class="p">:</span><span class="n">NX_FLOAT64</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">7.940607166e-18</span><span class="p">,</span> <span class="mf">1.138130079e-16</span><span class="p">,</span> <span class="mf">1.222647462</span><span class="p">,</span> <span class="s1">'...'</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.668317968e-16</span><span class="p">]</span>
-<span class="linenos"> 9</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"G3"</span>
-<span class="linenos">10</span>   <span class="n">G4</span><span class="p">:</span><span class="n">NX_FLOAT64</span><span class="p">[</span><span class="mi">26</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.986173683</span><span class="p">,</span> <span class="mf">4.00012985</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s1">'...'</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
-<span class="linenos">11</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"G4"</span>
+<span class="linenos"> 2</span>   <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">&quot;NXnote&quot;</span>
+<span class="linenos"> 3</span>   <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;SPEC geometry arrays, meanings defined by SPEC diffractometer support&quot;</span>
+<span class="linenos"> 4</span>   <span class="n">G0</span><span class="p">:</span><span class="n">NX_FLOAT64</span><span class="p">[</span><span class="mi">27</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;...&#39;</span><span class="p">,</span> <span class="mf">838.8</span><span class="p">]</span>
+<span class="linenos"> 5</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">&quot;G0&quot;</span>
+<span class="linenos"> 6</span>   <span class="n">G1</span><span class="p">:</span><span class="n">NX_FLOAT64</span><span class="p">[</span><span class="mi">32</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">5.139</span><span class="p">,</span> <span class="mf">5.139</span><span class="p">,</span> <span class="mf">5.139</span><span class="p">,</span> <span class="s1">&#39;...&#39;</span><span class="p">,</span> <span class="mf">0.8265814273</span><span class="p">]</span>
+<span class="linenos"> 7</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">&quot;G1&quot;</span>
+<span class="linenos"> 8</span>   <span class="n">G3</span><span class="p">:</span><span class="n">NX_FLOAT64</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">7.940607166e-18</span><span class="p">,</span> <span class="mf">1.138130079e-16</span><span class="p">,</span> <span class="mf">1.222647462</span><span class="p">,</span> <span class="s1">&#39;...&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.668317968e-16</span><span class="p">]</span>
+<span class="linenos"> 9</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">&quot;G3&quot;</span>
+<span class="linenos">10</span>   <span class="n">G4</span><span class="p">:</span><span class="n">NX_FLOAT64</span><span class="p">[</span><span class="mi">26</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.986173683</span><span class="p">,</span> <span class="mf">4.00012985</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;...&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+<span class="linenos">11</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">&quot;G4&quot;</span>
 </pre></div>
 </div>
 <p>The interpreted information from the <code class="docutils literal notranslate"><span class="pre">G[]</span></code> array is written to
@@ -365,43 +364,43 @@ name will be reported in the <code class="docutils literal notranslate"><span cl
 have variants.  The variant is appended to the name as:
 <code class="docutils literal notranslate"><span class="pre">{GEOMETRY}.{VARIANT}</span></code>.  In the example below, the name is <code class="docutils literal notranslate"><span class="pre">fourc.default</span></code>.</p>
 <p>The <strong>wavelength</strong> of the scan, if available in the <code class="docutils literal notranslate"><span class="pre">#G</span></code> lines, is written to
-the <code class="docutils literal notranslate"><span class="pre">/SCAN/instrument/monochromator/wavelength</span></code> field, <a class="footnote-reference brackets" href="#nx-field" id="id3">3</a> where
+the <code class="docutils literal notranslate"><span class="pre">/SCAN/instrument/monochromator/wavelength</span></code> field, <a class="footnote-reference brackets" href="#nx-field" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> where
 <code class="docutils literal notranslate"><span class="pre">/SCAN/instrument/monochromator</span></code> is a <strong>NXmonochromator</strong> [#NXmonochromator]
 group.</p>
 <p>Consult the SPEC documentation (<a class="reference external" href="https://certif.com">https://certif.com</a>) or macros for further
 descrption of any of the geometry information.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="n">instrument</span><span class="p">:</span><span class="n">NXinstrument</span>
-<span class="linenos">  2</span>   <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">"NXinstrument"</span>
-<span class="linenos">  3</span>   <span class="n">name</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'fourc.default'</span><span class="p">]</span>
+<span class="linenos">  2</span>   <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">&quot;NXinstrument&quot;</span>
+<span class="linenos">  3</span>   <span class="n">name</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">&#39;fourc.default&#39;</span><span class="p">]</span>
 <span class="linenos">  4</span>   <span class="n">positioners</span> <span class="o">--&gt;</span> <span class="o">/</span><span class="n">S1</span><span class="o">/</span><span class="n">positioners</span>
 <span class="linenos">  5</span>   <span class="n">diffractometer</span><span class="p">:</span><span class="n">NXnote</span>
-<span class="linenos">  6</span>     <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">"NXnote"</span>
-<span class="linenos">  7</span>     <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"SPEC geometry arrays, interpreted"</span>
+<span class="linenos">  6</span>     <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">&quot;NXnote&quot;</span>
+<span class="linenos">  7</span>     <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;SPEC geometry arrays, interpreted&quot;</span>
 <span class="linenos">  8</span>     <span class="n">ALPHA</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
 <span class="linenos">  9</span>     <span class="n">AZIMUTH</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">90.0</span>
 <span class="linenos"> 10</span>     <span class="n">BETA</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
 <span class="linenos"> 11</span>     <span class="n">CUT_AZI</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span class="linenos"> 12</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"azimuthal cut-point flag"</span>
+<span class="linenos"> 12</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;azimuthal cut-point flag&quot;</span>
 <span class="linenos"> 13</span>     <span class="n">CUT_CHI</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="o">-</span><span class="mf">180.0</span>
-<span class="linenos"> 14</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"chi cut point"</span>
+<span class="linenos"> 14</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;chi cut point&quot;</span>
 <span class="linenos"> 15</span>     <span class="n">CUT_CHIR</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="o">-</span><span class="mf">180.0</span>
-<span class="linenos"> 16</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"chiR cut point"</span>
+<span class="linenos"> 16</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;chiR cut point&quot;</span>
 <span class="linenos"> 17</span>     <span class="n">CUT_KAP</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="o">-</span><span class="mf">180.0</span>
-<span class="linenos"> 18</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"kap cut point"</span>
+<span class="linenos"> 18</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;kap cut point&quot;</span>
 <span class="linenos"> 19</span>     <span class="n">CUT_KPHI</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="o">-</span><span class="mf">180.0</span>
-<span class="linenos"> 20</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"phi cut point"</span>
+<span class="linenos"> 20</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;phi cut point&quot;</span>
 <span class="linenos"> 21</span>     <span class="n">CUT_KTH</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="o">-</span><span class="mf">180.0</span>
-<span class="linenos"> 22</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"theta cut point"</span>
+<span class="linenos"> 22</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;theta cut point&quot;</span>
 <span class="linenos"> 23</span>     <span class="n">CUT_PHI</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="o">-</span><span class="mf">180.0</span>
-<span class="linenos"> 24</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"phi cut point"</span>
+<span class="linenos"> 24</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;phi cut point&quot;</span>
 <span class="linenos"> 25</span>     <span class="n">CUT_PHIR</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="o">-</span><span class="mf">180.0</span>
-<span class="linenos"> 26</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"phiR cut point"</span>
+<span class="linenos"> 26</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;phiR cut point&quot;</span>
 <span class="linenos"> 27</span>     <span class="n">CUT_TH</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="o">-</span><span class="mf">180.0</span>
-<span class="linenos"> 28</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"theta/omega cut point"</span>
+<span class="linenos"> 28</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;theta/omega cut point&quot;</span>
 <span class="linenos"> 29</span>     <span class="n">CUT_TTH</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="o">-</span><span class="mf">180.0</span>
-<span class="linenos"> 30</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"two-theta cut point"</span>
+<span class="linenos"> 30</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;two-theta cut point&quot;</span>
 <span class="linenos"> 31</span>     <span class="n">F_ALPHA</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.15</span>
-<span class="linenos"> 32</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"Frozen values"</span>
+<span class="linenos"> 32</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;Frozen values&quot;</span>
 <span class="linenos"> 33</span>     <span class="n">F_AZIMUTH</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
 <span class="linenos"> 34</span>     <span class="n">F_BETA</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
 <span class="linenos"> 35</span>     <span class="n">F_CHI_Z</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
@@ -410,148 +409,148 @@ descrption of any of the geometry information.</p>
 <span class="linenos"> 38</span>     <span class="n">F_PHI_Z</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
 <span class="linenos"> 39</span>     <span class="n">F_THETA</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
 <span class="linenos"> 40</span>     <span class="n">H</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">3.986173683</span>
-<span class="linenos"> 41</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"1st Miller index"</span>
+<span class="linenos"> 41</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;1st Miller index&quot;</span>
 <span class="linenos"> 42</span>     <span class="n">K</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">4.00012985</span>
-<span class="linenos"> 43</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"2nd Miller index"</span>
+<span class="linenos"> 43</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;2nd Miller index&quot;</span>
 <span class="linenos"> 44</span>     <span class="n">L</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span class="linenos"> 45</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"3rd Miller index"</span>
+<span class="linenos"> 45</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;3rd Miller index&quot;</span>
 <span class="linenos"> 46</span>     <span class="n">LAMBDA</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.8265814273</span>
-<span class="linenos"> 47</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"wavelength, Angstrom"</span>
+<span class="linenos"> 47</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;wavelength, Angstrom&quot;</span>
 <span class="linenos"> 48</span>     <span class="n">OMEGA</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span class="linenos"> 49</span>     <span class="n">diffractometer_full</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'fourc.default'</span><span class="p">]</span>
-<span class="linenos"> 50</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"name of diffractometer (and variant), deduced from scan information"</span>
-<span class="linenos"> 51</span>     <span class="n">diffractometer_simple</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'fourc'</span><span class="p">]</span>
-<span class="linenos"> 52</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"name of diffractometer, deduced from scan information"</span>
-<span class="linenos"> 53</span>     <span class="n">diffractometer_variant</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'default'</span><span class="p">]</span>
-<span class="linenos"> 54</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"name of diffractometer variant, deduced from scan information"</span>
+<span class="linenos"> 49</span>     <span class="n">diffractometer_full</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">&#39;fourc.default&#39;</span><span class="p">]</span>
+<span class="linenos"> 50</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;name of diffractometer (and variant), deduced from scan information&quot;</span>
+<span class="linenos"> 51</span>     <span class="n">diffractometer_simple</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">&#39;fourc&#39;</span><span class="p">]</span>
+<span class="linenos"> 52</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;name of diffractometer, deduced from scan information&quot;</span>
+<span class="linenos"> 53</span>     <span class="n">diffractometer_variant</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">&#39;default&#39;</span><span class="p">]</span>
+<span class="linenos"> 54</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;name of diffractometer variant, deduced from scan information&quot;</span>
 <span class="linenos"> 55</span>     <span class="n">g_aa</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">5.139</span>
-<span class="linenos"> 56</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"a lattice constant (real space)"</span>
+<span class="linenos"> 56</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;a lattice constant (real space)&quot;</span>
 <span class="linenos"> 57</span>     <span class="n">g_aa_s</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">1.222647462</span>
-<span class="linenos"> 58</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"a lattice constant (reciprocal space)"</span>
+<span class="linenos"> 58</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;a lattice constant (reciprocal space)&quot;</span>
 <span class="linenos"> 59</span>     <span class="n">g_al</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">90.0</span>
-<span class="linenos"> 60</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"alpha lattice angle (real space)"</span>
+<span class="linenos"> 60</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;alpha lattice angle (real space)&quot;</span>
 <span class="linenos"> 61</span>     <span class="n">g_al_s</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">90.0</span>
-<span class="linenos"> 62</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"alpha lattice angle (reciprocal space)"</span>
+<span class="linenos"> 62</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;alpha lattice angle (reciprocal space)&quot;</span>
 <span class="linenos"> 63</span>     <span class="n">g_ana_d</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">3.13542</span>
 <span class="linenos"> 64</span>     <span class="n">g_ana_det_len</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">50.0</span>
 <span class="linenos"> 65</span>     <span class="n">g_ana_sign</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">1.0</span>
 <span class="linenos"> 66</span>     <span class="n">g_bb</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">5.139</span>
-<span class="linenos"> 67</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"b lattice constant (real space)"</span>
+<span class="linenos"> 67</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;b lattice constant (real space)&quot;</span>
 <span class="linenos"> 68</span>     <span class="n">g_bb_s</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">1.222647462</span>
-<span class="linenos"> 69</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"b lattice constant (reciprocal space)"</span>
+<span class="linenos"> 69</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;b lattice constant (reciprocal space)&quot;</span>
 <span class="linenos"> 70</span>     <span class="n">g_be</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">90.0</span>
-<span class="linenos"> 71</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"beta  lattice angle (real space)"</span>
+<span class="linenos"> 71</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;beta  lattice angle (real space)&quot;</span>
 <span class="linenos"> 72</span>     <span class="n">g_be_s</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">90.0</span>
-<span class="linenos"> 73</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"beta  lattice angle (reciprocal space)"</span>
+<span class="linenos"> 73</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;beta  lattice angle (reciprocal space)&quot;</span>
 <span class="linenos"> 74</span>     <span class="n">g_cc</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">5.139</span>
-<span class="linenos"> 75</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"c lattice constant (real space)"</span>
+<span class="linenos"> 75</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;c lattice constant (real space)&quot;</span>
 <span class="linenos"> 76</span>     <span class="n">g_cc_s</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">1.222647462</span>
-<span class="linenos"> 77</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"c lattice constant (reciprocal space)"</span>
+<span class="linenos"> 77</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;c lattice constant (reciprocal space)&quot;</span>
 <span class="linenos"> 78</span>     <span class="n">g_frz</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">1.0</span>
-<span class="linenos"> 79</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"freeze"</span>
+<span class="linenos"> 79</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;freeze&quot;</span>
 <span class="linenos"> 80</span>     <span class="n">g_ga</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">90.0</span>
-<span class="linenos"> 81</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"gamma lattice angle (real space)"</span>
+<span class="linenos"> 81</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;gamma lattice angle (real space)&quot;</span>
 <span class="linenos"> 82</span>     <span class="n">g_ga_s</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">90.0</span>
-<span class="linenos"> 83</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"gamma lattice angle (reciprocal space)"</span>
+<span class="linenos"> 83</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;gamma lattice angle (reciprocal space)&quot;</span>
 <span class="linenos"> 84</span>     <span class="n">g_h0</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">2.0</span>
-<span class="linenos"> 85</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"H of primary reflection"</span>
+<span class="linenos"> 85</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;H of primary reflection&quot;</span>
 <span class="linenos"> 86</span>     <span class="n">g_h1</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span class="linenos"> 87</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"H of secondary reflection"</span>
+<span class="linenos"> 87</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;H of secondary reflection&quot;</span>
 <span class="linenos"> 88</span>     <span class="n">g_haz</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span class="linenos"> 89</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"h azimuthal reference"</span>
+<span class="linenos"> 89</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;h azimuthal reference&quot;</span>
 <span class="linenos"> 90</span>     <span class="n">g_inci_offset</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
 <span class="linenos"> 91</span>     <span class="n">g_k0</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">2.0</span>
-<span class="linenos"> 92</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"K of primary reflection"</span>
+<span class="linenos"> 92</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;K of primary reflection&quot;</span>
 <span class="linenos"> 93</span>     <span class="n">g_k1</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span class="linenos"> 94</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"K of secondary reflection"</span>
+<span class="linenos"> 94</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;K of secondary reflection&quot;</span>
 <span class="linenos"> 95</span>     <span class="n">g_kappa</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">50.0</span>
-<span class="linenos"> 96</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"angle of kappa tilt (in degrees)"</span>
+<span class="linenos"> 96</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;angle of kappa tilt (in degrees)&quot;</span>
 <span class="linenos"> 97</span>     <span class="n">g_kaz</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span class="linenos"> 98</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"k azimuthal reference"</span>
+<span class="linenos"> 98</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;k azimuthal reference&quot;</span>
 <span class="linenos"> 99</span>     <span class="n">g_l0</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span class="linenos">100</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"L of primary reflection"</span>
+<span class="linenos">100</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;L of primary reflection&quot;</span>
 <span class="linenos">101</span>     <span class="n">g_l1</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">2.0</span>
-<span class="linenos">102</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"L of secondary reflection"</span>
+<span class="linenos">102</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;L of secondary reflection&quot;</span>
 <span class="linenos">103</span>     <span class="n">g_lambda0</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.8265814273</span>
-<span class="linenos">104</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"lambda when or0 was set"</span>
+<span class="linenos">104</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;lambda when or0 was set&quot;</span>
 <span class="linenos">105</span>     <span class="n">g_lambda1</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.8265814273</span>
-<span class="linenos">106</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"lambda when or1 was set"</span>
+<span class="linenos">106</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;lambda when or1 was set&quot;</span>
 <span class="linenos">107</span>     <span class="n">g_laz</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">1.0</span>
-<span class="linenos">108</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"l azimuthal reference"</span>
+<span class="linenos">108</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;l azimuthal reference&quot;</span>
 <span class="linenos">109</span>     <span class="n">g_mode</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span class="linenos">110</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"spectrometer mode"</span>
-<span class="linenos">111</span>     <span class="n">g_mode_name</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'Omega equals zero'</span><span class="p">]</span>
-<span class="linenos">112</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"name of spectrometer mode"</span>
+<span class="linenos">110</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;spectrometer mode&quot;</span>
+<span class="linenos">111</span>     <span class="n">g_mode_name</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">&#39;Omega equals zero&#39;</span><span class="p">]</span>
+<span class="linenos">112</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;name of spectrometer mode&quot;</span>
 <span class="linenos">113</span>     <span class="n">g_mon_d</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">3.13542</span>
 <span class="linenos">114</span>     <span class="n">g_mon_sam_len</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">68.0</span>
 <span class="linenos">115</span>     <span class="n">g_mon_sign</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span>
 <span class="linenos">116</span>     <span class="n">g_omsect</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span class="linenos">117</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"omega-mode sector flag"</span>
+<span class="linenos">117</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;omega-mode sector flag&quot;</span>
 <span class="linenos">118</span>     <span class="n">g_picker</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.1</span>
-<span class="linenos">119</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"picker-mode factor"</span>
+<span class="linenos">119</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;picker-mode factor&quot;</span>
 <span class="linenos">120</span>     <span class="n">g_sam_ana_len</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">68.0</span>
 <span class="linenos">121</span>     <span class="n">g_sam_sign</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">1.0</span>
 <span class="linenos">122</span>     <span class="n">g_sect</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span class="linenos">123</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"sector"</span>
+<span class="linenos">123</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;sector&quot;</span>
 <span class="linenos">124</span>     <span class="n">g_u00</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">60.0</span>
-<span class="linenos">125</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"angle 0 of primary reflection"</span>
+<span class="linenos">125</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;angle 0 of primary reflection&quot;</span>
 <span class="linenos">126</span>     <span class="n">g_u01</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">30.0</span>
-<span class="linenos">127</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"angle 1 of primary reflection"</span>
+<span class="linenos">127</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;angle 1 of primary reflection&quot;</span>
 <span class="linenos">128</span>     <span class="n">g_u02</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">90.0</span>
-<span class="linenos">129</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"angle 2 of primary reflection"</span>
+<span class="linenos">129</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;angle 2 of primary reflection&quot;</span>
 <span class="linenos">130</span>     <span class="n">g_u03</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span class="linenos">131</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"angle 3 of primary reflection"</span>
+<span class="linenos">131</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;angle 3 of primary reflection&quot;</span>
 <span class="linenos">132</span>     <span class="n">g_u04</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span class="linenos">133</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"angle 4 of primary reflection"</span>
+<span class="linenos">133</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;angle 4 of primary reflection&quot;</span>
 <span class="linenos">134</span>     <span class="n">g_u05</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span class="linenos">135</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"angle 5 of primary reflection"</span>
+<span class="linenos">135</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;angle 5 of primary reflection&quot;</span>
 <span class="linenos">136</span>     <span class="n">g_u10</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">60.0</span>
-<span class="linenos">137</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"angle 0 of secondary reflection"</span>
+<span class="linenos">137</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;angle 0 of secondary reflection&quot;</span>
 <span class="linenos">138</span>     <span class="n">g_u11</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">30.0</span>
-<span class="linenos">139</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"angle 1 of secondary reflection"</span>
+<span class="linenos">139</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;angle 1 of secondary reflection&quot;</span>
 <span class="linenos">140</span>     <span class="n">g_u12</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span class="linenos">141</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"angle 2 of secondary reflection"</span>
+<span class="linenos">141</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;angle 2 of secondary reflection&quot;</span>
 <span class="linenos">142</span>     <span class="n">g_u13</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span class="linenos">143</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"angle 3 of secondary reflection"</span>
+<span class="linenos">143</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;angle 3 of secondary reflection&quot;</span>
 <span class="linenos">144</span>     <span class="n">g_u14</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span class="linenos">145</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"angle 4 of secondary reflection"</span>
+<span class="linenos">145</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;angle 4 of secondary reflection&quot;</span>
 <span class="linenos">146</span>     <span class="n">g_u15</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span class="linenos">147</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"angle 5 of secondary reflection"</span>
+<span class="linenos">147</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;angle 5 of secondary reflection&quot;</span>
 <span class="linenos">148</span>     <span class="n">g_vmode</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span class="linenos">149</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"set if vertical mode"</span>
+<span class="linenos">149</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;set if vertical mode&quot;</span>
 <span class="linenos">150</span>     <span class="n">g_xtalogic_d1</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">463.6</span>
 <span class="linenos">151</span>     <span class="n">g_xtalogic_d2</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">838.8</span>
 <span class="linenos">152</span>     <span class="n">g_zh0</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span class="linenos">153</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"h zone vec 0"</span>
+<span class="linenos">153</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;h zone vec 0&quot;</span>
 <span class="linenos">154</span>     <span class="n">g_zh1</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span class="linenos">155</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"h zone vec 1"</span>
+<span class="linenos">155</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;h zone vec 1&quot;</span>
 <span class="linenos">156</span>     <span class="n">g_zk0</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span class="linenos">157</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"k zone vec 0"</span>
+<span class="linenos">157</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;k zone vec 0&quot;</span>
 <span class="linenos">158</span>     <span class="n">g_zk1</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span class="linenos">159</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"k zone vec 1"</span>
+<span class="linenos">159</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;k zone vec 1&quot;</span>
 <span class="linenos">160</span>     <span class="n">g_zl0</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span class="linenos">161</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"l zone vec 0"</span>
+<span class="linenos">161</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;l zone vec 0&quot;</span>
 <span class="linenos">162</span>     <span class="n">g_zl1</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span class="linenos">163</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"l zone vec 1"</span>
+<span class="linenos">163</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;l zone vec 1&quot;</span>
 <span class="linenos">164</span>     <span class="n">ub_matrix</span><span class="p">:</span><span class="n">NX_FLOAT64</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">__array</span>
 <span class="linenos">165</span>       <span class="n">__array</span> <span class="o">=</span> <span class="p">[</span>
 <span class="linenos">166</span>           <span class="p">[</span><span class="o">-</span><span class="mf">7.940607166e-18</span><span class="p">,</span> <span class="mf">1.138130079e-16</span><span class="p">,</span> <span class="mf">1.222647462</span><span class="p">]</span>
 <span class="linenos">167</span>           <span class="p">[</span><span class="mf">0.8645423114</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.8645423114</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
 <span class="linenos">168</span>           <span class="p">[</span><span class="mf">0.8645423114</span><span class="p">,</span> <span class="mf">0.8645423114</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.668317968e-16</span><span class="p">]</span>
 <span class="linenos">169</span>         <span class="p">]</span>
-<span class="linenos">170</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"UB[] matrix"</span>
+<span class="linenos">170</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;UB[] matrix&quot;</span>
 <span class="linenos">171</span>   <span class="n">monochromator</span><span class="p">:</span><span class="n">NXmonochromator</span>
-<span class="linenos">172</span>     <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">"NXmonochromator"</span>
+<span class="linenos">172</span>     <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">&quot;NXmonochromator&quot;</span>
 <span class="linenos">173</span>     <span class="n">wavelength</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.8265814273</span>
-<span class="linenos">174</span>       <span class="nd">@target</span> <span class="o">=</span> <span class="s2">"/S1/instrument/monochromator/wavelength"</span>
-<span class="linenos">175</span>       <span class="nd">@units</span> <span class="o">=</span> <span class="s2">"angstrom"</span>
+<span class="linenos">174</span>       <span class="nd">@target</span> <span class="o">=</span> <span class="s2">&quot;/S1/instrument/monochromator/wavelength&quot;</span>
+<span class="linenos">175</span>       <span class="nd">@units</span> <span class="o">=</span> <span class="s2">&quot;angstrom&quot;</span>
 </pre></div>
 </div>
 <p>Crystal sample orientation information (<code class="docutils literal notranslate"><span class="pre">UB</span></code> matrix, orientation reflections
-and wavelength) is written to <code class="docutils literal notranslate"><span class="pre">/SCAN/sample</span></code> (a <strong>NXsample</strong> <a class="footnote-reference brackets" href="#nxsample" id="id4">5</a> group).</p>
+and wavelength) is written to <code class="docutils literal notranslate"><span class="pre">/SCAN/sample</span></code> (a <strong>NXsample</strong> <a class="footnote-reference brackets" href="#nxsample" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a> group).</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="n">sample</span><span class="p">:</span><span class="n">NXsample</span>
-<span class="linenos"> 2</span>   <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">"NXsample"</span>
-<span class="linenos"> 3</span>   <span class="n">diffractometer_mode</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'Omega equals zero'</span><span class="p">]</span>
+<span class="linenos"> 2</span>   <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">&quot;NXsample&quot;</span>
+<span class="linenos"> 3</span>   <span class="n">diffractometer_mode</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">&#39;Omega equals zero&#39;</span><span class="p">]</span>
 <span class="linenos"> 4</span>   <span class="n">diffractometer_sector</span><span class="p">:</span><span class="n">NX_INT64</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="linenos"> 5</span>   <span class="n">ub_matrix</span><span class="p">:</span><span class="n">NX_FLOAT64</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">__array</span>
 <span class="linenos"> 6</span>     <span class="n">__array</span> <span class="o">=</span> <span class="p">[</span>
@@ -559,73 +558,78 @@ and wavelength) is written to <code class="docutils literal notranslate"><span c
 <span class="linenos"> 8</span>         <span class="p">[</span><span class="mf">0.8645423114</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.8645423114</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
 <span class="linenos"> 9</span>         <span class="p">[</span><span class="mf">0.8645423114</span><span class="p">,</span> <span class="mf">0.8645423114</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.668317968e-16</span><span class="p">]</span>
 <span class="linenos">10</span>       <span class="p">]</span>
-<span class="linenos">11</span>   <span class="n">unit_cell</span><span class="p">:</span><span class="n">NX_FLOAT64</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">5.139</span><span class="p">,</span> <span class="mf">5.139</span><span class="p">,</span> <span class="mf">5.139</span><span class="p">,</span> <span class="s1">'...'</span><span class="p">,</span> <span class="mf">90.0</span><span class="p">]</span>
+<span class="linenos">11</span>   <span class="n">unit_cell</span><span class="p">:</span><span class="n">NX_FLOAT64</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">5.139</span><span class="p">,</span> <span class="mf">5.139</span><span class="p">,</span> <span class="mf">5.139</span><span class="p">,</span> <span class="s1">&#39;...&#39;</span><span class="p">,</span> <span class="mf">90.0</span><span class="p">]</span>
 <span class="linenos">12</span>   <span class="n">unit_cell_abc</span><span class="p">:</span><span class="n">NX_FLOAT64</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">5.139</span><span class="p">,</span> <span class="mf">5.139</span><span class="p">,</span> <span class="mf">5.139</span><span class="p">]</span>
-<span class="linenos">13</span>     <span class="nd">@units</span> <span class="o">=</span> <span class="s2">"angstrom"</span>
+<span class="linenos">13</span>     <span class="nd">@units</span> <span class="o">=</span> <span class="s2">&quot;angstrom&quot;</span>
 <span class="linenos">14</span>   <span class="n">unit_cell_alphabetagamma</span><span class="p">:</span><span class="n">NX_FLOAT64</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">90.0</span><span class="p">,</span> <span class="mf">90.0</span><span class="p">]</span>
-<span class="linenos">15</span>     <span class="nd">@units</span> <span class="o">=</span> <span class="s2">"degrees"</span>
+<span class="linenos">15</span>     <span class="nd">@units</span> <span class="o">=</span> <span class="s2">&quot;degrees&quot;</span>
 <span class="linenos">16</span>   <span class="n">beam</span><span class="p">:</span><span class="n">NXbeam</span>
-<span class="linenos">17</span>     <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">"NXbeam"</span>
+<span class="linenos">17</span>     <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">&quot;NXbeam&quot;</span>
 <span class="linenos">18</span>     <span class="n">incident_wavelength</span> <span class="o">--&gt;</span> <span class="o">/</span><span class="n">S1</span><span class="o">/</span><span class="n">instrument</span><span class="o">/</span><span class="n">monochromator</span><span class="o">/</span><span class="n">wavelength</span>
 <span class="linenos">19</span>   <span class="n">or0</span><span class="p">:</span><span class="n">NXnote</span>
-<span class="linenos">20</span>     <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">"NXnote"</span>
-<span class="linenos">21</span>     <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"or0: orientation reflection"</span>
+<span class="linenos">20</span>     <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">&quot;NXnote&quot;</span>
+<span class="linenos">21</span>     <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;or0: orientation reflection&quot;</span>
 <span class="linenos">22</span>     <span class="n">chi</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">90.0</span>
-<span class="linenos">23</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"diffractometer angle"</span>
-<span class="linenos">24</span>       <span class="nd">@units</span> <span class="o">=</span> <span class="s2">"degrees"</span>
+<span class="linenos">23</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;diffractometer angle&quot;</span>
+<span class="linenos">24</span>       <span class="nd">@units</span> <span class="o">=</span> <span class="s2">&quot;degrees&quot;</span>
 <span class="linenos">25</span>     <span class="n">h</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">2.0</span>
 <span class="linenos">26</span>     <span class="n">k</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">2.0</span>
 <span class="linenos">27</span>     <span class="n">l</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
 <span class="linenos">28</span>     <span class="n">phi</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span class="linenos">29</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"diffractometer angle"</span>
-<span class="linenos">30</span>       <span class="nd">@units</span> <span class="o">=</span> <span class="s2">"degrees"</span>
+<span class="linenos">29</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;diffractometer angle&quot;</span>
+<span class="linenos">30</span>       <span class="nd">@units</span> <span class="o">=</span> <span class="s2">&quot;degrees&quot;</span>
 <span class="linenos">31</span>     <span class="n">th</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">30.0</span>
-<span class="linenos">32</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"diffractometer angle"</span>
-<span class="linenos">33</span>       <span class="nd">@units</span> <span class="o">=</span> <span class="s2">"degrees"</span>
+<span class="linenos">32</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;diffractometer angle&quot;</span>
+<span class="linenos">33</span>       <span class="nd">@units</span> <span class="o">=</span> <span class="s2">&quot;degrees&quot;</span>
 <span class="linenos">34</span>     <span class="n">tth</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">60.0</span>
-<span class="linenos">35</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"diffractometer angle"</span>
-<span class="linenos">36</span>       <span class="nd">@units</span> <span class="o">=</span> <span class="s2">"degrees"</span>
+<span class="linenos">35</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;diffractometer angle&quot;</span>
+<span class="linenos">36</span>       <span class="nd">@units</span> <span class="o">=</span> <span class="s2">&quot;degrees&quot;</span>
 <span class="linenos">37</span>     <span class="n">wavelength</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.8265814273</span>
-<span class="linenos">38</span>       <span class="nd">@units</span> <span class="o">=</span> <span class="s2">"Angstrom"</span>
+<span class="linenos">38</span>       <span class="nd">@units</span> <span class="o">=</span> <span class="s2">&quot;Angstrom&quot;</span>
 <span class="linenos">39</span>   <span class="n">or1</span><span class="p">:</span><span class="n">NXnote</span>
-<span class="linenos">40</span>     <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">"NXnote"</span>
-<span class="linenos">41</span>     <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"or1: orientation reflection"</span>
+<span class="linenos">40</span>     <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">&quot;NXnote&quot;</span>
+<span class="linenos">41</span>     <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;or1: orientation reflection&quot;</span>
 <span class="linenos">42</span>     <span class="n">chi</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span class="linenos">43</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"diffractometer angle"</span>
-<span class="linenos">44</span>       <span class="nd">@units</span> <span class="o">=</span> <span class="s2">"degrees"</span>
+<span class="linenos">43</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;diffractometer angle&quot;</span>
+<span class="linenos">44</span>       <span class="nd">@units</span> <span class="o">=</span> <span class="s2">&quot;degrees&quot;</span>
 <span class="linenos">45</span>     <span class="n">h</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
 <span class="linenos">46</span>     <span class="n">k</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
 <span class="linenos">47</span>     <span class="n">l</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">2.0</span>
 <span class="linenos">48</span>     <span class="n">phi</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span class="linenos">49</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"diffractometer angle"</span>
-<span class="linenos">50</span>       <span class="nd">@units</span> <span class="o">=</span> <span class="s2">"degrees"</span>
+<span class="linenos">49</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;diffractometer angle&quot;</span>
+<span class="linenos">50</span>       <span class="nd">@units</span> <span class="o">=</span> <span class="s2">&quot;degrees&quot;</span>
 <span class="linenos">51</span>     <span class="n">th</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">30.0</span>
-<span class="linenos">52</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"diffractometer angle"</span>
-<span class="linenos">53</span>       <span class="nd">@units</span> <span class="o">=</span> <span class="s2">"degrees"</span>
+<span class="linenos">52</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;diffractometer angle&quot;</span>
+<span class="linenos">53</span>       <span class="nd">@units</span> <span class="o">=</span> <span class="s2">&quot;degrees&quot;</span>
 <span class="linenos">54</span>     <span class="n">tth</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">60.0</span>
-<span class="linenos">55</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"diffractometer angle"</span>
-<span class="linenos">56</span>       <span class="nd">@units</span> <span class="o">=</span> <span class="s2">"degrees"</span>
+<span class="linenos">55</span>       <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;diffractometer angle&quot;</span>
+<span class="linenos">56</span>       <span class="nd">@units</span> <span class="o">=</span> <span class="s2">&quot;degrees&quot;</span>
 <span class="linenos">57</span>     <span class="n">wavelength</span><span class="p">:</span><span class="n">NX_FLOAT64</span> <span class="o">=</span> <span class="mf">0.8265814273</span>
-<span class="linenos">58</span>       <span class="nd">@units</span> <span class="o">=</span> <span class="s2">"Angstrom"</span>
+<span class="linenos">58</span>       <span class="nd">@units</span> <span class="o">=</span> <span class="s2">&quot;Angstrom&quot;</span>
 </pre></div>
 </div>
-<dl class="footnote brackets">
-<dt class="label" id="diffractometer-dict"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>database of diffractometer geometries in SPEC data files:   <a class="reference external" href="https://github.com/prjemian/spec2nexus/blob/main/src/spec2nexus/diffractometer-geometries.dict">https://github.com/prjemian/spec2nexus/blob/main/src/spec2nexus/diffractometer-geometries.dict</a></p>
-</dd>
-<dt class="label" id="nx-unittype"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p>List of NeXus unit categories:   <a class="reference external" href="https://manual.nexusformat.org/nxdl-types.html#unit-categories-allowed-in-nxdl-specifications">https://manual.nexusformat.org/nxdl-types.html#unit-categories-allowed-in-nxdl-specifications</a></p>
-</dd>
-<dt class="label" id="nx-field"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
-<dd><p>A NeXus <strong>field</strong> is the same as an HDF5 <strong>dataset</strong>.  The rename is   due to historical reasons in NeXus when XML was used as a back-end data file   storage format.</p>
-</dd>
-<dt class="label" id="nxmonochromator"><span class="brackets">4</span></dt>
-<dd><p><strong>NXmonochromator</strong>:   <a class="reference external" href="https://manual.nexusformat.org/classes/base_classes/NXmonochromator.html">https://manual.nexusformat.org/classes/base_classes/NXmonochromator.html</a></p>
-</dd>
-<dt class="label" id="nxsample"><span class="brackets"><a class="fn-backref" href="#id4">5</a></span></dt>
-<dd><p><strong>NXsample</strong>:   <a class="reference external" href="https://manual.nexusformat.org/classes/base_classes/NXsample.html">https://manual.nexusformat.org/classes/base_classes/NXsample.html</a></p>
-</dd>
-</dl>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="diffractometer-dict" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>database of diffractometer geometries in SPEC data files:   <a class="reference external" href="https://github.com/prjemian/spec2nexus/blob/main/src/spec2nexus/diffractometer-geometries.dict">https://github.com/prjemian/spec2nexus/blob/main/src/spec2nexus/diffractometer-geometries.dict</a></p>
+</aside>
+<aside class="footnote brackets" id="nx-unittype" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>List of NeXus unit categories:   <a class="reference external" href="https://manual.nexusformat.org/nxdl-types.html#unit-categories-allowed-in-nxdl-specifications">https://manual.nexusformat.org/nxdl-types.html#unit-categories-allowed-in-nxdl-specifications</a></p>
+</aside>
+<aside class="footnote brackets" id="nx-field" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<p>A NeXus <strong>field</strong> is the same as an HDF5 <strong>dataset</strong>.  The rename is   due to historical reasons in NeXus when XML was used as a back-end data file   storage format.</p>
+</aside>
+<aside class="footnote brackets" id="nxmonochromator" role="note">
+<span class="label"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></span>
+<p><strong>NXmonochromator</strong>:   <a class="reference external" href="https://manual.nexusformat.org/classes/base_classes/NXmonochromator.html">https://manual.nexusformat.org/classes/base_classes/NXmonochromator.html</a></p>
+</aside>
+<aside class="footnote brackets" id="nxsample" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">5</a><span class="fn-bracket">]</span></span>
+<p><strong>NXsample</strong>:   <a class="reference external" href="https://manual.nexusformat.org/classes/base_classes/NXsample.html">https://manual.nexusformat.org/classes/base_classes/NXsample.html</a></p>
+</aside>
+</aside>
 </section>
 
         </article>
@@ -682,6 +686,7 @@ and wavelength) is written to <code class="docutils literal notranslate"><span c
 </div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/scripts/furo.js"></script>
     </body>

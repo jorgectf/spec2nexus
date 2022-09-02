@@ -1,14 +1,14 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Scan" href="spec_scan.html" /><link rel="prev" title="General Tree Structure" href="general_tree.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>SPEC Data File - spec2nexus 2021.2.1</title>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
+        <title>SPEC Data File - spec2nexus 2021.2.1 (2.g4f4a891)</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">spec2nexus 2021.2.1</div></a>
+      <a href="../index.html"><div class="brand">spec2nexus 2021.2.1 (2.g4f4a891)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.1</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.1 (2.g4f4a891)</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -217,6 +217,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../scanf.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.scanf</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../singletons.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.singletons</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spec.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../writer.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code></a></li>
 </ul>
@@ -245,7 +246,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -260,17 +262,17 @@
         </div>
         <article role="main">
           <section id="spec-data-file">
-<span id="data-file"></span><h1>SPEC Data File<a class="headerlink" href="#spec-data-file" title="Permalink to this headline">#</a></h1>
+<span id="data-file"></span><h1>SPEC Data File<a class="headerlink" href="#spec-data-file" title="Permalink to this heading">#</a></h1>
 <p>The SPEC data file is written to a NeXus HDF5 file by parts as described below.</p>
 <section id="file-name">
-<span id="data-file-name"></span><h2>File name<a class="headerlink" href="#file-name" title="Permalink to this headline">#</a></h2>
+<span id="data-file-name"></span><h2>File name<a class="headerlink" href="#file-name" title="Permalink to this heading">#</a></h2>
 <p>The file name (shown in this example):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1">#F /home/sricat/POLAR/data/CMR/lmn40.spe</span>
 </pre></div>
 </div>
 <p>The file name is copied to the file root as the <code class="docutils literal notranslate"><span class="pre">SPEC_file</span></code> attribute
-(denoted here as <code class="docutils literal notranslate"><span class="pre">@SPEC_file</span></code>):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="nd">@SPEC_file</span> <span class="o">=</span> <span class="s2">"/home/sricat/POLAR/data/CMR/lmn40.spe"</span>
+(denoted here as <code class="docutils literal notranslate"><span class="pre">&#64;SPEC_file</span></code>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="nd">@SPEC_file</span> <span class="o">=</span> <span class="s2">&quot;/home/sricat/POLAR/data/CMR/lmn40.spe&quot;</span>
 </pre></div>
 </div>
 <p>It is expected there is only one <code class="docutils literal notranslate"><span class="pre">#F</span></code> control line in a SPEC data file
@@ -278,7 +280,7 @@
 is the first line.</p>
 </section>
 <section id="file-header">
-<span id="data-file-header"></span><h2>File header<a class="headerlink" href="#file-header" title="Permalink to this headline">#</a></h2>
+<span id="data-file-header"></span><h2>File header<a class="headerlink" href="#file-header" title="Permalink to this heading">#</a></h2>
 <p>Some content from a SPEC data file header is written to the root of the NeXus
 HDF5 file.  Consider this example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1">#E 918630612</span>
@@ -289,13 +291,13 @@ HDF5 file.  Consider this example:</p>
 </div>
 <p>From this example, this content is written to attributes of the file root:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="nd">@SPEC_epoch</span> <span class="o">=</span> <span class="mi">918630612</span>
-<span class="linenos">2</span><span class="nd">@SPEC_date</span> <span class="o">=</span> <span class="s2">"1999-02-10T01:10:12"</span>
-<span class="linenos">3</span><span class="nd">@SPEC_comments</span> <span class="o">=</span> <span class="s2">"spec1ID  User = polar"</span>
-<span class="linenos">4</span><span class="nd">@SPEC_user</span> <span class="o">=</span> <span class="s2">"polar"</span>
+<span class="linenos">2</span><span class="nd">@SPEC_date</span> <span class="o">=</span> <span class="s2">&quot;1999-02-10T01:10:12&quot;</span>
+<span class="linenos">3</span><span class="nd">@SPEC_comments</span> <span class="o">=</span> <span class="s2">&quot;spec1ID  User = polar&quot;</span>
+<span class="linenos">4</span><span class="nd">@SPEC_user</span> <span class="o">=</span> <span class="s2">&quot;polar&quot;</span>
 <span class="linenos">5</span><span class="nd">@SPEC_num_headers</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">@SPEC_comments</span></code> attribute includes contents of <em>all</em> <code class="docutils literal notranslate"><span class="pre">#C</span></code> (comment)
+<p>The <code class="docutils literal notranslate"><span class="pre">&#64;SPEC_comments</span></code> attribute includes contents of <em>all</em> <code class="docutils literal notranslate"><span class="pre">#C</span></code> (comment)
 lines that appear in the header section(s), joined together by newline (<code class="docutils literal notranslate"><span class="pre">\n</span></code>)
 characters. See <a class="reference internal" href="comments.html#data-file-comments"><span class="std std-ref">Comments</span></a> for how this handled in scans.</p>
 <p>The additional information in the positioner names <code class="docutils literal notranslate"><span class="pre">#O0</span></code> control line will be
@@ -378,6 +380,7 @@ file.</p>
 </div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/scripts/furo.js"></script>
     </body>

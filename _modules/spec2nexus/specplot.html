@@ -1,13 +1,13 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>spec2nexus.specplot - spec2nexus 2021.2.1</title>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
+        <title>spec2nexus.specplot - spec2nexus 2021.2.1 (2.g4f4a891)</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -123,7 +123,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">spec2nexus 2021.2.1</div></a>
+      <a href="../../index.html"><div class="brand">spec2nexus 2021.2.1 (2.g4f4a891)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -146,7 +146,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.1</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.1 (2.g4f4a891)</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -216,6 +216,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../scanf.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.scanf</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../singletons.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.singletons</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../spec.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../writer.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code></a></li>
 </ul>
@@ -244,7 +245,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -261,7 +263,7 @@
           <h1>Source code for spec2nexus.specplot</h1><div class="highlight"><pre>
 <span></span><span class="ch">#!/usr/bin/env python</span>
 
-<span class="sd">"""</span>
+<span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Plot the data from scan N in a SPEC data file</span>
 
 <span class="sd">.. autosummary::</span>
@@ -281,7 +283,7 @@
 <span class="sd">    ~ScanAborted</span>
 <span class="sd">    ~UnexpectedObjectTypeError</span>
 
-<span class="sd">"""</span>
+<span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
@@ -294,29 +296,29 @@
 
 <div class="viewcode-block" id="UnexpectedObjectTypeError"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.UnexpectedObjectTypeError">[docs]</a><span class="k">class</span> <span class="nc">UnexpectedObjectTypeError</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">):</span>
 
-    <span class="sd">"""Incorrect Python object type: programmer error."""</span></div>
+    <span class="sd">&quot;&quot;&quot;Incorrect Python object type: programmer error.&quot;&quot;&quot;</span></div>
 
 
 <div class="viewcode-block" id="ScanAborted"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.ScanAborted">[docs]</a><span class="k">class</span> <span class="nc">ScanAborted</span><span class="p">(</span><span class="ne">RuntimeWarning</span><span class="p">):</span>
 
-    <span class="sd">"""Scan aborted before all points acquired."""</span></div>
+    <span class="sd">&quot;&quot;&quot;Scan aborted before all points acquired.&quot;&quot;&quot;</span></div>
 
 
 <div class="viewcode-block" id="NotPlottable"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.NotPlottable">[docs]</a><span class="k">class</span> <span class="nc">NotPlottable</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
 
-    <span class="sd">"""No plottable data for this scan."""</span></div>
+    <span class="sd">&quot;&quot;&quot;No plottable data for this scan.&quot;&quot;&quot;</span></div>
 
 
 <div class="viewcode-block" id="NoDataToPlot"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.NoDataToPlot">[docs]</a><span class="k">class</span> <span class="nc">NoDataToPlot</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
 
-    <span class="sd">"""No data found."""</span></div>
+    <span class="sd">&quot;&quot;&quot;No data found.&quot;&quot;&quot;</span></div>
 
 
-<span class="n">ABORTED_ATTRIBUTE_TEXT</span> <span class="o">=</span> <span class="s2">"_aborted_"</span>
+<span class="n">ABORTED_ATTRIBUTE_TEXT</span> <span class="o">=</span> <span class="s2">&quot;_aborted_&quot;</span>
 
 
 <div class="viewcode-block" id="Selector"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.Selector">[docs]</a><span class="k">class</span> <span class="nc">Selector</span><span class="p">(</span><span class="n">singletons</span><span class="o">.</span><span class="n">Singleton</span><span class="p">):</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    associate SPEC scan macro names with image makers</span>
 
 <span class="sd">    :image maker: subclass of :class:`ImageMaker`</span>
@@ -336,7 +338,7 @@
 <span class="sd">        # ...</span>
 
 <span class="sd">        selector = specplot.Selector()</span>
-<span class="sd">        selector.add('logxscan', LogX_Plotter)</span>
+<span class="sd">        selector.add(&#39;logxscan&#39;, LogX_Plotter)</span>
 
 <span class="sd">        # ...</span>
 
@@ -356,26 +358,26 @@
 <span class="sd">        ~exists</span>
 <span class="sd">        ~default</span>
 
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">default_key</span> <span class="o">=</span> <span class="s2">"__default__"</span>
+    <span class="n">default_key</span> <span class="o">=</span> <span class="s2">&quot;__default__&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">db</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">default_key</span><span class="p">,</span> <span class="n">LinePlotter</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Selector.auto"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.Selector.auto">[docs]</a>    <span class="k">def</span> <span class="nf">auto</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scan</span><span class="p">):</span>
-        <span class="sd">"""</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        automatically choose a scan image maker based on the SPEC scan macro</span>
 
 <span class="sd">        Selection Rules:</span>
 
-<span class="sd">        * macro ends with "scan": use :class:`LinePlotter`</span>
-<span class="sd">        * macro ends with "mesh": use :class:`MeshPlotter`</span>
+<span class="sd">        * macro ends with &quot;scan&quot;: use :class:`LinePlotter`</span>
+<span class="sd">        * macro ends with &quot;mesh&quot;: use :class:`MeshPlotter`</span>
 <span class="sd">        * default: use default image maker (initially :class:`LinePlotter`)</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">scan</span><span class="p">,</span> <span class="p">(</span><span class="n">spec</span><span class="o">.</span><span class="n">SpecDataFileScan</span><span class="p">,)):</span>
-            <span class="n">msg</span> <span class="o">=</span> <span class="s2">"expected a SPEC scan object, received: "</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;expected a SPEC scan object, received: &quot;</span>
             <span class="n">msg</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">scan</span><span class="p">)</span>
             <span class="k">raise</span> <span class="n">UnexpectedObjectTypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 
@@ -385,11 +387,11 @@
 
         <span class="c1"># adapt for different scan macros</span>
         <span class="n">image_maker</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default</span><span class="p">()</span>
-        <span class="k">if</span> <span class="n">macro</span> <span class="o">==</span> <span class="s2">"hklscan"</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">macro</span> <span class="o">==</span> <span class="s2">&quot;hklscan&quot;</span><span class="p">:</span>
             <span class="n">image_maker</span> <span class="o">=</span> <span class="n">HKLScanPlotter</span>
-        <span class="k">elif</span> <span class="n">macro</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">"scan"</span><span class="p">):</span>
+        <span class="k">elif</span> <span class="n">macro</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;scan&quot;</span><span class="p">):</span>
             <span class="n">image_maker</span> <span class="o">=</span> <span class="n">LinePlotter</span>
-        <span class="k">elif</span> <span class="n">macro</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">"mesh"</span><span class="p">):</span>
+        <span class="k">elif</span> <span class="n">macro</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;mesh&quot;</span><span class="p">):</span>
             <span class="n">image_maker</span> <span class="o">=</span> <span class="n">MeshPlotter</span>
 
         <span class="c1"># register this macro name</span>
@@ -397,17 +399,17 @@
         <span class="k">return</span> <span class="n">image_maker</span></div>
 
 <div class="viewcode-block" id="Selector.add"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.Selector.add">[docs]</a>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="sd">"""</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        register a new value by key</span>
 
 <span class="sd">        :param str key: name of key, typically the macro name</span>
 <span class="sd">        :raises KeyError: if key exists</span>
 <span class="sd">        :raises UnexpectedObjectTypeError: if value is not subclass of :class:`ImageMaker`</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">"key exists: "</span> <span class="o">+</span> <span class="n">key</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;key exists: &quot;</span> <span class="o">+</span> <span class="n">key</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">ImageMaker</span><span class="p">):</span>
-            <span class="n">msg</span> <span class="o">=</span> <span class="s2">"expected subclass of ImageMaker, received type: "</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;expected subclass of ImageMaker, received type: &quot;</span>
             <span class="n">msg</span> <span class="o">+=</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span>
             <span class="k">raise</span> <span class="n">UnexpectedObjectTypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 
@@ -418,17 +420,17 @@
         <span class="k">return</span> <span class="n">value</span></div>
 
 <div class="viewcode-block" id="Selector.update"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.Selector.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="sd">"""</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        replace an existing key with a new value</span>
 
 <span class="sd">        :param str key: name of key, typically the macro name</span>
 <span class="sd">        :raises KeyError: if key does not exist</span>
 <span class="sd">        :raises UnexpectedObjectTypeError: if value is not subclass of :class:`ImageMaker`</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">"key does not exist: "</span> <span class="o">+</span> <span class="n">key</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;key does not exist: &quot;</span> <span class="o">+</span> <span class="n">key</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">ImageMaker</span><span class="p">):</span>
-            <span class="n">msg</span> <span class="o">=</span> <span class="s2">"expected subclass of ImageMaker, received type: "</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;expected subclass of ImageMaker, received type: &quot;</span>
             <span class="n">msg</span> <span class="o">+=</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span>
             <span class="k">raise</span> <span class="n">UnexpectedObjectTypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 
@@ -439,28 +441,28 @@
         <span class="k">return</span> <span class="n">value</span></div>
 
 <div class="viewcode-block" id="Selector.get"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.Selector.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-        <span class="sd">"""</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        return a value by key</span>
 
 <span class="sd">        :returns: subclass of :class:`ImageMaker` or `None` if key not found</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Selector.exists"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.Selector.exists">[docs]</a>    <span class="k">def</span> <span class="nf">exists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-        <span class="sd">"""</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        is the key known?</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span></div>
 
 <div class="viewcode-block" id="Selector.default"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.Selector.default">[docs]</a>    <span class="k">def</span> <span class="nf">default</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        retrieve the value of the default key</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">default_key</span><span class="p">)</span></div></div>
 
 
 <div class="viewcode-block" id="ImageMaker"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.ImageMaker">[docs]</a><span class="k">class</span> <span class="nc">ImageMaker</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    superclass to handle plotting of data from a SPEC scan</span>
 
 <span class="sd">    .. rubric:: Internal data model</span>
@@ -487,15 +489,15 @@
 <span class="sd">    ::</span>
 
 <span class="sd">        class LinePlotter(ImageMaker):</span>
-<span class="sd">            '''create a line plot'''</span>
+<span class="sd">            &#39;&#39;&#39;create a line plot&#39;&#39;&#39;</span>
 
 <span class="sd">            def make_image(self, plotFile):</span>
-<span class="sd">                '''</span>
+<span class="sd">                &#39;&#39;&#39;</span>
 <span class="sd">                make MatPlotLib chart image from the SPEC scan</span>
 
 <span class="sd">                :param obj plotData: object returned from :meth:`retrieve_plot_data`</span>
 <span class="sd">                :param str plotFile: name of image file to write</span>
-<span class="sd">                '''</span>
+<span class="sd">                &#39;&#39;&#39;</span>
 <span class="sd">                assert(self.signal in self.data)</span>
 <span class="sd">                assert(len(self.axes) == 1)</span>
 <span class="sd">                assert(self.axes[0] in self.data)</span>
@@ -516,7 +518,7 @@
 <span class="sd">        plotter = LinePlotter()</span>
 <span class="sd">        plotter.plot_scan(scan, plotFile, y_log=True)</span>
 
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scan</span> <span class="o">=</span> <span class="kc">None</span>
@@ -529,16 +531,16 @@
     <span class="c1"># support methods that a subclass might override</span>
 
 <div class="viewcode-block" id="ImageMaker.data_file_name"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.ImageMaker.data_file_name">[docs]</a>    <span class="k">def</span> <span class="nf">data_file_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        the name of the file with the actual data</span>
 
 <span class="sd">        Usually, this is the SPEC data file</span>
 <span class="sd">        but it *could* be something else</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">fileName</span>  <span class="c1"># self.scan.specFile</span></div>
 
 <div class="viewcode-block" id="ImageMaker.make_image"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.ImageMaker.make_image">[docs]</a>    <span class="k">def</span> <span class="nf">make_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plotFile</span><span class="p">):</span>
-        <span class="sd">"""</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        make MatPlotLib chart image from the SPEC scan</span>
 
 <span class="sd">        The data to be plotted are provided in:</span>
@@ -548,25 +550,25 @@
 <span class="sd">        * `self.data`</span>
 
 <span class="sd">        :param str plotFile: name of image file to write</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
-            <span class="s2">"must implement make_image() in each subclass"</span>
+            <span class="s2">&quot;must implement make_image() in each subclass&quot;</span>
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="ImageMaker.plottable"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.ImageMaker.plottable">[docs]</a>    <span class="k">def</span> <span class="nf">plottable</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        can this data be plotted as expected?</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="kc">False</span>  <span class="c1"># override in subclass with specific tests</span></div>
 
 <div class="viewcode-block" id="ImageMaker.plot_options"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.ImageMaker.plot_options">[docs]</a>    <span class="k">def</span> <span class="nf">plot_options</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        re-define any plot options in a subclass</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">pass</span></div>
 
 <div class="viewcode-block" id="ImageMaker.retrieve_plot_data"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.ImageMaker.retrieve_plot_data">[docs]</a>    <span class="k">def</span> <span class="nf">retrieve_plot_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        retrieve default plottable data from spec data file and store locally</span>
 
 <span class="sd">        This method must retrieve the data to be plotted, either from the</span>
@@ -576,7 +578,7 @@
 <span class="sd">        These attributes must be set by this method:</span>
 
 <span class="sd">        :data: dictionary containing values of the various collected arrays {label: array}</span>
-<span class="sd">        :signal: name of the 'signal' data (default data to be plotted)</span>
+<span class="sd">        :signal: name of the &#39;signal&#39; data (default data to be plotted)</span>
 <span class="sd">        :axes: names of the axes of signal data</span>
 
 <span class="sd">        .. rubric:: Example data</span>
@@ -584,10 +586,10 @@
 <span class="sd">        ::</span>
 
 <span class="sd">            self.data = {</span>
-<span class="sd">                'angle': [1, 2, 3, 4, 5],</span>
-<span class="sd">                'counts': [0. 2. 55. 3. 0]}</span>
-<span class="sd">            self.signal = 'counts'</span>
-<span class="sd">            self.axes = ['angle']</span>
+<span class="sd">                &#39;angle&#39;: [1, 2, 3, 4, 5],</span>
+<span class="sd">                &#39;counts&#39;: [0. 2. 55. 3. 0]}</span>
+<span class="sd">            self.signal = &#39;counts&#39;</span>
+<span class="sd">            self.axes = [&#39;angle&#39;]</span>
 
 <span class="sd">        Raise any of these exceptions as appropriate:</span>
 
@@ -597,16 +599,16 @@
 <span class="sd">            ~NotPlottable</span>
 <span class="sd">            ~ScanAborted</span>
 
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
-            <span class="s2">"must implement retrieve_plot_data() in each subclass"</span>
+            <span class="s2">&quot;must implement retrieve_plot_data() in each subclass&quot;</span>
         <span class="p">)</span></div>
 
     <span class="c1"># - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
     <span class="c1"># support methods that will not need to be defined in a subclass</span>
 
 <div class="viewcode-block" id="ImageMaker.data_is_newer_than_plot"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.ImageMaker.data_is_newer_than_plot">[docs]</a>    <span class="k">def</span> <span class="nf">data_is_newer_than_plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plotFile</span><span class="p">):</span>
-        <span class="sd">"""only proceed if mtime of SPEC data file is newer than plotFile"""</span>
+        <span class="sd">&quot;&quot;&quot;only proceed if mtime of SPEC data file is newer than plotFile&quot;&quot;&quot;</span>
         <span class="n">mtime_sdf</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getmtime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_file_name</span><span class="p">())</span>
         <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">plotFile</span><span class="p">):</span>
             <span class="n">mtime_pf</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getmtime</span><span class="p">(</span><span class="n">plotFile</span><span class="p">)</span>
@@ -616,18 +618,18 @@
         <span class="k">return</span> <span class="n">mtime_sdf</span> <span class="o">&gt;</span> <span class="n">mtime_pf</span></div>
 
 <div class="viewcode-block" id="ImageMaker.plot_scan"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.ImageMaker.plot_scan">[docs]</a>    <span class="k">def</span> <span class="nf">plot_scan</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scan</span><span class="p">,</span> <span class="n">plotFile</span><span class="p">,</span> <span class="n">maker</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">"""</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        make an image plot of the data in the scan</span>
 
 <span class="sd">        :param obj scan: instance of :class:`~spec2nexus.spec.SpecDataFileScan`</span>
 <span class="sd">        :param str plotFile: file name for plot output</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">scan</span><span class="p">,</span> <span class="p">(</span><span class="n">spec</span><span class="o">.</span><span class="n">SpecDataFileScan</span><span class="p">,)):</span>
             <span class="k">raise</span> <span class="n">UnexpectedObjectTypeError</span><span class="p">(</span>
-                <span class="s2">"scan object not a SpecDataFileScan"</span>
+                <span class="s2">&quot;scan object not a SpecDataFileScan&quot;</span>
             <span class="p">)</span>
         <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">scan</span><span class="p">,</span> <span class="n">ABORTED_ATTRIBUTE_TEXT</span><span class="p">):</span>
-            <span class="n">match_text</span> <span class="o">=</span> <span class="s2">"Scan aborted after 0 points."</span>
+            <span class="n">match_text</span> <span class="o">=</span> <span class="s2">&quot;Scan aborted after 0 points.&quot;</span>
             <span class="k">if</span> <span class="n">scan</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="n">ABORTED_ATTRIBUTE_TEXT</span><span class="p">)</span> <span class="o">==</span> <span class="n">match_text</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="n">ScanAborted</span><span class="p">(</span><span class="n">match_text</span><span class="p">)</span>
 
@@ -636,7 +638,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">set_plot_title</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">plot_title</span><span class="p">()</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_file_name</span><span class="p">())</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">set_plot_subtitle</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">plot_subtitle</span><span class="p">()</span>
-            <span class="ow">or</span> <span class="s2">"#"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="o">.</span><span class="n">scanNum</span><span class="p">)</span> <span class="o">+</span> <span class="s2">": "</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="o">.</span><span class="n">scanCmd</span>
+            <span class="ow">or</span> <span class="s2">&quot;#&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="o">.</span><span class="n">scanNum</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;: &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="o">.</span><span class="n">scanCmd</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">set_timestamp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamp</span><span class="p">()</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="o">.</span><span class="n">date</span><span class="p">)</span>
 
@@ -658,12 +660,12 @@
     <span class="c1"># support the self.settings dictionary with get &amp; set methods</span>
 
     <span class="k">def</span> <span class="nf">_initialize_settings_</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        initial values are set to `None`</span>
 
 <span class="sd">        subclasses that set a value should first check if the value has already been set</span>
 <span class="sd">        unless explicitly replacing any customizations by the user</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span>
             <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
             <span class="n">subtitle</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -678,81 +680,81 @@
     <span class="c1"># TODO: apply property and setter decorations</span>
 
 <div class="viewcode-block" id="ImageMaker.plot_title"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.ImageMaker.plot_title">[docs]</a>    <span class="k">def</span> <span class="nf">plot_title</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""Return the plot title."""</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s2">"title"</span><span class="p">]</span></div>
+        <span class="sd">&quot;&quot;&quot;Return the plot title.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="ImageMaker.set_plot_title"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.ImageMaker.set_plot_title">[docs]</a>    <span class="k">def</span> <span class="nf">set_plot_title</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
-        <span class="sd">"""Set the plot title."""</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s2">"title"</span><span class="p">]</span> <span class="o">=</span> <span class="n">text</span></div>
+        <span class="sd">&quot;&quot;&quot;Set the plot title.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">text</span></div>
 
 <div class="viewcode-block" id="ImageMaker.plot_subtitle"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.ImageMaker.plot_subtitle">[docs]</a>    <span class="k">def</span> <span class="nf">plot_subtitle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""Return the plot_subtitle."""</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s2">"subtitle"</span><span class="p">]</span></div>
+        <span class="sd">&quot;&quot;&quot;Return the plot_subtitle.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s2">&quot;subtitle&quot;</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="ImageMaker.set_plot_subtitle"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.ImageMaker.set_plot_subtitle">[docs]</a>    <span class="k">def</span> <span class="nf">set_plot_subtitle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
-        <span class="sd">"""Set the plot_subtitle."""</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s2">"subtitle"</span><span class="p">]</span> <span class="o">=</span> <span class="n">text</span></div>
+        <span class="sd">&quot;&quot;&quot;Set the plot_subtitle.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s2">&quot;subtitle&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">text</span></div>
 
 <div class="viewcode-block" id="ImageMaker.x_title"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.ImageMaker.x_title">[docs]</a>    <span class="k">def</span> <span class="nf">x_title</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""Return the title for the X axis."""</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s2">"x_title"</span><span class="p">]</span></div>
+        <span class="sd">&quot;&quot;&quot;Return the title for the X axis.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s2">&quot;x_title&quot;</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="ImageMaker.set_x_title"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.ImageMaker.set_x_title">[docs]</a>    <span class="k">def</span> <span class="nf">set_x_title</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
-        <span class="sd">"""Set the x axis title."""</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s2">"x_title"</span><span class="p">]</span> <span class="o">=</span> <span class="n">text</span></div>
+        <span class="sd">&quot;&quot;&quot;Set the x axis title.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s2">&quot;x_title&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">text</span></div>
 
 <div class="viewcode-block" id="ImageMaker.y_title"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.ImageMaker.y_title">[docs]</a>    <span class="k">def</span> <span class="nf">y_title</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""Return the title for the Y axis."""</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s2">"y_title"</span><span class="p">]</span></div>
+        <span class="sd">&quot;&quot;&quot;Return the title for the Y axis.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s2">&quot;y_title&quot;</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="ImageMaker.set_y_title"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.ImageMaker.set_y_title">[docs]</a>    <span class="k">def</span> <span class="nf">set_y_title</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
-        <span class="sd">"""Set the y axis title."""</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s2">"y_title"</span><span class="p">]</span> <span class="o">=</span> <span class="n">text</span></div>
+        <span class="sd">&quot;&quot;&quot;Set the y axis title.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s2">&quot;y_title&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">text</span></div>
 
 <div class="viewcode-block" id="ImageMaker.x_log"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.ImageMaker.x_log">[docs]</a>    <span class="k">def</span> <span class="nf">x_log</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""Boolean: should the X axis be plotted on a log scale?"""</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s2">"x_log"</span><span class="p">]</span></div>
+        <span class="sd">&quot;&quot;&quot;Boolean: should the X axis be plotted on a log scale?&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s2">&quot;x_log&quot;</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="ImageMaker.set_x_log"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.ImageMaker.set_x_log">[docs]</a>    <span class="k">def</span> <span class="nf">set_x_log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">choice</span><span class="p">):</span>
-        <span class="sd">"""Set the x axis logarithmic if True."""</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s2">"x_log"</span><span class="p">]</span> <span class="o">=</span> <span class="n">choice</span></div>
+        <span class="sd">&quot;&quot;&quot;Set the x axis logarithmic if True.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s2">&quot;x_log&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">choice</span></div>
 
 <div class="viewcode-block" id="ImageMaker.y_log"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.ImageMaker.y_log">[docs]</a>    <span class="k">def</span> <span class="nf">y_log</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""Boolean: should the Y axis be plotted on a log scale?"""</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s2">"y_log"</span><span class="p">]</span></div>
+        <span class="sd">&quot;&quot;&quot;Boolean: should the Y axis be plotted on a log scale?&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s2">&quot;y_log&quot;</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="ImageMaker.set_y_log"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.ImageMaker.set_y_log">[docs]</a>    <span class="k">def</span> <span class="nf">set_y_log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">choice</span><span class="p">):</span>
-        <span class="sd">"""Set the y axis logarithmic if True."""</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s2">"y_log"</span><span class="p">]</span> <span class="o">=</span> <span class="n">choice</span></div>
+        <span class="sd">&quot;&quot;&quot;Set the y axis logarithmic if True.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s2">&quot;y_log&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">choice</span></div>
 
 <div class="viewcode-block" id="ImageMaker.z_log"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.ImageMaker.z_log">[docs]</a>    <span class="k">def</span> <span class="nf">z_log</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""Boolean: should the Z axis (image) be plotted on a log scale?"""</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s2">"z_log"</span><span class="p">]</span></div>
+        <span class="sd">&quot;&quot;&quot;Boolean: should the Z axis (image) be plotted on a log scale?&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s2">&quot;z_log&quot;</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="ImageMaker.set_z_log"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.ImageMaker.set_z_log">[docs]</a>    <span class="k">def</span> <span class="nf">set_z_log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">choice</span><span class="p">):</span>
-        <span class="sd">"""Set the z axis (image) logarithmic if True."""</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s2">"z_log"</span><span class="p">]</span> <span class="o">=</span> <span class="n">choice</span></div>
+        <span class="sd">&quot;&quot;&quot;Set the z axis (image) logarithmic if True.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s2">&quot;z_log&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">choice</span></div>
 
 <div class="viewcode-block" id="ImageMaker.timestamp"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.ImageMaker.timestamp">[docs]</a>    <span class="k">def</span> <span class="nf">timestamp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""Return the time of this scan as a string."""</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s2">"timestamp"</span><span class="p">]</span></div>
+        <span class="sd">&quot;&quot;&quot;Return the time of this scan as a string.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s2">&quot;timestamp&quot;</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="ImageMaker.set_timestamp"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.ImageMaker.set_timestamp">[docs]</a>    <span class="k">def</span> <span class="nf">set_timestamp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
-        <span class="sd">"""Set the plot time stamp."""</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s2">"timestamp"</span><span class="p">]</span> <span class="o">=</span> <span class="n">text</span></div></div>
+        <span class="sd">&quot;&quot;&quot;Set the plot time stamp.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s2">&quot;timestamp&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">text</span></div></div>
 
 
 <div class="viewcode-block" id="LinePlotter"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.LinePlotter">[docs]</a><span class="k">class</span> <span class="nc">LinePlotter</span><span class="p">(</span><span class="n">ImageMaker</span><span class="p">):</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    create a line plot</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="LinePlotter.make_image"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.LinePlotter.make_image">[docs]</a>    <span class="k">def</span> <span class="nf">make_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plotFile</span><span class="p">):</span>
-        <span class="sd">"""</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        make MatPlotLib chart image from the SPEC scan</span>
 
 <span class="sd">        :param str plotFile: name of image file to write</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">signal</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span>
         <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
         <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span>
@@ -775,9 +777,9 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="LinePlotter.plottable"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.LinePlotter.plottable">[docs]</a>    <span class="k">def</span> <span class="nf">plottable</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        can this data be plotted as expected?</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">signal</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
             <span class="n">signal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">signal</span><span class="p">]</span>
             <span class="k">if</span> <span class="p">(</span>
@@ -790,9 +792,9 @@
         <span class="k">return</span> <span class="kc">False</span></div>
 
 <div class="viewcode-block" id="LinePlotter.plot_options"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.LinePlotter.plot_options">[docs]</a>    <span class="k">def</span> <span class="nf">plot_options</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        define the settings for this, accepting any non-default values first</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">x_title</span><span class="p">()</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_x_title</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">y_title</span><span class="p">()</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_y_title</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">signal</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">x_log</span><span class="p">()</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_x_log</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
@@ -800,7 +802,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">set_z_log</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="LinePlotter.retrieve_plot_data"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.LinePlotter.retrieve_plot_data">[docs]</a>    <span class="k">def</span> <span class="nf">retrieve_plot_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""retrieve default data from spec data file"""</span>
+        <span class="sd">&quot;&quot;&quot;retrieve default data from spec data file&quot;&quot;&quot;</span>
         <span class="c1"># plot last column v. first column</span>
         <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="p">,</span> <span class="n">spec</span><span class="o">.</span><span class="n">SpecDataFileScan</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">signal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="o">.</span><span class="n">column_last</span>
@@ -817,15 +819,15 @@
 
 
 <div class="viewcode-block" id="HKLScanPlotter"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.HKLScanPlotter">[docs]</a><span class="k">class</span> <span class="nc">HKLScanPlotter</span><span class="p">(</span><span class="n">LinePlotter</span><span class="p">):</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    create a line plot from hklscan macros</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="HKLScanPlotter.retrieve_plot_data"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.HKLScanPlotter.retrieve_plot_data">[docs]</a>    <span class="k">def</span> <span class="nf">retrieve_plot_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""retrieve default data from spec data file"""</span>
+        <span class="sd">&quot;&quot;&quot;retrieve default data from spec data file&quot;&quot;&quot;</span>
         <span class="c1"># standard hklscan macro handling</span>
         <span class="c1"># find the real scan axis, the one that changes</span>
-        <span class="k">for</span> <span class="n">axis</span> <span class="ow">in</span> <span class="s2">"H K L"</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">axis</span> <span class="ow">in</span> <span class="s2">&quot;H K L&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
             <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">axis</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="k">continue</span>
@@ -839,14 +841,14 @@
 
         <span class="c1"># if not found, default changes nothing</span>
         <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="n">NotPlottable</span><span class="p">(</span><span class="s2">"no data in scan: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="p">))</span>
+            <span class="k">raise</span> <span class="n">NotPlottable</span><span class="p">(</span><span class="s2">&quot;no data in scan: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="p">))</span>
 
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="c1"># issue #99:  file: lmn40.spe, scan 244, hkl all fixed</span>
-            <span class="n">axis</span> <span class="o">=</span> <span class="s2">"data point number"</span>
-            <span class="n">data</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"H"</span><span class="p">]))</span>
+            <span class="n">axis</span> <span class="o">=</span> <span class="s2">&quot;data point number&quot;</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;H&quot;</span><span class="p">]))</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">set_x_title</span><span class="p">(</span><span class="n">axis</span> <span class="o">+</span> <span class="s2">" (hkl all held constant)"</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_x_title</span><span class="p">(</span><span class="n">axis</span> <span class="o">+</span> <span class="s2">&quot; (hkl all held constant)&quot;</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">axes</span> <span class="o">=</span> <span class="p">[</span>
                 <span class="n">axis</span><span class="p">,</span>
             <span class="p">]</span>
@@ -858,7 +860,7 @@
 
 
 <div class="viewcode-block" id="MeshPlotter"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.MeshPlotter">[docs]</a><span class="k">class</span> <span class="nc">MeshPlotter</span><span class="p">(</span><span class="n">ImageMaker</span><span class="p">):</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    create a mesh plot (2-D image)</span>
 
 <span class="sd">    ..rubric:: References:</span>
@@ -875,20 +877,20 @@
 
 <span class="sd">            hklmesh Q1 start1 end1 intervals1 Q2 start2 end2 intervals2 time</span>
 
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># see code in: writer.Writer.mesh()        self._mesh_(scan)</span>
 
 <div class="viewcode-block" id="MeshPlotter.make_image"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.MeshPlotter.make_image">[docs]</a>    <span class="k">def</span> <span class="nf">make_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plotFile</span><span class="p">):</span>
-        <span class="sd">"""</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        make MatPlotLib chart image from the SPEC scan</span>
 
 <span class="sd">        :param str plotFile: name of image file to write</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
             <span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">signal</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_plot_subtitle</span><span class="p">(</span>
-                <span class="s2">"</span><span class="si">%s</span><span class="s2">,  </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">signal</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">,  </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">signal</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
             <span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_x_title</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_y_title</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
@@ -922,9 +924,9 @@
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="MeshPlotter.plottable"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.MeshPlotter.plottable">[docs]</a>    <span class="k">def</span> <span class="nf">plottable</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        can this data be plotted as expected?</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">signal</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span>
             <span class="n">signal</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">signal</span><span class="p">])</span>
@@ -937,9 +939,9 @@
         <span class="k">return</span> <span class="kc">True</span></div>
 
 <div class="viewcode-block" id="MeshPlotter.plot_options"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.MeshPlotter.plot_options">[docs]</a>    <span class="k">def</span> <span class="nf">plot_options</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        define the settings for this, accepting any non-default values first</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">x_title</span><span class="p">()</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_x_title</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">y_title</span><span class="p">()</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_y_title</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">signal</span><span class="p">)</span>
@@ -951,10 +953,10 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">z_log</span><span class="p">()</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_z_log</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="MeshPlotter.retrieve_plot_data"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.MeshPlotter.retrieve_plot_data">[docs]</a>    <span class="k">def</span> <span class="nf">retrieve_plot_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""retrieve default data from spec data file</span>
+        <span class="sd">&quot;&quot;&quot;retrieve default data from spec data file</span>
 
 <span class="sd">        data parser for 2-D mesh and hklmesh</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="p">(</span>
             <span class="n">label1</span><span class="p">,</span>
             <span class="n">_start1</span><span class="p">,</span>
@@ -998,10 +1000,10 @@
         <span class="n">column_labels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="o">.</span><span class="n">L</span>
         <span class="n">column_labels</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">label1</span><span class="p">)</span>  <span class="c1"># special handling</span>
         <span class="n">column_labels</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">label2</span><span class="p">)</span>  <span class="c1"># special handling</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="o">.</span><span class="n">scanCmd</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"hkl"</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="o">.</span><span class="n">scanCmd</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;hkl&quot;</span><span class="p">):</span>
             <span class="c1"># find the reciprocal space axis held constant</span>
             <span class="n">label3</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="n">key</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"H"</span><span class="p">,</span> <span class="s2">"K"</span><span class="p">,</span> <span class="s2">"L"</span><span class="p">)</span> <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">column_labels</span>
+                <span class="n">key</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">,</span> <span class="s2">&quot;K&quot;</span><span class="p">,</span> <span class="s2">&quot;L&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">column_labels</span>
             <span class="p">][</span><span class="mi">0</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">label3</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label3</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># constant</span>
 
@@ -1027,33 +1029,33 @@
                 <span class="n">mca</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span>
                 <span class="n">data</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">reshape_data</span><span class="p">(</span><span class="n">mca</span><span class="p">,</span> <span class="n">data_shape</span><span class="p">)</span>
                 <span class="n">channels</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_channels</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-                <span class="n">ds_name</span> <span class="o">=</span> <span class="s2">"_"</span> <span class="o">+</span> <span class="n">key</span> <span class="o">+</span> <span class="s2">"_"</span>
+                <span class="n">ds_name</span> <span class="o">=</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">key</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">ds_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">ds_name</span> <span class="o">+</span> <span class="s2">"channel_"</span><span class="p">]</span> <span class="o">=</span> <span class="n">channels</span></div></div>
+                <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">ds_name</span> <span class="o">+</span> <span class="s2">&quot;channel_&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">channels</span></div></div>
 
 
 <span class="c1"># class NeXusPlotter(ImageMaker):    # TODO: issue #92</span>
-<span class="c1">#     """</span>
+<span class="c1">#     &quot;&quot;&quot;</span>
 <span class="c1">#     create a plot from a NeXus HDF5 data file</span>
-<span class="c1">#     """</span>
+<span class="c1">#     &quot;&quot;&quot;</span>
 <span class="c1">#</span>
 <span class="c1">#     def retrieve_plot_data(self):</span>
-<span class="c1">#         """retrieve default data from spec data file"""</span>
-<span class="c1">#         raise NotImplementedError(self.__class__.__name__ + '() is not ready')</span>
+<span class="c1">#         &quot;&quot;&quot;retrieve default data from spec data file&quot;&quot;&quot;</span>
+<span class="c1">#         raise NotImplementedError(self.__class__.__name__ + &#39;() is not ready&#39;)</span>
 <span class="c1">#</span>
 <span class="c1">#     def make_image(self, plotFile):</span>
-<span class="c1">#         """</span>
+<span class="c1">#         &quot;&quot;&quot;</span>
 <span class="c1">#         make image file from the SPEC scan</span>
 <span class="c1">#</span>
 <span class="c1">#         :param str plotFile: name of image file to write</span>
-<span class="c1">#         """</span>
-<span class="c1">#         raise NotImplementedError(self.__class__.__name__ + '() is not ready')</span>
+<span class="c1">#         &quot;&quot;&quot;</span>
+<span class="c1">#         raise NotImplementedError(self.__class__.__name__ + &#39;() is not ready&#39;)</span>
 
 
 <div class="viewcode-block" id="openSpecFile"><a class="viewcode-back" href="../../specplot.html#spec2nexus.specplot.openSpecFile">[docs]</a><span class="k">def</span> <span class="nf">openSpecFile</span><span class="p">(</span><span class="n">specFile</span><span class="p">):</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    convenience routine so that others do not have to `import spec2nexus.spec`</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">sd</span> <span class="o">=</span> <span class="n">spec</span><span class="o">.</span><span class="n">SpecDataFile</span><span class="p">(</span><span class="n">specFile</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">sd</span></div>
 
@@ -1063,11 +1065,11 @@
 
     <span class="n">doc</span> <span class="o">=</span> <span class="vm">__doc__</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="n">doc</span><span class="p">)</span>
-    <span class="n">p</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"specFile"</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"SPEC data file name"</span><span class="p">)</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;specFile&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;SPEC data file name&quot;</span><span class="p">)</span>
     <span class="n">p</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s2">"scan_number"</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"scan number in SPEC file"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span>
+        <span class="s2">&quot;scan_number&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;scan number in SPEC file&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span>
     <span class="p">)</span>
-    <span class="n">p</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"plotFile"</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"output plot file name"</span><span class="p">)</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;plotFile&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;output plot file name&quot;</span><span class="p">)</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 
     <span class="n">sfile</span> <span class="o">=</span> <span class="n">openSpecFile</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">specFile</span><span class="p">)</span>
@@ -1077,7 +1079,7 @@
     <span class="n">plotter</span><span class="o">.</span><span class="n">plot_scan</span><span class="p">(</span><span class="n">scan</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">plotFile</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 
 <span class="c1"># -----------------------------------------------------------------------------</span>
@@ -1126,6 +1128,7 @@
 </div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
     </body>

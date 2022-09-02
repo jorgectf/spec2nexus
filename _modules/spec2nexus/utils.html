@@ -1,13 +1,13 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>spec2nexus.utils - spec2nexus 2021.2.1</title>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
+        <title>spec2nexus.utils - spec2nexus 2021.2.1 (2.g4f4a891)</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -123,7 +123,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">spec2nexus 2021.2.1</div></a>
+      <a href="../../index.html"><div class="brand">spec2nexus 2021.2.1 (2.g4f4a891)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -146,7 +146,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.1</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.1 (2.g4f4a891)</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -216,6 +216,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../scanf.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.scanf</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../singletons.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.singletons</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../spec.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../writer.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code></a></li>
 </ul>
@@ -244,7 +245,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -261,7 +263,7 @@
           <h1>Source code for spec2nexus.utils</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 
-<span class="sd">"""</span>
+<span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">(internal library) common methods used in **spec2nexus** modules</span>
 
 <span class="sd">.. autosummary::</span>
@@ -274,7 +276,7 @@
 <span class="sd">    ~split_scan_number_string</span>
 <span class="sd">    ~strip_first_word</span>
 
-<span class="sd">"""</span>
+<span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
@@ -286,32 +288,32 @@
 
 
 <div class="viewcode-block" id="clean_name"><a class="viewcode-back" href="../../utils.html#spec2nexus.utils.clean_name">[docs]</a><span class="k">def</span> <span class="nf">clean_name</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    create a name that is allowed by both HDF5 and NeXus rules</span>
 
 <span class="sd">    :param str key: identifying string from SPEC data file</span>
 
 <span class="sd">    :see: https://download.nexusformat.org/doc/html/datarules.html</span>
 
-<span class="sd">    The "sanitized" name fits this regexp::</span>
+<span class="sd">    The &quot;sanitized&quot; name fits this regexp::</span>
 
 <span class="sd">        [A-Za-z_][\w_]*</span>
 
 <span class="sd">    An easier expression might be:  ``[\w_]*`` but this will not pass</span>
 <span class="sd">    the rule that valid NeXus group or field names cannot start with a digit.</span>
-<span class="sd">    """</span>
-    <span class="n">replacement</span> <span class="o">=</span> <span class="s2">"_"</span>
-    <span class="n">noncompliance</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"[^\w_]"</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">replacement</span> <span class="o">=</span> <span class="s2">&quot;_&quot;</span>
+    <span class="n">noncompliance</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;[^\w_]&quot;</span>
     <span class="n">txt</span> <span class="o">=</span> <span class="n">replacement</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
         <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">noncompliance</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
-    <span class="p">)</span>  <span class="c1"># replace ALL non-compliances with '_'</span>
+    <span class="p">)</span>  <span class="c1"># replace ALL non-compliances with &#39;_&#39;</span>
     <span class="k">if</span> <span class="n">txt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
-        <span class="n">txt</span> <span class="o">=</span> <span class="n">replacement</span> <span class="o">+</span> <span class="n">txt</span>  <span class="c1"># can't start with a digit</span>
+        <span class="n">txt</span> <span class="o">=</span> <span class="n">replacement</span> <span class="o">+</span> <span class="n">txt</span>  <span class="c1"># can&#39;t start with a digit</span>
     <span class="k">return</span> <span class="n">txt</span></div>
 
 
 <div class="viewcode-block" id="iso8601"><a class="viewcode-back" href="../../utils.html#spec2nexus.utils.iso8601">[docs]</a><span class="k">def</span> <span class="nf">iso8601</span><span class="p">(</span><span class="n">date</span><span class="p">):</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    convert SPEC time (example: Wed Nov 03 13:39:34 2010) into ISO8601 string</span>
 
 <span class="sd">    :param str date: time string from SPEC data file</span>
@@ -322,35 +324,35 @@
 <span class="sd">    :ISO8601: 2010-11-03T13:39:34</span>
 <span class="sd">    :SPOCK:   09/15/17 04:39:10</span>
 <span class="sd">    :ISO8601: 2017-09-15T04:39:10</span>
-<span class="sd">    """</span>
-    <span class="n">spec_fmt</span> <span class="o">=</span> <span class="s2">"</span><span class="si">%a</span><span class="s2"> %b </span><span class="si">%d</span><span class="s2"> %H:%M:%S %Y"</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">spec_fmt</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%a</span><span class="s2"> %b </span><span class="si">%d</span><span class="s2"> %H:%M:%S %Y&quot;</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">t_obj</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">spec_fmt</span><span class="p">)</span>
     <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
-        <span class="n">spock_fmt</span> <span class="o">=</span> <span class="s2">"%m/</span><span class="si">%d</span><span class="s2">/%y %H:%M:%S"</span>
+        <span class="n">spock_fmt</span> <span class="o">=</span> <span class="s2">&quot;%m/</span><span class="si">%d</span><span class="s2">/%y %H:%M:%S&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">t_obj</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">spock_fmt</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">ex</span>
-    <span class="n">iso_fmt</span> <span class="o">=</span> <span class="s2">"%Y-%m-</span><span class="si">%d</span><span class="s2">T%H:%M:%S"</span>
+    <span class="n">iso_fmt</span> <span class="o">=</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">T%H:%M:%S&quot;</span>
     <span class="n">iso</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">iso_fmt</span><span class="p">,</span> <span class="n">t_obj</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">iso</span></div>
 
 
 <div class="viewcode-block" id="strip_first_word"><a class="viewcode-back" href="../../utils.html#spec2nexus.utils.strip_first_word">[docs]</a><span class="k">def</span> <span class="nf">strip_first_word</span><span class="p">(</span><span class="n">line</span><span class="p">):</span>
-    <span class="sd">"""return everything after the first space on the line from the spec data file"""</span>
-    <span class="n">pos</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
+    <span class="sd">&quot;&quot;&quot;return everything after the first space on the line from the spec data file&quot;&quot;&quot;</span>
+    <span class="n">pos</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
     <span class="n">val</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="n">pos</span><span class="p">:]</span>
     <span class="k">return</span> <span class="n">val</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span></div>
 
 
 <div class="viewcode-block" id="split_column_labels"><a class="viewcode-back" href="../../utils.html#spec2nexus.utils.split_column_labels">[docs]</a><span class="k">def</span> <span class="nf">split_column_labels</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
-    <span class="sd">"""SPEC labels may contain one space"""</span>
-    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"  +"</span><span class="p">,</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="p">,</span> <span class="s2">"  "</span><span class="p">))</span></div>
+    <span class="sd">&quot;&quot;&quot;SPEC labels may contain one space&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;  +&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;  &quot;</span><span class="p">))</span></div>
 
 
 <div class="viewcode-block" id="split_scan_number_string"><a class="viewcode-back" href="../../utils.html#spec2nexus.utils.split_scan_number_string">[docs]</a><span class="k">def</span> <span class="nf">split_scan_number_string</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Split a string scan number into its parts.</span>
 
 <span class="sd">    key str:</span>
@@ -360,13 +362,13 @@
 
 <span class="sd">    EXAMPLES::</span>
 
-<span class="sd">        &gt;&gt;&gt; split_scan_number_string("0")</span>
+<span class="sd">        &gt;&gt;&gt; split_scan_number_string(&quot;0&quot;)</span>
 <span class="sd">        (0, 0)</span>
-<span class="sd">        &gt;&gt;&gt; split_scan_number_string("0.5")</span>
+<span class="sd">        &gt;&gt;&gt; split_scan_number_string(&quot;0.5&quot;)</span>
 <span class="sd">        (0, 5)</span>
-<span class="sd">    """</span>
-    <span class="c1"># rstrip(".") is for pathological key="0."</span>
-    <span class="n">parts</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">)</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">"."</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"."</span><span class="p">)))</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># rstrip(&quot;.&quot;) is for pathological key=&quot;0.&quot;</span>
+    <span class="n">parts</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">)</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)))</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">parts</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">parts</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">parts</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
@@ -375,7 +377,7 @@
 
 
 <div class="viewcode-block" id="sanitize_name"><a class="viewcode-back" href="../../utils.html#spec2nexus.utils.sanitize_name">[docs]</a><span class="k">def</span> <span class="nf">sanitize_name</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>  <span class="c1"># for legacy support only</span>
-    <span class="sd">"""make name that is allowed by HDF5 and NeXus rules</span>
+    <span class="sd">&quot;&quot;&quot;make name that is allowed by HDF5 and NeXus rules</span>
 
 <span class="sd">    :note: **deprecated**  use :func:`clean_name` instead (``group`` is never used)</span>
 <span class="sd">    :param str group: unused</span>
@@ -389,12 +391,12 @@
 
 <span class="sd">    An easier expression might be:  ``[\w_]*`` but this will not pass</span>
 <span class="sd">    the rule that valid names cannot start with a digit.</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">clean_name</span><span class="p">(</span><span class="n">key</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="reshape_data"><a class="viewcode-back" href="../../utils.html#spec2nexus.utils.reshape_data">[docs]</a><span class="k">def</span> <span class="nf">reshape_data</span><span class="p">(</span><span class="n">scan_data</span><span class="p">,</span> <span class="n">scan_shape</span><span class="p">):</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Shape scan data from raw to different dimensionality</span>
 
 <span class="sd">    Some SPEC macros collect data in a mesh or grid yet</span>
@@ -403,7 +405,7 @@
 <span class="sd">    needs to be reshaped according to its intended dimensionality.</span>
 
 <span class="sd">    modified from nexpy.readers.readspec.reshape_data</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">scan_size</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">scan_shape</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">scan_data</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="n">scan_size</span><span class="p">:</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">scan_data</span>
@@ -462,6 +464,7 @@
 </div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
     </body>

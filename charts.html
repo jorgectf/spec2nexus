@@ -1,14 +1,14 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="spec2nexus.control_lines" href="control_lines.html" /><link rel="prev" title="API" href="api.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>spec2nexus.charts - spec2nexus 2021.2.1</title>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
+        <title>spec2nexus.charts - spec2nexus 2021.2.1 (2.g4f4a891)</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">spec2nexus 2021.2.1</div></a>
+      <a href="index.html"><div class="brand">spec2nexus 2021.2.1 (2.g4f4a891)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.1</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.1 (2.g4f4a891)</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -217,6 +217,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="scanf.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.scanf</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="singletons.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.singletons</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="spec.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="writer.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code></a></li>
 </ul>
@@ -245,7 +246,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -260,24 +262,22 @@
         </div>
         <article role="main">
           <section id="spec2nexus-charts">
-<span id="charts"></span><h1><a class="reference internal" href="#module-spec2nexus.charts" title="spec2nexus.charts: charting for spec2nexus"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.charts</span></code></a><a class="headerlink" href="#spec2nexus-charts" title="Permalink to this headline">#</a></h1>
+<span id="charts"></span><h1><a class="reference internal" href="#module-spec2nexus.charts" title="spec2nexus.charts: charting for spec2nexus"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.charts</span></code></a><a class="headerlink" href="#spec2nexus-charts" title="Permalink to this heading">#</a></h1>
 <section id="module-spec2nexus.charts">
-<span id="source-code-documentation"></span><h2>source code documentation<a class="headerlink" href="#module-spec2nexus.charts" title="Permalink to this headline">#</a></h2>
+<span id="source-code-documentation"></span><h2>source code documentation<a class="headerlink" href="#module-spec2nexus.charts" title="Permalink to this heading">#</a></h2>
 <p>charting for spec2nexus</p>
-<div class="table-wrapper"><table class="autosummary longtable docutils align-default">
-<colgroup>
-<col style="width: 10%"/>
-<col style="width: 90%"/>
-</colgroup>
+<div class="table-wrapper autosummary longtable docutils container">
+<table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.charts.make_png" title="spec2nexus.charts.make_png"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_png</span></code></a>(image, image_file[, axes, title, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.charts.make_png" title="spec2nexus.charts.make_png"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_png</span></code></a>(image, image_file[, axes, title, ...])</p></td>
 <td><p>read the image from the named HDF5 file and make a PNG file</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.charts.xy_plot" title="spec2nexus.charts.xy_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xy_plot</span></code></a>(x, y, plot_file[, title, subtitle, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.charts.xy_plot" title="spec2nexus.charts.xy_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xy_plot</span></code></a>(x, y, plot_file[, title, subtitle, ...])</p></td>
 <td><p>with MatPlotLib, generate a plot of a scan (as if data from a scan in a SPEC file)</p></td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
 <dl class="py function">
 <dt class="sig sig-object py" id="spec2nexus.charts.make_png">
 <span class="sig-prename descclassname"><span class="pre">spec2nexus.charts.</span></span><span class="sig-name descname"><span class="pre">make_png</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'2-D</span> <span class="pre">data'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtitle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_image</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cubehelix'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xtitle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ytitle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/charts.html#make_png"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.charts.make_png" title="Permalink to this definition">#</a></dt>
@@ -286,7 +286,7 @@
 Read the data from the named dataset, mask off some bad values,
 convert to log(image) and use Matplotlib to make the PNG file.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>image</strong> (<em>obj</em>) – array of data to be rendered</p></li>
 <li><p><strong>image_file</strong> (<em>str</em>) – name of image file to be written (path is optional)</p></li>
@@ -296,18 +296,19 @@ convert to log(image) and use Matplotlib to make the PNG file.</p>
 <li><p><strong>cmap</strong> (<em>str</em>) – colormap for the image (default: ‘cubehelix’), ‘jet’ is another good one</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return str</dt>
+<dt class="field-even">Return str<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>image_file</em></p>
 </dd>
 </dl>
 <p>The HDF5 file could be a NeXus file, or some other layout.</p>
 </dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="spec2nexus.charts.xy_plot">
 <span class="sig-prename descclassname"><span class="pre">spec2nexus.charts.</span></span><span class="sig-name descname"><span class="pre">xy_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtitle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xtitle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ytitle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/charts.html#xy_plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.charts.xy_plot" title="Permalink to this definition">#</a></dt>
 <dd><p>with MatPlotLib, generate a plot of a scan (as if data from a scan in a SPEC file)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>x</strong> (<em>[</em><em>float</em><em>]</em>) – horizontal axis data</p></li>
 <li><p><strong>y</strong> (<em>[</em><em>float</em><em>]</em>) – vertical axis data</p></li>
@@ -334,6 +335,7 @@ will eventually run out of memory.</p>
 <a class="reference external" href="https://stackoverflow.com/questions/16334588/create-a-figure-that-is-reference-counted/16337909#16337909">https://stackoverflow.com/questions/16334588/create-a-figure-that-is-reference-counted/16337909#16337909</a></p>
 </div>
 </dd></dl>
+
 </section>
 </section>
 
@@ -410,6 +412,7 @@ will eventually run out of memory.</p>
 </div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/scripts/furo.js"></script>
     </body>

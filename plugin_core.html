@@ -1,14 +1,14 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="XPCS plugin" href="supplied_plugins/XPCS.html" /><link rel="prev" title="spec2nexus.diffractometers" href="diffractometers.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>spec2nexus.plugin - spec2nexus 2021.2.1</title>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
+        <title>spec2nexus.plugin - spec2nexus 2021.2.1 (2.g4f4a891)</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">spec2nexus 2021.2.1</div></a>
+      <a href="index.html"><div class="brand">spec2nexus 2021.2.1 (2.g4f4a891)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.1</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.1 (2.g4f4a891)</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -217,6 +217,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="scanf.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.scanf</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="singletons.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.singletons</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="spec.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="writer.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code></a></li>
 </ul>
@@ -245,7 +246,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -260,7 +262,7 @@
         </div>
         <article role="main">
           <section id="spec2nexus-plugin">
-<span id="index-0"></span><h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.plugin</span></code><a class="headerlink" href="#spec2nexus-plugin" title="Permalink to this headline">#</a></h1>
+<span id="index-0"></span><h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.plugin</span></code><a class="headerlink" href="#spec2nexus-plugin" title="Permalink to this heading">#</a></h1>
 <p>An extensible plugin architecture is used to handle the different possible
 <span class="target" id="index-1"></span>control line
 control lines (such as <strong>#F</strong>, <strong>#E</strong>, <strong>#S</strong>, …) in a SPEC data file.</p>
@@ -275,13 +277,10 @@ Any control line encountered but not recognized will be placed as text
 in a NeXus <strong>NXnote</strong> group named <code class="docutils literal notranslate"><span class="pre">unrecognized_NNN</span></code> (where <code class="docutils literal notranslate"><span class="pre">NNN</span></code>
 is from 1 to the maximum number of unrecognized control lines).</p>
 <section id="supplied-spec-plugin-modules">
-<span id="supplied-plugins"></span><h2>Supplied <strong>spec</strong> plugin modules<a class="headerlink" href="#supplied-spec-plugin-modules" title="Permalink to this headline">#</a></h2>
+<span id="supplied-plugins"></span><h2>Supplied <strong>spec</strong> plugin modules<a class="headerlink" href="#supplied-spec-plugin-modules" title="Permalink to this heading">#</a></h2>
 <p>These plugin modules are supplied:</p>
-<div class="table-wrapper"><table class="autosummary longtable docutils align-default">
-<colgroup>
-<col style="width: 10%"/>
-<col style="width: 90%"/>
-</colgroup>
+<div class="table-wrapper autosummary longtable docutils container">
+<table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="supplied_plugins/spec_common.html#module-spec2nexus.plugins.spec_common" title="spec2nexus.plugins.spec_common: SPEC standard data file support."><code class="xref py py-obj docutils literal notranslate"><span class="pre">spec_common</span></code></a></p></td>
 <td><p>SPEC data file standard control lines</p></td>
@@ -302,12 +301,13 @@ is from 1 to the maximum number of unrecognized control lines).</p>
 <td><p>SPEC data file control lines unique to the APS XPCS instrument</p></td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
 <div class="toctree-wrapper compound">
 </div>
 </section>
 <section id="writing-a-custom-plugin">
-<h2>Writing a custom plugin<a class="headerlink" href="#writing-a-custom-plugin" title="Permalink to this headline">#</a></h2>
+<h2>Writing a custom plugin<a class="headerlink" href="#writing-a-custom-plugin" title="Permalink to this heading">#</a></h2>
 <p>While <strong>spec2nexus</strong> provides a comprehensive set of plugins to handle the
 common SPEC <span class="target" id="index-2"></span>control line control lines, custom control lines are used
 at many facilities to write additional scan data and scan metadata into the SPEC
@@ -315,13 +315,10 @@ data file.  Custom plugins are written to process these additions.  See the
 <a class="reference internal" href="how_to_write_plugin.html#how-to-write-plugin"><span class="std std-ref">How to write a custom control line handling plugin module for spec</span></a> section for details.</p>
 </section>
 <section id="overview-of-the-supplied-spec-plugins">
-<span id="control-line-table"></span><h2>Overview of the supplied <strong>spec</strong> plugins<a class="headerlink" href="#overview-of-the-supplied-spec-plugins" title="Permalink to this headline">#</a></h2>
-<p>Plugins for these control lines <a class="footnote-reference brackets" href="#id2" id="id1">1</a> are provided in <strong>spec2nexus</strong>:</p>
-<div class="table-wrapper"><table class="autosummary longtable docutils align-default">
-<colgroup>
-<col style="width: 10%"/>
-<col style="width: 90%"/>
-</colgroup>
+<span id="control-line-table"></span><h2>Overview of the supplied <strong>spec</strong> plugins<a class="headerlink" href="#overview-of-the-supplied-spec-plugins" title="Permalink to this heading">#</a></h2>
+<p>Plugins for these control lines <a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> are provided in <strong>spec2nexus</strong>:</p>
+<div class="table-wrapper autosummary longtable docutils container">
+<table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_File" title="spec2nexus.plugins.spec_common.SPEC_File"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SPEC_File</span></code></a></p></td>
 <td><p><strong>#F</strong> -- original data file name (starts a file header block)</p></td>
@@ -384,22 +381,22 @@ data file.  Custom plugins are written to process these additions.  See the
 <td><p><strong>(scan_data)</strong> -- scan data line</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_MCA" title="spec2nexus.plugins.spec_common.SPEC_MCA"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SPEC_MCA</span></code></a></p></td>
-<td><p><strong>#@MCA</strong> -- MCA data formatting declaration (ignored for now)</p></td>
+<td><p><strong>#&#64;MCA</strong> -- MCA data formatting declaration (ignored for now)</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_MCA_Array" title="spec2nexus.plugins.spec_common.SPEC_MCA_Array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SPEC_MCA_Array</span></code></a></p></td>
-<td><p><strong>@A</strong> -- MCA Array data</p></td>
+<td><p><strong>&#64;A</strong> -- MCA Array data</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_MCA_Calibration" title="spec2nexus.plugins.spec_common.SPEC_MCA_Calibration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SPEC_MCA_Calibration</span></code></a></p></td>
-<td><p><strong>#@CALIB</strong> -- coefficients to compute a scale based on the MCA channel number</p></td>
+<td><p><strong>#&#64;CALIB</strong> -- coefficients to compute a scale based on the MCA channel number</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_MCA_ChannelInformation" title="spec2nexus.plugins.spec_common.SPEC_MCA_ChannelInformation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SPEC_MCA_ChannelInformation</span></code></a></p></td>
-<td><p><strong>#@CHANN</strong> -- MCA channel information</p></td>
+<td><p><strong>#&#64;CHANN</strong> -- MCA channel information</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_MCA_CountTime" title="spec2nexus.plugins.spec_common.SPEC_MCA_CountTime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SPEC_MCA_CountTime</span></code></a></p></td>
-<td><p><strong>#@CTIME</strong> -- MCA count times</p></td>
+<td><p><strong>#&#64;CTIME</strong> -- MCA count times</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_MCA_RegionOfInterest" title="spec2nexus.plugins.spec_common.SPEC_MCA_RegionOfInterest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SPEC_MCA_RegionOfInterest</span></code></a></p></td>
-<td><p><strong>#@ROI</strong> -- MCA ROI (Region Of Interest) channel information</p></td>
+<td><p><strong>#&#64;ROI</strong> -- MCA ROI (Region Of Interest) channel information</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="supplied_plugins/fallback.html#spec2nexus.plugins.fallback.UnrecognizedControlLine" title="spec2nexus.plugins.fallback.UnrecognizedControlLine"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UnrecognizedControlLine</span></code></a></p></td>
 <td><p>unrecognized control line</p></td>
@@ -423,21 +420,20 @@ data file.  Custom plugins are written to process these additions.  See the
 <td><p><strong>#VE</strong></p></td>
 </tr>
 </tbody>
-</table></div>
-<dl class="footnote brackets">
-<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>Compare this list with <a class="reference internal" href="spec.html#plugin-list"><span class="std std-ref">Control lines (keys) defined by SPEC</span></a></p>
-</dd>
-</dl>
+</table>
+</div>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id2" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Compare this list with <a class="reference internal" href="spec.html#plugin-list"><span class="std std-ref">Control lines (keys) defined by SPEC</span></a></p>
+</aside>
+</aside>
 </section>
 <section id="module-spec2nexus.plugin_core">
-<span id="source-code-documentation"></span><h2>source code documentation<a class="headerlink" href="#module-spec2nexus.plugin_core" title="Permalink to this headline">#</a></h2>
+<span id="source-code-documentation"></span><h2>source code documentation<a class="headerlink" href="#module-spec2nexus.plugin_core" title="Permalink to this heading">#</a></h2>
 <p>Python plugin support for handling SPEC control lines (such as #S, #D, …).</p>
-<div class="table-wrapper"><table class="autosummary longtable docutils align-default">
-<colgroup>
-<col style="width: 10%"/>
-<col style="width: 90%"/>
-</colgroup>
+<div class="table-wrapper autosummary longtable docutils container">
+<table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.plugin_core.ControlLineBase" title="spec2nexus.plugin_core.ControlLineBase"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ControlLineBase</span></code></a>()</p></td>
 <td><p>Base class for SPEC data file control line handler plugins.</p></td>
@@ -446,19 +442,18 @@ data file.  Custom plugins are written to process these additions.  See the
 <td><p>Install plugin(s) from a Python file.</p></td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
 <p>REGISTRATION SUPPORT (internal use only)</p>
-<div class="table-wrapper"><table class="autosummary longtable docutils align-default">
-<colgroup>
-<col style="width: 10%"/>
-<col style="width: 90%"/>
-</colgroup>
+<div class="table-wrapper autosummary longtable docutils container">
+<table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.plugin_core.PluginMounter" title="spec2nexus.plugin_core.PluginMounter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PluginMounter</span></code></a>(name, bases, attrs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.plugin_core.PluginMounter" title="spec2nexus.plugin_core.PluginMounter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PluginMounter</span></code></a>(name, bases, attrs)</p></td>
 <td><p>(internal) Register and initiate all plugins subclassed from PluginBase.</p></td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
 <p># from: <a class="reference external" href="https://gist.github.com/will-hart/5899567">https://gist.github.com/will-hart/5899567</a>
 # a simple Python plugin loading system
 # see: <a class="reference external" href="http://stackoverflow.com/questions/14510286/plugin-architecture-plugin-manager-vs-inspecting-from-plugins-import">http://stackoverflow.com/questions/14510286/plugin-architecture-plugin-manager-vs-inspecting-from-plugins-import</a></p>
@@ -492,26 +487,24 @@ key.</p>
 <dt>returns:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
 </dd>
 </dl>
-<div class="table-wrapper"><table class="autosummary longtable docutils align-default">
-<colgroup>
-<col style="width: 10%"/>
-<col style="width: 90%"/>
-</colgroup>
+<div class="table-wrapper autosummary longtable docutils container">
+<table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.plugin_core.ControlLineBase.process" title="spec2nexus.plugin_core.ControlLineBase.process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process</span></code></a>(text, spec_obj, *args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.plugin_core.ControlLineBase.process" title="spec2nexus.plugin_core.ControlLineBase.process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process</span></code></a>(text, spec_obj, *args, **kwargs)</p></td>
 <td><p><em>required:</em> Handle this line from a SPEC data file.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.plugin_core.ControlLineBase.postprocess" title="spec2nexus.plugin_core.ControlLineBase.postprocess"><code class="xref py py-obj docutils literal notranslate"><span class="pre">postprocess</span></code></a>(header, *args, **kws)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.plugin_core.ControlLineBase.postprocess" title="spec2nexus.plugin_core.ControlLineBase.postprocess"><code class="xref py py-obj docutils literal notranslate"><span class="pre">postprocess</span></code></a>(header, *args, **kws)</p></td>
 <td><p><em>optional:</em> More processing deferred until <em>after</em> data file has been read.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.plugin_core.ControlLineBase.writer" title="spec2nexus.plugin_core.ControlLineBase.writer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">writer</span></code></a>(h5parent, writer, scan[, nxclass])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.plugin_core.ControlLineBase.writer" title="spec2nexus.plugin_core.ControlLineBase.writer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">writer</span></code></a>(h5parent, writer, scan[, nxclass])</p></td>
 <td><p><em>optional:</em> Describe how to store this data in a NeXus HDF5 file.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.plugin_core.ControlLineBase.match_key" title="spec2nexus.plugin_core.ControlLineBase.match_key"><code class="xref py py-obj docutils literal notranslate"><span class="pre">match_key</span></code></a>(text)</p></td>
 <td><p>Test if this handler's key matches text.</p></td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
 <p>EXAMPLE of <code class="docutils literal notranslate"><span class="pre">match_key</span></code> method:</p>
 <p>Declaration of the <code class="docutils literal notranslate"><span class="pre">match_key</span></code> method is optional in a subclass.
 This is used to test a given line from a SPEC data file against the
@@ -533,22 +526,24 @@ This is the example used by
 <span class="sig-name descname"><span class="pre">match_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/plugin_core.html#ControlLineBase.match_key"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin_core.ControlLineBase.match_key" title="Permalink to this definition">#</a></dt>
 <dd><p>Test if this handler’s key matches text.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>text</strong> (<em>str</em>) – first word on the line,
 up to but not including the first whitespace</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>key or None</p>
 </dd>
 </dl>
 <p>Applies a regular expression match using each handler’s
 <code class="docutils literal notranslate"><span class="pre">key</span></code> as the regular expression to match with <code class="docutils literal notranslate"><span class="pre">text</span></code>.</p>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugin_core.ControlLineBase.postprocess">
 <span class="sig-name descname"><span class="pre">postprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/plugin_core.html#ControlLineBase.postprocess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin_core.ControlLineBase.postprocess" title="Permalink to this definition">#</a></dt>
 <dd><p><em>optional:</em> More processing deferred until <em>after</em> data file has been read.</p>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugin_core.ControlLineBase.process">
 <span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spec_obj</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/plugin_core.html#ControlLineBase.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin_core.ControlLineBase.process" title="Permalink to this definition">#</a></dt>
@@ -563,42 +558,46 @@ up to but not including the first whitespace</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugin_core.ControlLineBase.writer">
 <span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/plugin_core.html#ControlLineBase.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin_core.ControlLineBase.writer" title="Permalink to this definition">#</a></dt>
 <dd><p><em>optional:</em> Describe how to store this data in a NeXus HDF5 file.</p>
 </dd></dl>
+
 </dd></dl>
+
 <dl class="py exception">
 <dt class="sig sig-object py" id="spec2nexus.plugin_core.DuplicateKeyError">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugin_core.</span></span><span class="sig-name descname"><span class="pre">DuplicateKeyError</span></span><a class="reference internal" href="_modules/spec2nexus/plugin_core.html#DuplicateKeyError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin_core.DuplicateKeyError" title="Permalink to this definition">#</a></dt>
 <dd><p>Cannot add more than one plugin for the same control key.</p>
 </dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.plugin_core.PluginMounter">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugin_core.</span></span><span class="sig-name descname"><span class="pre">PluginMounter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bases</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/plugin_core.html#PluginMounter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin_core.PluginMounter" title="Permalink to this definition">#</a></dt>
 <dd><p>(internal) Register and initiate all plugins subclassed from PluginBase.</p>
-<div class="table-wrapper"><table class="autosummary longtable docutils align-default">
-<colgroup>
-<col style="width: 10%"/>
-<col style="width: 90%"/>
-</colgroup>
+<div class="table-wrapper autosummary longtable docutils container">
+<table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">_enroll</span></code>(plugin)</p></td>
 <td><p>Add the plugin to the plugin list and perform any registration logic.</p></td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
 <p>Acts as a metaclass which creates anything inheriting from PluginBase.
 A plugin mount point derived from:
 <a class="reference external" href="http://martyalchin.com/2008/jan/10/simple-plugin-framework/">http://martyalchin.com/2008/jan/10/simple-plugin-framework/</a></p>
 </dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="spec2nexus.plugin_core.install_user_plugin">
 <span class="sig-prename descclassname"><span class="pre">spec2nexus.plugin_core.</span></span><span class="sig-name descname"><span class="pre">install_user_plugin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plugin_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/plugin_core.html#install_user_plugin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugin_core.install_user_plugin" title="Permalink to this definition">#</a></dt>
 <dd><p>Install plugin(s) from a Python file.</p>
 <p>Potentially dangerous since this is an import of a user-created file.</p>
 </dd></dl>
+
 </section>
 </section>
 
@@ -678,6 +677,7 @@ A plugin mount point derived from:
 </div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/scripts/furo.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>

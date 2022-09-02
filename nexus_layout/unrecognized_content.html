@@ -1,14 +1,14 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="extractSpecScan" href="../extractSpecScan.html" /><link rel="prev" title="Temperature" href="temperature.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>Unrecognized Control Line - spec2nexus 2021.2.1</title>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
+        <title>Unrecognized Control Line - spec2nexus 2021.2.1 (2.g4f4a891)</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">spec2nexus 2021.2.1</div></a>
+      <a href="../index.html"><div class="brand">spec2nexus 2021.2.1 (2.g4f4a891)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.1</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.1 (2.g4f4a891)</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -217,6 +217,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../scanf.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.scanf</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../singletons.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.singletons</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spec.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../writer.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code></a></li>
 </ul>
@@ -245,7 +246,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -260,9 +262,9 @@
         </div>
         <article role="main">
           <section id="unrecognized-control-line">
-<span id="data-file-unrecognized"></span><h1>Unrecognized Control Line<a class="headerlink" href="#unrecognized-control-line" title="Permalink to this headline">#</a></h1>
+<span id="data-file-unrecognized"></span><h1>Unrecognized Control Line<a class="headerlink" href="#unrecognized-control-line" title="Permalink to this heading">#</a></h1>
 <p>Any control line that is not recognized by a plugin (see <a class="reference internal" href="../spec.html#plugin-list"><span class="std std-ref">Control lines (keys) defined by SPEC</span></a>)
-will be written to a <strong>NXnote</strong> <a class="footnote-reference brackets" href="#nxnote" id="id1">1</a> group named <code class="docutils literal notranslate"><span class="pre">unrecognized_{N}</span></code>
+will be written to a <strong>NXnote</strong> <a class="footnote-reference brackets" href="#nxnote" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> group named <code class="docutils literal notranslate"><span class="pre">unrecognized_{N}</span></code>
 (where <code class="docutils literal notranslate"><span class="pre">{N}</span></code>) is a numbered index starting at <code class="docutils literal notranslate"><span class="pre">1</span></code>. (The algorithm looks for
 the first available name not already used.)  Each unrecognized control line will
 be added to this group in a separate field. Here is an example from a SPEC data
@@ -274,19 +276,20 @@ file with two such lines:</p>
 </div>
 <p>and how that content is represented in the NeXus HDF5 file:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">unrecognized_1</span><span class="p">:</span><span class="n">NXnote</span>
-<span class="linenos">2</span>   <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">"NXnote"</span>
-<span class="linenos">3</span>   <span class="nd">@description</span> <span class="o">=</span> <span class="s2">"SPEC data file control lines not otherwise recognized"</span>
-<span class="linenos">4</span>   <span class="n">u0</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'# this line will not be recognized'</span><span class="p">]</span>
-<span class="linenos">5</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"u0"</span>
-<span class="linenos">6</span>   <span class="n">u1</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'# another one'</span><span class="p">]</span>
-<span class="linenos">7</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">"u1"</span>
+<span class="linenos">2</span>   <span class="nd">@NX_class</span> <span class="o">=</span> <span class="s2">&quot;NXnote&quot;</span>
+<span class="linenos">3</span>   <span class="nd">@description</span> <span class="o">=</span> <span class="s2">&quot;SPEC data file control lines not otherwise recognized&quot;</span>
+<span class="linenos">4</span>   <span class="n">u0</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">&#39;# this line will not be recognized&#39;</span><span class="p">]</span>
+<span class="linenos">5</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">&quot;u0&quot;</span>
+<span class="linenos">6</span>   <span class="n">u1</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">&#39;# another one&#39;</span><span class="p">]</span>
+<span class="linenos">7</span>     <span class="nd">@spec_name</span> <span class="o">=</span> <span class="s2">&quot;u1&quot;</span>
 </pre></div>
 </div>
-<dl class="footnote brackets">
-<dt class="label" id="nxnote"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p><strong>NXnote</strong>:   <a class="reference external" href="https://manual.nexusformat.org/classes/base_classes/NXnote.html">https://manual.nexusformat.org/classes/base_classes/NXnote.html</a></p>
-</dd>
-</dl>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="nxnote" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p><strong>NXnote</strong>:   <a class="reference external" href="https://manual.nexusformat.org/classes/base_classes/NXnote.html">https://manual.nexusformat.org/classes/base_classes/NXnote.html</a></p>
+</aside>
+</aside>
 </section>
 
         </article>
@@ -343,6 +346,7 @@ file with two such lines:</p>
 </div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/scripts/furo.js"></script>
     </body>

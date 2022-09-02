@@ -1,14 +1,14 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="SPEC Data File" href="spec_data_file.html" /><link rel="prev" title="Basic Tree Structure" href="basic_tree.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>General Tree Structure - spec2nexus 2021.2.1</title>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
+        <title>General Tree Structure - spec2nexus 2021.2.1 (2.g4f4a891)</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">spec2nexus 2021.2.1</div></a>
+      <a href="../index.html"><div class="brand">spec2nexus 2021.2.1 (2.g4f4a891)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.1</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.1 (2.g4f4a891)</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -217,6 +217,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../scanf.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.scanf</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../singletons.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.singletons</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spec.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../writer.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code></a></li>
 </ul>
@@ -245,7 +246,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -260,15 +262,11 @@
         </div>
         <article role="main">
           <section id="general-tree-structure">
-<h1>General Tree Structure<a class="headerlink" href="#general-tree-structure" title="Permalink to this headline">#</a></h1>
+<h1>General Tree Structure<a class="headerlink" href="#general-tree-structure" title="Permalink to this heading">#</a></h1>
 <p>The <strong>general tree structure</strong> (with parts described in the sections below)
 will follow this outline:</p>
-<div class="table-wrapper"><table class="docutils align-default">
-<colgroup>
-<col style="width: 44%"/>
-<col style="width: 15%"/>
-<col style="width: 42%"/>
-</colgroup>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>HDF5 address</p></th>
 <th class="head"><p>structure</p></th>
@@ -280,11 +278,11 @@ will follow this outline:</p>
 <td><p>(NXroot)</p></td>
 <td><p><a class="reference internal" href="spec_data_file.html#data-file"><span class="std std-ref">SPEC Data File</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/@default</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/&#64;default</span></code></p></td>
 <td><p>NX_CHAR</p></td>
 <td><p><a class="reference internal" href="spec_data_file.html#data-file"><span class="std std-ref">SPEC Data File</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/@SPEC_num_headers</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/&#64;SPEC_num_headers</span></code></p></td>
 <td><p>NX_INT</p></td>
 <td><p><a class="reference internal" href="spec_data_file.html#data-file"><span class="std std-ref">SPEC Data File</span></a></p></td>
 </tr>
@@ -292,7 +290,7 @@ will follow this outline:</p>
 <td><p>NXentry</p></td>
 <td><p><a class="reference internal" href="spec_scan.html#data-file-scan"><span class="std std-ref">Scan</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/@default</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/&#64;default</span></code></p></td>
 <td><p>NX_CHAR</p></td>
 <td><p><a class="reference internal" href="spec_scan.html#data-file-scan"><span class="std std-ref">Scan</span></a></p></td>
 </tr>
@@ -316,11 +314,11 @@ will follow this outline:</p>
 <td><p>NXdata</p></td>
 <td><p><a class="reference internal" href="scan_data.html#data-file-scan-data"><span class="std std-ref">Scan Data</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/data/@axes</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/data/&#64;axes</span></code></p></td>
 <td><p>NX_CHAR</p></td>
 <td><p><a class="reference internal" href="scan_data.html#data-file-scan-data"><span class="std std-ref">Scan Data</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/data/@signal</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/SCAN/data/&#64;signal</span></code></p></td>
 <td><p>NX_CHAR</p></td>
 <td><p><a class="reference internal" href="scan_data.html#data-file-scan-data"><span class="std std-ref">Scan Data</span></a></p></td>
 </tr>
@@ -545,15 +543,13 @@ will follow this outline:</p>
 <td><p><a class="reference internal" href="metadata.html#data-file-metadata-uxml"><span class="std std-ref">UXML</span></a></p></td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
 <section id="nexus-base-classes">
-<span id="id1"></span><h2>NeXus base classes<a class="headerlink" href="#nexus-base-classes" title="Permalink to this headline">#</a></h2>
+<span id="id1"></span><h2>NeXus base classes<a class="headerlink" href="#nexus-base-classes" title="Permalink to this heading">#</a></h2>
 <p>These classes are used by <strong>spec2nexus</strong> to structure a NeXus HDF5 data file.</p>
-<div class="table-wrapper"><table class="docutils align-default">
-<colgroup>
-<col style="width: 21%"/>
-<col style="width: 79%"/>
-</colgroup>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>NeXus base class</p></th>
 <th class="head"><p>documentation URL</p></th>
@@ -594,18 +590,16 @@ will follow this outline:</p>
 <td><p><a class="reference external" href="https://manual.nexusformat.org/classes/base_classes/NXsample.html">https://manual.nexusformat.org/classes/base_classes/NXsample.html</a></p></td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
 <p>Visit the NeXus documentation for a complete list of NeXus classes:
 <a class="reference external" href="https://manual.nexusformat.org/classes/index.html">https://manual.nexusformat.org/classes/index.html</a></p>
 </section>
 <section id="nexus-data-types">
-<span id="id2"></span><h2>NeXus data types<a class="headerlink" href="#nexus-data-types" title="Permalink to this headline">#</a></h2>
+<span id="id2"></span><h2>NeXus data types<a class="headerlink" href="#nexus-data-types" title="Permalink to this heading">#</a></h2>
 <p>These data types are used by <strong>spec2nexus</strong> to structure a NeXus HDF5 data file.</p>
-<div class="table-wrapper"><table class="docutils align-default">
-<colgroup>
-<col style="width: 20%"/>
-<col style="width: 80%"/>
-</colgroup>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>type</p></th>
 <th class="head"><p>description</p></th>
@@ -625,7 +619,8 @@ will follow this outline:</p>
 <td><p>any valid NeXus number representation (scaler or array)</p></td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
 <p>Visit the NeXus documentation for a complete list of NeXus data types
 (and unit categories): <a class="reference external" href="https://manual.nexusformat.org/nxdl-types.html">https://manual.nexusformat.org/nxdl-types.html</a></p>
 </section>
@@ -705,6 +700,7 @@ will follow this outline:</p>
 </div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/scripts/furo.js"></script>
     </body>

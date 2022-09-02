@@ -1,14 +1,14 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Example 1-D scan" href="example_1d_scan.html" /><link rel="prev" title="spec2nexus" href="../spec2nexus.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>NeXus File Layout - spec2nexus 2021.2.1</title>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
+        <title>NeXus File Layout - spec2nexus 2021.2.1 (2.g4f4a891)</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">spec2nexus 2021.2.1</div></a>
+      <a href="../index.html"><div class="brand">spec2nexus 2021.2.1 (2.g4f4a891)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.1</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.1 (2.g4f4a891)</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -217,6 +217,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../scanf.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.scanf</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../singletons.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.singletons</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spec.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../writer.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code></a></li>
 </ul>
@@ -245,7 +246,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -260,12 +262,12 @@
         </div>
         <article role="main">
           <section id="nexus-file-layout">
-<h1>NeXus File Layout<a class="headerlink" href="#nexus-file-layout" title="Permalink to this headline">#</a></h1>
+<h1>NeXus File Layout<a class="headerlink" href="#nexus-file-layout" title="Permalink to this heading">#</a></h1>
 <p>SPEC data files contain data from one or more measurements called <em>scans</em>
-written according to the <strong>Standard Data-File Format</strong>. <a class="footnote-reference brackets" href="#spec-format" id="id1">1</a>  Each
+written according to the <strong>Standard Data-File Format</strong>. <a class="footnote-reference brackets" href="#spec-format" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>  Each
 scan is numbered (where the number is not necessarily unique within a data
-file).  NeXus files are written <a class="footnote-reference brackets" href="#id5" id="id2">2</a> as HDF5 files with a tree structure <a class="footnote-reference brackets" href="#id6" id="id3">3</a>
-where the groups use the NeXus base class <a class="footnote-reference brackets" href="#id7" id="id4">4</a> definitions.</p>
+file).  NeXus files are written <a class="footnote-reference brackets" href="#id5" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> as HDF5 files with a tree structure <a class="footnote-reference brackets" href="#id6" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>
+where the groups use the NeXus base class <a class="footnote-reference brackets" href="#id7" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a> definitions.</p>
 <p>HDF5 files are binary (not human readable); in this documentation, the tree
 structure (hierarchy) of the file will be shown.  Various terms are shown
 symbolically, as described in the next table.</p>
@@ -305,24 +307,28 @@ symbolically, as described in the next table.</p>
 <li class="toctree-l1"><a class="reference internal" href="unrecognized_content.html">Unrecognized Control Line</a></li>
 </ul>
 </div>
-<dl class="footnote brackets">
-<dt class="label" id="spec-format"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>SPEC <strong>Standard Data-File Format</strong> :
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="spec-format" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>SPEC <strong>Standard Data-File Format</strong> :
 <a class="reference external" href="https://certif.com/spec_manual/mac_3_13.html">https://certif.com/spec_manual/mac_3_13.html</a></p>
-</dd>
-<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p>NeXus objects and terms:
+</aside>
+<aside class="footnote brackets" id="id5" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>NeXus objects and terms:
 <a class="reference external" href="https://manual.nexusformat.org/design.html#nexus-objects-and-terms">https://manual.nexusformat.org/design.html#nexus-objects-and-terms</a></p>
-</dd>
-<dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
-<dd><p>NeXus tree structure:
+</aside>
+<aside class="footnote brackets" id="id6" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<p>NeXus tree structure:
 <a class="reference external" href="https://manual.nexusformat.org/introduction.html#example-of-a-nexus-file">https://manual.nexusformat.org/introduction.html#example-of-a-nexus-file</a></p>
-</dd>
-<dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
-<dd><p>NeXus groups (base classes):
+</aside>
+<aside class="footnote brackets" id="id7" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">4</a><span class="fn-bracket">]</span></span>
+<p>NeXus groups (base classes):
 <a class="reference external" href="https://manual.nexusformat.org/classes/base_classes/">https://manual.nexusformat.org/classes/base_classes/</a></p>
-</dd>
-</dl>
+</aside>
+</aside>
 </section>
 
         </article>
@@ -379,6 +385,7 @@ symbolically, as described in the next table.</p>
 </div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/scripts/furo.js"></script>
     </body>

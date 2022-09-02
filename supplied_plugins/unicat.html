@@ -1,14 +1,14 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="#UXML: UXML metadata plugin" href="uxml.html" /><link rel="prev" title="UIM plugin" href="uim.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>unicat plugin - spec2nexus 2021.2.1</title>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
+        <title>unicat plugin - spec2nexus 2021.2.1 (2.g4f4a891)</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">spec2nexus 2021.2.1</div></a>
+      <a href="../index.html"><div class="brand">spec2nexus 2021.2.1 (2.g4f4a891)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.1</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.1 (2.g4f4a891)</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -217,6 +217,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../scanf.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.scanf</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../singletons.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.singletons</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spec.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../writer.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code></a></li>
 </ul>
@@ -245,7 +246,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -260,7 +262,7 @@
         </div>
         <article role="main">
           <section id="module-spec2nexus.plugins.unicat">
-<span id="id1"></span><span id="unicat-plugin"></span><h1>unicat plugin<a class="headerlink" href="#module-spec2nexus.plugins.unicat" title="Permalink to this headline">#</a></h1>
+<span id="id1"></span><span id="unicat-plugin"></span><h1>unicat plugin<a class="headerlink" href="#module-spec2nexus.plugins.unicat" title="Permalink to this heading">#</a></h1>
 <p><strong>#H</strong> &amp; <strong>#V</strong> - Metadata in SPEC data files as defined by APS UNICAT</p>
 <p>Handles the UNICAT control lines which write additional metadata
 in the scans using #H/#V pairs of labels/values.</p>
@@ -301,7 +303,9 @@ acceptable but should be avoided.</p>
 </dd>
 </dl>
 </dd></dl>
+
 </dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="spec2nexus.plugins.unicat.UNICAT_MetadataValues">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.plugins.unicat.</span></span><span class="sig-name descname"><span class="pre">UNICAT_MetadataValues</span></span><a class="reference internal" href="../_modules/spec2nexus/plugins/unicat.html#UNICAT_MetadataValues"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.unicat.UNICAT_MetadataValues" title="Permalink to this definition">#</a></dt>
@@ -333,11 +337,12 @@ will be reported verbatim.</p>
 <span class="sig-name descname"><span class="pre">postprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/unicat.html#UNICAT_MetadataValues.postprocess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.unicat.UNICAT_MetadataValues.postprocess" title="Permalink to this definition">#</a></dt>
 <dd><p>interpret the UNICAT metadata (mostly floating point) from the scan header</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>scan</strong> (<a class="reference internal" href="../spec.html#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><em>SpecDataFileScan</em></a>) – data from a single SPEC scan (instance of SpecDataFileScan)</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.unicat.UNICAT_MetadataValues.process">
 <span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/unicat.html#UNICAT_MetadataValues.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.unicat.UNICAT_MetadataValues.process" title="Permalink to this definition">#</a></dt>
@@ -352,12 +357,15 @@ will be reported verbatim.</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="spec2nexus.plugins.unicat.UNICAT_MetadataValues.writer">
 <span class="sig-name descname"><span class="pre">writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spec2nexus/plugins/unicat.html#UNICAT_MetadataValues.writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.plugins.unicat.UNICAT_MetadataValues.writer" title="Permalink to this definition">#</a></dt>
 <dd><p>Describe how to store this data in an HDF5 NeXus file</p>
 </dd></dl>
+
 </dd></dl>
+
 </section>
 
         </article>
@@ -414,6 +422,7 @@ will be reported verbatim.</p>
 </div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/scripts/furo.js"></script>
     </body>

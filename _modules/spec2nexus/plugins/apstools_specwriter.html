@@ -1,13 +1,13 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>spec2nexus.plugins.apstools_specwriter - spec2nexus 2021.2.1</title>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
+        <title>spec2nexus.plugins.apstools_specwriter - spec2nexus 2021.2.1 (2.g4f4a891)</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -123,7 +123,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../../index.html"><div class="brand">spec2nexus 2021.2.1</div></a>
+      <a href="../../../index.html"><div class="brand">spec2nexus 2021.2.1 (2.g4f4a891)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -146,7 +146,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.1</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.1 (2.g4f4a891)</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -216,6 +216,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../scanf.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.scanf</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../singletons.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.singletons</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../spec.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../writer.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code></a></li>
 </ul>
@@ -244,7 +245,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -259,7 +261,7 @@
         </div>
         <article role="main">
           <h1>Source code for spec2nexus.plugins.apstools_specwriter</h1><div class="highlight"><pre>
-<span></span><span class="sd">"""</span>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">**#MD** : Bluesky metadata from apstools SpecWriterCallback.</span>
 
 <span class="sd">EXAMPLE::</span>
@@ -275,9 +277,9 @@
 <span class="sd">    #MD pid = 27062</span>
 <span class="sd">    #MD proposal_id = testing Bluesky installation</span>
 <span class="sd">    #MD purpose = tuner</span>
-<span class="sd">    #MD tune_md = {'width': -0.004, 'initial_position': 8.824885, 'time_iso8601': '2019-04-19 10:04:44.402643'}</span>
-<span class="sd">    #MD tune_parameters = {'num': 31, 'width': -0.004, 'initial_position': 8.824885, 'peak_choice': 'com', 'x_axis': 'm_stage_r', 'y_axis': 'I0_USAXS'}</span>
-<span class="sd">"""</span>
+<span class="sd">    #MD tune_md = {&#39;width&#39;: -0.004, &#39;initial_position&#39;: 8.824885, &#39;time_iso8601&#39;: &#39;2019-04-19 10:04:44.402643&#39;}</span>
+<span class="sd">    #MD tune_parameters = {&#39;num&#39;: 31, &#39;width&#39;: -0.004, &#39;initial_position&#39;: 8.824885, &#39;peak_choice&#39;: &#39;com&#39;, &#39;x_axis&#39;: &#39;m_stage_r&#39;, &#39;y_axis&#39;: &#39;I0_USAXS&#39;}</span>
+<span class="sd">&quot;&quot;&quot;</span>
 
 <span class="c1"># use absolute imports (not relative)</span>
 <span class="kn">from</span> <span class="nn">spec2nexus.eznx</span> <span class="kn">import</span> <span class="n">makeGroup</span>
@@ -286,35 +288,35 @@
 
 <div class="viewcode-block" id="MD_apstools"><a class="viewcode-back" href="../../../supplied_plugins/apstools_specwriter.html#spec2nexus.plugins.apstools_specwriter.MD_apstools">[docs]</a><span class="k">class</span> <span class="nc">MD_apstools</span><span class="p">(</span><span class="n">ControlLineBase</span><span class="p">):</span>
 
-    <span class="sd">"""**#MD** -- Bluesky metadata from apstools SpecWriterCallback"""</span>
+    <span class="sd">&quot;&quot;&quot;**#MD** -- Bluesky metadata from apstools SpecWriterCallback&quot;&quot;&quot;</span>
 
-    <span class="n">key</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"#MD\w*"</span>
-    <span class="n">scan_attributes_defined</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"MD"</span><span class="p">]</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;#MD\w*&quot;</span>
+    <span class="n">scan_attributes_defined</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;MD&quot;</span><span class="p">]</span>
 
 <div class="viewcode-block" id="MD_apstools.process"><a class="viewcode-back" href="../../../supplied_plugins/apstools_specwriter.html#spec2nexus.plugins.apstools_specwriter.MD_apstools.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">scan</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">):</span>
-        <span class="sd">"""read #MD lines from SPEC data file"""</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">scan</span><span class="p">,</span> <span class="s2">"MD"</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;read #MD lines from SPEC data file&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">scan</span><span class="p">,</span> <span class="s2">&quot;MD&quot;</span><span class="p">):</span>
             <span class="n">scan</span><span class="o">.</span><span class="n">MD</span> <span class="o">=</span> <span class="p">{}</span>
 
-        <span class="n">p</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">"="</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">p</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="s2">"# MD "</span><span class="p">):</span>
-            <span class="c1"># f"#MD {key} = {value}"</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">p</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="s2">&quot;# MD &quot;</span><span class="p">):</span>
+            <span class="c1"># f&quot;#MD {key} = {value}&quot;</span>
             <span class="n">key</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
             <span class="n">value</span> <span class="o">=</span> <span class="n">text</span><span class="p">[</span><span class="n">p</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="c1"># badly-formed #MD control line</span>
-            <span class="n">key</span> <span class="o">=</span> <span class="s2">"MD_line_</span><span class="si">%d</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">MD</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;MD_line_</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">MD</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
             <span class="n">value</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
         <span class="n">scan</span><span class="o">.</span><span class="n">MD</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
         <span class="n">scan</span><span class="o">.</span><span class="n">addH5writer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">writer</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="MD_apstools.writer"><a class="viewcode-back" href="../../../supplied_plugins/apstools_specwriter.html#spec2nexus.plugins.apstools_specwriter.MD_apstools.writer">[docs]</a>    <span class="k">def</span> <span class="nf">writer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h5parent</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="n">scan</span><span class="p">,</span> <span class="n">nxclass</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">):</span>
-        <span class="sd">"""Describe how to store this data in an HDF5 NeXus file"""</span>
-        <span class="n">nxclass</span> <span class="o">=</span> <span class="s2">"NXcollection"</span>
-        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">scan</span><span class="p">,</span> <span class="s2">"MD"</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">MD</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">desc</span> <span class="o">=</span> <span class="s2">"Bluesky metadata (as written by apstools.SpecWriterCallback)"</span>
+        <span class="sd">&quot;&quot;&quot;Describe how to store this data in an HDF5 NeXus file&quot;&quot;&quot;</span>
+        <span class="n">nxclass</span> <span class="o">=</span> <span class="s2">&quot;NXcollection&quot;</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">scan</span><span class="p">,</span> <span class="s2">&quot;MD&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">MD</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">desc</span> <span class="o">=</span> <span class="s2">&quot;Bluesky metadata (as written by apstools.SpecWriterCallback)&quot;</span>
             <span class="n">group</span> <span class="o">=</span> <span class="n">makeGroup</span><span class="p">(</span>
-                <span class="n">h5parent</span><span class="p">,</span> <span class="s2">"bluesky_metadata"</span><span class="p">,</span> <span class="n">nxclass</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="n">desc</span>
+                <span class="n">h5parent</span><span class="p">,</span> <span class="s2">&quot;bluesky_metadata&quot;</span><span class="p">,</span> <span class="n">nxclass</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="n">desc</span>
             <span class="p">)</span>
             <span class="n">writer</span><span class="o">.</span><span class="n">save_dict</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">scan</span><span class="o">.</span><span class="n">MD</span><span class="p">)</span></div></div>
 
@@ -364,6 +366,7 @@
 </div><script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/scripts/furo.js"></script>
     </body>

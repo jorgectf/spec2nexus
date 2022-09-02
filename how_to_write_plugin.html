@@ -1,14 +1,14 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="How to write a custom scan handling class for specplot" href="specplot_custom_scan_macro.html" /><link rel="prev" title="How-to guides" href="howto.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>How to write a custom control line handling plugin module for spec - spec2nexus 2021.2.1</title>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
+        <title>How to write a custom control line handling plugin module for spec - spec2nexus 2021.2.1 (2.g4f4a891)</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">spec2nexus 2021.2.1</div></a>
+      <a href="index.html"><div class="brand">spec2nexus 2021.2.1 (2.g4f4a891)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.1</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.1 (2.g4f4a891)</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -217,6 +217,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="scanf.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.scanf</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="singletons.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.singletons</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="spec.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="writer.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code></a></li>
 </ul>
@@ -245,7 +246,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -260,7 +262,7 @@
         </div>
         <article role="main">
           <section id="how-to-write-a-custom-control-line-handling-plugin-module-for-spec">
-<span id="how-to-write-plugin"></span><h1>How to write a custom control line handling plugin module for <em>spec</em><a class="headerlink" href="#how-to-write-a-custom-control-line-handling-plugin-module-for-spec" title="Permalink to this headline">#</a></h1>
+<span id="how-to-write-plugin"></span><h1>How to write a custom control line handling plugin module for <em>spec</em><a class="headerlink" href="#how-to-write-a-custom-control-line-handling-plugin-module-for-spec" title="Permalink to this heading">#</a></h1>
 <aside class="sidebar">
 <p class="sidebar-title">The code to write plugins has changed with release 2021.0.0.</p>
 <p>The changes are summarized in the <a class="reference internal" href="#howto-changes-plugin-2022-release"><span class="std std-ref">Changes in plugin format with release 2021.2.0</span></a>
@@ -289,7 +291,7 @@ to be supported.  An exception will
 be raised if a custom plugin module tries to provide support
 for an existing control line.</p>
 <section id="load-a-plugin-module">
-<span id="howto-load-plugin"></span><h2>Load a plugin module<a class="headerlink" href="#load-a-plugin-module" title="Permalink to this headline">#</a></h2>
+<span id="howto-load-plugin"></span><h2>Load a plugin module<a class="headerlink" href="#load-a-plugin-module" title="Permalink to this heading">#</a></h2>
 <p>Control line handling plugins for <em>spec2nexus</em> will automatically
 register themselves when their module is imported.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span> <span class="nn">pathlib</span>
@@ -297,17 +299,17 @@ register themselves when their module is imported.</p>
 <span class="linenos"> 3</span><span class="kn">import</span> <span class="nn">spec2nexus.spec</span>
 <span class="linenos"> 4</span>
 <span class="linenos"> 5</span><span class="c1"># load each custom plugin file:</span>
-<span class="linenos"> 6</span><span class="n">path</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">"my_plugin_file.py"</span><span class="p">)</span><span class="o">.</span><span class="n">absolute</span><span class="p">()</span>
+<span class="linenos"> 6</span><span class="n">path</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;my_plugin_file.py&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">absolute</span><span class="p">()</span>
 <span class="linenos"> 7</span><span class="n">spec2nexus</span><span class="o">.</span><span class="n">plugin_core</span><span class="o">.</span><span class="n">install_user_plugin</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 <span class="linenos"> 8</span>
 <span class="linenos"> 9</span><span class="c1"># read a SPEC data file, scan 5</span>
-<span class="linenos">10</span><span class="n">spec_data_file</span> <span class="o">=</span> <span class="n">spec2nexus</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">SpecDataFile</span><span class="p">(</span><span class="s2">"path/to/spec/datafile"</span><span class="p">)</span>
+<span class="linenos">10</span><span class="n">spec_data_file</span> <span class="o">=</span> <span class="n">spec2nexus</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">SpecDataFile</span><span class="p">(</span><span class="s2">&quot;path/to/spec/datafile&quot;</span><span class="p">)</span>
 <span class="linenos">11</span><span class="n">scan5</span> <span class="o">=</span> <span class="n">spec_data_file</span><span class="o">.</span><span class="n">getScan</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="write-a-plugin-module">
-<span id="howto-write-plugin"></span><h2>Write a plugin module<a class="headerlink" href="#write-a-plugin-module" title="Permalink to this headline">#</a></h2>
+<span id="howto-write-plugin"></span><h2>Write a plugin module<a class="headerlink" href="#write-a-plugin-module" title="Permalink to this heading">#</a></h2>
 <p>Give the custom plugin module a name ending with <code class="docutils literal notranslate"><span class="pre">.py</span></code>. As with any Python
 module, the name must be unique within a directory. If the plugin is not in your
 working directory, there must be a <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file in the same directory
@@ -344,7 +346,7 @@ Caution is advised to avoid introducing instability.</p>
 <code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataScan()</span></code> object (such as the hypothetical
 <code class="docutils literal notranslate"><span class="pre">scan.hdf5_path</span></code> and <code class="docutils literal notranslate"><span class="pre">scan.hdf5_file</span></code>), you declare the new attributes in
 the <code class="docutils literal notranslate"><span class="pre">scan_attributes_defined</span></code> list.  Such as this:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">scan_attributes_defined</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'hdf5_path'</span><span class="p">,</span> <span class="s1">'hdf5_file'</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">scan_attributes_defined</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hdf5_path&#39;</span><span class="p">,</span> <span class="s1">&#39;hdf5_file&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 <p><strong>Method: ``process()`` (required)</strong></p>
@@ -382,16 +384,16 @@ or <code class="docutils literal notranslate"><span class="pre">postprocess()</s
 </div>
 <p>Then, define a <code class="docutils literal notranslate"><span class="pre">writer()</span></code> method in your handler.  Here’s an example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">writer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h5parent</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="n">scan</span><span class="p">,</span> <span class="n">nxclass</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">):</span>
-    <span class="sd">"""Describe how to store this data in an HDF5 NeXus file"""</span>
-    <span class="n">desc</span><span class="o">=</span><span class="s1">'SPEC positioners (#P &amp; #O lines)'</span>
-    <span class="n">group</span> <span class="o">=</span> <span class="n">makeGroup</span><span class="p">(</span><span class="n">h5parent</span><span class="p">,</span> <span class="s1">'positioners'</span><span class="p">,</span> <span class="n">nxclass</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="n">desc</span><span class="p">)</span>
+    <span class="sd">&quot;&quot;&quot;Describe how to store this data in an HDF5 NeXus file&quot;&quot;&quot;</span>
+    <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;SPEC positioners (#P &amp; #O lines)&#39;</span>
+    <span class="n">group</span> <span class="o">=</span> <span class="n">makeGroup</span><span class="p">(</span><span class="n">h5parent</span><span class="p">,</span> <span class="s1">&#39;positioners&#39;</span><span class="p">,</span> <span class="n">nxclass</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="n">desc</span><span class="p">)</span>
     <span class="n">writer</span><span class="o">.</span><span class="n">save_dict</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">scan</span><span class="o">.</span><span class="n">positioner</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>See section <a class="reference internal" href="#howto-writer"><span class="std std-ref">Custom HDF5 writer</span></a> below for more details.</p>
 </section>
 <section id="full-example-pv-control-line">
-<span id="howto-example-pv-control-line"></span><h2>Full Example: <strong>#PV</strong> control line<a class="headerlink" href="#full-example-pv-control-line" title="Permalink to this headline">#</a></h2>
+<span id="howto-example-pv-control-line"></span><h2>Full Example: <strong>#PV</strong> control line<a class="headerlink" href="#full-example-pv-control-line" title="Permalink to this heading">#</a></h2>
 <p>Consider a SPEC data file (named <code class="docutils literal notranslate"><span class="pre">pv_data.txt</span></code>) with the contrived
 example of a <strong>#PV</strong> control
 line that associates a mnemonic with an EPICS process variable (PV).
@@ -429,16 +431,16 @@ with no whitespace):</p>
 <span class="linenos"> 2</span><span class="kn">from</span> <span class="nn">spec2nexus.utils</span> <span class="kn">import</span> <span class="n">strip_first_word</span>
 <span class="linenos"> 3</span>
 <span class="linenos"> 4</span><span class="k">class</span> <span class="nc">PV_ControlLine</span><span class="p">(</span><span class="n">ControlLineBase</span><span class="p">):</span>
-<span class="linenos"> 5</span>    <span class="sd">'''**#PV** -- EPICS PV associates mnemonic with PV'''</span>
+<span class="linenos"> 5</span>    <span class="sd">&#39;&#39;&#39;**#PV** -- EPICS PV associates mnemonic with PV&#39;&#39;&#39;</span>
 <span class="linenos"> 6</span>    
-<span class="linenos"> 7</span>    <span class="n">key</span> <span class="o">=</span> <span class="s1">'#PV'</span>
-<span class="linenos"> 8</span>    <span class="n">scan_attributes_defined</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'EPICS_PV'</span><span class="p">]</span>
+<span class="linenos"> 7</span>    <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;#PV&#39;</span>
+<span class="linenos"> 8</span>    <span class="n">scan_attributes_defined</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;EPICS_PV&#39;</span><span class="p">]</span>
 <span class="linenos"> 9</span>    
 <span class="linenos">10</span>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">spec_obj</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">):</span>
 <span class="linenos">11</span>        <span class="n">args</span> <span class="o">=</span> <span class="n">strip_first_word</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
 <span class="linenos">12</span>        <span class="n">mne</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="linenos">13</span>        <span class="n">pv</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="linenos">14</span>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">spec_obj</span><span class="p">,</span> <span class="s2">"EPICS_PV"</span><span class="p">):</span>
+<span class="linenos">14</span>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">spec_obj</span><span class="p">,</span> <span class="s2">&quot;EPICS_PV&quot;</span><span class="p">):</span>
 <span class="linenos">15</span>            <span class="c1"># use OrderedDict since it remembers the order we found these</span>
 <span class="linenos">16</span>            <span class="n">spec_obj</span><span class="o">.</span><span class="n">EPICS_PV</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="linenos">17</span>        <span class="n">spec_obj</span><span class="o">.</span><span class="n">EPICS_PV</span><span class="p">[</span><span class="n">mne</span><span class="p">]</span> <span class="o">=</span> <span class="n">pv</span>
@@ -463,21 +465,21 @@ load the data file and interpret it using our custom plugin:</p>
 <span class="linenos"> 4</span><span class="kn">from</span> <span class="nn">spec2nexus.plugin_core</span> <span class="kn">import</span> <span class="n">install_user_plugin</span>
 <span class="linenos"> 5</span>
 <span class="linenos"> 6</span><span class="c1"># show our plugin is not loaded</span>
-<span class="linenos"> 7</span><span class="nb">print</span><span class="p">(</span><span class="s2">"known: "</span><span class="p">,</span> <span class="s2">"#PV"</span> <span class="ow">in</span> <span class="n">control_line_registry</span><span class="o">.</span><span class="n">known_keys</span><span class="p">)</span> <span class="c1"># expect False</span>
+<span class="linenos"> 7</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;known: &quot;</span><span class="p">,</span> <span class="s2">&quot;#PV&quot;</span> <span class="ow">in</span> <span class="n">control_line_registry</span><span class="o">.</span><span class="n">known_keys</span><span class="p">)</span> <span class="c1"># expect False</span>
 <span class="linenos"> 8</span>
 <span class="linenos"> 9</span><span class="c1"># load our new plugin</span>
 <span class="linenos">10</span><span class="kn">import</span> <span class="nn">pathlib</span>
-<span class="linenos">11</span><span class="n">install_user_plugin</span><span class="p">(</span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">"pv_plugin.py"</span><span class="p">)</span><span class="o">.</span><span class="n">absolute</span><span class="p">())</span>
+<span class="linenos">11</span><span class="n">install_user_plugin</span><span class="p">(</span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;pv_plugin.py&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">absolute</span><span class="p">())</span>
 <span class="linenos">12</span>
 <span class="linenos">13</span><span class="c1"># show that our plugin is registered</span>
-<span class="linenos">14</span><span class="nb">print</span><span class="p">(</span><span class="s2">"known: "</span><span class="p">,</span> <span class="s2">"#PV"</span> <span class="ow">in</span> <span class="n">control_line_registry</span><span class="o">.</span><span class="n">known_keys</span><span class="p">)</span> <span class="c1"># expect True</span>
+<span class="linenos">14</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;known: &quot;</span><span class="p">,</span> <span class="s2">&quot;#PV&quot;</span> <span class="ow">in</span> <span class="n">control_line_registry</span><span class="o">.</span><span class="n">known_keys</span><span class="p">)</span> <span class="c1"># expect True</span>
 <span class="linenos">15</span>
 <span class="linenos">16</span><span class="c1"># read a SPEC data file, scan 1</span>
-<span class="linenos">17</span><span class="n">spec_data_file</span> <span class="o">=</span> <span class="n">spec2nexus</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">SpecDataFile</span><span class="p">(</span><span class="s2">"pv_data.txt"</span><span class="p">)</span>
+<span class="linenos">17</span><span class="n">spec_data_file</span> <span class="o">=</span> <span class="n">spec2nexus</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">SpecDataFile</span><span class="p">(</span><span class="s2">&quot;pv_data.txt&quot;</span><span class="p">)</span>
 <span class="linenos">18</span><span class="n">scan</span> <span class="o">=</span> <span class="n">spec_data_file</span><span class="o">.</span><span class="n">getScan</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="linenos">19</span>
 <span class="linenos">20</span><span class="c1"># Do we have our PV data?</span>
-<span class="linenos">21</span><span class="nb">print</span><span class="p">(</span><span class="nb">hasattr</span><span class="p">(</span><span class="n">scan</span><span class="p">,</span> <span class="s2">"EPICS_PV"</span><span class="p">))</span>    <span class="c1"># expect True</span>
+<span class="linenos">21</span><span class="nb">print</span><span class="p">(</span><span class="nb">hasattr</span><span class="p">(</span><span class="n">scan</span><span class="p">,</span> <span class="s2">&quot;EPICS_PV&quot;</span><span class="p">))</span>    <span class="c1"># expect True</span>
 <span class="linenos">22</span><span class="nb">print</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">EPICS_PV</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -486,12 +488,12 @@ load the data file and interpret it using our custom plugin:</p>
 <span class="linenos">2</span>known:  True
 <span class="linenos">3</span>False
 <span class="linenos">4</span>True
-<span class="linenos">5</span>OrderedDict([('mr', 'ioc:m1'), ('ay', 'ioc:m2'), ('dy', 'ioc:m3')])
+<span class="linenos">5</span>OrderedDict([(&#39;mr&#39;, &#39;ioc:m1&#39;), (&#39;ay&#39;, &#39;ioc:m2&#39;), (&#39;dy&#39;, &#39;ioc:m3&#39;)])
 </pre></div>
 </div>
 </section>
 <section id="example-to-ignore-a-y-control-line">
-<span id="howto-example-y-control-line"></span><h2>Example to ignore a <strong>#Y</strong> control line<a class="headerlink" href="#example-to-ignore-a-y-control-line" title="Permalink to this headline">#</a></h2>
+<span id="howto-example-y-control-line"></span><h2>Example to ignore a <strong>#Y</strong> control line<a class="headerlink" href="#example-to-ignore-a-y-control-line" title="Permalink to this heading">#</a></h2>
 <p>Suppose a control line in a SPEC data file must be ignored.
 For example, suppose a SPEC file contains this control line: <code class="docutils literal notranslate"><span class="pre">#Y</span> <span class="pre">1</span> <span class="pre">2</span> <span class="pre">3</span> <span class="pre">4</span> <span class="pre">5</span></code>.
 Since there is no standard handler for this control line,
@@ -499,13 +501,13 @@ we create one that ignores processing by doing nothing:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">spec2nexus.plugin_core</span> <span class="kn">import</span> <span class="n">ControlLineBase</span>
 <span class="linenos"> 2</span>
 <span class="linenos"> 3</span><span class="k">class</span> <span class="nc">Ignore_Y_ControlLine</span><span class="p">(</span><span class="n">ControlLineBase</span><span class="p">):</span>
-<span class="linenos"> 4</span>    <span class="sd">'''</span>
+<span class="linenos"> 4</span>    <span class="sd">&#39;&#39;&#39;</span>
 <span class="linenos"> 5</span><span class="sd">    **#Y** -- as in ``#Y 1 2 3 4 5``</span>
 <span class="linenos"> 6</span>
 <span class="linenos"> 7</span><span class="sd">    example: ignore any and all #Y control lines</span>
-<span class="linenos"> 8</span><span class="sd">    '''</span>
+<span class="linenos"> 8</span><span class="sd">    &#39;&#39;&#39;</span>
 <span class="linenos"> 9</span>
-<span class="linenos">10</span>    <span class="n">key</span> <span class="o">=</span> <span class="s1">'#Y'</span>
+<span class="linenos">10</span>    <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;#Y&#39;</span>
 <span class="linenos">11</span>
 <span class="linenos">12</span>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">spec_obj</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">):</span>
 <span class="linenos">13</span>        <span class="k">pass</span> <span class="c1"># do nothing</span>
@@ -513,14 +515,14 @@ we create one that ignores processing by doing nothing:</p>
 </div>
 </section>
 <section id="postprocessing">
-<span id="howto-postprocessing"></span><h2>Postprocessing<a class="headerlink" href="#postprocessing" title="Permalink to this headline">#</a></h2>
+<span id="howto-postprocessing"></span><h2>Postprocessing<a class="headerlink" href="#postprocessing" title="Permalink to this heading">#</a></h2>
 <p>Sometimes, it is necessary to defer a step of processing until after the complete
 scan data has been read.  One example is for 2-D or 3-D data that has been acquired
 as a vector rather than matrix.  The matrix must be constructed only after all the
 scan data has been read.  Such postprocessing is handled in a method in a plugin file.
 The postprocessing method is registered from the control line handler by calling the
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">addPostProcessor()</span></code> method of the <code class="docutils literal notranslate"><span class="pre">spec_obj</span></code> argument received by the
-handler’s <code class="xref py py-meth docutils literal notranslate"><span class="pre">process()</span></code> method.  A key name <a class="footnote-reference brackets" href="#id9" id="id1">1</a> is supplied when registering to avoid
+handler’s <code class="xref py py-meth docutils literal notranslate"><span class="pre">process()</span></code> method.  A key name <a class="footnote-reference brackets" href="#id9" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> is supplied when registering to avoid
 registering this same code more than once.  The postprocessing function will be called
 with the instance of <a class="reference internal" href="spec.html#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileScan</span></code></a> as its only argument.</p>
 <p>An important role of the postprocessing is to store the result in the scan object.
@@ -530,7 +532,7 @@ UNICAT metadata uses the <strong>metadata</strong> attribute, …)  This attribu
 where and how the data from the plugin is available.  The <code class="xref py py-meth docutils literal notranslate"><span class="pre">writer()</span></code> method
 (see <a class="reference internal" href="#howto-writer"><span class="std std-ref">below</span></a>) is one example of a user of this attribute.</p>
 <section id="example-postprocessing">
-<span id="howto-example-postprocessing"></span><h3>Example postprocessing<a class="headerlink" href="#example-postprocessing" title="Permalink to this headline">#</a></h3>
+<span id="howto-example-postprocessing"></span><h3>Example postprocessing<a class="headerlink" href="#example-postprocessing" title="Permalink to this heading">#</a></h3>
 <p>Consider the <strong>#U</strong> control line example above.  For some contrived reason,
 we wish to store the sum of the numbers as a separate number, but only after
 all the scan data has been read.  This can be done with the simple expression:</p>
@@ -539,30 +541,30 @@ all the scan data has been read.  This can be done with the simple expression:</
 </div>
 <p>To build a postprocessing method, we write:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">def</span> <span class="nf">contrived_summation</span><span class="p">(</span><span class="n">scan</span><span class="p">):</span>
-<span class="linenos">2</span>    <span class="sd">'''</span>
+<span class="linenos">2</span>    <span class="sd">&#39;&#39;&#39;</span>
 <span class="linenos">3</span><span class="sd">    add up all the numbers in the #U line</span>
 <span class="linenos">4</span>
 <span class="linenos">5</span><span class="sd">    :param SpecDataFileScan scan: data from a single SPEC scan</span>
-<span class="linenos">6</span><span class="sd">    '''</span>
+<span class="linenos">6</span><span class="sd">    &#39;&#39;&#39;</span>
 <span class="linenos">7</span>    <span class="n">scan</span><span class="o">.</span><span class="n">U_sum</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">U</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>To register this postprocessing method, place this line in the <code class="xref py py-meth docutils literal notranslate"><span class="pre">process()</span></code>
 of the handler:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">spec_obj</span><span class="o">.</span><span class="n">addPostProcessor</span><span class="p">(</span><span class="s1">'contrived_summation'</span><span class="p">,</span> <span class="n">contrived_summation</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">spec_obj</span><span class="o">.</span><span class="n">addPostProcessor</span><span class="p">(</span><span class="s1">&#39;contrived_summation&#39;</span><span class="p">,</span> <span class="n">contrived_summation</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="summary-example-custom-plugin-with-postprocessing">
-<span id="howto-summary-example"></span><h3>Summary Example Custom Plugin with postprocessing<a class="headerlink" href="#summary-example-custom-plugin-with-postprocessing" title="Permalink to this headline">#</a></h3>
+<span id="howto-summary-example"></span><h3>Summary Example Custom Plugin with postprocessing<a class="headerlink" href="#summary-example-custom-plugin-with-postprocessing" title="Permalink to this heading">#</a></h3>
 <p>Gathering all parts of the examples above, the custom plugin module is:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">spec2nexus.plugin_core</span> <span class="kn">import</span> <span class="n">ControlLineBase</span>
 <span class="linenos"> 2</span><span class="kn">from</span> <span class="nn">spec2nexus.utils</span> <span class="kn">import</span> <span class="n">strip_first_word</span>
 <span class="linenos"> 3</span>
 <span class="linenos"> 4</span><span class="k">class</span> <span class="nc">User_ControlLine</span><span class="p">(</span><span class="n">ControlLineBase</span><span class="p">):</span>
-<span class="linenos"> 5</span>    <span class="sd">'''**#U** -- User data (#U user1 user2 user3)'''</span>
+<span class="linenos"> 5</span>    <span class="sd">&#39;&#39;&#39;**#U** -- User data (#U user1 user2 user3)&#39;&#39;&#39;</span>
 <span class="linenos"> 6</span>
-<span class="linenos"> 7</span>    <span class="n">key</span> <span class="o">=</span> <span class="s1">'#U'</span>
+<span class="linenos"> 7</span>    <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;#U&#39;</span>
 <span class="linenos"> 8</span>
 <span class="linenos"> 9</span>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">spec_obj</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">):</span>
 <span class="linenos">10</span>        <span class="n">args</span> <span class="o">=</span> <span class="n">strip_first_word</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
@@ -570,22 +572,22 @@ of the handler:</p>
 <span class="linenos">12</span>        <span class="n">user2</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="linenos">13</span>        <span class="n">user3</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 <span class="linenos">14</span>        <span class="n">spec_obj</span><span class="o">.</span><span class="n">U</span> <span class="o">=</span> <span class="p">[</span><span class="n">user1</span><span class="p">,</span> <span class="n">user2</span><span class="p">,</span> <span class="n">user3</span><span class="p">]</span>
-<span class="linenos">15</span>        <span class="n">spec_obj</span><span class="o">.</span><span class="n">addPostProcessor</span><span class="p">(</span><span class="s1">'contrived_summation'</span><span class="p">,</span> <span class="n">contrived_summation</span><span class="p">)</span>
+<span class="linenos">15</span>        <span class="n">spec_obj</span><span class="o">.</span><span class="n">addPostProcessor</span><span class="p">(</span><span class="s1">&#39;contrived_summation&#39;</span><span class="p">,</span> <span class="n">contrived_summation</span><span class="p">)</span>
 <span class="linenos">16</span>
 <span class="linenos">17</span>
 <span class="linenos">18</span><span class="k">def</span> <span class="nf">contrived_summation</span><span class="p">(</span><span class="n">scan</span><span class="p">):</span>
-<span class="linenos">19</span>    <span class="sd">'''</span>
+<span class="linenos">19</span>    <span class="sd">&#39;&#39;&#39;</span>
 <span class="linenos">20</span><span class="sd">    add up all the numbers in the #U line</span>
 <span class="linenos">21</span>
 <span class="linenos">22</span><span class="sd">    :param SpecDataFileScan scan: data from a single SPEC scan</span>
-<span class="linenos">23</span><span class="sd">    '''</span>
+<span class="linenos">23</span><span class="sd">    &#39;&#39;&#39;</span>
 <span class="linenos">24</span>    <span class="n">scan</span><span class="o">.</span><span class="n">U_sum</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">U</span><span class="p">)</span>
 <span class="linenos">25</span>
 <span class="linenos">26</span>
 <span class="linenos">27</span><span class="k">class</span> <span class="nc">Ignore_Y_ControlLine</span><span class="p">(</span><span class="n">ControlLineBase</span><span class="p">):</span>
-<span class="linenos">28</span>    <span class="sd">'''**#Y** -- as in ``#Y 1 2 3 4 5``'''</span>
+<span class="linenos">28</span>    <span class="sd">&#39;&#39;&#39;**#Y** -- as in ``#Y 1 2 3 4 5``&#39;&#39;&#39;</span>
 <span class="linenos">29</span>
-<span class="linenos">30</span>    <span class="n">key</span> <span class="o">=</span> <span class="s1">'#Y'</span>
+<span class="linenos">30</span>    <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;#Y&#39;</span>
 <span class="linenos">31</span>
 <span class="linenos">32</span>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">spec_obj</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">):</span>
 <span class="linenos">33</span>        <span class="k">pass</span>
@@ -594,7 +596,7 @@ of the handler:</p>
 </section>
 </section>
 <section id="custom-hdf5-writer">
-<span id="howto-writer"></span><h2>Custom HDF5 writer<a class="headerlink" href="#custom-hdf5-writer" title="Permalink to this headline">#</a></h2>
+<span id="howto-writer"></span><h2>Custom HDF5 writer<a class="headerlink" href="#custom-hdf5-writer" title="Permalink to this heading">#</a></h2>
 <p>A custom HDF5 writer method defines how the data from the
 <a class="reference internal" href="#howto-postprocessing"><span class="std std-ref">plugin</span></a>
 will be written to the HDF5+NeXus data file.  The writer will
@@ -603,53 +605,53 @@ be called with several arguments:</p>
 <p><strong>writer</strong>:   <em>obj</em> : instance of <a class="reference internal" href="writer.html#spec2nexus.writer.Writer" title="spec2nexus.writer.Writer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Writer()</span></code></a> that manages the content of the HDF5 file</p>
 <p><strong>scan</strong>:     <em>obj</em> : instance of <a class="reference internal" href="spec.html#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileScan()</span></code></a> containing this scan’s data</p>
 <p><strong>nxclass</strong>:  <em>str</em> : (optional) name of NeXus base class to be created</p>
-<p>Since the file is being written according to the NeXus data standard <a class="footnote-reference brackets" href="#id10" id="id2">2</a>,
-use the NeXus base classes <a class="footnote-reference brackets" href="#id11" id="id3">3</a> as references for how to structure the data
+<p>Since the file is being written according to the NeXus data standard <a class="footnote-reference brackets" href="#id10" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>,
+use the NeXus base classes <a class="footnote-reference brackets" href="#id11" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> as references for how to structure the data
 written by the custom HDF5 writer.</p>
 <p>One responsibility of a custom HDF5 writer method is to create
 <em>unique</em> names for every object written in the <em>h5parent</em> group.
-Usually, this will be a <em>NXentry</em> <a class="footnote-reference brackets" href="#id12" id="id4">4</a> group.  You can determine the
+Usually, this will be a <em>NXentry</em> <a class="footnote-reference brackets" href="#id12" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a> group.  You can determine the
 NeXus base class of this group using code such as this:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">h5parent</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">'NX_class'</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">h5parent</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;NX_class&#39;</span><span class="p">]</span>
 <span class="linenos">2</span><span class="go">&lt;&lt;&lt; NXentry</span>
 </pre></div>
 </div>
 <section id="choice-of-nexus-base-class">
-<h3>Choice of NeXus base class<a class="headerlink" href="#choice-of-nexus-base-class" title="Permalink to this headline">#</a></h3>
+<h3>Choice of NeXus base class<a class="headerlink" href="#choice-of-nexus-base-class" title="Permalink to this heading">#</a></h3>
 <p>If your custom HDF5 writer must create a group and you are uncertain which base
-class to select, it is recommended to use the <strong>NXnote</strong> <a class="footnote-reference brackets" href="#nxnote" id="id5">5</a> base
+class to select, it is recommended to use the <strong>NXnote</strong> <a class="footnote-reference brackets" href="#nxnote" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a> base
 class.</p>
 <p>If your data does not fit the structure of the <strong>NXnote</strong> base class,
 you are encouraged to find one of the other NeXus base classes that
 best fits your data.  Look at the source code of the supplied plugins
 for examples.</p>
 <p>As a last resort, if your content cannot fit within the parameters of the NeXus
-standard, use <strong>NXcollection</strong>, <a class="footnote-reference brackets" href="#nxcollection" id="id6">6</a> an unvalidated catch-all base
+standard, use <strong>NXcollection</strong>, <a class="footnote-reference brackets" href="#nxcollection" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a> an unvalidated catch-all base
 class) which can store any content.</p>
 <p>The writer uses the <a class="reference internal" href="eznx.html#module-spec2nexus.eznx" title="spec2nexus.eznx: (Easy NeXus) support reading &amp; writing NeXus HDF5 files using h5py"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eznx</span></code></a> module to create and write
 the various parts of the HDF5 file.</p>
 </section>
 <section id="example-writer-method">
-<h3>Example <code class="docutils literal notranslate"><span class="pre">writer()</span></code> method<a class="headerlink" href="#example-writer-method" title="Permalink to this headline">#</a></h3>
+<h3>Example <code class="docutils literal notranslate"><span class="pre">writer()</span></code> method<a class="headerlink" href="#example-writer-method" title="Permalink to this heading">#</a></h3>
 <p>Here is an example <code class="xref py py-meth docutils literal notranslate"><span class="pre">writer()</span></code> method from the
 <a class="reference internal" href="supplied_plugins/unicat.html#module-spec2nexus.plugins.unicat" title="spec2nexus.plugins.unicat: Metadata in SPEC data files as defined by APS UNICAT."><code class="xref py py-mod docutils literal notranslate"><span class="pre">unicat</span></code></a> module:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span> <span class="k">def</span> <span class="nf">writer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h5parent</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="n">scan</span><span class="p">,</span> <span class="n">nxclass</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">):</span>
-<span class="linenos">2</span>     <span class="sd">'''Describe how to store this data in an HDF5 NeXus file'''</span>
-<span class="linenos">3</span>     <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">scan</span><span class="p">,</span> <span class="s1">'metadata'</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-<span class="linenos">4</span>         <span class="n">desc</span><span class="o">=</span><span class="s1">'SPEC metadata (UNICAT-style #H &amp; #V lines)'</span>
-<span class="linenos">5</span>         <span class="n">group</span> <span class="o">=</span> <span class="n">eznx</span><span class="o">.</span><span class="n">makeGroup</span><span class="p">(</span><span class="n">h5parent</span><span class="p">,</span> <span class="s1">'metadata'</span><span class="p">,</span> <span class="n">nxclass</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="n">desc</span><span class="p">)</span>
+<span class="linenos">2</span>     <span class="sd">&#39;&#39;&#39;Describe how to store this data in an HDF5 NeXus file&#39;&#39;&#39;</span>
+<span class="linenos">3</span>     <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">scan</span><span class="p">,</span> <span class="s1">&#39;metadata&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="linenos">4</span>         <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;SPEC metadata (UNICAT-style #H &amp; #V lines)&#39;</span>
+<span class="linenos">5</span>         <span class="n">group</span> <span class="o">=</span> <span class="n">eznx</span><span class="o">.</span><span class="n">makeGroup</span><span class="p">(</span><span class="n">h5parent</span><span class="p">,</span> <span class="s1">&#39;metadata&#39;</span><span class="p">,</span> <span class="n">nxclass</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="n">desc</span><span class="p">)</span>
 <span class="linenos">6</span>         <span class="n">writer</span><span class="o">.</span><span class="n">save_dict</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">scan</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 </section>
 <section id="custom-key-match-function">
-<span id="id7"></span><h2>Custom key match function<a class="headerlink" href="#custom-key-match-function" title="Permalink to this headline">#</a></h2>
+<span id="id7"></span><h2>Custom key match function<a class="headerlink" href="#custom-key-match-function" title="Permalink to this heading">#</a></h2>
 <p>The default test that a given line
 matches a specific <a class="reference internal" href="plugin_core.html#spec2nexus.plugin_core.ControlLineBase" title="spec2nexus.plugin_core.ControlLineBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">spec2nexus.plugin_core.ControlLineBase</span></code></a> subclass
 is to use a regular expression match.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span> <span class="k">def</span> <span class="nf">match_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
-<span class="linenos">2</span>     <span class="sd">'''default regular expression match, based on self.key'''</span>
+<span class="linenos">2</span>     <span class="sd">&#39;&#39;&#39;default regular expression match, based on self.key&#39;&#39;&#39;</span>
 <span class="linenos">3</span>     <span class="n">t</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 <span class="linenos">4</span>     <span class="k">if</span> <span class="n">t</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 <span class="linenos">5</span>         <span class="k">if</span> <span class="n">t</span><span class="o">.</span><span class="n">regs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
@@ -664,9 +666,9 @@ spectrum.  in such cases, the handler can override the <code class="xref py py-m
 method.  Here is an example from
 <a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_DataLine" title="spec2nexus.plugins.spec_common.SPEC_DataLine"><code class="xref py py-class docutils literal notranslate"><span class="pre">SPEC_DataLine</span></code></a>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span> <span class="k">def</span> <span class="nf">match_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
-<span class="linenos">2</span>     <span class="sd">'''</span>
+<span class="linenos">2</span>     <span class="sd">&#39;&#39;&#39;</span>
 <span class="linenos">3</span><span class="sd">     Easier to try conversion to number than construct complicated regexp</span>
-<span class="linenos">4</span><span class="sd">     '''</span>
+<span class="linenos">4</span><span class="sd">     &#39;&#39;&#39;</span>
 <span class="linenos">5</span>     <span class="k">try</span><span class="p">:</span>
 <span class="linenos">6</span>         <span class="nb">float</span><span class="p">(</span> <span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span>
 <span class="linenos">7</span>         <span class="k">return</span> <span class="kc">True</span>
@@ -676,7 +678,7 @@ method.  Here is an example from
 </div>
 </section>
 <section id="summary-requirements-for-custom-plugin">
-<span id="howto-summary-requirements"></span><h2>Summary Requirements for custom plugin<a class="headerlink" href="#summary-requirements-for-custom-plugin" title="Permalink to this headline">#</a></h2>
+<span id="howto-summary-requirements"></span><h2>Summary Requirements for custom plugin<a class="headerlink" href="#summary-requirements-for-custom-plugin" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>file can go in any directory</p></li>
 <li><p>directory containing does not need a <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file</p></li>
@@ -685,11 +687,11 @@ method.  Here is an example from
 <ul>
 <li><p>subclass <a class="reference internal" href="plugin_core.html#spec2nexus.plugin_core.ControlLineBase" title="spec2nexus.plugin_core.ControlLineBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">ControlLineBase</span></code></a></p></li>
 <li><p>identify the control line pattern</p></li>
-<li><p>define <code class="docutils literal notranslate"><span class="pre">key</span></code> with a regular expression to match <a class="footnote-reference brackets" href="#id13" id="id8">7</a></p>
+<li><p>define <code class="docutils literal notranslate"><span class="pre">key</span></code> with a regular expression to match <a class="footnote-reference brackets" href="#id13" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a></p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">key</span></code> is used to identify control line handlers</p></li>
 <li><p>redefine existing supported <span class="target" id="index-2"></span>control line control lines to replace supplied behavior (use caution!)</p></li>
-<li><p>Note: <code class="docutils literal notranslate"><span class="pre">key="scan</span> <span class="pre">data"</span></code> is used to process the scan data:
+<li><p>Note: <code class="docutils literal notranslate"><span class="pre">key=&quot;scan</span> <span class="pre">data&quot;</span></code> is used to process the scan data:
 <a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_DataLine" title="spec2nexus.plugins.spec_common.SPEC_DataLine"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SPEC_DataLine()</span></code></a></p></li>
 </ul>
 </li>
@@ -712,10 +714,10 @@ in the handler’s <a class="reference internal" href="plugin_core.html#spec2nex
 </ul>
 </li>
 </ul>
-<hr class="docutils"/>
+<hr class="docutils" />
 </section>
 <section id="changes-in-plugin-format-with-release-2021-2-0">
-<span id="howto-changes-plugin-2022-release"></span><h2>Changes in plugin format with release 2021.2.0<a class="headerlink" href="#changes-in-plugin-format-with-release-2021-2-0" title="Permalink to this headline">#</a></h2>
+<span id="howto-changes-plugin-2022-release"></span><h2>Changes in plugin format with release 2021.2.0<a class="headerlink" href="#changes-in-plugin-format-with-release-2021-2-0" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>subclassing and installing is easier (no need for <code class="docutils literal notranslate"><span class="pre">metaclass</span></code> kwarg)</p>
 <ul>
@@ -726,7 +728,7 @@ in the handler’s <a class="reference internal" href="plugin_core.html#spec2nex
 </ul>
 </section>
 <section id="changes-in-plugin-format-with-release-2021-0-0">
-<span id="howto-changes-plugin-2021-release"></span><h2>Changes in plugin format with release 2021.0.0<a class="headerlink" href="#changes-in-plugin-format-with-release-2021-0-0" title="Permalink to this headline">#</a></h2>
+<span id="howto-changes-plugin-2021-release"></span><h2>Changes in plugin format with release 2021.0.0<a class="headerlink" href="#changes-in-plugin-format-with-release-2021-0-0" title="Permalink to this heading">#</a></h2>
 <p>With release <em>2021.0.0</em>, the code to setup plugins has changed. The new code
 allows all plugins in a module to auto-register themselves <em>as long as the
 module is imported</em>. <strong>All</strong> custom plugins must be modified and import code
@@ -740,37 +742,44 @@ source code for many examples.</p>
 <li><p>CHANGED: Plugin files do not have to be in their own directory.</p></li>
 <li><p>REMOVED: The <code class="docutils literal notranslate"><span class="pre">SPEC2NEXUS_PLUGIN_PATH</span></code> environment variable has been eliminated.</p></li>
 </ul>
-<hr class="docutils"/>
+<hr class="docutils" />
 </section>
 <section id="footnotes">
-<span id="howto-footnotes"></span><h2>Footnotes<a class="headerlink" href="#footnotes" title="Permalink to this headline">#</a></h2>
-<dl class="footnote brackets">
-<dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>The key name must be unique amongst all postprocessing functions.
+<span id="howto-footnotes"></span><h2>Footnotes<a class="headerlink" href="#footnotes" title="Permalink to this heading">#</a></h2>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id9" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>The key name must be unique amongst all postprocessing functions.
 A good choice is the name of the postprocessing function itself.</p>
-</dd>
-<dt class="label" id="id10"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p><a class="reference external" href="https://nexusformat.org">https://nexusformat.org</a></p>
-</dd>
-<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
-<dd><p><a class="reference external" href="https://download.nexusformat.org/doc/html/classes/base_classes/">https://download.nexusformat.org/doc/html/classes/base_classes/</a></p>
-</dd>
-<dt class="label" id="id12"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
-<dd><p><a class="reference external" href="https://download.nexusformat.org/doc/html/classes/base_classes/NXentry.html">https://download.nexusformat.org/doc/html/classes/base_classes/NXentry.html</a></p>
-</dd>
-<dt class="label" id="nxnote"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
-<dd><p><a class="reference external" href="https://download.nexusformat.org/doc/html/classes/base_classes/NXnote.html">https://download.nexusformat.org/doc/html/classes/base_classes/NXnote.html</a></p>
-</dd>
-<dt class="label" id="nxcollection"><span class="brackets"><a class="fn-backref" href="#id6">6</a></span></dt>
-<dd><p><a class="reference external" href="https://download.nexusformat.org/doc/html/classes/base_classes/NXcollection.html">https://download.nexusformat.org/doc/html/classes/base_classes/NXcollection.html</a></p>
-</dd>
-<dt class="label" id="id13"><span class="brackets"><a class="fn-backref" href="#id8">7</a></span></dt>
-<dd><p>It is possible to override the default regular expression match
+</aside>
+<aside class="footnote brackets" id="id10" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://nexusformat.org">https://nexusformat.org</a></p>
+</aside>
+<aside class="footnote brackets" id="id11" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://download.nexusformat.org/doc/html/classes/base_classes/">https://download.nexusformat.org/doc/html/classes/base_classes/</a></p>
+</aside>
+<aside class="footnote brackets" id="id12" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">4</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://download.nexusformat.org/doc/html/classes/base_classes/NXentry.html">https://download.nexusformat.org/doc/html/classes/base_classes/NXentry.html</a></p>
+</aside>
+<aside class="footnote brackets" id="nxnote" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">5</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://download.nexusformat.org/doc/html/classes/base_classes/NXnote.html">https://download.nexusformat.org/doc/html/classes/base_classes/NXnote.html</a></p>
+</aside>
+<aside class="footnote brackets" id="nxcollection" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">6</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://download.nexusformat.org/doc/html/classes/base_classes/NXcollection.html">https://download.nexusformat.org/doc/html/classes/base_classes/NXcollection.html</a></p>
+</aside>
+<aside class="footnote brackets" id="id13" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">7</a><span class="fn-bracket">]</span></span>
+<p>It is possible to override the default regular expression match
 in the subclass with a custom match function.  See the
 <a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_DataLine.match_key" title="spec2nexus.plugins.spec_common.SPEC_DataLine.match_key"><code class="xref py py-meth docutils literal notranslate"><span class="pre">match_key()</span></code></a>
 method for an example.</p>
-</dd>
-</dl>
+</aside>
+</aside>
 </section>
 </section>
 
@@ -865,6 +874,7 @@ method for an example.</p>
 </div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/scripts/furo.js"></script>
     </body>

@@ -1,14 +1,14 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Counters" href="counters.html" /><link rel="prev" title="Scan Data" href="scan_data.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>Comments - spec2nexus 2021.2.1</title>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
+        <title>Comments - spec2nexus 2021.2.1 (2.g4f4a891)</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">spec2nexus 2021.2.1</div></a>
+      <a href="../index.html"><div class="brand">spec2nexus 2021.2.1 (2.g4f4a891)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.1</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.1 (2.g4f4a891)</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -217,6 +217,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../scanf.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.scanf</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../singletons.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.singletons</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spec.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../writer.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code></a></li>
 </ul>
@@ -245,7 +246,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -260,7 +262,7 @@
         </div>
         <article role="main">
           <section id="comments">
-<span id="data-file-comments"></span><h1>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">#</a></h1>
+<span id="data-file-comments"></span><h1>Comments<a class="headerlink" href="#comments" title="Permalink to this heading">#</a></h1>
 <p>These comments from an example SPEC data file scan:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1">#C Fri Mar 11 16:29:51 2022.  plan_type = generator</span>
 <span class="linenos">2</span><span class="c1">#C Fri Mar 11 16:29:51 2022.  uid = dccc572d-9a5b-4f72-87d7-233b2fd33e4e</span>
@@ -270,9 +272,9 @@
 </pre></div>
 </div>
 <p>are written to the <a class="reference internal" href="spec_scan.html#data-file-scan"><span class="std std-ref">Scan</span></a> entry as a single NeXus <em>field</em>
-<a class="footnote-reference brackets" href="#nx-field" id="id1">1</a> named <code class="docutils literal notranslate"><span class="pre">comments</span></code> where all the scan’s comments are joined together
+<a class="footnote-reference brackets" href="#nx-field" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> named <code class="docutils literal notranslate"><span class="pre">comments</span></code> where all the scan’s comments are joined together
 by newline (<code class="docutils literal notranslate"><span class="pre">\n</span></code>) characters:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">comments</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">'Fri Mar 11 16:29:51 2022.  plan_type = generator</span><span class="se">\n</span><span class="s1">Fri Mar 11 16:29:51 2022.  uid = dccc572d-9a5b-4f72-87d7-233b2fd33e4e</span><span class="se">\n</span><span class="s1">Fri Mar 11 16:29:57 2022.  num_events_baseline = 2</span><span class="se">\n</span><span class="s1">Fri Mar 11 16:29:57 2022.  num_events_primary = 10</span><span class="se">\n</span><span class="s1">Fri Mar 11 16:29:57 2022.  exit_status = success'</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">comments</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">&#39;Fri Mar 11 16:29:51 2022.  plan_type = generator</span><span class="se">\n</span><span class="s1">Fri Mar 11 16:29:51 2022.  uid = dccc572d-9a5b-4f72-87d7-233b2fd33e4e</span><span class="se">\n</span><span class="s1">Fri Mar 11 16:29:57 2022.  num_events_baseline = 2</span><span class="se">\n</span><span class="s1">Fri Mar 11 16:29:57 2022.  num_events_primary = 10</span><span class="se">\n</span><span class="s1">Fri Mar 11 16:29:57 2022.  exit_status = success&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>Note, when printed, the value of this example <code class="docutils literal notranslate"><span class="pre">comments</span></code> field looks like:</p>
@@ -283,11 +285,12 @@ by newline (<code class="docutils literal notranslate"><span class="pre">\n</spa
 <span class="n">Fri</span> <span class="n">Mar</span> <span class="mi">11</span> <span class="mi">16</span><span class="p">:</span><span class="mi">29</span><span class="p">:</span><span class="mi">57</span> <span class="mf">2022.</span>  <span class="n">exit_status</span> <span class="o">=</span> <span class="n">success</span>
 </pre></div>
 </div>
-<dl class="footnote brackets">
-<dt class="label" id="nx-field"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>A NeXus <strong>field</strong> is the same as an HDF5 <strong>dataset</strong>.  The rename is   due to historical reasons in NeXus when XML was used as a back-end data file   storage format.</p>
-</dd>
-</dl>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="nx-field" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>A NeXus <strong>field</strong> is the same as an HDF5 <strong>dataset</strong>.  The rename is   due to historical reasons in NeXus when XML was used as a back-end data file   storage format.</p>
+</aside>
+</aside>
 </section>
 
         </article>
@@ -344,6 +347,7 @@ by newline (<code class="docutils literal notranslate"><span class="pre">\n</spa
 </div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/scripts/furo.js"></script>
     </body>

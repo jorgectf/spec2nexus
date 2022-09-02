@@ -1,14 +1,14 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="General Tree Structure" href="general_tree.html" /><link rel="prev" title="Nomenclature" href="terms.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>Basic Tree Structure - spec2nexus 2021.2.1</title>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
+        <title>Basic Tree Structure - spec2nexus 2021.2.1 (2.g4f4a891)</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">spec2nexus 2021.2.1</div></a>
+      <a href="../index.html"><div class="brand">spec2nexus 2021.2.1 (2.g4f4a891)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.1</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.1 (2.g4f4a891)</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -217,6 +217,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../scanf.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.scanf</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../singletons.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.singletons</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spec.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../writer.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code></a></li>
 </ul>
@@ -245,7 +246,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -260,12 +262,12 @@
         </div>
         <article role="main">
           <span class="target" id="index-0"></span><section id="basic-tree-structure">
-<span id="index-1"></span><h1>Basic Tree Structure<a class="headerlink" href="#basic-tree-structure" title="Permalink to this headline">#</a></h1>
+<span id="index-1"></span><h1>Basic Tree Structure<a class="headerlink" href="#basic-tree-structure" title="Permalink to this heading">#</a></h1>
 <p>The basic tree structure of the NeXus HDF5 file is shown below:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span> <span class="n">FILE_NAME</span><span class="p">:</span><span class="n">NXroot</span>
-<span class="linenos">2</span>     <span class="nd">@default</span><span class="o">=</span><span class="s2">"S</span><span class="si">{SCAN_N}</span><span class="s2">"</span>
+<span class="linenos">2</span>     <span class="nd">@default</span><span class="o">=</span><span class="s2">&quot;S</span><span class="si">{SCAN_N}</span><span class="s2">&quot;</span>
 <span class="linenos">3</span>     <span class="n">S</span><span class="p">{</span><span class="n">SCAN_N</span><span class="p">}:</span><span class="n">NXentry</span>
-<span class="linenos">4</span>         <span class="nd">@default</span><span class="o">=</span><span class="s2">"data"</span>
+<span class="linenos">4</span>         <span class="nd">@default</span><span class="o">=</span><span class="s2">&quot;data&quot;</span>
 <span class="linenos">5</span>         <span class="n">data</span><span class="p">:</span><span class="n">NXdata</span>
 <span class="linenos">6</span>             <span class="nd">@axes</span><span class="o">=</span><span class="p">{</span><span class="n">AXIS</span><span class="p">}</span>
 <span class="linenos">7</span>             <span class="nd">@signal</span><span class="o">=</span><span class="p">{</span><span class="n">SIGNAL</span><span class="p">}</span>
@@ -275,28 +277,28 @@
 </div>
 <aside class="sidebar">
 <p class="sidebar-title"><code class="docutils literal notranslate"><span class="pre">NXroot</span></code></p>
-<p>It is not required to write a <code class="docutils literal notranslate"><span class="pre">NX_class="NXroot"</span></code> <a class="footnote-reference brackets" href="#nxroot" id="id1">6</a> attribute to the
+<p>It is not required to write a <code class="docutils literal notranslate"><span class="pre">NX_class=&quot;NXroot&quot;</span></code> <a class="footnote-reference brackets" href="#nxroot" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a> attribute to the
 root of any NeXus data file.  In fact, it is very rare to find this attribute
 in any NeXus HDF5 file.  We only show it here for guidance in how to build
 a file using the NeXus standard.</p>
 </aside>
-<p>The root level of the file uses the structure of the NeXus <strong>NXroot</strong> <a class="footnote-reference brackets" href="#nxroot" id="id2">6</a>
+<p>The root level of the file uses the structure of the NeXus <strong>NXroot</strong> <a class="footnote-reference brackets" href="#nxroot" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>
 base class.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">@default</span></code> attribute points the way to the default plottable data.
-See the NeXus documentation <a class="footnote-reference brackets" href="#nx-default" id="id3">3</a> for more details.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">&#64;default</span></code> attribute points the way to the default plottable data.
+See the NeXus documentation <a class="footnote-reference brackets" href="#nx-default" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> for more details.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Here, the <code class="docutils literal notranslate"><span class="pre">@</span></code> character is used symbolically to identify this
-name is for an <em>attribute</em>.  Do not include the actual <code class="docutils literal notranslate"><span class="pre">@</span></code> symbol in
+<p>Here, the <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> character is used symbolically to identify this
+name is for an <em>attribute</em>.  Do not include the actual <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> symbol in
 the actual name of the attribute.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><code class="docutils literal notranslate"><span class="pre">AXIS</span></code> and <code class="docutils literal notranslate"><span class="pre">SIGNAL</span></code> are the names of the first and last columns,
 respectively, of the scan and <code class="docutils literal notranslate"><span class="pre">SCAN_N</span></code> is the scan number from the scan’s
-<code class="docutils literal notranslate"><span class="pre">#S</span></code> <span class="target" id="index-2"></span>control line <a class="footnote-reference brackets" href="#spec-format" id="id4">1</a> <a class="footnote-reference brackets" href="#control-line" id="id5">2</a> in the data file.</p>
+<code class="docutils literal notranslate"><span class="pre">#S</span></code> <span class="target" id="index-2"></span>control line <a class="footnote-reference brackets" href="#spec-format" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> <a class="footnote-reference brackets" href="#control-line" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> in the data file.</p>
 </div>
-<p>A NeXus <strong>NXentry</strong> <a class="footnote-reference brackets" href="#nxentry" id="id6">5</a> group (described symbolically as <code class="docutils literal notranslate"><span class="pre">/SCAN</span></code>) will
+<p>A NeXus <strong>NXentry</strong> <a class="footnote-reference brackets" href="#nxentry" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a> group (described symbolically as <code class="docutils literal notranslate"><span class="pre">/SCAN</span></code>) will
 be created for each scan to be written.  See section <a class="reference internal" href="spec_scan.html#data-file-scan"><span class="std std-ref">Scan</span></a> below
 for more details.</p>
 <aside class="sidebar">
@@ -307,7 +309,7 @@ to describe the location of an external file containing such data
 and how to find the image frame from that file.  No standard
 pattern exists for SPEC data files to reference such images.</p>
 </aside>
-<p>The scan data will be placed in a <strong>NXdata</strong> <a class="footnote-reference brackets" href="#nxdata" id="id7">4</a> group named <code class="docutils literal notranslate"><span class="pre">data</span></code>
+<p>The scan data will be placed in a <strong>NXdata</strong> <a class="footnote-reference brackets" href="#nxdata" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a> group named <code class="docutils literal notranslate"><span class="pre">data</span></code>
 below the <strong>NXentry</strong> group.   See section <a class="reference internal" href="scan_data.html#data-file-scan-data"><span class="std std-ref">Scan Data</span></a> below for
 more details.</p>
 <p>Other information from the scan will be written as described in the sections
@@ -320,29 +322,36 @@ increases. Examples of such variation include:</p>
 <li><p>custom metadata</p></li>
 <li><p>comments</p></li>
 </ul>
-<dl class="footnote brackets">
-<dt class="label" id="spec-format"><span class="brackets"><a class="fn-backref" href="#id4">1</a></span></dt>
-<dd><p>SPEC <strong>Standard Data-File Format</strong> :   <a class="reference external" href="https://certif.com/spec_manual/mac_3_13.html">https://certif.com/spec_manual/mac_3_13.html</a></p>
-</dd>
-<dt class="label" id="control-line"><span class="brackets"><a class="fn-backref" href="#id5">2</a></span></dt>
-<dd><p>See <a class="reference internal" href="../plugin_core.html#supplied-plugins"><span class="std std-ref">Supplied spec plugin modules</span></a> for a full list of the supported   control lines provided with <strong>spec2nexus</strong>.</p>
-</dd>
-<dt class="label" id="nx-default"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
-<dd><p>Used to identify the default plottable data in a NeXus HDF5 file.   <a class="reference external" href="https://manual.nexusformat.org/datarules.html#version-3">https://manual.nexusformat.org/datarules.html#version-3</a></p>
-</dd>
-</dl>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="spec-format" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">1</a><span class="fn-bracket">]</span></span>
+<p>SPEC <strong>Standard Data-File Format</strong> :   <a class="reference external" href="https://certif.com/spec_manual/mac_3_13.html">https://certif.com/spec_manual/mac_3_13.html</a></p>
+</aside>
+<aside class="footnote brackets" id="control-line" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">2</a><span class="fn-bracket">]</span></span>
+<p>See <a class="reference internal" href="../plugin_core.html#supplied-plugins"><span class="std std-ref">Supplied spec plugin modules</span></a> for a full list of the supported   control lines provided with <strong>spec2nexus</strong>.</p>
+</aside>
+<aside class="footnote brackets" id="nx-default" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<p>Used to identify the default plottable data in a NeXus HDF5 file.   <a class="reference external" href="https://manual.nexusformat.org/datarules.html#version-3">https://manual.nexusformat.org/datarules.html#version-3</a></p>
+</aside>
+</aside>
 <p>NeXus base classes</p>
-<dl class="footnote brackets">
-<dt class="label" id="nxdata"><span class="brackets"><a class="fn-backref" href="#id7">4</a></span></dt>
-<dd><p><strong>NXdata</strong>:   <a class="reference external" href="https://manual.nexusformat.org/classes/base_classes/NXdata.html">https://manual.nexusformat.org/classes/base_classes/NXdata.html</a></p>
-</dd>
-<dt class="label" id="nxentry"><span class="brackets"><a class="fn-backref" href="#id6">5</a></span></dt>
-<dd><p><strong>NXentry</strong>:   <a class="reference external" href="https://manual.nexusformat.org/classes/base_classes/NXentry.html">https://manual.nexusformat.org/classes/base_classes/NXentry.html</a></p>
-</dd>
-<dt class="label" id="nxroot"><span class="brackets">6</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>)</span></dt>
-<dd><p><strong>NXroot</strong>:   <a class="reference external" href="https://manual.nexusformat.org/classes/base_classes/NXroot.html">https://manual.nexusformat.org/classes/base_classes/NXroot.html</a></p>
-</dd>
-</dl>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="nxdata" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">4</a><span class="fn-bracket">]</span></span>
+<p><strong>NXdata</strong>:   <a class="reference external" href="https://manual.nexusformat.org/classes/base_classes/NXdata.html">https://manual.nexusformat.org/classes/base_classes/NXdata.html</a></p>
+</aside>
+<aside class="footnote brackets" id="nxentry" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">5</a><span class="fn-bracket">]</span></span>
+<p><strong>NXentry</strong>:   <a class="reference external" href="https://manual.nexusformat.org/classes/base_classes/NXentry.html">https://manual.nexusformat.org/classes/base_classes/NXentry.html</a></p>
+</aside>
+<aside class="footnote brackets" id="nxroot" role="note">
+<span class="label"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id2">2</a>)</span>
+<p><strong>NXroot</strong>:   <a class="reference external" href="https://manual.nexusformat.org/classes/base_classes/NXroot.html">https://manual.nexusformat.org/classes/base_classes/NXroot.html</a></p>
+</aside>
+</aside>
 </section>
 
         </article>
@@ -399,6 +408,7 @@ increases. Examples of such variation include:</p>
 </div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/scripts/furo.js"></script>
     </body>

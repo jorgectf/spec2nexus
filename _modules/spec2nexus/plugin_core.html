@@ -1,13 +1,13 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>spec2nexus.plugin_core - spec2nexus 2021.2.1</title>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
+        <title>spec2nexus.plugin_core - spec2nexus 2021.2.1 (2.g4f4a891)</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -123,7 +123,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">spec2nexus 2021.2.1</div></a>
+      <a href="../../index.html"><div class="brand">spec2nexus 2021.2.1 (2.g4f4a891)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -146,7 +146,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.1</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.1 (2.g4f4a891)</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -216,6 +216,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../scanf.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.scanf</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../singletons.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.singletons</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../spec.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../writer.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code></a></li>
 </ul>
@@ -244,7 +245,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -259,7 +261,7 @@
         </div>
         <article role="main">
           <h1>Source code for spec2nexus.plugin_core</h1><div class="highlight"><pre>
-<span></span><span class="sd">"""</span>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Python plugin support for handling SPEC control lines (such as #S, #D, ...).</span>
 
 <span class="sd">.. autosummary::</span>
@@ -276,7 +278,7 @@
 <span class="sd"># from: https://gist.github.com/will-hart/5899567</span>
 <span class="sd"># a simple Python plugin loading system</span>
 <span class="sd"># see: http://stackoverflow.com/questions/14510286/plugin-architecture-plugin-manager-vs-inspecting-from-plugins-import</span>
-<span class="sd">"""</span>
+<span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">import</span> <span class="nn">importlib</span>
 <span class="kn">import</span> <span class="nn">pathlib</span>
@@ -287,15 +289,15 @@
 
 
 <div class="viewcode-block" id="DuplicateKeyError"><a class="viewcode-back" href="../../plugin_core.html#spec2nexus.plugin_core.DuplicateKeyError">[docs]</a><span class="k">class</span> <span class="nc">DuplicateKeyError</span><span class="p">(</span><span class="ne">KeyError</span><span class="p">):</span>
-    <span class="sd">"""Cannot add more than one plugin for the same control key."""</span></div>
+    <span class="sd">&quot;&quot;&quot;Cannot add more than one plugin for the same control key.&quot;&quot;&quot;</span></div>
 
 
 <div class="viewcode-block" id="install_user_plugin"><a class="viewcode-back" href="../../plugin_core.html#spec2nexus.plugin_core.install_user_plugin">[docs]</a><span class="k">def</span> <span class="nf">install_user_plugin</span><span class="p">(</span><span class="n">plugin_file</span><span class="p">):</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Install plugin(s) from a Python file.</span>
 
 <span class="sd">    Potentially dangerous since this is an import of a user-created file.</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">plugin</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">plugin_file</span><span class="p">)</span><span class="o">.</span><span class="n">absolute</span><span class="p">()</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">plugin</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
         <span class="k">raise</span> <span class="ne">FileExistsError</span><span class="p">(</span><span class="n">plugin_file</span><span class="p">)</span>
@@ -309,7 +311,7 @@
 
 
 <div class="viewcode-block" id="PluginMounter"><a class="viewcode-back" href="../../plugin_core.html#spec2nexus.plugin_core.PluginMounter">[docs]</a><span class="k">class</span> <span class="nc">PluginMounter</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    (internal) Register and initiate all plugins subclassed from PluginBase.</span>
 
 <span class="sd">    .. autosummary::</span>
@@ -319,11 +321,11 @@
 <span class="sd">    Acts as a metaclass which creates anything inheriting from PluginBase.</span>
 <span class="sd">    A plugin mount point derived from:</span>
 <span class="sd">    http://martyalchin.com/2008/jan/10/simple-plugin-framework/</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">attrs</span><span class="p">):</span>
-        <span class="sd">"""Called when a PluginBase derived class is imported."""</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="s2">"plugins"</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Called when a PluginBase derived class is imported.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="s2">&quot;plugins&quot;</span><span class="p">):</span>
             <span class="c1"># Called when the metaclass is first instantiated</span>
             <span class="bp">cls</span><span class="o">.</span><span class="n">plugins</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="bp">cls</span><span class="o">.</span><span class="n">known_keys</span> <span class="o">=</span> <span class="p">{}</span>
@@ -333,14 +335,14 @@
             <span class="bp">cls</span><span class="o">.</span><span class="n">_enroll</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_enroll</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">plugin</span><span class="p">):</span>
-        <span class="sd">"""</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Add the plugin to the plugin list and perform any registration logic.</span>
 
 <span class="sd">        Expects to find these attributes:</span>
 
 <span class="sd">        * ``.key`` (``str``)</span>
 <span class="sd">        * ``.scan_attributes_defined`` (``list of str``)</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="c1"># create a plugin instance and store it</span>
         <span class="n">control_line_handler</span> <span class="o">=</span> <span class="n">plugin</span><span class="p">()</span>
@@ -355,7 +357,7 @@
 
 
 <div class="viewcode-block" id="ControlLineBase"><a class="viewcode-back" href="../../plugin_core.html#spec2nexus.plugin_core.ControlLineBase">[docs]</a><span class="k">class</span> <span class="nc">ControlLineBase</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">PluginMounter</span><span class="p">):</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Base class for SPEC data file control line handler plugins.</span>
 
 <span class="sd">    Define a subclass of :class:`~spec2nexus.plugin_core.ControlLineBase` for</span>
@@ -409,22 +411,22 @@
 <span class="sd">                return True</span>
 <span class="sd">            except ValueError:</span>
 <span class="sd">                return False</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">key</span> <span class="o">=</span> <span class="n">UNDEFINED_KEY</span>
     <span class="n">scan_attributes_defined</span> <span class="o">=</span> <span class="p">[]</span>
 
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""String representation of this class instance."""</span>
+        <span class="sd">&quot;&quot;&quot;String representation of this class instance.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="p">(</span>
-            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">("</span>
-            <span class="sa">f</span><span class="s2">"key='</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="si">}</span><span class="s2">'"</span>
-            <span class="sa">f</span><span class="s2">"scan_attributes_defined=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">scan_attributes_defined</span><span class="si">}</span><span class="s2">"</span>
-            <span class="s2">")"</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;key=&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;scan_attributes_defined=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">scan_attributes_defined</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="s2">&quot;)&quot;</span>
         <span class="p">)</span>
 
 <div class="viewcode-block" id="ControlLineBase.process"><a class="viewcode-back" href="../../plugin_core.html#spec2nexus.plugin_core.ControlLineBase.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">spec_obj</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">"""</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        *required:* Handle this line from a SPEC data file.</span>
 
 <span class="sd">        PARAMETERS</span>
@@ -435,44 +437,44 @@
 <span class="sd">            Instance of :class:`~spec2nexus.spec.SpecDataFile`,</span>
 <span class="sd">            :class:`~spec2nexus.spec.SpecDataFileHeader`, or</span>
 <span class="sd">            :class:`~spec2nexus.spec.SpecDataFileScan`</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"MUST define 'process()' method in subclass."</span><span class="p">)</span></div>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;MUST define &#39;process()&#39; method in subclass.&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="ControlLineBase.postprocess"><a class="viewcode-back" href="../../plugin_core.html#spec2nexus.plugin_core.ControlLineBase.postprocess">[docs]</a>    <span class="k">def</span> <span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">header</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">):</span>
-        <span class="sd">"""</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        *optional:* More processing deferred until *after* data file has been read.</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
-            <span class="s2">"MUST define 'postprocess()' method in subclass"</span>
-            <span class="s2">" (if it is called in 'process()')."</span>
+            <span class="s2">&quot;MUST define &#39;postprocess()&#39; method in subclass&quot;</span>
+            <span class="s2">&quot; (if it is called in &#39;process()&#39;).&quot;</span>
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="ControlLineBase.writer"><a class="viewcode-back" href="../../plugin_core.html#spec2nexus.plugin_core.ControlLineBase.writer">[docs]</a>    <span class="k">def</span> <span class="nf">writer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h5parent</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="n">scan</span><span class="p">,</span> <span class="n">nxclass</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">):</span>
-        <span class="sd">"""</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        *optional:* Describe how to store this data in a NeXus HDF5 file.</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
-            <span class="s2">"MUST define 'writer()' method in subclass"</span>
-            <span class="s2">" (if it is called in 'process()')."</span>
+            <span class="s2">&quot;MUST define &#39;writer()&#39; method in subclass&quot;</span>
+            <span class="s2">&quot; (if it is called in &#39;process()&#39;).&quot;</span>
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="ControlLineBase.match_key"><a class="viewcode-back" href="../../plugin_core.html#spec2nexus.plugin_core.ControlLineBase.match_key">[docs]</a>    <span class="k">def</span> <span class="nf">match_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
-        <span class="sd">"""</span>
-<span class="sd">        Test if this handler's key matches text.</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test if this handler&#39;s key matches text.</span>
 
 <span class="sd">        :param str text: first word on the line,</span>
 <span class="sd">            up to but not including the first whitespace</span>
 <span class="sd">        :returns: key or None</span>
 
-<span class="sd">        Applies a regular expression match using each handler's</span>
+<span class="sd">        Applies a regular expression match using each handler&#39;s</span>
 <span class="sd">        ``key`` as the regular expression to match with ``text``.</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">def</span> <span class="nf">_match_</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">plugin</span><span class="p">):</span>
-            <span class="sd">"""Text is first word of a line from a SPEC data file."""</span>
+            <span class="sd">&quot;&quot;&quot;Text is first word of a line from a SPEC data file.&quot;&quot;&quot;</span>
             <span class="c1"># ensure that #X and #XPCS do not both match #X</span>
-            <span class="n">full_pattern</span> <span class="o">=</span> <span class="s2">"^"</span> <span class="o">+</span> <span class="n">plugin</span><span class="o">.</span><span class="n">key</span> <span class="o">+</span> <span class="s2">"$"</span>
+            <span class="n">full_pattern</span> <span class="o">=</span> <span class="s2">&quot;^&quot;</span> <span class="o">+</span> <span class="n">plugin</span><span class="o">.</span><span class="n">key</span> <span class="o">+</span> <span class="s2">&quot;$&quot;</span>
             <span class="n">t</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">full_pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 
             <span class="c1"># test regexp match to avoid false positives</span>
@@ -531,6 +533,7 @@
 </div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
     </body>

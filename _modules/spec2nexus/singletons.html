@@ -1,13 +1,13 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>spec2nexus.singletons - spec2nexus 2021.2.1</title>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
+        <title>spec2nexus.singletons - spec2nexus 2021.2.1 (2.g4f4a891)</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -123,7 +123,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">spec2nexus 2021.2.1</div></a>
+      <a href="../../index.html"><div class="brand">spec2nexus 2021.2.1 (2.g4f4a891)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -146,7 +146,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.1</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.1 (2.g4f4a891)</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -216,6 +216,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../scanf.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.scanf</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../singletons.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.singletons</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../spec.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../writer.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code></a></li>
 </ul>
@@ -244,7 +245,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -259,7 +261,7 @@
         </div>
         <article role="main">
           <h1>Source code for spec2nexus.singletons</h1><div class="highlight"><pre>
-<span></span><span class="sd">"""</span>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">singletons: Python 2 and 3 Compatible Version</span>
 
 <span class="sd">:see: https://stackoverflow.com/questions/6760685/creating-a-singleton-in-python</span>
@@ -269,12 +271,12 @@
 <span class="sd">    class Logger(Singleton):</span>
 <span class="sd">        pass</span>
 
-<span class="sd">"""</span>
+<span class="sd">&quot;&quot;&quot;</span>
 
 
 <span class="k">class</span> <span class="nc">_Singleton</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span>
 
-    <span class="sd">"""A metaclass that creates a Singleton base class when called."""</span>
+    <span class="sd">&quot;&quot;&quot;A metaclass that creates a Singleton base class when called.&quot;&quot;&quot;</span>
 
     <span class="n">_instances</span> <span class="o">=</span> <span class="p">{}</span>
 
@@ -286,8 +288,8 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_instances</span><span class="p">[</span><span class="bp">self</span><span class="p">]</span>
 
 
-<div class="viewcode-block" id="Singleton"><a class="viewcode-back" href="../../singletons.html#spec2nexus.singletons.Singleton">[docs]</a><span class="k">class</span> <span class="nc">Singleton</span><span class="p">(</span><span class="n">_Singleton</span><span class="p">(</span><span class="s2">"SingletonMeta"</span><span class="p">,</span> <span class="p">(</span><span class="nb">object</span><span class="p">,),</span> <span class="p">{})):</span>
-    <span class="sd">"""Public interface"""</span></div>
+<div class="viewcode-block" id="Singleton"><a class="viewcode-back" href="../../singletons.html#spec2nexus.singletons.Singleton">[docs]</a><span class="k">class</span> <span class="nc">Singleton</span><span class="p">(</span><span class="n">_Singleton</span><span class="p">(</span><span class="s2">&quot;SingletonMeta&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nb">object</span><span class="p">,),</span> <span class="p">{})):</span>
+    <span class="sd">&quot;&quot;&quot;Public interface&quot;&quot;&quot;</span></div>
 </pre></div>
         </article>
       </div>
@@ -325,6 +327,7 @@
 </div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
     </body>

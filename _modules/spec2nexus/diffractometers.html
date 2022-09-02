@@ -1,13 +1,13 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>spec2nexus.diffractometers - spec2nexus 2021.2.1</title>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
+        <title>spec2nexus.diffractometers - spec2nexus 2021.2.1 (2.g4f4a891)</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -123,7 +123,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">spec2nexus 2021.2.1</div></a>
+      <a href="../../index.html"><div class="brand">spec2nexus 2021.2.1 (2.g4f4a891)</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -146,7 +146,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.1</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.1 (2.g4f4a891)</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -216,6 +216,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../scanf.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.scanf</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../singletons.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.singletons</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../spec.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.utils</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../writer.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code></a></li>
 </ul>
@@ -244,7 +245,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -259,7 +261,7 @@
         </div>
         <article role="main">
           <h1>Source code for spec2nexus.diffractometers</h1><div class="highlight"><pre>
-<span></span><span class="sd">"""</span>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Describe SPEC diffractometer geometry #G control lines.</span>
 
 <span class="sd">  #G0 ...       G[] array (geo mode, sector, etc)</span>
@@ -278,7 +280,7 @@
 <span class="sd">    ~get_geometry_catalog</span>
 <span class="sd">    ~reset_geometry_catalog</span>
 
-<span class="sd">"""</span>
+<span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span><span class="p">,</span> <span class="n">OrderedDict</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
@@ -289,82 +291,82 @@
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 <span class="n">_path</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span>
-<span class="n">DICT_FILE</span> <span class="o">=</span> <span class="n">_path</span> <span class="o">/</span> <span class="s2">"diffractometer-geometries.dict"</span>
+<span class="n">DICT_FILE</span> <span class="o">=</span> <span class="n">_path</span> <span class="o">/</span> <span class="s2">&quot;diffractometer-geometries.dict&quot;</span>
 
 
 <span class="n">KeyDescriptionValue</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span>
-    <span class="s2">"KeyDescriptionValue"</span><span class="p">,</span> <span class="s2">"key description value"</span>
+    <span class="s2">&quot;KeyDescriptionValue&quot;</span><span class="p">,</span> <span class="s2">&quot;key description value&quot;</span>
 <span class="p">)</span>
 
 <span class="n">LatticeParameters2D</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span>
-    <span class="s2">"LatticeParameters2D"</span><span class="p">,</span> <span class="s2">"a b gamma"</span>
+    <span class="s2">&quot;LatticeParameters2D&quot;</span><span class="p">,</span> <span class="s2">&quot;a b gamma&quot;</span>
 <span class="p">)</span>
 
 <span class="n">LatticeParameters3D</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span>
-    <span class="s2">"LatticeParameters3D"</span><span class="p">,</span> <span class="s2">"a b c alpha beta gamma"</span>
+    <span class="s2">&quot;LatticeParameters3D&quot;</span><span class="p">,</span> <span class="s2">&quot;a b c alpha beta gamma&quot;</span>
 <span class="p">)</span>
 
-<span class="n">Reflections2D</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">"Reflections2D"</span><span class="p">,</span> <span class="s2">"h k wavelength angles"</span><span class="p">)</span>
+<span class="n">Reflections2D</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">&quot;Reflections2D&quot;</span><span class="p">,</span> <span class="s2">&quot;h k wavelength angles&quot;</span><span class="p">)</span>
 
-<span class="n">Reflections3D</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">"Reflections3D"</span><span class="p">,</span> <span class="s2">"h k l wavelength angles"</span><span class="p">)</span>
+<span class="n">Reflections3D</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">&quot;Reflections3D&quot;</span><span class="p">,</span> <span class="s2">&quot;h k l wavelength angles&quot;</span><span class="p">)</span>
 
 
 <span class="c1"># lattice constants, orientation reflections</span>
 <span class="c1"># most geometries use this default schema</span>
 <span class="c1"># at least one geometry (twoc) has overrides</span>
 <span class="n">DEFAULT_U</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">(</span><span class="s2">"g_aa"</span><span class="p">,</span> <span class="s2">"a lattice constant (real space)"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"g_bb"</span><span class="p">,</span> <span class="s2">"b lattice constant (real space)"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"g_cc"</span><span class="p">,</span> <span class="s2">"c lattice constant (real space)"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"g_al"</span><span class="p">,</span> <span class="s2">"alpha lattice angle (real space)"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"g_be"</span><span class="p">,</span> <span class="s2">"beta  lattice angle (real space)"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"g_ga"</span><span class="p">,</span> <span class="s2">"gamma lattice angle (real space)"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"g_aa_s"</span><span class="p">,</span> <span class="s2">"a lattice constant (reciprocal space)"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"g_bb_s"</span><span class="p">,</span> <span class="s2">"b lattice constant (reciprocal space)"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"g_cc_s"</span><span class="p">,</span> <span class="s2">"c lattice constant (reciprocal space)"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"g_al_s"</span><span class="p">,</span> <span class="s2">"alpha lattice angle (reciprocal space)"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"g_be_s"</span><span class="p">,</span> <span class="s2">"beta  lattice angle (reciprocal space)"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"g_ga_s"</span><span class="p">,</span> <span class="s2">"gamma lattice angle (reciprocal space)"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"g_h0"</span><span class="p">,</span> <span class="s2">"H of primary reflection"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"g_k0"</span><span class="p">,</span> <span class="s2">"K of primary reflection"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"g_l0"</span><span class="p">,</span> <span class="s2">"L of primary reflection"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"g_h1"</span><span class="p">,</span> <span class="s2">"H of secondary reflection"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"g_k1"</span><span class="p">,</span> <span class="s2">"K of secondary reflection"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"g_l1"</span><span class="p">,</span> <span class="s2">"L of secondary reflection"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"g_u00"</span><span class="p">,</span> <span class="s2">"angle 0 of primary reflection"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"g_u01"</span><span class="p">,</span> <span class="s2">"angle 1 of primary reflection"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"g_u02"</span><span class="p">,</span> <span class="s2">"angle 2 of primary reflection"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"g_u03"</span><span class="p">,</span> <span class="s2">"angle 3 of primary reflection"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"g_u04"</span><span class="p">,</span> <span class="s2">"angle 4 of primary reflection"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"g_u05"</span><span class="p">,</span> <span class="s2">"angle 5 of primary reflection"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"g_u10"</span><span class="p">,</span> <span class="s2">"angle 0 of secondary reflection"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"g_u11"</span><span class="p">,</span> <span class="s2">"angle 1 of secondary reflection"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"g_u12"</span><span class="p">,</span> <span class="s2">"angle 2 of secondary reflection"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"g_u13"</span><span class="p">,</span> <span class="s2">"angle 3 of secondary reflection"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"g_u14"</span><span class="p">,</span> <span class="s2">"angle 4 of secondary reflection"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"g_u15"</span><span class="p">,</span> <span class="s2">"angle 5 of secondary reflection"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"g_lambda0"</span><span class="p">,</span> <span class="s2">"lambda when or0 was set"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"g_lambda1"</span><span class="p">,</span> <span class="s2">"lambda when or1 was set"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;g_aa&quot;</span><span class="p">,</span> <span class="s2">&quot;a lattice constant (real space)&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;g_bb&quot;</span><span class="p">,</span> <span class="s2">&quot;b lattice constant (real space)&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;g_cc&quot;</span><span class="p">,</span> <span class="s2">&quot;c lattice constant (real space)&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;g_al&quot;</span><span class="p">,</span> <span class="s2">&quot;alpha lattice angle (real space)&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;g_be&quot;</span><span class="p">,</span> <span class="s2">&quot;beta  lattice angle (real space)&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;g_ga&quot;</span><span class="p">,</span> <span class="s2">&quot;gamma lattice angle (real space)&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;g_aa_s&quot;</span><span class="p">,</span> <span class="s2">&quot;a lattice constant (reciprocal space)&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;g_bb_s&quot;</span><span class="p">,</span> <span class="s2">&quot;b lattice constant (reciprocal space)&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;g_cc_s&quot;</span><span class="p">,</span> <span class="s2">&quot;c lattice constant (reciprocal space)&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;g_al_s&quot;</span><span class="p">,</span> <span class="s2">&quot;alpha lattice angle (reciprocal space)&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;g_be_s&quot;</span><span class="p">,</span> <span class="s2">&quot;beta  lattice angle (reciprocal space)&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;g_ga_s&quot;</span><span class="p">,</span> <span class="s2">&quot;gamma lattice angle (reciprocal space)&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;g_h0&quot;</span><span class="p">,</span> <span class="s2">&quot;H of primary reflection&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;g_k0&quot;</span><span class="p">,</span> <span class="s2">&quot;K of primary reflection&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;g_l0&quot;</span><span class="p">,</span> <span class="s2">&quot;L of primary reflection&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;g_h1&quot;</span><span class="p">,</span> <span class="s2">&quot;H of secondary reflection&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;g_k1&quot;</span><span class="p">,</span> <span class="s2">&quot;K of secondary reflection&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;g_l1&quot;</span><span class="p">,</span> <span class="s2">&quot;L of secondary reflection&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;g_u00&quot;</span><span class="p">,</span> <span class="s2">&quot;angle 0 of primary reflection&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;g_u01&quot;</span><span class="p">,</span> <span class="s2">&quot;angle 1 of primary reflection&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;g_u02&quot;</span><span class="p">,</span> <span class="s2">&quot;angle 2 of primary reflection&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;g_u03&quot;</span><span class="p">,</span> <span class="s2">&quot;angle 3 of primary reflection&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;g_u04&quot;</span><span class="p">,</span> <span class="s2">&quot;angle 4 of primary reflection&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;g_u05&quot;</span><span class="p">,</span> <span class="s2">&quot;angle 5 of primary reflection&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;g_u10&quot;</span><span class="p">,</span> <span class="s2">&quot;angle 0 of secondary reflection&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;g_u11&quot;</span><span class="p">,</span> <span class="s2">&quot;angle 1 of secondary reflection&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;g_u12&quot;</span><span class="p">,</span> <span class="s2">&quot;angle 2 of secondary reflection&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;g_u13&quot;</span><span class="p">,</span> <span class="s2">&quot;angle 3 of secondary reflection&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;g_u14&quot;</span><span class="p">,</span> <span class="s2">&quot;angle 4 of secondary reflection&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;g_u15&quot;</span><span class="p">,</span> <span class="s2">&quot;angle 5 of secondary reflection&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;g_lambda0&quot;</span><span class="p">,</span> <span class="s2">&quot;lambda when or0 was set&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;g_lambda1&quot;</span><span class="p">,</span> <span class="s2">&quot;lambda when or1 was set&quot;</span><span class="p">),</span>
     <span class="c1"># For backward compatibility, additional angles added at end of array</span>
-    <span class="p">(</span><span class="s2">"g_u06"</span><span class="p">,</span> <span class="s2">"optional, angle 6 of primary reflection"</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">"g_u16"</span><span class="p">,</span> <span class="s2">"optional, angle 6 of secondary reflection"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;g_u06&quot;</span><span class="p">,</span> <span class="s2">&quot;optional, angle 6 of primary reflection&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;g_u16&quot;</span><span class="p">,</span> <span class="s2">&quot;optional, angle 6 of secondary reflection&quot;</span><span class="p">),</span>
 <span class="p">]</span>
 
 
 <div class="viewcode-block" id="split_name_variation"><a class="viewcode-back" href="../../diffractometers.html#spec2nexus.diffractometers.split_name_variation">[docs]</a><span class="k">def</span> <span class="nf">split_name_variation</span><span class="p">(</span><span class="n">geo_name</span><span class="p">):</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    split geo_name into geometry name and variation</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">nm</span> <span class="o">=</span> <span class="n">geo_name</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">nm</span><span class="p">,</span> <span class="n">variant</span> <span class="o">=</span> <span class="n">geo_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"."</span><span class="p">)</span>
+        <span class="n">nm</span><span class="p">,</span> <span class="n">variant</span> <span class="o">=</span> <span class="n">geo_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
     <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
         <span class="n">variant</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="k">return</span> <span class="n">nm</span><span class="p">,</span> <span class="n">variant</span></div>
 
 
 <div class="viewcode-block" id="Diffractometer"><a class="viewcode-back" href="../../diffractometers.html#spec2nexus.diffractometers.Diffractometer">[docs]</a><span class="k">class</span> <span class="nc">Diffractometer</span><span class="p">:</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    describe the diffractometer for the scan</span>
 
 <span class="sd">    .. autosummary::</span>
@@ -372,7 +374,7 @@
 <span class="sd">        ~parse</span>
 <span class="sd">        ~print_all</span>
 <span class="sd">        ~print_brief</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">geo_name</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">geometry_name_full</span> <span class="o">=</span> <span class="n">geo_name</span>
@@ -385,24 +387,24 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">wavelength</span> <span class="o">=</span> <span class="kc">None</span>
 
         <span class="n">gpar</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">geometry_parameters</span>
-        <span class="n">gpar</span><span class="p">[</span><span class="s2">"diffractometer_full"</span><span class="p">]</span> <span class="o">=</span> <span class="n">KeyDescriptionValue</span><span class="p">(</span>
-            <span class="s2">"diffractometer_full"</span><span class="p">,</span>
-            <span class="s2">"name of diffractometer (and variant), deduced from scan information"</span><span class="p">,</span>
+        <span class="n">gpar</span><span class="p">[</span><span class="s2">&quot;diffractometer_full&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">KeyDescriptionValue</span><span class="p">(</span>
+            <span class="s2">&quot;diffractometer_full&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;name of diffractometer (and variant), deduced from scan information&quot;</span><span class="p">,</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">geometry_name_full</span><span class="p">,</span>
         <span class="p">)</span>
-        <span class="n">gpar</span><span class="p">[</span><span class="s2">"diffractometer_simple"</span><span class="p">]</span> <span class="o">=</span> <span class="n">KeyDescriptionValue</span><span class="p">(</span>
-            <span class="s2">"diffractometer_simple"</span><span class="p">,</span>
-            <span class="s2">"name of diffractometer, deduced from scan information"</span><span class="p">,</span>
+        <span class="n">gpar</span><span class="p">[</span><span class="s2">&quot;diffractometer_simple&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">KeyDescriptionValue</span><span class="p">(</span>
+            <span class="s2">&quot;diffractometer_simple&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;name of diffractometer, deduced from scan information&quot;</span><span class="p">,</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">geometry_name</span><span class="p">,</span>
         <span class="p">)</span>
-        <span class="n">gpar</span><span class="p">[</span><span class="s2">"diffractometer_variant"</span><span class="p">]</span> <span class="o">=</span> <span class="n">KeyDescriptionValue</span><span class="p">(</span>
-            <span class="s2">"diffractometer_variant"</span><span class="p">,</span>
-            <span class="s2">"name of diffractometer variant, deduced from scan information"</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">variant</span> <span class="ow">or</span> <span class="s2">""</span><span class="p">,</span>
+        <span class="n">gpar</span><span class="p">[</span><span class="s2">&quot;diffractometer_variant&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">KeyDescriptionValue</span><span class="p">(</span>
+            <span class="s2">&quot;diffractometer_variant&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;name of diffractometer variant, deduced from scan information&quot;</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">variant</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_get_info_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="s2">"str"</span><span class="p">):</span>
-        <span class="sd">"""</span>
+    <span class="k">def</span> <span class="nf">_get_info_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="s2">&quot;str&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return dictionary for use in various reports.</span>
 
 <span class="sd">        PARAMETER</span>
@@ -411,81 +413,81 @@
 <span class="sd">            Level of detail for desired report.</span>
 <span class="sd">            One of these values: ``pa``, ``str``, ``wh``.</span>
 <span class="sd">            Default: ``str``</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">info</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="n">gpars</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">geometry_parameters</span>
 
-        <span class="n">info</span><span class="p">[</span><span class="s2">"geometry"</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"'</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">geometry_name</span><span class="si">}</span><span class="s2">'"</span>
-        <span class="n">info</span><span class="p">[</span><span class="s2">"wavelength"</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">wavelength</span><span class="si">}</span><span class="s2">"</span>
-        <span class="n">info</span><span class="p">[</span><span class="s2">"mode"</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"'</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">mode</span><span class="si">}</span><span class="s2">'"</span>
-        <span class="n">info</span><span class="p">[</span><span class="s2">"sector"</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">sector</span><span class="si">}</span><span class="s2">"</span>
+        <span class="n">info</span><span class="p">[</span><span class="s2">&quot;geometry&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">geometry_name</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+        <span class="n">info</span><span class="p">[</span><span class="s2">&quot;wavelength&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">wavelength</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">info</span><span class="p">[</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">mode</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+        <span class="n">info</span><span class="p">[</span><span class="s2">&quot;sector&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">sector</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Q_names</span><span class="p">:</span>
-            <span class="n">info</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">gpars</span><span class="p">[</span><span class="n">key</span><span class="o">.</span><span class="n">upper</span><span class="p">()]</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span>
+            <span class="n">info</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">gpars</span><span class="p">[</span><span class="n">key</span><span class="o">.</span><span class="n">upper</span><span class="p">()]</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span>
 
-        <span class="k">if</span> <span class="n">level</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"pa"</span><span class="p">,</span> <span class="s2">"wh"</span><span class="p">):</span>
-            <span class="n">info</span><span class="p">[</span><span class="s2">"lattice"</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">lattice</span><span class="si">}</span><span class="s2">"</span>
-            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="s2">"alpha beta azimuth omega"</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>  <span class="c1"># TODO: generalize per issue #274</span>
+        <span class="k">if</span> <span class="n">level</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;pa&quot;</span><span class="p">,</span> <span class="s2">&quot;wh&quot;</span><span class="p">):</span>
+            <span class="n">info</span><span class="p">[</span><span class="s2">&quot;lattice&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">lattice</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="s2">&quot;alpha beta azimuth omega&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>  <span class="c1"># TODO: generalize per issue #274</span>
                 <span class="k">if</span> <span class="n">key</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="ow">in</span> <span class="n">gpars</span><span class="p">:</span>
-                    <span class="n">info</span><span class="p">[</span><span class="n">key</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">gpars</span><span class="p">[</span><span class="n">key</span><span class="o">.</span><span class="n">upper</span><span class="p">()]</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span>
+                    <span class="n">info</span><span class="p">[</span><span class="n">key</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">gpars</span><span class="p">[</span><span class="n">key</span><span class="o">.</span><span class="n">upper</span><span class="p">()]</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span>
 
-        <span class="k">if</span> <span class="n">level</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"pa"</span><span class="p">,</span> <span class="p">):</span>
+        <span class="k">if</span> <span class="n">level</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;pa&quot;</span><span class="p">,</span> <span class="p">):</span>
             <span class="n">full_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">geometry_name_full</span>
-            <span class="n">info</span><span class="p">[</span><span class="s2">"full_geometry_name"</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"'</span><span class="si">{</span><span class="n">full_name</span><span class="si">}</span><span class="s2">'"</span>
-            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"lattice"</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">lattice</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">info</span><span class="p">[</span><span class="s2">"lattice"</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">lattice</span><span class="si">}</span><span class="s2">"</span>
-            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"UB"</span><span class="p">):</span>
-                <span class="n">info</span><span class="p">[</span><span class="s2">"UB"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">UB</span>
-            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"reflections"</span><span class="p">):</span>
+            <span class="n">info</span><span class="p">[</span><span class="s2">&quot;full_geometry_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">full_name</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;lattice&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">lattice</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">info</span><span class="p">[</span><span class="s2">&quot;lattice&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">lattice</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;UB&quot;</span><span class="p">):</span>
+                <span class="n">info</span><span class="p">[</span><span class="s2">&quot;UB&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">UB</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;reflections&quot;</span><span class="p">):</span>
                 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">refl</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">reflections</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-                    <span class="n">info</span><span class="p">[</span><span class="sa">f</span><span class="s2">"reflection </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">refl</span><span class="si">}</span><span class="s2">"</span>
-                <span class="n">info</span><span class="p">[</span><span class="s2">"UB"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">UB</span>
+                    <span class="n">info</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;reflection </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">refl</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="n">info</span><span class="p">[</span><span class="s2">&quot;UB&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">UB</span>
 
         <span class="k">return</span> <span class="n">info</span>
 
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Brief representation of this diffractometer.</span>
-<span class="sd">        """</span>
-        <span class="n">s</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_info_dict</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Diffractometer(</span><span class="si">{</span><span class="s1">', '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="si">}</span><span class="s2">)"</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_info_dict</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Diffractometer(</span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">_Q_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List of names used to define Q (typically: h k l).  All lower case.</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">geometry</span> <span class="o">=</span> <span class="n">get_geometry_catalog</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">geometry_name_full</span><span class="p">)</span>
         <span class="k">return</span> <span class="p">[</span>
             <span class="n">q_term</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-            <span class="k">for</span> <span class="n">q_term</span> <span class="ow">in</span> <span class="n">geometry</span><span class="p">[</span><span class="s2">"Q"</span><span class="p">]</span>
-            <span class="k">if</span> <span class="s2">"Miller index"</span> <span class="ow">in</span> <span class="n">q_term</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">q_term</span> <span class="ow">in</span> <span class="n">geometry</span><span class="p">[</span><span class="s2">&quot;Q&quot;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="s2">&quot;Miller index&quot;</span> <span class="ow">in</span> <span class="n">q_term</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
         <span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">_positioners_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scan</span><span class="p">):</span>
-        <span class="sd">"""</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Dictionary with positioners (keys) and positions (values) in this scan.</span>
 
 <span class="sd">        PARAMETERS</span>
 
 <span class="sd">        scan obj :</span>
 <span class="sd">            SPEC data file scan (a ``spec2nexus.spec.SpecDataFileScan`` object).</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">geometry</span> <span class="o">=</span> <span class="n">get_geometry_catalog</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">geometry_name_full</span><span class="p">)</span>
-        <span class="n">number_motors_in_geometry</span> <span class="o">=</span> <span class="n">geometry</span><span class="p">[</span><span class="s2">"numgeo"</span><span class="p">]</span>
+        <span class="n">number_motors_in_geometry</span> <span class="o">=</span> <span class="n">geometry</span><span class="p">[</span><span class="s2">&quot;numgeo&quot;</span><span class="p">]</span>
         <span class="k">return</span> <span class="p">{</span>
             <span class="n">k</span><span class="p">:</span> <span class="n">scan</span><span class="o">.</span><span class="n">positioner</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
             <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">positioner</span><span class="o">.</span><span class="n">keys</span><span class="p">())[:</span><span class="n">number_motors_in_geometry</span><span class="p">]</span>
         <span class="p">}</span>
 
     <span class="k">def</span> <span class="nf">_get_Q_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">info</span><span class="p">):</span>
-        <span class="sd">"""</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Dictionary with all the Q-related terms &amp; values (hkl, for example).</span>
 
 <span class="sd">        PARAMETERS</span>
 
 <span class="sd">        info dict :</span>
 <span class="sd">            from `_get_info_dict()`</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">info</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Q_names</span><span class="p">}</span>
 
     <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scan</span><span class="p">):</span>
@@ -493,161 +495,161 @@
         <span class="n">gonio</span> <span class="o">=</span> <span class="n">dgc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">geometry_name_full</span><span class="p">)</span>
 
         <span class="n">G</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
-        <span class="k">if</span> <span class="s2">"G0"</span> <span class="ow">in</span> <span class="n">scan</span><span class="o">.</span><span class="n">G</span><span class="p">:</span>
-            <span class="n">g0</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">scan</span><span class="o">.</span><span class="n">G</span><span class="p">[</span><span class="s2">"G0"</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
-            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">g0</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">gonio</span><span class="p">[</span><span class="s2">"G"</span><span class="p">]):</span>
+        <span class="k">if</span> <span class="s2">&quot;G0&quot;</span> <span class="ow">in</span> <span class="n">scan</span><span class="o">.</span><span class="n">G</span><span class="p">:</span>
+            <span class="n">g0</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">scan</span><span class="o">.</span><span class="n">G</span><span class="p">[</span><span class="s2">&quot;G0&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">g0</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">gonio</span><span class="p">[</span><span class="s2">&quot;G&quot;</span><span class="p">]):</span>
                 <span class="n">G</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">(</span>
                     <span class="p">{</span>
                         <span class="n">kd</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">KeyDescriptionValue</span><span class="p">(</span><span class="n">kd</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">kd</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">v</span><span class="p">)</span>
-                        <span class="k">for</span> <span class="n">v</span><span class="p">,</span> <span class="n">kd</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">g0</span><span class="p">,</span> <span class="n">gonio</span><span class="p">[</span><span class="s2">"G"</span><span class="p">])</span>
+                        <span class="k">for</span> <span class="n">v</span><span class="p">,</span> <span class="n">kd</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">g0</span><span class="p">,</span> <span class="n">gonio</span><span class="p">[</span><span class="s2">&quot;G&quot;</span><span class="p">])</span>
                     <span class="p">}</span>
                 <span class="p">)</span>
                 <span class="n">additions</span> <span class="o">=</span> <span class="p">[]</span>
                 <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">kdv</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-                    <span class="k">if</span> <span class="n">k</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"g_sect"</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">k</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;g_sect&quot;</span><span class="p">):</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">sector</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">kdv</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
                         <span class="k">continue</span>
-                    <span class="k">if</span> <span class="ow">not</span> <span class="n">k</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"g_mode"</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">k</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;g_mode&quot;</span><span class="p">):</span>
                         <span class="k">continue</span>
-                    <span class="n">modes</span> <span class="o">=</span> <span class="n">gonio</span><span class="p">[</span><span class="s2">"modes"</span><span class="p">]</span>
+                    <span class="n">modes</span> <span class="o">=</span> <span class="n">gonio</span><span class="p">[</span><span class="s2">&quot;modes&quot;</span><span class="p">]</span>
                     <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="nb">int</span><span class="p">(</span><span class="n">kdv</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">modes</span><span class="p">)):</span>
                         <span class="k">continue</span>
                     <span class="n">entry</span> <span class="o">=</span> <span class="n">KeyDescriptionValue</span><span class="p">(</span>
-                        <span class="n">k</span> <span class="o">+</span> <span class="s2">"_name"</span><span class="p">,</span>
-                        <span class="s2">"name of "</span> <span class="o">+</span> <span class="n">kdv</span><span class="o">.</span><span class="n">description</span><span class="p">,</span>
+                        <span class="n">k</span> <span class="o">+</span> <span class="s2">&quot;_name&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;name of &quot;</span> <span class="o">+</span> <span class="n">kdv</span><span class="o">.</span><span class="n">description</span><span class="p">,</span>
                         <span class="n">modes</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">kdv</span><span class="o">.</span><span class="n">value</span><span class="p">)],</span>
                     <span class="p">)</span>
                     <span class="n">additions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
                 <span class="c1"># must update G{} in two steps</span>
                 <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">additions</span><span class="p">:</span>
                     <span class="n">G</span><span class="p">[</span><span class="n">entry</span><span class="o">.</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">entry</span>
-                    <span class="k">if</span> <span class="n">entry</span><span class="o">.</span><span class="n">key</span> <span class="o">==</span> <span class="s2">"g_mode_name"</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">entry</span><span class="o">.</span><span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;g_mode_name&quot;</span><span class="p">:</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">value</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">geometry_parameters</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="s2">"G1"</span> <span class="ow">in</span> <span class="n">scan</span><span class="o">.</span><span class="n">G</span><span class="p">:</span>
-            <span class="n">g1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">scan</span><span class="o">.</span><span class="n">G</span><span class="p">[</span><span class="s2">"G1"</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+        <span class="k">if</span> <span class="s2">&quot;G1&quot;</span> <span class="ow">in</span> <span class="n">scan</span><span class="o">.</span><span class="n">G</span><span class="p">:</span>
+            <span class="n">g1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">scan</span><span class="o">.</span><span class="n">G</span><span class="p">[</span><span class="s2">&quot;G1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">g1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="c1"># at least one geometry overrides the default U[] terms</span>
-                <span class="n">gonio_U</span> <span class="o">=</span> <span class="n">gonio</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"U"</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">DEFAULT_U</span><span class="p">))</span>
+                <span class="n">gonio_U</span> <span class="o">=</span> <span class="n">gonio</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;U&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">DEFAULT_U</span><span class="p">))</span>
                 <span class="n">U</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">(</span>
                     <span class="p">{</span>
                         <span class="n">kd</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">KeyDescriptionValue</span><span class="p">(</span><span class="n">kd</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">kd</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">v</span><span class="p">)</span>
                         <span class="k">for</span> <span class="n">v</span><span class="p">,</span> <span class="n">kd</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">g1</span><span class="p">,</span> <span class="n">gonio_U</span><span class="p">)</span>
                     <span class="p">}</span>
                 <span class="p">)</span>
-                <span class="k">if</span> <span class="p">(</span><span class="s2">"g_cc"</span> <span class="ow">in</span> <span class="n">U</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="s2">"g_al"</span> <span class="ow">in</span> <span class="n">U</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="s2">"g_be"</span> <span class="ow">in</span> <span class="n">U</span><span class="p">):</span>
-                    <span class="n">_parms</span> <span class="o">=</span> <span class="p">[</span><span class="n">U</span><span class="p">[</span><span class="sa">f</span><span class="s2">"g_</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">"</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="s2">"aa bb cc al be ga"</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
+                <span class="k">if</span> <span class="p">(</span><span class="s2">&quot;g_cc&quot;</span> <span class="ow">in</span> <span class="n">U</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="s2">&quot;g_al&quot;</span> <span class="ow">in</span> <span class="n">U</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="s2">&quot;g_be&quot;</span> <span class="ow">in</span> <span class="n">U</span><span class="p">):</span>
+                    <span class="n">_parms</span> <span class="o">=</span> <span class="p">[</span><span class="n">U</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;g_</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="s2">&quot;aa bb cc al be ga&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">lattice</span> <span class="o">=</span> <span class="n">LatticeParameters3D</span><span class="p">(</span><span class="o">*</span><span class="n">_parms</span><span class="p">)</span>
                 <span class="k">else</span><span class="p">:</span>  <span class="c1"># twoc</span>
-                    <span class="n">_parms</span> <span class="o">=</span> <span class="p">[</span><span class="n">U</span><span class="p">[</span><span class="sa">f</span><span class="s2">"g_</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">"</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="s2">"aa bb ga"</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
+                    <span class="n">_parms</span> <span class="o">=</span> <span class="p">[</span><span class="n">U</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;g_</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="s2">&quot;aa bb ga&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">lattice</span> <span class="o">=</span> <span class="n">LatticeParameters2D</span><span class="p">(</span><span class="o">*</span><span class="n">_parms</span><span class="p">)</span>
                 <span class="k">for</span> <span class="n">ref_num</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
-                    <span class="n">template</span> <span class="o">=</span> <span class="s2">"g_u</span><span class="si">%d%%</span><span class="s2">d"</span> <span class="o">%</span> <span class="n">ref_num</span>
+                    <span class="n">template</span> <span class="o">=</span> <span class="s2">&quot;g_u</span><span class="si">%d%%</span><span class="s2">d&quot;</span> <span class="o">%</span> <span class="n">ref_num</span>
                     <span class="n">variant</span> <span class="o">=</span> <span class="n">dgc</span><span class="o">.</span><span class="n">get_variant</span><span class="p">(</span><span class="n">gonio</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">variant</span><span class="p">)</span>
                     <span class="n">angles</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
-                    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">mne</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">variant</span><span class="p">[</span><span class="s2">"motors"</span><span class="p">]):</span>
+                    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">mne</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">variant</span><span class="p">[</span><span class="s2">&quot;motors&quot;</span><span class="p">]):</span>
                         <span class="n">k</span> <span class="o">=</span> <span class="n">template</span> <span class="o">%</span> <span class="n">i</span>
                         <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">U</span><span class="p">:</span>
                             <span class="n">angles</span><span class="p">[</span><span class="n">mne</span><span class="p">]</span> <span class="o">=</span> <span class="n">U</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
-                    <span class="k">if</span> <span class="p">(</span><span class="s2">"g_lambda"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">U</span><span class="p">):</span>
-                        <span class="n">_parms</span> <span class="o">=</span> <span class="p">[</span><span class="n">U</span><span class="p">[</span><span class="sa">f</span><span class="s2">"g_</span><span class="si">{</span><span class="n">k</span><span class="si">}{</span><span class="n">ref_num</span><span class="si">}</span><span class="s2">"</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="s2">"h k l lambda"</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="s2">&quot;g_lambda&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">U</span><span class="p">):</span>
+                        <span class="n">_parms</span> <span class="o">=</span> <span class="p">[</span><span class="n">U</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;g_</span><span class="si">{</span><span class="n">k</span><span class="si">}{</span><span class="n">ref_num</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="s2">&quot;h k l lambda&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
                         <span class="n">_parms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">angles</span><span class="p">)</span>
                         <span class="n">ref</span> <span class="o">=</span> <span class="n">Reflections3D</span><span class="p">(</span><span class="o">*</span><span class="n">_parms</span><span class="p">)</span>
                     <span class="k">else</span><span class="p">:</span>  <span class="c1"># twoc</span>
                         <span class="k">if</span> <span class="n">ref_num</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
                             <span class="k">break</span>  <span class="c1"># at most, 1 reflection is defined</span>
-                        <span class="n">_parms</span> <span class="o">=</span> <span class="p">[</span><span class="n">U</span><span class="p">[</span><span class="sa">f</span><span class="s2">"g_</span><span class="si">{</span><span class="n">k</span><span class="si">}{</span><span class="n">ref_num</span><span class="si">}</span><span class="s2">"</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="s2">"h k"</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
-                        <span class="n">_parms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">U</span><span class="p">[</span><span class="s2">"g_lambda"</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+                        <span class="n">_parms</span> <span class="o">=</span> <span class="p">[</span><span class="n">U</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;g_</span><span class="si">{</span><span class="n">k</span><span class="si">}{</span><span class="n">ref_num</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="s2">&quot;h k&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
+                        <span class="n">_parms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">U</span><span class="p">[</span><span class="s2">&quot;g_lambda&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
                         <span class="n">_parms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">angles</span><span class="p">)</span>
                         <span class="n">ref</span> <span class="o">=</span> <span class="n">Reflections2D</span><span class="p">(</span><span class="o">*</span><span class="n">_parms</span><span class="p">)</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">reflections</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ref</span><span class="p">)</span>
 
                 <span class="bp">self</span><span class="o">.</span><span class="n">geometry_parameters</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">U</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="s2">"G3"</span> <span class="ow">in</span> <span class="n">scan</span><span class="o">.</span><span class="n">G</span><span class="p">:</span>
-            <span class="n">g3</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">scan</span><span class="o">.</span><span class="n">G</span><span class="p">[</span><span class="s2">"G3"</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+        <span class="k">if</span> <span class="s2">&quot;G3&quot;</span> <span class="ow">in</span> <span class="n">scan</span><span class="o">.</span><span class="n">G</span><span class="p">:</span>
+            <span class="n">g3</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">scan</span><span class="o">.</span><span class="n">G</span><span class="p">[</span><span class="s2">&quot;G3&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">g3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">9</span><span class="p">:</span>
                 <span class="n">UB</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">g3</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">geometry_parameters</span><span class="p">[</span>
-                    <span class="s2">"ub_matrix"</span>
-                <span class="p">]</span> <span class="o">=</span> <span class="n">KeyDescriptionValue</span><span class="p">(</span><span class="s2">"ub_matrix"</span><span class="p">,</span> <span class="s2">"UB[] matrix"</span><span class="p">,</span> <span class="n">UB</span><span class="p">)</span>
+                    <span class="s2">&quot;ub_matrix&quot;</span>
+                <span class="p">]</span> <span class="o">=</span> <span class="n">KeyDescriptionValue</span><span class="p">(</span><span class="s2">&quot;ub_matrix&quot;</span><span class="p">,</span> <span class="s2">&quot;UB[] matrix&quot;</span><span class="p">,</span> <span class="n">UB</span><span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">UB</span> <span class="o">=</span> <span class="n">UB</span>
 
         <span class="n">Q</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
-        <span class="k">if</span> <span class="s2">"G4"</span> <span class="ow">in</span> <span class="n">scan</span><span class="o">.</span><span class="n">G</span><span class="p">:</span>
-            <span class="n">g4</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">scan</span><span class="o">.</span><span class="n">G</span><span class="p">[</span><span class="s2">"G4"</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
-            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">g4</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">gonio</span><span class="p">[</span><span class="s2">"Q"</span><span class="p">]):</span>
+        <span class="k">if</span> <span class="s2">&quot;G4&quot;</span> <span class="ow">in</span> <span class="n">scan</span><span class="o">.</span><span class="n">G</span><span class="p">:</span>
+            <span class="n">g4</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">scan</span><span class="o">.</span><span class="n">G</span><span class="p">[</span><span class="s2">&quot;G4&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">g4</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">gonio</span><span class="p">[</span><span class="s2">&quot;Q&quot;</span><span class="p">]):</span>
                 <span class="n">Q</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">(</span>
                     <span class="p">{</span>
                         <span class="n">kd</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">KeyDescriptionValue</span><span class="p">(</span><span class="n">kd</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">kd</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">v</span><span class="p">)</span>
-                        <span class="k">for</span> <span class="n">v</span><span class="p">,</span> <span class="n">kd</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">g4</span><span class="p">,</span> <span class="n">gonio</span><span class="p">[</span><span class="s2">"Q"</span><span class="p">])</span>
+                        <span class="k">for</span> <span class="n">v</span><span class="p">,</span> <span class="n">kd</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">g4</span><span class="p">,</span> <span class="n">gonio</span><span class="p">[</span><span class="s2">&quot;Q&quot;</span><span class="p">])</span>
                     <span class="p">}</span>
                 <span class="p">)</span>
-                <span class="k">if</span> <span class="s2">"LAMBDA"</span> <span class="ow">in</span> <span class="n">Q</span><span class="p">:</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">wavelength</span> <span class="o">=</span> <span class="n">Q</span><span class="p">[</span><span class="s2">"LAMBDA"</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
+                <span class="k">if</span> <span class="s2">&quot;LAMBDA&quot;</span> <span class="ow">in</span> <span class="n">Q</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">wavelength</span> <span class="o">=</span> <span class="n">Q</span><span class="p">[</span><span class="s2">&quot;LAMBDA&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">geometry_parameters</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Diffractometer.print_all"><a class="viewcode-back" href="../../diffractometers.html#spec2nexus.diffractometers.Diffractometer.print_all">[docs]</a>    <span class="k">def</span> <span class="nf">print_all</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scan</span><span class="p">):</span>
-        <span class="sd">"""</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Print All (pa) about this diffractometer scan.</span>
 
 <span class="sd">        PARAMETERS</span>
 
 <span class="sd">        scan obj :</span>
 <span class="sd">            SPEC data file scan (a ``spec2nexus.spec.SpecDataFileScan`` object).</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">scan</span><span class="o">.</span><span class="n">interpret</span><span class="p">()</span>
         <span class="n">s</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s2">"SPEC file"</span><span class="p">:</span> <span class="n">scan</span><span class="o">.</span><span class="n">specFile</span><span class="p">,</span>
-            <span class="s2">"scan #"</span><span class="p">:</span> <span class="n">scan</span><span class="o">.</span><span class="n">scanNum</span><span class="p">,</span>
-            <span class="s2">"SPEC scanCmd"</span><span class="p">:</span> <span class="n">scan</span><span class="o">.</span><span class="n">scanCmd</span><span class="p">,</span>
+            <span class="s2">&quot;SPEC file&quot;</span><span class="p">:</span> <span class="n">scan</span><span class="o">.</span><span class="n">specFile</span><span class="p">,</span>
+            <span class="s2">&quot;scan #&quot;</span><span class="p">:</span> <span class="n">scan</span><span class="o">.</span><span class="n">scanNum</span><span class="p">,</span>
+            <span class="s2">&quot;SPEC scanCmd&quot;</span><span class="p">:</span> <span class="n">scan</span><span class="o">.</span><span class="n">scanCmd</span><span class="p">,</span>
         <span class="p">}</span>
-        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">scan</span><span class="p">,</span> <span class="s2">"epoch"</span><span class="p">):</span>
-            <span class="n">s</span><span class="p">[</span><span class="s2">"date"</span><span class="p">]</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">epoch</span><span class="p">)</span>
-        <span class="n">s</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_info_dict</span><span class="p">(</span><span class="s2">"pa"</span><span class="p">))</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">scan</span><span class="p">,</span> <span class="s2">&quot;epoch&quot;</span><span class="p">):</span>
+            <span class="n">s</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">epoch</span><span class="p">)</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_info_dict</span><span class="p">(</span><span class="s2">&quot;pa&quot;</span><span class="p">))</span>
         <span class="n">s</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_positioners_dict</span><span class="p">(</span><span class="n">scan</span><span class="p">))</span>
 
         <span class="n">width</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span>
-        <span class="k">return</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">k</span><span class="si">:</span><span class="s2">^</span><span class="si">{</span><span class="n">width</span><span class="si">}}</span><span class="s2"> = </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">items</span><span class="p">()])</span></div>
+        <span class="k">return</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">:</span><span class="s2">^</span><span class="si">{</span><span class="n">width</span><span class="si">}}</span><span class="s2"> = </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">items</span><span class="p">()])</span></div>
 
 <div class="viewcode-block" id="Diffractometer.print_brief"><a class="viewcode-back" href="../../diffractometers.html#spec2nexus.diffractometers.Diffractometer.print_brief">[docs]</a>    <span class="k">def</span> <span class="nf">print_brief</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scan</span><span class="p">):</span>
-        <span class="sd">"""</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Print brief information (wh: where) about this diffractometer scan.</span>
 
 <span class="sd">        PARAMETERS</span>
 
 <span class="sd">        scan obj :</span>
 <span class="sd">            SPEC data file scan (a ``spec2nexus.spec.SpecDataFileScan`` object).</span>
-<span class="sd">        """</span>
-        <span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_info_dict</span><span class="p">(</span><span class="s2">"wh"</span><span class="p">)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_info_dict</span><span class="p">(</span><span class="s2">&quot;wh&quot;</span><span class="p">)</span>
         <span class="n">qdict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_Q_dict</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
 
         <span class="n">s</span> <span class="o">=</span> <span class="p">[]</span>
 
-        <span class="n">s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="s2">"geometry"</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">"'"</span><span class="p">))</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="s2">&quot;geometry&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;&#39;&quot;</span><span class="p">))</span>
 
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">qdict</span><span class="p">):</span>
-            <span class="n">label</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">' '</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">qdict</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span><span class="si">}</span><span class="s2">"</span>
-            <span class="n">r</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'  '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">qdict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span><span class="si">}</span><span class="s2">"</span>
-            <span class="n">s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+            <span class="n">label</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">qdict</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;  &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">qdict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="n">s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
         <span class="k">def</span> <span class="nf">_compose_row_</span><span class="p">(</span><span class="n">labels</span><span class="p">):</span>
-            <span class="k">return</span> <span class="s2">"  "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="k">return</span> <span class="s2">&quot;  &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
                 <span class="p">[</span>
-                    <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">info</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>
+                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">info</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
                     <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">labels</span>
                     <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">info</span>
                 <span class="p">]</span>
             <span class="p">)</span>
 
-        <span class="n">s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_compose_row_</span><span class="p">(</span><span class="s2">"alpha beta azimuth"</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
-        <span class="n">s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_compose_row_</span><span class="p">(</span><span class="s2">"omega wavelength"</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_compose_row_</span><span class="p">(</span><span class="s2">&quot;alpha beta azimuth&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_compose_row_</span><span class="p">(</span><span class="s2">&quot;omega wavelength&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
 
         <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_positioners_dict</span><span class="p">(</span><span class="n">scan</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="n">s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+            <span class="n">s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">s</span><span class="p">)</span></div></div>
+        <span class="k">return</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">s</span><span class="p">)</span></div></div>
 
 
 <span class="c1"># singleton reference to DiffractometerGeometryCatalog</span>
@@ -668,7 +670,7 @@
 
 
 <div class="viewcode-block" id="DiffractometerGeometryCatalog"><a class="viewcode-back" href="../../diffractometers.html#spec2nexus.diffractometers.DiffractometerGeometryCatalog">[docs]</a><span class="k">class</span> <span class="nc">DiffractometerGeometryCatalog</span><span class="p">:</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    catalog of the diffractometer geometries known to SPEC</span>
 
 <span class="sd">    .. autosummary::</span>
@@ -678,19 +680,19 @@
 <span class="sd">        ~get_default_geometry</span>
 <span class="sd">        ~has_geometry</span>
 <span class="sd">        ~match</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">db</span> <span class="o">=</span> <span class="p">{}</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">_geometry_catalog</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
-                <span class="s2">"Do not create DiffractometerGeometryCatalog()."</span>
-                <span class="s2">"  Instead, call: get_geometry_catalog()"</span>
-                <span class="c1"># don't call that here, _geometry_catalog is a singleton</span>
+                <span class="s2">&quot;Do not create DiffractometerGeometryCatalog().&quot;</span>
+                <span class="s2">&quot;  Instead, call: get_geometry_catalog()&quot;</span>
+                <span class="c1"># don&#39;t call that here, _geometry_catalog is a singleton</span>
             <span class="p">)</span>
 
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">DICT_FILE</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">DICT_FILE</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">db</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_default_geometry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -698,19 +700,19 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_geometries_full</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">v</span> <span class="o">=</span> <span class="s2">"number="</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">))</span>
-        <span class="n">s</span> <span class="o">=</span> <span class="s2">"DiffractometerGeometryCatalog(</span><span class="si">%s</span><span class="s2">)"</span> <span class="o">%</span> <span class="n">v</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="s2">&quot;number=&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">))</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;DiffractometerGeometryCatalog(</span><span class="si">%s</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="n">v</span>
         <span class="k">return</span> <span class="n">s</span>
 
 <div class="viewcode-block" id="DiffractometerGeometryCatalog.geometries"><a class="viewcode-back" href="../../diffractometers.html#spec2nexus.diffractometers.DiffractometerGeometryCatalog.geometries">[docs]</a>    <span class="k">def</span> <span class="nf">geometries</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">variations</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="sd">"""</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        list known geometries</span>
 
 <span class="sd">        PARAMETERS</span>
 
 <span class="sd">        variations : bool</span>
 <span class="sd">            If True, also list known variations</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_geometries_simple</span> <span class="ow">is</span> <span class="kc">None</span>
             <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_geometries_full</span> <span class="ow">is</span> <span class="kc">None</span>
@@ -718,10 +720,10 @@
             <span class="c1"># optimize with a cache, construct only once</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_geometries_simple</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_geometries_full</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
             <span class="k">for</span> <span class="n">geometry</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">:</span>
-                <span class="n">nm</span> <span class="o">=</span> <span class="n">geometry</span><span class="p">[</span><span class="s2">"name"</span><span class="p">]</span>
+                <span class="n">nm</span> <span class="o">=</span> <span class="n">geometry</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_geometries_full</span> <span class="o">+=</span> <span class="p">[</span>
-                    <span class="s2">"</span><span class="si">%s</span><span class="s2">.</span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">nm</span><span class="p">,</span> <span class="n">v</span><span class="p">[</span><span class="s2">"name"</span><span class="p">])</span>
-                    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">geometry</span><span class="p">[</span><span class="s2">"variations"</span><span class="p">]</span>
+                    <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">.</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">nm</span><span class="p">,</span> <span class="n">v</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>
+                    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">geometry</span><span class="p">[</span><span class="s2">&quot;variations&quot;</span><span class="p">]</span>
                 <span class="p">]</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_geometries_simple</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nm</span><span class="p">)</span>
 
@@ -732,9 +734,9 @@
         <span class="k">return</span> <span class="n">choices</span><span class="p">[</span><span class="n">variations</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="DiffractometerGeometryCatalog.get"><a class="viewcode-back" href="../../diffractometers.html#spec2nexus.diffractometers.DiffractometerGeometryCatalog.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">geo_name</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">"""</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        return dictionary for diffractometer geometry ``geo_name``</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">nm</span> <span class="o">=</span> <span class="n">split_name_variation</span><span class="p">(</span><span class="n">geo_name</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">geometries</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">geometries</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">nm</span> <span class="ow">in</span> <span class="n">geometries</span><span class="p">:</span>
@@ -742,20 +744,20 @@
         <span class="k">return</span> <span class="n">default</span></div>
 
     <span class="k">def</span> <span class="nf">get_default_geometry</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="s2">" "</span>
+        <span class="s2">&quot; &quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_default_geometry</span>
 
     <span class="k">def</span> <span class="nf">get_variant</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">geometry</span><span class="p">,</span> <span class="n">variant_name</span><span class="p">):</span>
-        <span class="s2">" "</span>
-        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">geometry</span><span class="p">[</span><span class="s2">"variations"</span><span class="p">]:</span>
-            <span class="k">if</span> <span class="n">v</span><span class="p">[</span><span class="s2">"name"</span><span class="p">]</span> <span class="o">==</span> <span class="n">variant_name</span><span class="p">:</span>
+        <span class="s2">&quot; &quot;</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">geometry</span><span class="p">[</span><span class="s2">&quot;variations&quot;</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">v</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">variant_name</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">v</span>
-        <span class="k">return</span> <span class="n">geometry</span><span class="p">[</span><span class="s2">"variations"</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">geometry</span><span class="p">[</span><span class="s2">&quot;variations&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 
 <div class="viewcode-block" id="DiffractometerGeometryCatalog.has_geometry"><a class="viewcode-back" href="../../diffractometers.html#spec2nexus.diffractometers.DiffractometerGeometryCatalog.has_geometry">[docs]</a>    <span class="k">def</span> <span class="nf">has_geometry</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">geo_name</span><span class="p">):</span>
-        <span class="sd">"""</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Is the ``geo_name`` geometry defined?  True or False</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">nm</span><span class="p">,</span> <span class="n">variant</span> <span class="o">=</span> <span class="n">split_name_variation</span><span class="p">(</span><span class="n">geo_name</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">variant</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">nm</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">geometries</span><span class="p">()</span>
@@ -764,10 +766,10 @@
 
     <span class="k">def</span> <span class="nf">_get_scan_positioners_</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scan</span><span class="p">):</span>
         <span class="n">scan_positioners</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">header</span><span class="p">,</span> <span class="s2">"o"</span><span class="p">):</span>  <span class="c1"># prefer mnemonics</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">header</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="p">):</span>  <span class="c1"># prefer mnemonics</span>
             <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">scan</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">o</span><span class="p">:</span>
                 <span class="n">scan_positioners</span> <span class="o">+=</span> <span class="n">row</span>
-        <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">header</span><span class="p">,</span> <span class="s2">"O"</span><span class="p">):</span>
+        <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">header</span><span class="p">,</span> <span class="s2">&quot;O&quot;</span><span class="p">):</span>
             <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">scan</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">O</span><span class="p">:</span>
                 <span class="n">scan_positioners</span> <span class="o">+=</span> <span class="p">[</span><span class="n">k</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">row</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
@@ -775,40 +777,40 @@
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">scan_positioners</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">scan_positioners_new</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">scan_positioners</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"2-theta"</span><span class="p">,</span> <span class="s2">"two theta"</span><span class="p">)</span> <span class="ow">or</span> <span class="n">k</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">"tth"</span><span class="p">):</span>
-                    <span class="n">k</span> <span class="o">=</span> <span class="s2">"tth"</span>
-                <span class="k">elif</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"theta"</span><span class="p">,):</span>
-                    <span class="n">k</span> <span class="o">=</span> <span class="s2">"th"</span>
-                <span class="k">elif</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"delta"</span><span class="p">,):</span>
-                    <span class="n">k</span> <span class="o">=</span> <span class="s2">"del"</span>
-                <span class="k">elif</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"gamma"</span><span class="p">,):</span>
-                    <span class="n">k</span> <span class="o">=</span> <span class="s2">"gam"</span>
+                <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;2-theta&quot;</span><span class="p">,</span> <span class="s2">&quot;two theta&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">k</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;tth&quot;</span><span class="p">):</span>
+                    <span class="n">k</span> <span class="o">=</span> <span class="s2">&quot;tth&quot;</span>
+                <span class="k">elif</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;theta&quot;</span><span class="p">,):</span>
+                    <span class="n">k</span> <span class="o">=</span> <span class="s2">&quot;th&quot;</span>
+                <span class="k">elif</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;delta&quot;</span><span class="p">,):</span>
+                    <span class="n">k</span> <span class="o">=</span> <span class="s2">&quot;del&quot;</span>
+                <span class="k">elif</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;gamma&quot;</span><span class="p">,):</span>
+                    <span class="n">k</span> <span class="o">=</span> <span class="s2">&quot;gam&quot;</span>
                 <span class="n">scan_positioners_new</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
             <span class="n">scan_positioners</span> <span class="o">=</span> <span class="n">scan_positioners_new</span>
 
         <span class="k">return</span> <span class="n">scan_positioners</span>
 
 <div class="viewcode-block" id="DiffractometerGeometryCatalog.match"><a class="viewcode-back" href="../../diffractometers.html#spec2nexus.diffractometers.DiffractometerGeometryCatalog.match">[docs]</a>    <span class="k">def</span> <span class="nf">match</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scan</span><span class="p">):</span>
-        <span class="sd">"""</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        find the ``geo_name`` geometry that matches the ``scan``</span>
 
 <span class="sd">        If there is more than one matching geometry, pick the first one.</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">match</span> <span class="o">=</span> <span class="p">[]</span>
 
         <span class="n">scan_positioners</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_scan_positioners_</span><span class="p">(</span><span class="n">scan</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">scan</span><span class="p">,</span> <span class="s2">"G"</span><span class="p">):</span>
-            <span class="n">scan_G0</span> <span class="o">=</span> <span class="n">scan</span><span class="o">.</span><span class="n">G</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"G0"</span><span class="p">,</span> <span class="s2">"0"</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">scan</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">):</span>
+            <span class="n">scan_G0</span> <span class="o">=</span> <span class="n">scan</span><span class="o">.</span><span class="n">G</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;G0&quot;</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
             <span class="k">if</span> <span class="n">scan_G0</span> <span class="o">==</span> <span class="p">[</span>
-                <span class="s2">"0"</span><span class="p">,</span>
+                <span class="s2">&quot;0&quot;</span><span class="p">,</span>
             <span class="p">]:</span>
                 <span class="n">scan_G0</span> <span class="o">=</span> <span class="p">[]</span>
 
-            <span class="k">if</span> <span class="s2">"G4"</span> <span class="ow">in</span> <span class="n">scan</span><span class="o">.</span><span class="n">G</span><span class="p">:</span>
-                <span class="n">scan_G4</span> <span class="o">=</span> <span class="n">scan</span><span class="o">.</span><span class="n">G</span><span class="p">[</span><span class="s2">"G4"</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+            <span class="k">if</span> <span class="s2">&quot;G4&quot;</span> <span class="ow">in</span> <span class="n">scan</span><span class="o">.</span><span class="n">G</span><span class="p">:</span>
+                <span class="n">scan_G4</span> <span class="o">=</span> <span class="n">scan</span><span class="o">.</span><span class="n">G</span><span class="p">[</span><span class="s2">&quot;G4&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
                 <span class="k">if</span> <span class="n">scan_G4</span> <span class="o">==</span> <span class="p">[</span>
-                    <span class="s2">"0"</span><span class="p">,</span>
+                    <span class="s2">&quot;0&quot;</span><span class="p">,</span>
                 <span class="p">]:</span>
                     <span class="n">scan_G4</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="k">else</span><span class="p">:</span>
@@ -818,44 +820,44 @@
             <span class="n">scan_G0</span><span class="p">,</span> <span class="n">scan_G4</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
 
         <span class="k">for</span> <span class="n">geometry</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">:</span>
-            <span class="n">geo_name</span> <span class="o">=</span> <span class="n">geometry</span><span class="p">[</span><span class="s2">"name"</span><span class="p">]</span>
-            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">scan_G0</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">geometry</span><span class="p">[</span><span class="s2">"G"</span><span class="p">]):</span>
-                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"#G0 G[] did not match </span><span class="si">%s</span><span class="s2">"</span><span class="p">,</span> <span class="n">geo_name</span><span class="p">)</span>
+            <span class="n">geo_name</span> <span class="o">=</span> <span class="n">geometry</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">scan_G0</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">geometry</span><span class="p">[</span><span class="s2">&quot;G&quot;</span><span class="p">]):</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;#G0 G[] did not match </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">geo_name</span><span class="p">)</span>
                 <span class="k">continue</span>
-            <span class="k">if</span> <span class="n">scan_G4</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">scan_G4</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">geometry</span><span class="p">[</span><span class="s2">"Q"</span><span class="p">]):</span>
-                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"#G4 Q[] did not match </span><span class="si">%s</span><span class="s2">"</span><span class="p">,</span> <span class="n">geo_name</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">scan_G4</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">scan_G4</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">geometry</span><span class="p">[</span><span class="s2">&quot;Q&quot;</span><span class="p">]):</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;#G4 Q[] did not match </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">geo_name</span><span class="p">)</span>
                 <span class="k">continue</span>
 
-            <span class="k">for</span> <span class="n">variant</span> <span class="ow">in</span> <span class="n">geometry</span><span class="p">[</span><span class="s2">"variations"</span><span class="p">]:</span>
-                <span class="n">var_name</span> <span class="o">=</span> <span class="n">variant</span><span class="p">[</span><span class="s2">"name"</span><span class="p">]</span>
-                <span class="n">n_motors</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">variant</span><span class="p">[</span><span class="s2">"motors"</span><span class="p">])</span>
-                <span class="k">if</span> <span class="n">scan_positioners</span><span class="p">[:</span><span class="n">n_motors</span><span class="p">]</span> <span class="o">!=</span> <span class="n">variant</span><span class="p">[</span><span class="s2">"motors"</span><span class="p">]:</span>
-                    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"motors did not match </span><span class="si">%s</span><span class="s2">"</span><span class="p">,</span> <span class="n">geo_name</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">variant</span> <span class="ow">in</span> <span class="n">geometry</span><span class="p">[</span><span class="s2">&quot;variations&quot;</span><span class="p">]:</span>
+                <span class="n">var_name</span> <span class="o">=</span> <span class="n">variant</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+                <span class="n">n_motors</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">variant</span><span class="p">[</span><span class="s2">&quot;motors&quot;</span><span class="p">])</span>
+                <span class="k">if</span> <span class="n">scan_positioners</span><span class="p">[:</span><span class="n">n_motors</span><span class="p">]</span> <span class="o">!=</span> <span class="n">variant</span><span class="p">[</span><span class="s2">&quot;motors&quot;</span><span class="p">]:</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;motors did not match </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">geo_name</span><span class="p">)</span>
                     <span class="k">continue</span>
 
                 <span class="n">others_match</span> <span class="o">=</span> <span class="kc">True</span>
-                <span class="k">for</span> <span class="n">mne</span> <span class="ow">in</span> <span class="n">variant</span><span class="p">[</span><span class="s2">"other-motors"</span><span class="p">]:</span>
+                <span class="k">for</span> <span class="n">mne</span> <span class="ow">in</span> <span class="n">variant</span><span class="p">[</span><span class="s2">&quot;other-motors&quot;</span><span class="p">]:</span>
                     <span class="k">if</span> <span class="n">mne</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">scan</span><span class="o">.</span><span class="n">positioner</span><span class="p">:</span>
                         <span class="n">others_match</span> <span class="o">=</span> <span class="kc">False</span>
                         <span class="k">break</span>
                 <span class="k">if</span> <span class="ow">not</span> <span class="n">others_match</span><span class="p">:</span>
                     <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
-                        <span class="s2">"other-motors did not match </span><span class="si">%s</span><span class="s2"> (mne=</span><span class="si">%s</span><span class="s2">)"</span><span class="p">,</span>
+                        <span class="s2">&quot;other-motors did not match </span><span class="si">%s</span><span class="s2"> (mne=</span><span class="si">%s</span><span class="s2">)&quot;</span><span class="p">,</span>
                         <span class="n">geo_name</span><span class="p">,</span>
                         <span class="n">mne</span><span class="p">,</span>
                     <span class="p">)</span>
                     <span class="k">continue</span>
 
-                <span class="k">match</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"</span><span class="si">%s</span><span class="s2">.</span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">geo_name</span><span class="p">,</span> <span class="n">var_name</span><span class="p">))</span>
+                <span class="k">match</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">.</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">geo_name</span><span class="p">,</span> <span class="n">var_name</span><span class="p">))</span>
 
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">match</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="n">msg</span> <span class="o">=</span> <span class="s2">"scan geometry match is not unique!"</span>
-            <span class="n">msg</span> <span class="o">+=</span> <span class="s2">"  Picking the first one from: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">match</span><span class="p">)</span>
-            <span class="n">msg</span> <span class="o">+=</span> <span class="s2">", file: "</span> <span class="o">+</span> <span class="n">scan</span><span class="o">.</span><span class="n">specFile</span>
-            <span class="n">msg</span> <span class="o">+=</span> <span class="s2">", scan: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">scan</span><span class="p">)</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;scan geometry match is not unique!&quot;</span>
+            <span class="n">msg</span> <span class="o">+=</span> <span class="s2">&quot;  Picking the first one from: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">match</span><span class="p">)</span>
+            <span class="n">msg</span> <span class="o">+=</span> <span class="s2">&quot;, file: &quot;</span> <span class="o">+</span> <span class="n">scan</span><span class="o">.</span><span class="n">specFile</span>
+            <span class="n">msg</span> <span class="o">+=</span> <span class="s2">&quot;, scan: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">scan</span><span class="p">)</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
         <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">match</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">match</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">get_default_geometry</span><span class="p">()[</span><span class="s2">"name"</span><span class="p">]]</span>
+            <span class="n">match</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">get_default_geometry</span><span class="p">()[</span><span class="s2">&quot;name&quot;</span><span class="p">]]</span>
 
         <span class="k">return</span> <span class="n">match</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div></div>
 
@@ -905,6 +907,7 @@
 </div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
     </body>
