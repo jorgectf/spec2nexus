@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="How-to guides" href="howto.html" /><link rel="prev" title="spec2nexus.eznx" href="eznx.html" />
 
     <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
-        <title>spec2nexus.writer - spec2nexus 2021.2.1 (3.gac8f601)</title>
+        <title>spec2nexus.writer - spec2nexus 4.g3cf28a5 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -17,7 +17,7 @@
 
 <style>
   body {
-    --color-code-background: #eeffcc;
+    --color-code-background: #f8f8f8;
   --color-code-foreground: black;
   
   }
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">spec2nexus 2021.2.1 (3.gac8f601)</div></a>
+      <a href="index.html"><div class="brand">spec2nexus 4.g3cf28a5 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.1 (3.gac8f601)</span>
+  <span class="sidebar-brand-text">spec2nexus 4.g3cf28a5 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -262,129 +262,12 @@
         </div>
         <article role="main">
           <section id="spec2nexus-writer">
-<span id="writer"></span><h1><a class="reference internal" href="#module-spec2nexus.writer" title="spec2nexus.writer: Parses SPEC data using spec2nexus.eznx API (only requires h5py)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code></a><a class="headerlink" href="#spec2nexus-writer" title="Permalink to this heading">#</a></h1>
+<span id="writer"></span><h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code><a class="headerlink" href="#spec2nexus-writer" title="Permalink to this heading">#</a></h1>
 <p>This is an internal library of the <strong>spec2nexus</strong> software.
 It is not expected that users of this package will need to call
 the writer module directly.</p>
-<section id="module-spec2nexus.writer">
-<span id="source-code-documentation"></span><h2>source code documentation<a class="headerlink" href="#module-spec2nexus.writer" title="Permalink to this heading">#</a></h2>
-<p>(internal library) Parses SPEC data using spec2nexus.eznx API (only requires h5py).</p>
-<div class="table-wrapper autosummary longtable docutils container">
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.writer.Writer" title="spec2nexus.writer.Writer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Writer</span></code></a>(spec_data)</p></td>
-<td><p>writes out scans from SPEC data file to NeXus HDF5 file</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<dl class="py class">
-<dt class="sig sig-object py" id="spec2nexus.writer.Writer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.writer.</span></span><span class="sig-name descname"><span class="pre">Writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spec_data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/writer.html#Writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.writer.Writer" title="Permalink to this definition">#</a></dt>
-<dd><p>writes out scans from SPEC data file to NeXus HDF5 file</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>spec_data</strong> (<em>obj</em>) – instance of <a class="reference internal" href="spec.html#spec2nexus.spec.SpecDataFile" title="spec2nexus.spec.SpecDataFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFile</span></code></a></p>
-</dd>
-</dl>
-<div class="table-wrapper autosummary longtable docutils container">
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.writer.Writer.mca_spectra" title="spec2nexus.writer.Writer.mca_spectra"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mca_spectra</span></code></a>(nxdata, scan, primary_axis_label)</p></td>
-<td><p><em>internal</em>: parse for optional 2-D MCA spectra</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.writer.Writer.mesh" title="spec2nexus.writer.Writer.mesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mesh</span></code></a>(nxdata, scan)</p></td>
-<td><p><em>internal</em>: data parser for 2-D mesh and hklmesh</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.writer.Writer.oneD" title="spec2nexus.writer.Writer.oneD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">oneD</span></code></a>(nxdata, scan)</p></td>
-<td><p><em>internal</em>: generic data parser for 1-D column data, returns signal and axis</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.writer.Writer.root_attributes" title="spec2nexus.writer.Writer.root_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">root_attributes</span></code></a>()</p></td>
-<td><p><em>internal</em>: returns the attributes to be written to the root element as a dict</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.writer.Writer.save" title="spec2nexus.writer.Writer.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save</span></code></a>(hdf_file[, scan_list])</p></td>
-<td><p>save the information in this SPEC data file to a NeXus HDF5 file</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.writer.Writer.save_data" title="spec2nexus.writer.Writer.save_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_data</span></code></a>(nxdata, scan)</p></td>
-<td><p><em>internal</em>: store the scan data</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.writer.Writer.save_dict" title="spec2nexus.writer.Writer.save_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_dict</span></code></a>(group, data)</p></td>
-<td><p><em>internal</em>: store a dictionary</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.writer.Writer.save_scan" title="spec2nexus.writer.Writer.save_scan"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_scan</span></code></a>(nxentry, scan)</p></td>
-<td><p><em>internal</em>: save the data from each SPEC scan to its own NXentry group</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.writer.Writer.write_ds" title="spec2nexus.writer.Writer.write_ds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_ds</span></code></a>(group, label, data, **attr)</p></td>
-<td><p><em>internal</em>: writes a dataset to the HDF5 file, records the SPEC name as an attribute</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<dl class="py method">
-<dt class="sig sig-object py" id="spec2nexus.writer.Writer.mca_spectra">
-<span class="sig-name descname"><span class="pre">mca_spectra</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nxdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">primary_axis_label</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/writer.html#Writer.mca_spectra"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.writer.Writer.mca_spectra" title="Permalink to this definition">#</a></dt>
-<dd><p><em>internal</em>: parse for optional 2-D MCA spectra</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="spec2nexus.writer.Writer.mesh">
-<span class="sig-name descname"><span class="pre">mesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nxdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/writer.html#Writer.mesh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.writer.Writer.mesh" title="Permalink to this definition">#</a></dt>
-<dd><p><em>internal</em>: data parser for 2-D mesh and hklmesh</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="spec2nexus.writer.Writer.oneD">
-<span class="sig-name descname"><span class="pre">oneD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nxdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/writer.html#Writer.oneD"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.writer.Writer.oneD" title="Permalink to this definition">#</a></dt>
-<dd><p><em>internal</em>: generic data parser for 1-D column data, returns signal and axis</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="spec2nexus.writer.Writer.root_attributes">
-<span class="sig-name descname"><span class="pre">root_attributes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/writer.html#Writer.root_attributes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.writer.Writer.root_attributes" title="Permalink to this definition">#</a></dt>
-<dd><p><em>internal</em>: returns the attributes to be written to the root element as a dict</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="spec2nexus.writer.Writer.save">
-<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hdf_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/writer.html#Writer.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.writer.Writer.save" title="Permalink to this definition">#</a></dt>
-<dd><p>save the information in this SPEC data file to a NeXus HDF5 file</p>
-<p>Each scan in scan_list will be converted to a <strong>NXentry</strong> group.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>hdf_file</strong> (<em>str</em>) – name of NeXus HDF5 file to be written</p></li>
-<li><p><strong>scanlist</strong> (<em>[</em><em>int</em><em>]</em>) – list of scan numbers to be read</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="spec2nexus.writer.Writer.save_data">
-<span class="sig-name descname"><span class="pre">save_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nxdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/writer.html#Writer.save_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.writer.Writer.save_data" title="Permalink to this definition">#</a></dt>
-<dd><p><em>internal</em>: store the scan data</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="spec2nexus.writer.Writer.save_dict">
-<span class="sig-name descname"><span class="pre">save_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/writer.html#Writer.save_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.writer.Writer.save_dict" title="Permalink to this definition">#</a></dt>
-<dd><p><em>internal</em>: store a dictionary</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="spec2nexus.writer.Writer.save_scan">
-<span class="sig-name descname"><span class="pre">save_scan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nxentry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/writer.html#Writer.save_scan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.writer.Writer.save_scan" title="Permalink to this definition">#</a></dt>
-<dd><p><em>internal</em>: save the data from each SPEC scan to its own NXentry group</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="spec2nexus.writer.Writer.write_ds">
-<span class="sig-name descname"><span class="pre">write_ds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">attr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/writer.html#Writer.write_ds"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.writer.Writer.write_ds" title="Permalink to this definition">#</a></dt>
-<dd><p><em>internal</em>: writes a dataset to the HDF5 file, records the SPEC name as an attribute</p>
-</dd></dl>
-
-</dd></dl>
-
+<section id="source-code-documentation">
+<h2>source code documentation<a class="headerlink" href="#source-code-documentation" title="Permalink to this heading">#</a></h2>
 </section>
 </section>
 
@@ -446,7 +329,7 @@ the writer module directly.</p>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code></a><ul>
-<li><a class="reference internal" href="#module-spec2nexus.writer">source code documentation</a></li>
+<li><a class="reference internal" href="#source-code-documentation">source code documentation</a></li>
 </ul>
 </li>
 </ul>

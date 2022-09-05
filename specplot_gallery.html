@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Libraries" href="libraries.html" /><link rel="prev" title="specplot" href="specplot.html" />
 
     <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
-        <title>specplot_gallery - spec2nexus 2021.2.1 (3.gac8f601)</title>
+        <title>specplot_gallery - spec2nexus 4.g3cf28a5 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -17,7 +17,7 @@
 
 <style>
   body {
-    --color-code-background: #eeffcc;
+    --color-code-background: #f8f8f8;
   --color-code-foreground: black;
   
   }
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">spec2nexus 2021.2.1 (3.gac8f601)</div></a>
+      <a href="index.html"><div class="brand">spec2nexus 4.g3cf28a5 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.1 (3.gac8f601)</span>
+  <span class="sidebar-brand-text">spec2nexus 4.g3cf28a5 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -321,271 +321,8 @@ files.  To identify and stop all processes of this program, use this on the comm
 </pre></div>
 </div>
 </section>
-<section id="module-spec2nexus.specplot_gallery">
-<span id="source-code-documentation"></span><h2>source code documentation<a class="headerlink" href="#module-spec2nexus.specplot_gallery" title="Permalink to this heading">#</a></h2>
-<p>read a list of SPEC data files (or directories) and plot images of all scans</p>
-<div class="table-wrapper autosummary longtable docutils container">
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.specplot_gallery.DirectoryNotFoundError" title="spec2nexus.specplot_gallery.DirectoryNotFoundError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DirectoryNotFoundError</span></code></a></p></td>
-<td><p>Exception: The requested directory does not exist</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.specplot_gallery.PlotSpecFileScans" title="spec2nexus.specplot_gallery.PlotSpecFileScans"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PlotSpecFileScans</span></code></a>(filelist[, plotDir, ...])</p></td>
-<td><p>read a SPEC data file and plot thumbnail images of all its scans</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.specplot_gallery.Cache_File_Mtime" title="spec2nexus.specplot_gallery.Cache_File_Mtime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cache_File_Mtime</span></code></a>(base_dir)</p></td>
-<td><p>Maintain a list of all known data file modification times.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.specplot_gallery.datePath" title="spec2nexus.specplot_gallery.datePath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datePath</span></code></a>(date)</p></td>
-<td><p>Convert the date into a path: yyyy/mm.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.specplot_gallery.getSpecFileDate" title="spec2nexus.specplot_gallery.getSpecFileDate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getSpecFileDate</span></code></a>(specFile)</p></td>
-<td><p>Return the #D date of the SPEC data file or None.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.specplot_gallery.needToMakePlot" title="spec2nexus.specplot_gallery.needToMakePlot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">needToMakePlot</span></code></a>(fullPlotFile, mtime_specFile)</p></td>
-<td><p>Determine if a plot needs to be (re)made.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.specplot_gallery.timestamp" title="spec2nexus.specplot_gallery.timestamp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">timestamp</span></code></a>()</p></td>
-<td><p>current time as yyyy-mm-dd hh:mm:ss</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.specplot_gallery.buildIndexHtml" title="spec2nexus.specplot_gallery.buildIndexHtml"><code class="xref py py-obj docutils literal notranslate"><span class="pre">buildIndexHtml</span></code></a>(specFile, plotted_scans, ...)</p></td>
-<td><p>Build index.html content.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.specplot_gallery.logger" title="spec2nexus.specplot_gallery.logger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">logger</span></code></a>(message)</p></td>
-<td><p>Log a message or report from this module.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p class="rubric">RESULT</p>
-<p>The images are stored in files within a directory structure
-that is organized chronologically,
-such as: <code class="docutils literal notranslate"><span class="pre">yyyy/mm/spec_file/s1.svg</span></code>.
-The root of the directory is either specified by the
-command line <code class="docutils literal notranslate"><span class="pre">-d</span></code> option or  defaults to the current
-working directory.  The <code class="docutils literal notranslate"><span class="pre">yyyy/mm</span></code> (year and month) are
-taken from the <code class="docutils literal notranslate"><span class="pre">#D</span></code> line of the SPEC data file.
-The <code class="docutils literal notranslate"><span class="pre">spec_file</span></code> is the file name with file extension
-and directory name removed.  The image file names are
-derived from the scan numbers.</p>
-<p class="rubric">Linux CRON task</p>
-<p>This script could be called from a <em>cron</em> entry, such as:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># every five minutes (generates no output from outer script)</span>
-<span class="mi">0</span><span class="o">-</span><span class="mi">59</span><span class="o">/</span><span class="mi">5</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span>  <span class="o">/</span><span class="n">some</span><span class="o">/</span><span class="n">directory</span><span class="o">/</span><span class="n">specplot_gallery</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">d</span> <span class="o">/</span><span class="n">web</span><span class="o">/</span><span class="n">page</span><span class="o">/</span><span class="nb">dir</span> <span class="o">/</span><span class="n">spec</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">file</span><span class="o">/</span><span class="nb">dir</span>
-</pre></div>
-</div>
-<p>If this script is called too frequently and the list of plots to be generated
-is large enough, it is possible for more than one process to be running.
-In one extreme case, many processes were found running due to problems with the data files.
-To identify and stop all processes of this program:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>kill -9 `ps -ef | grep python | awk &#39;/specplot_gallery.py/ {print $2}&#39; -`
-</pre></div>
-</div>
-<dl class="py class">
-<dt class="sig sig-object py" id="spec2nexus.specplot_gallery.Cache_File_Mtime">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.specplot_gallery.</span></span><span class="sig-name descname"><span class="pre">Cache_File_Mtime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_dir</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot_gallery.html#Cache_File_Mtime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot_gallery.Cache_File_Mtime" title="Permalink to this definition">#</a></dt>
-<dd><p>Maintain a list of all known data file modification times.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>base_dir</strong> (<em>str</em>) – name of base directory to store output image thumbnails</p>
-</dd>
-</dl>
-<p>This list will allow the code to avoid unnecessary work
-reparsing and plotting of unchanged SPEC data files.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="spec2nexus.specplot_gallery.Cache_File_Mtime.get">
-<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'mtime':</span> <span class="pre">0,</span> <span class="pre">'size':</span> <span class="pre">0}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot_gallery.html#Cache_File_Mtime.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot_gallery.Cache_File_Mtime.get" title="Permalink to this definition">#</a></dt>
-<dd><p>Get the mtime cache entry for data file <code class="docutils literal notranslate"><span class="pre">fname</span></code>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>fname</strong> (<em>str</em>) – file name, already known to exist</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>time (float) cached value of when fname was
-last modified or None if not known</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="spec2nexus.specplot_gallery.Cache_File_Mtime.read">
-<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot_gallery.html#Cache_File_Mtime.read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot_gallery.Cache_File_Mtime.read" title="Permalink to this definition">#</a></dt>
-<dd><p>Read the cache from storage.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="spec2nexus.specplot_gallery.Cache_File_Mtime.was_file_updated">
-<span class="sig-name descname"><span class="pre">was_file_updated</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot_gallery.html#Cache_File_Mtime.was_file_updated"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot_gallery.Cache_File_Mtime.was_file_updated" title="Permalink to this definition">#</a></dt>
-<dd><p>Compare the mtime between disk and cache.gy</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>fname</strong> (<em>str</em>) – file name, already known to exist</p>
-</dd>
-<dt class="field-even">Return bool<span class="colon">:</span></dt>
-<dd class="field-even"><p>True if file is newer than the cache (or new to the cache)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="spec2nexus.specplot_gallery.Cache_File_Mtime.write">
-<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot_gallery.html#Cache_File_Mtime.write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot_gallery.Cache_File_Mtime.write" title="Permalink to this definition">#</a></dt>
-<dd><p>Write the cache to storage.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py exception">
-<dt class="sig sig-object py" id="spec2nexus.specplot_gallery.DirectoryNotFoundError">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.specplot_gallery.</span></span><span class="sig-name descname"><span class="pre">DirectoryNotFoundError</span></span><a class="reference internal" href="_modules/spec2nexus/specplot_gallery.html#DirectoryNotFoundError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot_gallery.DirectoryNotFoundError" title="Permalink to this definition">#</a></dt>
-<dd><p>Exception: The requested directory does not exist</p>
-</dd></dl>
-
-<dl class="py exception">
-<dt class="sig sig-object py" id="spec2nexus.specplot_gallery.PathIsNotDirectoryError">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.specplot_gallery.</span></span><span class="sig-name descname"><span class="pre">PathIsNotDirectoryError</span></span><a class="reference internal" href="_modules/spec2nexus/specplot_gallery.html#PathIsNotDirectoryError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot_gallery.PathIsNotDirectoryError" title="Permalink to this definition">#</a></dt>
-<dd><p>Exception: The path is not a directory</p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="spec2nexus.specplot_gallery.PlotSpecFileScans">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spec2nexus.specplot_gallery.</span></span><span class="sig-name descname"><span class="pre">PlotSpecFileScans</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filelist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plotDir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverse_chronological</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot_gallery.html#PlotSpecFileScans"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot_gallery.PlotSpecFileScans" title="Permalink to this definition">#</a></dt>
-<dd><p>read a SPEC data file and plot thumbnail images of all its scans</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>filelist</strong> (<em>[</em><em>str</em><em>]</em>) – list of SPEC data files to be checked</p></li>
-<li><p><strong>plotDir</strong> (<em>str</em>) – name of base directory to store output image thumbnails</p></li>
-</ul>
-</dd>
-</dl>
-<div class="table-wrapper autosummary longtable docutils container">
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.specplot_gallery.PlotSpecFileScans.specFileUpdated" title="spec2nexus.specplot_gallery.PlotSpecFileScans.specFileUpdated"><code class="xref py py-obj docutils literal notranslate"><span class="pre">specFileUpdated</span></code></a>(specFile)</p></td>
-<td><p>Report if specFile has been updated.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.specplot_gallery.PlotSpecFileScans.plot_all_scans" title="spec2nexus.specplot_gallery.PlotSpecFileScans.plot_all_scans"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_all_scans</span></code></a>(specFile)</p></td>
-<td><p>Plot all the recognized scans from file <code class="docutils literal notranslate"><span class="pre">specFile</span></code>.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.specplot_gallery.PlotSpecFileScans.getPlotDir" title="spec2nexus.specplot_gallery.PlotSpecFileScans.getPlotDir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPlotDir</span></code></a>(specFile)</p></td>
-<td><p>Return the plot directory based on the specFile.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.specplot_gallery.PlotSpecFileScans.getBaseDir" title="spec2nexus.specplot_gallery.PlotSpecFileScans.getBaseDir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getBaseDir</span></code></a>(basename, date)</p></td>
-<td><p>Find the path based on the date in the spec file.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">href_format</span></code>(basePlotFile, altText)</p></td>
-<td><p></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<dl class="py method">
-<dt class="sig sig-object py" id="spec2nexus.specplot_gallery.PlotSpecFileScans.getBaseDir">
-<span class="sig-name descname"><span class="pre">getBaseDir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">basename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot_gallery.html#PlotSpecFileScans.getBaseDir"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot_gallery.PlotSpecFileScans.getBaseDir" title="Permalink to this definition">#</a></dt>
-<dd><p>Find the path based on the date in the spec file.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="spec2nexus.specplot_gallery.PlotSpecFileScans.getPlotDir">
-<span class="sig-name descname"><span class="pre">getPlotDir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">specFile</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot_gallery.html#PlotSpecFileScans.getPlotDir"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot_gallery.PlotSpecFileScans.getPlotDir" title="Permalink to this definition">#</a></dt>
-<dd><p>Return the plot directory based on the specFile.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>specFile</strong> (<em>str</em>) – name of SPEC data file (relative or absolute)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="spec2nexus.specplot_gallery.PlotSpecFileScans.plot_all_scans">
-<span class="sig-name descname"><span class="pre">plot_all_scans</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">specFile</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot_gallery.html#PlotSpecFileScans.plot_all_scans"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot_gallery.PlotSpecFileScans.plot_all_scans" title="Permalink to this definition">#</a></dt>
-<dd><p>Plot all the recognized scans from file <code class="docutils literal notranslate"><span class="pre">specFile</span></code>.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="spec2nexus.specplot_gallery.PlotSpecFileScans.specFileUpdated">
-<span class="sig-name descname"><span class="pre">specFileUpdated</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">specFile</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot_gallery.html#PlotSpecFileScans.specFileUpdated"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot_gallery.PlotSpecFileScans.specFileUpdated" title="Permalink to this definition">#</a></dt>
-<dd><p>Report if specFile has been updated.</p>
-<p>Return mtime cache entry (or <cite>None</cite> if not updated)</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="spec2nexus.specplot_gallery.buildIndexHtml">
-<span class="sig-prename descclassname"><span class="pre">spec2nexus.specplot_gallery.</span></span><span class="sig-name descname"><span class="pre">buildIndexHtml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">specFile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plotted_scans</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">problem_scans</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot_gallery.html#buildIndexHtml"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot_gallery.buildIndexHtml" title="Permalink to this definition">#</a></dt>
-<dd><p>Build index.html content.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>specFile</strong> (<em>str</em>) – name of SPEC data file (relative or absolute)</p></li>
-<li><p><strong>plotList</strong> (<em>[</em><em>str</em><em>]</em>) – list of HTML <cite>&lt;a&gt;</cite> elements, one for each plot image</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="spec2nexus.specplot_gallery.datePath">
-<span class="sig-prename descclassname"><span class="pre">spec2nexus.specplot_gallery.</span></span><span class="sig-name descname"><span class="pre">datePath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot_gallery.html#datePath"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot_gallery.datePath" title="Permalink to this definition">#</a></dt>
-<dd><p>Convert the date into a path: yyyy/mm.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>date</strong> (<em>str</em>) – text date from SPEC file #D line: ‘Thu Jun 19 12:21:55 2014’</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="spec2nexus.specplot_gallery.developer">
-<span class="sig-prename descclassname"><span class="pre">spec2nexus.specplot_gallery.</span></span><span class="sig-name descname"><span class="pre">developer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot_gallery.html#developer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot_gallery.developer" title="Permalink to this definition">#</a></dt>
-<dd><p>Supply a file and a directory as command-line arguments to “paths”.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="spec2nexus.specplot_gallery.getSpecFileDate">
-<span class="sig-prename descclassname"><span class="pre">spec2nexus.specplot_gallery.</span></span><span class="sig-name descname"><span class="pre">getSpecFileDate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">specFile</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot_gallery.html#getSpecFileDate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot_gallery.getSpecFileDate" title="Permalink to this definition">#</a></dt>
-<dd><p>Return the #D date of the SPEC data file or None.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>specFile</strong> (<em>str</em>) – name of SPEC data file (relative or absolute)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="spec2nexus.specplot_gallery.logger">
-<span class="sig-prename descclassname"><span class="pre">spec2nexus.specplot_gallery.</span></span><span class="sig-name descname"><span class="pre">logger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot_gallery.html#logger"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot_gallery.logger" title="Permalink to this definition">#</a></dt>
-<dd><p>Log a message or report from this module.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>message</strong> (<em>str</em>) – text to be logged</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="spec2nexus.specplot_gallery.needToMakePlot">
-<span class="sig-prename descclassname"><span class="pre">spec2nexus.specplot_gallery.</span></span><span class="sig-name descname"><span class="pre">needToMakePlot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullPlotFile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mtime_specFile</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot_gallery.html#needToMakePlot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot_gallery.needToMakePlot" title="Permalink to this definition">#</a></dt>
-<dd><p>Determine if a plot needs to be (re)made.  Use mtime as the basis.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return bool<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if plot should be made again</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="spec2nexus.specplot_gallery.timestamp">
-<span class="sig-prename descclassname"><span class="pre">spec2nexus.specplot_gallery.</span></span><span class="sig-name descname"><span class="pre">timestamp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/specplot_gallery.html#timestamp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.specplot_gallery.timestamp" title="Permalink to this definition">#</a></dt>
-<dd><p>current time as yyyy-mm-dd hh:mm:ss</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return str<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
-</dd></dl>
-
+<section id="source-code-documentation">
+<h2>source code documentation<a class="headerlink" href="#source-code-documentation" title="Permalink to this heading">#</a></h2>
 </section>
 </section>
 
@@ -649,7 +386,7 @@ last modified or None if not known</p>
 <li><a class="reference internal" href="#">specplot_gallery</a><ul>
 <li><a class="reference internal" href="#how-to-use-specplot-gallery-command-line">How to use <em>specplot_gallery</em>: command line</a></li>
 <li><a class="reference internal" href="#how-to-use-specplot-gallery-periodic-background-task-cron">How to use <em>specplot_gallery</em>: periodic background task (cron)</a></li>
-<li><a class="reference internal" href="#module-spec2nexus.specplot_gallery">source code documentation</a></li>
+<li><a class="reference internal" href="#source-code-documentation">source code documentation</a></li>
 </ul>
 </li>
 </ul>

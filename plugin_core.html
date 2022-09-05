@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="XPCS plugin" href="supplied_plugins/XPCS.html" /><link rel="prev" title="spec2nexus.diffractometers" href="diffractometers.html" />
 
     <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
-        <title>spec2nexus.plugin - spec2nexus 2021.2.1 (3.gac8f601)</title>
+        <title>spec2nexus.plugin - spec2nexus 4.g3cf28a5 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -17,7 +17,7 @@
 
 <style>
   body {
-    --color-code-background: #eeffcc;
+    --color-code-background: #f8f8f8;
   --color-code-foreground: black;
   
   }
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">spec2nexus 2021.2.1 (3.gac8f601)</div></a>
+      <a href="index.html"><div class="brand">spec2nexus 4.g3cf28a5 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.1 (3.gac8f601)</span>
+  <span class="sidebar-brand-text">spec2nexus 4.g3cf28a5 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -272,7 +272,7 @@ Through this architecture, it is possible to support custom control lines,
 such as <strong>#U</strong> (SPEC standard control line for any user data).
 One example is support for the <a class="reference internal" href="supplied_plugins/unicat.html#unicat-plugin"><span class="std std-ref">UNICAT-style</span></a> of metadata
 provided in the scan header.</p>
-<p>Plugins are now used to handle all control lines in <a class="reference internal" href="spec.html#module-spec2nexus.spec" title="spec2nexus.spec: Classes to read the contents of a SPEC data file."><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code></a>.
+<p>Plugins are now used to handle all control lines in <code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.spec</span></code>.
 Any control line encountered but not recognized will be placed as text
 in a NeXus <strong>NXnote</strong> group named <code class="docutils literal notranslate"><span class="pre">unrecognized_NNN</span></code> (where <code class="docutils literal notranslate"><span class="pre">NNN</span></code>
 is from 1 to the maximum number of unrecognized control lines).</p>
@@ -282,23 +282,8 @@ is from 1 to the maximum number of unrecognized control lines).</p>
 <div class="table-wrapper autosummary longtable docutils container">
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="supplied_plugins/spec_common.html#module-spec2nexus.plugins.spec_common" title="spec2nexus.plugins.spec_common: SPEC standard data file support."><code class="xref py py-obj docutils literal notranslate"><span class="pre">spec_common</span></code></a></p></td>
-<td><p>SPEC data file standard control lines</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="supplied_plugins/fallback.html#module-spec2nexus.plugins.fallback" title="spec2nexus.plugins.fallback: Fallback handling for any SPEC data file control lines not recognized by other handlers."><code class="xref py py-obj docutils literal notranslate"><span class="pre">fallback</span></code></a></p></td>
-<td><p>Fallback handling for any SPEC data file control lines not recognized by other handlers</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="supplied_plugins/apstools_specwriter.html#module-spec2nexus.plugins.apstools_specwriter" title="spec2nexus.plugins.apstools_specwriter: Bluesky metadata from apstools SpecWriterCallback."><code class="xref py py-obj docutils literal notranslate"><span class="pre">apstools_specwriter</span></code></a></p></td>
-<td><p><strong>#MD</strong> : Bluesky metadata from apstools SpecWriterCallback.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="supplied_plugins/unicat.html#module-spec2nexus.plugins.unicat" title="spec2nexus.plugins.unicat: Metadata in SPEC data files as defined by APS UNICAT."><code class="xref py py-obj docutils literal notranslate"><span class="pre">unicat</span></code></a></p></td>
-<td><p><strong>#H</strong> &amp; <strong>#V</strong> - Metadata in SPEC data files as defined by APS UNICAT</p></td>
-</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="supplied_plugins/uim.html#module-spec2nexus.plugins.uim" title="spec2nexus.plugins.uim: UIM - Image header information from EPICS areaDetector."><code class="xref py py-obj docutils literal notranslate"><span class="pre">uim</span></code></a></p></td>
 <td><p><strong>#UIM</strong> : Image header information from EPICS areaDetector</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="supplied_plugins/XPCS.html#module-spec2nexus.plugins.XPCS" title="spec2nexus.plugins.XPCS: SPEC data file control lines unique to the APS XPCS instrument"><code class="xref py py-obj docutils literal notranslate"><span class="pre">XPCS</span></code></a></p></td>
-<td><p>SPEC data file control lines unique to the APS XPCS instrument</p></td>
 </tr>
 </tbody>
 </table>
@@ -320,104 +305,8 @@ data file.  Custom plugins are written to process these additions.  See the
 <div class="table-wrapper autosummary longtable docutils container">
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_File" title="spec2nexus.plugins.spec_common.SPEC_File"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SPEC_File</span></code></a></p></td>
-<td><p><strong>#F</strong> -- original data file name (starts a file header block)</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_Epoch" title="spec2nexus.plugins.spec_common.SPEC_Epoch"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SPEC_Epoch</span></code></a></p></td>
-<td><p><strong>#E</strong> -- the UNIX epoch (seconds from 00:00 GMT 1/1/70)</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_Date" title="spec2nexus.plugins.spec_common.SPEC_Date"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SPEC_Date</span></code></a></p></td>
-<td><p><strong>#D</strong> -- date/time stamp</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_Comment" title="spec2nexus.plugins.spec_common.SPEC_Comment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SPEC_Comment</span></code></a></p></td>
-<td><p><strong>#C</strong> -- any comment either in the scan header or somewhere in the scan</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_Geometry" title="spec2nexus.plugins.spec_common.SPEC_Geometry"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SPEC_Geometry</span></code></a></p></td>
-<td><p><strong>#G</strong> -- diffractometer geometry (numbered rows: #G0, #G1, ...)</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_NormalizingFactor" title="spec2nexus.plugins.spec_common.SPEC_NormalizingFactor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SPEC_NormalizingFactor</span></code></a></p></td>
-<td><p><strong>#I</strong> -- intensity normalizing factor</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_CounterNames" title="spec2nexus.plugins.spec_common.SPEC_CounterNames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SPEC_CounterNames</span></code></a></p></td>
-<td><p><strong>#J</strong> -- names of counters (each separated by two spaces) (new with SPEC v6)</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_CounterMnemonics" title="spec2nexus.plugins.spec_common.SPEC_CounterMnemonics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SPEC_CounterMnemonics</span></code></a></p></td>
-<td><p><strong>#j</strong> -- mnemonics of counter  (new with SPEC v6)</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_Labels" title="spec2nexus.plugins.spec_common.SPEC_Labels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SPEC_Labels</span></code></a></p></td>
-<td><p><strong>#L</strong> -- data column labels</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_Monitor" title="spec2nexus.plugins.spec_common.SPEC_Monitor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SPEC_Monitor</span></code></a></p></td>
-<td><p><strong>#M</strong> -- counting against this constant monitor count (see #T)</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_NumColumns" title="spec2nexus.plugins.spec_common.SPEC_NumColumns"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SPEC_NumColumns</span></code></a></p></td>
-<td><p><strong>#N</strong> -- number of columns of data [ num2 sets per row ]</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_PositionerNames" title="spec2nexus.plugins.spec_common.SPEC_PositionerNames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SPEC_PositionerNames</span></code></a></p></td>
-<td><p><strong>#O</strong> -- positioner names (numbered rows: #O0, #O1, ...)</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_PositionerMnemonics" title="spec2nexus.plugins.spec_common.SPEC_PositionerMnemonics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SPEC_PositionerMnemonics</span></code></a></p></td>
-<td><p><strong>#o</strong> -- positioner mnemonics (new with SPEC v6)</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_Positioners" title="spec2nexus.plugins.spec_common.SPEC_Positioners"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SPEC_Positioners</span></code></a></p></td>
-<td><p><strong>#P</strong> -- positioner values at start of scan (numbered rows: #P0, #P1, ...)</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_HKL" title="spec2nexus.plugins.spec_common.SPEC_HKL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SPEC_HKL</span></code></a></p></td>
-<td><p><strong>#Q</strong> -- <span class="math notranslate nohighlight">\(Q\)</span> (<span class="math notranslate nohighlight">\(hkl\)</span>) at start of scan</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_Scan" title="spec2nexus.plugins.spec_common.SPEC_Scan"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SPEC_Scan</span></code></a></p></td>
-<td><p><strong>#S</strong> -- SPEC scan</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_CountTime" title="spec2nexus.plugins.spec_common.SPEC_CountTime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SPEC_CountTime</span></code></a></p></td>
-<td><p><strong>#T</strong> -- counting against this constant number of seconds (see #M)</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_UserReserved" title="spec2nexus.plugins.spec_common.SPEC_UserReserved"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SPEC_UserReserved</span></code></a></p></td>
-<td><p><strong>#U</strong> -- Reserved for user-defined information</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_TemperatureSetPoint" title="spec2nexus.plugins.spec_common.SPEC_TemperatureSetPoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SPEC_TemperatureSetPoint</span></code></a></p></td>
-<td><p><strong>#X</strong> -- Temperature Set Point (desired temperature)</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_DataLine" title="spec2nexus.plugins.spec_common.SPEC_DataLine"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SPEC_DataLine</span></code></a></p></td>
-<td><p><strong>(scan_data)</strong> -- scan data line</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_MCA" title="spec2nexus.plugins.spec_common.SPEC_MCA"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SPEC_MCA</span></code></a></p></td>
-<td><p><strong>#&#64;MCA</strong> -- MCA data formatting declaration (ignored for now)</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_MCA_Array" title="spec2nexus.plugins.spec_common.SPEC_MCA_Array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SPEC_MCA_Array</span></code></a></p></td>
-<td><p><strong>&#64;A</strong> -- MCA Array data</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_MCA_Calibration" title="spec2nexus.plugins.spec_common.SPEC_MCA_Calibration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SPEC_MCA_Calibration</span></code></a></p></td>
-<td><p><strong>#&#64;CALIB</strong> -- coefficients to compute a scale based on the MCA channel number</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_MCA_ChannelInformation" title="spec2nexus.plugins.spec_common.SPEC_MCA_ChannelInformation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SPEC_MCA_ChannelInformation</span></code></a></p></td>
-<td><p><strong>#&#64;CHANN</strong> -- MCA channel information</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_MCA_CountTime" title="spec2nexus.plugins.spec_common.SPEC_MCA_CountTime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SPEC_MCA_CountTime</span></code></a></p></td>
-<td><p><strong>#&#64;CTIME</strong> -- MCA count times</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_MCA_RegionOfInterest" title="spec2nexus.plugins.spec_common.SPEC_MCA_RegionOfInterest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SPEC_MCA_RegionOfInterest</span></code></a></p></td>
-<td><p><strong>#&#64;ROI</strong> -- MCA ROI (Region Of Interest) channel information</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="supplied_plugins/fallback.html#spec2nexus.plugins.fallback.UnrecognizedControlLine" title="spec2nexus.plugins.fallback.UnrecognizedControlLine"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UnrecognizedControlLine</span></code></a></p></td>
-<td><p>unrecognized control line</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="supplied_plugins/unicat.html#spec2nexus.plugins.unicat.UNICAT_MetadataMnemonics" title="spec2nexus.plugins.unicat.UNICAT_MetadataMnemonics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UNICAT_MetadataMnemonics</span></code></a></p></td>
-<td><p><strong>#H</strong> -- UNICAT metadata names (numbered rows: #H0, #H1, ...)</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="supplied_plugins/unicat.html#spec2nexus.plugins.unicat.UNICAT_MetadataValues" title="spec2nexus.plugins.unicat.UNICAT_MetadataValues"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UNICAT_MetadataValues</span></code></a></p></td>
-<td><p><strong>#V</strong> -- UNICAT metadata values (numbered rows: #V0, #V1, ...)</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="supplied_plugins/uim.html#spec2nexus.plugins.uim.UIM_generic" title="spec2nexus.plugins.uim.UIM_generic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UIM_generic</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="supplied_plugins/uim.html#spec2nexus.plugins.uim.UIM_generic" title="spec2nexus.plugins.uim.UIM_generic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UIM_generic</span></code></a></p></td>
 <td><p><strong>#UIM</strong> -- various image header information</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="supplied_plugins/XPCS.html#spec2nexus.plugins.XPCS.XPCS_VA" title="spec2nexus.plugins.XPCS.XPCS_VA"><code class="xref py py-obj docutils literal notranslate"><span class="pre">XPCS_VA</span></code></a></p></td>
-<td><p><strong>#VA</strong></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="supplied_plugins/XPCS.html#spec2nexus.plugins.XPCS.XPCS_VD" title="spec2nexus.plugins.XPCS.XPCS_VD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">XPCS_VD</span></code></a></p></td>
-<td><p><strong>#VD</strong></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="supplied_plugins/XPCS.html#spec2nexus.plugins.XPCS.XPCS_VE" title="spec2nexus.plugins.XPCS.XPCS_VE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">XPCS_VE</span></code></a></p></td>
-<td><p><strong>#VE</strong></p></td>
 </tr>
 </tbody>
 </table>
@@ -463,7 +352,7 @@ data file.  Custom plugins are written to process these additions.  See the
 <dd><p>Base class for SPEC data file control line handler plugins.</p>
 <p>Define a subclass of <a class="reference internal" href="#spec2nexus.plugin_core.ControlLineBase" title="spec2nexus.plugin_core.ControlLineBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">ControlLineBase</span></code></a> for
 each different type of control line. Refer to the supplied plugins (such as
-<a class="reference internal" href="supplied_plugins/spec_common.html#module-spec2nexus.plugins.spec_common" title="spec2nexus.plugins.spec_common: SPEC standard data file support."><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.plugins.spec_common</span></code></a>) for examples. In each such class,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.plugins.spec_common</span></code>) for examples. In each such class,
 it is necessary to:</p>
 <ul class="simple">
 <li><p>define a string value for the <code class="docutils literal notranslate"><span class="pre">key</span></code> (class attribute)</p></li>
@@ -512,7 +401,7 @@ This is used to test a given line from a SPEC data file against the
 <p>If this method is defined in the subclass, it will be called
 instead of <code class="xref py py-meth docutils literal notranslate"><span class="pre">match_key()</span></code>.
 This is the example used by
-<a class="reference internal" href="supplied_plugins/spec_common.html#spec2nexus.plugins.spec_common.SPEC_DataLine" title="spec2nexus.plugins.spec_common.SPEC_DataLine"><code class="xref py py-class docutils literal notranslate"><span class="pre">SPEC_DataLine</span></code></a>:</p>
+<code class="xref py py-class docutils literal notranslate"><span class="pre">SPEC_DataLine</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">match_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="nb">float</span><span class="p">(</span> <span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span>
@@ -552,9 +441,9 @@ up to but not including the first whitespace</p>
 <dl class="simple">
 <dt>text str:</dt><dd><p>?raw text?</p>
 </dd>
-<dt>spec_obj obj:</dt><dd><p>Instance of <a class="reference internal" href="spec.html#spec2nexus.spec.SpecDataFile" title="spec2nexus.spec.SpecDataFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFile</span></code></a>,
-<a class="reference internal" href="spec.html#spec2nexus.spec.SpecDataFileHeader" title="spec2nexus.spec.SpecDataFileHeader"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileHeader</span></code></a>, or
-<a class="reference internal" href="spec.html#spec2nexus.spec.SpecDataFileScan" title="spec2nexus.spec.SpecDataFileScan"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileScan</span></code></a></p>
+<dt>spec_obj obj:</dt><dd><p>Instance of <code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFile</span></code>,
+<code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileHeader</span></code>, or
+<code class="xref py py-class docutils literal notranslate"><span class="pre">SpecDataFileScan</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -680,6 +569,5 @@ A plugin mount point derived from:
     <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/scripts/furo.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>

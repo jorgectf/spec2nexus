@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="NeXus File Layout" href="nexus_layout/index.html" /><link rel="prev" title="Applications" href="applications.html" />
 
     <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
-        <title>spec2nexus - spec2nexus 2021.2.1 (3.gac8f601)</title>
+        <title>spec2nexus - spec2nexus 4.g3cf28a5 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -17,7 +17,7 @@
 
 <style>
   body {
-    --color-code-background: #eeffcc;
+    --color-code-background: #f8f8f8;
   --color-code-foreground: black;
   
   }
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">spec2nexus 2021.2.1 (3.gac8f601)</div></a>
+      <a href="index.html"><div class="brand">spec2nexus 4.g3cf28a5 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.1 (3.gac8f601)</span>
+  <span class="sidebar-brand-text">spec2nexus 4.g3cf28a5 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -348,7 +348,7 @@ sections.  See the <a class="reference internal" href="nexus_layout/example_1d_s
 <p>Where’s the source code to spec2nexus?</p>
 <p>In the source code, the <em>spec2nexus</em> program
 is started from file <strong>nexus.py</strong>
-(in the <a class="reference internal" href="#spec2nexus.nexus.main" title="spec2nexus.nexus.main"><code class="xref py py-meth docutils literal notranslate"><span class="pre">spec2nexus.nexus.main()</span></code></a>
+(in the <code class="xref py py-meth docutils literal notranslate"><span class="pre">spec2nexus.nexus.main()</span></code>
 method, for those who look at the source code):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python nexus.py specfile.dat
 </pre></div>
@@ -358,36 +358,8 @@ It will work, <em>if</em> you have put that source directory on your PYTHONPATH.
 </div>
 </section>
 <hr class="docutils" />
-<section id="module-spec2nexus.nexus">
-<span id="source-code-documentation"></span><h2>source code documentation<a class="headerlink" href="#module-spec2nexus.nexus" title="Permalink to this heading">#</a></h2>
-<p>Converts SPEC data files and scans into NeXus HDF5 files</p>
-<dl class="py function">
-<dt class="sig sig-object py" id="spec2nexus.nexus.get_user_parameters">
-<span class="sig-prename descclassname"><span class="pre">spec2nexus.nexus.</span></span><span class="sig-name descname"><span class="pre">get_user_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/nexus.html#get_user_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.nexus.get_user_parameters" title="Permalink to this definition">#</a></dt>
-<dd><p>configure user’s command line parameters from sys.argv</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="spec2nexus.nexus.main">
-<span class="sig-prename descclassname"><span class="pre">spec2nexus.nexus.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/nexus.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.nexus.main" title="Permalink to this definition">#</a></dt>
-<dd><p>entry point for command-line interface</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="spec2nexus.nexus.parse_scan_list_spec">
-<span class="sig-prename descclassname"><span class="pre">spec2nexus.nexus.</span></span><span class="sig-name descname"><span class="pre">parse_scan_list_spec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scan_list_spec</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/nexus.html#parse_scan_list_spec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.nexus.parse_scan_list_spec" title="Permalink to this definition">#</a></dt>
-<dd><p>parses the argument of the -s option, returns a scan number list</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="spec2nexus.nexus.pick_scans">
-<span class="sig-prename descclassname"><span class="pre">spec2nexus.nexus.</span></span><span class="sig-name descname"><span class="pre">pick_scans</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_scans</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opt_scan_list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/nexus.html#pick_scans"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.nexus.pick_scans" title="Permalink to this definition">#</a></dt>
-<dd><p>edit opt_scan_list for the scans to be converted</p>
-<p>To be converted, a scan number must be first specified in opt_scan_list
-and then all_scans is checked to make sure that scan exists.
-The final list is returned.</p>
-</dd></dl>
-
+<section id="source-code-documentation">
+<h2>source code documentation<a class="headerlink" href="#source-code-documentation" title="Permalink to this heading">#</a></h2>
 </section>
 </section>
 
@@ -453,7 +425,7 @@ The final list is returned.</p>
 <li><a class="reference internal" href="#describe-the-nexus-file">Describe the NeXus File</a></li>
 <li><a class="reference internal" href="#show-installed-version">show installed version</a></li>
 <li><a class="reference internal" href="#command-line-options">command-line options</a></li>
-<li><a class="reference internal" href="#module-spec2nexus.nexus">source code documentation</a></li>
+<li><a class="reference internal" href="#source-code-documentation">source code documentation</a></li>
 </ul>
 </li>
 </ul>

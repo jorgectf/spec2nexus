@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="API" href="api.html" /><link rel="prev" title="How to write a custom control line handling plugin module for spec" href="how_to_write_plugin.html" />
 
     <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
-        <title>How to write a custom scan handling class for specplot - spec2nexus 2021.2.1 (3.gac8f601)</title>
+        <title>How to write a custom scan handling class for specplot - spec2nexus 4.g3cf28a5 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -17,7 +17,7 @@
 
 <style>
   body {
-    --color-code-background: #eeffcc;
+    --color-code-background: #f8f8f8;
   --color-code-foreground: black;
   
   }
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">spec2nexus 2021.2.1 (3.gac8f601)</div></a>
+      <a href="index.html"><div class="brand">spec2nexus 4.g3cf28a5 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.1 (3.gac8f601)</span>
+  <span class="sidebar-brand-text">spec2nexus 4.g3cf28a5 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -273,11 +273,11 @@ handling.</p>
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
 <p>It is possible to add in additional handling by writing a Python module.
 This module creates a subclass of the standard handling, such as
-<a class="reference internal" href="specplot.html#spec2nexus.specplot.LinePlotter" title="spec2nexus.specplot.LinePlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">LinePlotter</span></code></a>,
-<a class="reference internal" href="specplot.html#spec2nexus.specplot.MeshPlotter" title="spec2nexus.specplot.MeshPlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">MeshPlotter</span></code></a>, or their superclass
-<a class="reference internal" href="specplot.html#spec2nexus.specplot.ImageMaker" title="spec2nexus.specplot.ImageMaker"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageMaker</span></code></a>.
+<code class="xref py py-class docutils literal notranslate"><span class="pre">LinePlotter</span></code>,
+<code class="xref py py-class docutils literal notranslate"><span class="pre">MeshPlotter</span></code>, or their superclass
+<code class="xref py py-class docutils literal notranslate"><span class="pre">ImageMaker</span></code>.
 The support is added to the macro selection class
-<a class="reference internal" href="specplot.html#spec2nexus.specplot.Selector" title="spec2nexus.specplot.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a> with code such as in the brief
+<code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code> with code such as in the brief
 example described below: <a class="reference internal" href="#custom-ascan-specplot"><span class="std std-ref">Change the plot title text in ascan macros</span></a>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">selector</span> <span class="o">=</span> <span class="n">spec2nexus</span><span class="o">.</span><span class="n">specplot</span><span class="o">.</span><span class="n">Selector</span><span class="p">()</span>
 <span class="n">selector</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;ascan&#39;</span><span class="p">,</span> <span class="n">Custom_Ascan</span><span class="p">)</span>
@@ -328,7 +328,7 @@ For 2-D data, <cite>self.axes</cite> has two names and the <em>signal</em> data 
 <section id="steps">
 <h2>Steps<a class="headerlink" href="#steps" title="Permalink to this heading">#</a></h2>
 <p>In all cases, custom handling of a specific SPEC macro name is provided by
-creating a subclass of <a class="reference internal" href="specplot.html#spec2nexus.specplot.ImageMaker" title="spec2nexus.specplot.ImageMaker"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageMaker</span></code></a> and defining one
+creating a subclass of <code class="xref py py-class docutils literal notranslate"><span class="pre">ImageMaker</span></code> and defining one
 or more of its methods.  In the simplest case, certain settings may be changed
 by calling <code class="xref py py-meth docutils literal notranslate"><span class="pre">spec2nexus.specplot.ImageMaker.configure()</span></code> with the custom
 values.  Examples of further customization are provided below, such as when the
@@ -336,9 +336,9 @@ data to be plotted is stored outside of the SPEC data file.  This is common for
 images from area detectors.</p>
 <p>It may also be necessary to create a subclass of
 <code class="xref py py-class docutils literal notranslate"><span class="pre">PlotDataStructure</span></code> to gather the data to be
-plotted or override the default <a class="reference internal" href="specplot.html#spec2nexus.specplot.ImageMaker.plottable" title="spec2nexus.specplot.ImageMaker.plottable"><code class="xref py py-meth docutils literal notranslate"><span class="pre">spec2nexus.specplot.ImageMaker.plottable()</span></code></a>
+plotted or override the default <code class="xref py py-meth docutils literal notranslate"><span class="pre">spec2nexus.specplot.ImageMaker.plottable()</span></code>
 method. An example of this is shown with the
-<a class="reference internal" href="specplot.html#spec2nexus.specplot.MeshPlotter" title="spec2nexus.specplot.MeshPlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">MeshPlotter</span></code></a> and associated
+<code class="xref py py-class docutils literal notranslate"><span class="pre">MeshPlotter</span></code> and associated
 <code class="xref py py-class docutils literal notranslate"><span class="pre">MeshStructure</span></code> classes.</p>
 </section>
 <section id="examples">
@@ -350,7 +350,7 @@ In each example, decisions have been made about where to provide the desired fea
 <p>The SPEC <em>ascan</em> macro is a workhorse and records the scan of a positioner and
 the measurement of data in a counter. Since this macro name ends with “scan”,
 the default selection in <em>specplot</em> images this data using the
-<a class="reference internal" href="specplot.html#spec2nexus.specplot.LinePlotter" title="spec2nexus.specplot.LinePlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">LinePlotter</span></code></a> class. Here is a plot of the default
+<code class="xref py py-class docutils literal notranslate"><span class="pre">LinePlotter</span></code> class. Here is a plot of the default
 handling of data from the <em>ascan</em> macro:</p>
 <figure class="align-default" id="id7">
 <a class="reference internal image-reference" href="_images/ascan.png"><img alt="_images/ascan.png" src="_images/ascan.png" style="width: 95%;" /></a>
@@ -361,7 +361,7 @@ handling of data from the <em>ascan</em> macro:</p>
 <p>We will show how to change the plot title as a means to illustrate how to
 customize the handling for a scan macro.</p>
 <p>We write <code class="xref py py-class docutils literal notranslate"><span class="pre">Custom_Ascan</span></code> which is a subclass of
-<a class="reference internal" href="specplot.html#spec2nexus.specplot.LinePlotter" title="spec2nexus.specplot.LinePlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">LinePlotter</span></code></a>.  The <code class="xref py py-mod docutils literal notranslate"><span class="pre">get_plot_data</span></code> method is
+<code class="xref py py-class docutils literal notranslate"><span class="pre">LinePlotter</span></code>.  The <code class="xref py py-mod docutils literal notranslate"><span class="pre">get_plot_data</span></code> method is
 written (overrides the default method) to gain access to the place where we can
 introduce the change.  The change is made by the call to the <code class="xref py py-mod docutils literal notranslate"><span class="pre">configure</span></code>
 method (defined in the superclass).  Here’s the code:</p>
@@ -498,16 +498,16 @@ scale on the Y axis.  Here’s the code:</p>
 <h4>custom <cite>uascan</cite><a class="headerlink" href="#custom-uascan" title="Permalink to this heading">#</a></h4>
 <p>The APS USAXS instrument uses a custom scan macro called <em>uascan</em> for routine
 step scans. Since this macro name ends with “scan”, the default selection in
-<em>specplot</em> images this data using the <a class="reference internal" href="specplot.html#spec2nexus.specplot.LinePlotter" title="spec2nexus.specplot.LinePlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">LinePlotter</span></code></a>
+<em>specplot</em> images this data using the <code class="xref py py-class docutils literal notranslate"><span class="pre">LinePlotter</span></code>
 class. Here is a plot of the default handling of data from the <em>uascan</em> macro:</p>
 <figure class="align-default" id="id9">
 <a class="reference internal image-reference" href="_images/uascan_as_ascan.png"><img alt="_images/uascan_as_ascan.png" src="_images/uascan_as_ascan.png" style="width: 95%;" /></a>
 <figcaption>
-<p><span class="caption-text">USAXS <em>uascan</em>, handled as <a class="reference internal" href="specplot.html#spec2nexus.specplot.LinePlotter" title="spec2nexus.specplot.LinePlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">LinePlotter</span></code></a></span><a class="headerlink" href="#id9" title="Permalink to this image">#</a></p>
+<p><span class="caption-text">USAXS <em>uascan</em>, handled as <code class="xref py py-class docutils literal notranslate"><span class="pre">LinePlotter</span></code></span><a class="headerlink" href="#id9" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The can be changed by making the <em>y</em> axis log scale. To do this, a custom
-version of <a class="reference internal" href="specplot.html#spec2nexus.specplot.LinePlotter" title="spec2nexus.specplot.LinePlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">LinePlotter</span></code></a> is created as
+version of <code class="xref py py-class docutils literal notranslate"><span class="pre">LinePlotter</span></code> is created as
 <code class="xref py py-class docutils literal notranslate"><span class="pre">Custom_Ascan</span></code>.  The <code class="xref py py-mod docutils literal notranslate"><span class="pre">get_plot_data</span></code> method is written (overrides
 the default method) to make the <em>y</em> axis log-scale by calling the
 <code class="xref py py-mod docutils literal notranslate"><span class="pre">configure</span></code> method (defined in the superclass).  Here’s the code:</p>
@@ -623,8 +623,8 @@ column.</p>
 </figcaption>
 </figure>
 <p>To display the scanned axis, it is necessary to examine the data in a custom
-subclass of <a class="reference internal" href="specplot.html#spec2nexus.specplot.LinePlotter" title="spec2nexus.specplot.LinePlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">LinePlotter</span></code></a>.  The
-<a class="reference internal" href="specplot.html#spec2nexus.specplot.HKLScanPlotter" title="spec2nexus.specplot.HKLScanPlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">HKLScanPlotter</span></code></a> subclass, provided with <em>specplot</em>,
+subclass of <code class="xref py py-class docutils literal notranslate"><span class="pre">LinePlotter</span></code>.  The
+<code class="xref py py-class docutils literal notranslate"><span class="pre">HKLScanPlotter</span></code> subclass, provided with <em>specplot</em>,
 defines the <code class="xref py py-meth docutils literal notranslate"><span class="pre">get_plot_data()</span></code> method determines the scanned axis, setting it
 by name:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="o">.</span><span class="n">axes</span> <span class="o">=</span> <span class="p">[</span><span class="n">axis</span><span class="p">,]</span>
@@ -653,7 +653,7 @@ to a NeXus HDF5 data file.  Later, a data reduction process converts the arrays 
 raw data to one-dimensional <span class="math notranslate nohighlight">\(I(Q)\)</span> profiles.  The best representation of this
 reduced data is on a log-log plot to reveal the many decades of both <span class="math notranslate nohighlight">\(I\)</span> and
 <span class="math notranslate nohighlight">\(Q\)</span> covered by the measurement.</p>
-<p>With the default handling by <a class="reference internal" href="specplot.html#spec2nexus.specplot.LinePlotter" title="spec2nexus.specplot.LinePlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">LinePlotter</span></code></a>, no plot
+<p>With the default handling by <code class="xref py py-class docutils literal notranslate"><span class="pre">LinePlotter</span></code>, no plot
 can be generated since the data is given in a separate HDF5 file.  That file
 is read with the custom handling of the <cite>usaxs_flyscan.py</cite> demo:</p>
 <p class="rubric"><cite>usaxs_flyscan.py</cite> example</p>
@@ -824,7 +824,7 @@ is read with the custom handling of the <cite>usaxs_flyscan.py</cite> demo:</p>
 </figure>
 <p>The <code class="docutils literal notranslate"><span class="pre">USAXS_FlyScan_Plotter()</span></code> class provides custom methods for
 <code class="docutils literal notranslate"><span class="pre">retrieve_plot_data()</span></code> and <code class="docutils literal notranslate"><span class="pre">plottable()</span></code> which will be called from
-<a class="reference internal" href="specplot.html#spec2nexus.specplot.ImageMaker.plot_scan" title="spec2nexus.specplot.ImageMaker.plot_scan"><code class="xref py py-meth docutils literal notranslate"><span class="pre">spec2nexus.specplot.ImageMaker.plot_scan()</span></code></a>.</p>
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">spec2nexus.specplot.ImageMaker.plot_scan()</span></code>.</p>
 <p>Method <code class="docutils literal notranslate"><span class="pre">USAXS_FlyScan_Plotter.plottable()</span></code> returns a boolean value if the data
 can be plotted.</p>
 <p>Method <code class="docutils literal notranslate"><span class="pre">USAXS_FlyScan_Plotter.retrieve_plot_data()</span></code> gets the data from the
