@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="License" href="license.html" /><link rel="prev" title="Unit Testing" href="unit_testing.html" />
 
     <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
-        <title>Change History - spec2nexus 4.g3cf28a5 documentation</title>
+        <title>Change History - spec2nexus 2021.2.2rc1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">spec2nexus 4.g3cf28a5 documentation</div></a>
+      <a href="index.html"><div class="brand">spec2nexus 2021.2.2rc1 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 4.g3cf28a5 documentation</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.2rc1 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -268,6 +268,11 @@
 <section id="id1">
 <h3>2021.2.2<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <p>release expected by end of 2022-09</p>
+<section id="maintenance">
+<h4>Maintenance<a class="headerlink" href="#maintenance" title="Permalink to this heading">#</a></h4>
+<p>Switch version management to setuptools-scm.</p>
+<p>Updated Sphinx (documentation) configuration to v5.1.</p>
+</section>
 </section>
 <section id="id2">
 <h3>2021.2.1<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
@@ -277,8 +282,8 @@
 <p>Added <code class="docutils literal notranslate"><span class="pre">--output</span></code> (short version: <code class="docutils literal notranslate"><span class="pre">-o</span></code>) command-line option to
 <code class="docutils literal notranslate"><span class="pre">spec2nexus</span></code> application to name the output file.</p>
 </section>
-<section id="maintenance">
-<h4>Maintenance<a class="headerlink" href="#maintenance" title="Permalink to this heading">#</a></h4>
+<section id="id3">
+<h4>Maintenance<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h4>
 <p>Add support for SPEC <code class="docutils literal notranslate"><span class="pre">#R</span></code> (user results) control line.</p>
 </section>
 <section id="contributors">
@@ -288,8 +293,8 @@
 </ul>
 </section>
 </section>
-<section id="id3">
-<h3>2021.2.0<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<section id="id4">
+<h3>2021.2.0<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
 <p>released 2022-03-17</p>
 <section id="notice">
 <h4>Notice<a class="headerlink" href="#notice" title="Permalink to this heading">#</a></h4>
@@ -303,8 +308,8 @@
 <p>The plugin system was rebuilt to make it easier to write and load plugins,
 especially custom, user-provided plugins.</p>
 </section>
-<section id="id4">
-<h4>New Features and/or Enhancements<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h4>
+<section id="id5">
+<h4>New Features and/or Enhancements<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h4>
 <p>Added another way to access scans, using Python’s slicing interface.
 See the <em>Slice Parameters</em> section for more details and examples.</p>
 <p>Add new diffractometer configuration reports:</p>
@@ -323,8 +328,8 @@ See the <em>Slice Parameters</em> section for more details and examples.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">twoc</span></code>: diffractometer geometry has 2-D lattice and reflection(s)</p></li>
 </ul>
 </section>
-<section id="id5">
-<h4>Maintenance<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h4>
+<section id="id6">
+<h4>Maintenance<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Optimize initial load times for data files.</p></li>
 <li><p>Code tests now use real examples of non-zero MCA data using files with both
@@ -343,8 +348,8 @@ single and multiple MCA detectors.</p></li>
 <li><p>Python versions lower than 3.7 are no longer supported.</p></li>
 </ul>
 </section>
-<section id="id6">
-<h4>Contributors<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h4>
+<section id="id7">
+<h4>Contributors<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Radu Abrudan</p></li>
 </ul>
@@ -1125,21 +1130,24 @@ read scans with repeated scan numbers</p></li>
             <ul>
 <li><a class="reference internal" href="#">Change History</a><ul>
 <li><a class="reference internal" href="#production">Production</a><ul>
-<li><a class="reference internal" href="#id1">2021.2.2</a></li>
+<li><a class="reference internal" href="#id1">2021.2.2</a><ul>
+<li><a class="reference internal" href="#maintenance">Maintenance</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#id2">2021.2.1</a><ul>
 <li><a class="reference internal" href="#new-features-and-or-enhancements">New Features and/or Enhancements</a></li>
-<li><a class="reference internal" href="#maintenance">Maintenance</a></li>
+<li><a class="reference internal" href="#id3">Maintenance</a></li>
 <li><a class="reference internal" href="#contributors">Contributors</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id3">2021.2.0</a><ul>
+<li><a class="reference internal" href="#id4">2021.2.0</a><ul>
 <li><a class="reference internal" href="#notice">Notice</a></li>
 <li><a class="reference internal" href="#breaking-changes">Breaking Changes</a></li>
-<li><a class="reference internal" href="#id4">New Features and/or Enhancements</a></li>
+<li><a class="reference internal" href="#id5">New Features and/or Enhancements</a></li>
 <li><a class="reference internal" href="#fixes">Fixes</a></li>
-<li><a class="reference internal" href="#id5">Maintenance</a></li>
+<li><a class="reference internal" href="#id6">Maintenance</a></li>
 <li><a class="reference internal" href="#deprecations">Deprecations</a></li>
-<li><a class="reference internal" href="#id6">Contributors</a></li>
+<li><a class="reference internal" href="#id7">Contributors</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#older-releases">Older Releases</a></li>
