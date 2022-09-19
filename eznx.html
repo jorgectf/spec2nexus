@@ -5,10 +5,10 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="spec2nexus.writer" href="writer.html" /><link rel="prev" title="spec2nexus.spec" href="spec.html" />
 
-    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
-        <title>spec2nexus.eznx - spec2nexus 2021.2.2 documentation</title>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.09.15"/>
+        <title>spec2nexus.eznx - spec2nexus 2021.2.3 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=9ec31e2665bf879c1d47d93a8ec4893870ee1e45" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">spec2nexus 2021.2.2 documentation</div></a>
+      <a href="index.html"><div class="brand">spec2nexus 2021.2.3 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.2 documentation</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.3 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -262,10 +262,10 @@
         </div>
         <article role="main">
           <section id="spec2nexus-eznx">
-<span id="eznx"></span><h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.eznx</span></code><a class="headerlink" href="#spec2nexus-eznx" title="Permalink to this heading">#</a></h1>
+<span id="eznx"></span><h1><a class="reference internal" href="#module-spec2nexus.eznx" title="spec2nexus.eznx: (Easy NeXus) support reading &amp; writing NeXus HDF5 files using h5py"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.eznx</span></code></a><a class="headerlink" href="#spec2nexus-eznx" title="Permalink to this heading">#</a></h1>
 <p>(Easy NeXus) support library for reading &amp; writing NeXus HDF5 files using h5py</p>
 <section id="how-to-use-spec2nexus-eznx">
-<span id="index-0"></span><h2>How to use <code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.eznx</span></code><a class="headerlink" href="#how-to-use-spec2nexus-eznx" title="Permalink to this heading">#</a></h2>
+<span id="index-0"></span><h2>How to use <a class="reference internal" href="#module-spec2nexus.eznx" title="spec2nexus.eznx: (Easy NeXus) support reading &amp; writing NeXus HDF5 files using h5py"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.eznx</span></code></a><a class="headerlink" href="#how-to-use-spec2nexus-eznx" title="Permalink to this heading">#</a></h2>
 <p>Here is a simple example to write a NeXus data file using eznx:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/usr/bin/env python</span>
 <span class="linenos"> 2</span><span class="c1"># -*- coding: utf-8 -*-</span>
@@ -416,12 +416,285 @@ It has this general structure (indentation shows HDF5 groups,
 <div class="table-wrapper autosummary longtable docutils container">
 <table class="autosummary longtable docutils align-default">
 <tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.eznx.addAttributes" title="spec2nexus.eznx.addAttributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">addAttributes</span></code></a></p></td>
+<td><p>add attributes to an h5py data item</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.eznx.makeFile" title="spec2nexus.eznx.makeFile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">makeFile</span></code></a></p></td>
+<td><p>create and open an empty NeXus HDF5 file using h5py</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.eznx.makeDataset" title="spec2nexus.eznx.makeDataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">makeDataset</span></code></a></p></td>
+<td><p>create and write data to a dataset in the HDF5 file hierarchy</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.eznx.makeExternalLink" title="spec2nexus.eznx.makeExternalLink"><code class="xref py py-obj docutils literal notranslate"><span class="pre">makeExternalLink</span></code></a></p></td>
+<td><p>create an external link from sourceFile, sourcePath to targetPath in hdf5FileObject</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.eznx.makeGroup" title="spec2nexus.eznx.makeGroup"><code class="xref py py-obj docutils literal notranslate"><span class="pre">makeGroup</span></code></a></p></td>
+<td><p>create a NeXus group</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.eznx.openGroup" title="spec2nexus.eznx.openGroup"><code class="xref py py-obj docutils literal notranslate"><span class="pre">openGroup</span></code></a></p></td>
+<td><p>open or create the NeXus HDF5 group, return the object</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.eznx.makeLink" title="spec2nexus.eznx.makeLink"><code class="xref py py-obj docutils literal notranslate"><span class="pre">makeLink</span></code></a></p></td>
+<td><p>create an internal NeXus (hard) link in an HDF5 file</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.eznx.read_nexus_field" title="spec2nexus.eznx.read_nexus_field"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_nexus_field</span></code></a></p></td>
+<td><p>get a dataset from the HDF5 parent group</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spec2nexus.eznx.read_nexus_group_fields" title="spec2nexus.eznx.read_nexus_group_fields"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_nexus_group_fields</span></code></a></p></td>
+<td><p>return the fields in the NeXus group as a dict(name=dataset)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#spec2nexus.eznx.write_dataset" title="spec2nexus.eznx.write_dataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_dataset</span></code></a></p></td>
+<td><p>write to the NeXus HDF5 dataset, create it if necessary, return the object</p></td>
+</tr>
 </tbody>
 </table>
 </div>
 </section>
-<section id="source-code-documentation">
-<h2>source code documentation<a class="headerlink" href="#source-code-documentation" title="Permalink to this heading">#</a></h2>
+<section id="module-spec2nexus.eznx">
+<span id="source-code-documentation"></span><h2>source code documentation<a class="headerlink" href="#module-spec2nexus.eznx" title="Permalink to this heading">#</a></h2>
+<p>(Easy NeXus) support reading &amp; writing NeXus HDF5 files using h5py</p>
+<dl class="field-list simple">
+<dt class="field-odd">predecessor<span class="colon">:</span></dt>
+<dd class="field-odd"><p>NeXus h5py example code: <code class="docutils literal notranslate"><span class="pre">my_lib.py</span></code> <a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
+</dd>
+</dl>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id2" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://download.nexusformat.org/doc/html/examples/h5py/index.html#mylib-support-module">https://download.nexusformat.org/doc/html/examples/h5py/index.html#mylib-support-module</a></p>
+</aside>
+</aside>
+<p class="rubric">Dependencies</p>
+<ul class="simple">
+<li><p>h5py: interface to HDF5 file format</p></li>
+</ul>
+<p class="rubric">Exceptions raised</p>
+<ul class="simple">
+<li><p>None</p></li>
+</ul>
+<p class="rubric">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span> <span class="o">=</span> <span class="n">eznx</span><span class="o">.</span><span class="n">makeFile</span><span class="p">(</span><span class="s1">&#39;test.h5&#39;</span><span class="p">,</span> <span class="n">creator</span><span class="o">=</span><span class="s1">&#39;eznx&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;entry&#39;</span><span class="p">)</span>
+<span class="n">nxentry</span> <span class="o">=</span> <span class="n">eznx</span><span class="o">.</span><span class="n">makeGroup</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s1">&#39;entry&#39;</span><span class="p">,</span> <span class="s1">&#39;NXentry&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">eznx</span><span class="o">.</span><span class="n">write_dataset</span><span class="p">(</span><span class="n">nxentry</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;simple test data&#39;</span><span class="p">)</span>
+<span class="n">nxdata</span> <span class="o">=</span> <span class="n">eznx</span><span class="o">.</span><span class="n">makeGroup</span><span class="p">(</span><span class="n">nxentry</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;NXdata&#39;</span><span class="p">,</span> <span class="n">signal</span><span class="o">=</span><span class="s1">&#39;counts&#39;</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="s1">&#39;tth&#39;</span><span class="p">,</span> <span class="n">tth_indices</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">eznx</span><span class="o">.</span><span class="n">write_dataset</span><span class="p">(</span><span class="n">nxdata</span><span class="p">,</span> <span class="s1">&#39;tth&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">10.1</span><span class="p">,</span> <span class="mf">10.2</span><span class="p">,</span> <span class="mf">10.3</span><span class="p">],</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;degrees&#39;</span><span class="p">)</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">eznx</span><span class="o">.</span><span class="n">write_dataset</span><span class="p">(</span><span class="n">nxdata</span><span class="p">,</span> <span class="s1">&#39;counts&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;counts&#39;</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="s2">&quot;tth&quot;</span><span class="p">)</span>
+<span class="n">root</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p id="index-1">The resulting (binary) data file has this structure:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">test</span><span class="o">.</span><span class="n">h5</span><span class="p">:</span><span class="n">NeXus</span> <span class="n">data</span> <span class="n">file</span>
+  <span class="nd">@creator</span> <span class="o">=</span> <span class="n">eznx</span>
+  <span class="nd">@default</span> <span class="o">=</span> <span class="s1">&#39;entry&#39;</span>
+  <span class="n">entry</span><span class="p">:</span><span class="n">NXentry</span>
+    <span class="nd">@NX_class</span> <span class="o">=</span> <span class="n">NXentry</span>
+    <span class="nd">@default</span> <span class="o">=</span> <span class="s1">&#39;data&#39;</span>
+    <span class="n">title</span><span class="p">:</span><span class="n">NX_CHAR</span> <span class="o">=</span> <span class="n">simple</span> <span class="n">test</span> <span class="n">data</span>
+    <span class="n">data</span><span class="p">:</span><span class="n">NXdata</span>
+      <span class="nd">@NX_class</span> <span class="o">=</span> <span class="n">NXdata</span>
+      <span class="nd">@signal</span> <span class="o">=</span> <span class="s1">&#39;counts&#39;</span>
+      <span class="nd">@axes</span> <span class="o">=</span> <span class="s1">&#39;tth&#39;</span>
+      <span class="nd">@tth_indices</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="n">counts</span><span class="p">:</span><span class="n">NX_INT64</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+        <span class="nd">@units</span> <span class="o">=</span> <span class="n">counts</span>
+        <span class="nd">@axes</span> <span class="o">=</span> <span class="n">tth</span>
+      <span class="n">tth</span><span class="p">:</span><span class="n">NX_FLOAT64</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">10.1</span><span class="p">,</span> <span class="mf">10.199999999999999</span><span class="p">,</span> <span class="mf">10.300000000000001</span><span class="p">]</span>
+        <span class="nd">@units</span> <span class="o">=</span> <span class="n">degrees</span>
+</pre></div>
+</div>
+<p class="rubric">Classes and Methods</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="spec2nexus.eznx.addAttributes">
+<span class="sig-prename descclassname"><span class="pre">spec2nexus.eznx.</span></span><span class="sig-name descname"><span class="pre">addAttributes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">attr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/eznx.html#addAttributes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.eznx.addAttributes" title="Permalink to this definition">#</a></dt>
+<dd><p>add attributes to an h5py data item</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parent</strong> (<em>obj</em>) – h5py parent object</p></li>
+<li><p><strong>attr</strong> (<em>dict</em>) – optional dictionary of attributes</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="spec2nexus.eznx.makeDataset">
+<span class="sig-prename descclassname"><span class="pre">spec2nexus.eznx.</span></span><span class="sig-name descname"><span class="pre">makeDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">attr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/eznx.html#makeDataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.eznx.makeDataset" title="Permalink to this definition">#</a></dt>
+<dd><p>create and write data to a dataset in the HDF5 file hierarchy</p>
+<p>Any named parameters in the call to this method
+will be saved as attributes of the dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parent</strong> (<em>obj</em>) – parent group</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – valid NeXus dataset name</p></li>
+<li><p><strong>data</strong> (<em>obj</em>) – the information to be written</p></li>
+<li><p><strong>attr</strong> (<em>dict</em>) – optional dictionary of attributes</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>h5py dataset object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="spec2nexus.eznx.makeExternalLink">
+<span class="sig-prename descclassname"><span class="pre">spec2nexus.eznx.</span></span><span class="sig-name descname"><span class="pre">makeExternalLink</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hdf5FileObject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sourceFile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sourcePath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targetPath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/eznx.html#makeExternalLink"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.eznx.makeExternalLink" title="Permalink to this definition">#</a></dt>
+<dd><p>create an external link from sourceFile, sourcePath to targetPath in hdf5FileObject</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hdf5FileObject</strong> (<em>obj</em>) – open HDF5 file object</p></li>
+<li><p><strong>sourceFile</strong> (<em>str</em>) – file containing existing HDF5 object at sourcePath</p></li>
+<li><p><strong>sourcePath</strong> (<em>str</em>) – path to existing HDF5 object in sourceFile</p></li>
+<li><p><strong>targetPath</strong> (<em>str</em>) – full node path to be created in current open HDF5 file,
+such as <code class="docutils literal notranslate"><span class="pre">/entry/data/data</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since the object retrieved is in a different file,
+its “.file” and “.parent” properties will refer to
+objects in that file, not the file in which the link resides.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">See<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.h5py.org/docs-1.3/guide/group.html#external-links">https://www.h5py.org/docs-1.3/guide/group.html#external-links</a></p>
+</dd>
+</dl>
+<p>This routine is provided as a reminder how to do this simple operation.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="spec2nexus.eznx.makeFile">
+<span class="sig-prename descclassname"><span class="pre">spec2nexus.eznx.</span></span><span class="sig-name descname"><span class="pre">makeFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">attr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/eznx.html#makeFile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.eznx.makeFile" title="Permalink to this definition">#</a></dt>
+<dd><p>create and open an empty NeXus HDF5 file using h5py</p>
+<p>Any named parameters in the call to this method will be saved as
+attributes of the root of the file.
+Note that <code class="docutils literal notranslate"><span class="pre">**attr</span></code> is a dictionary of named parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<em>str</em>) – valid file name</p></li>
+<li><p><strong>attr</strong> (<em>dict</em>) – optional dictionary of attributes</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>h5py file object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="spec2nexus.eznx.makeGroup">
+<span class="sig-prename descclassname"><span class="pre">spec2nexus.eznx.</span></span><span class="sig-name descname"><span class="pre">makeGroup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxclass</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">attr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/eznx.html#makeGroup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.eznx.makeGroup" title="Permalink to this definition">#</a></dt>
+<dd><p>create a NeXus group</p>
+<p>Any named parameters in the call to this method
+will be saved as attributes of the group.
+Note that <code class="docutils literal notranslate"><span class="pre">**attr</span></code> is a dictionary of named parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parent</strong> (<em>obj</em>) – parent group</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – valid NeXus group name</p></li>
+<li><p><strong>nxclass</strong> (<em>str</em>) – valid NeXus class name</p></li>
+<li><p><strong>attr</strong> (<em>dict</em>) – optional dictionary of attributes</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>h5py group object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="spec2nexus.eznx.makeLink">
+<span class="sig-prename descclassname"><span class="pre">spec2nexus.eznx.</span></span><span class="sig-name descname"><span class="pre">makeLink</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sourceObject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targetName</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/eznx.html#makeLink"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.eznx.makeLink" title="Permalink to this definition">#</a></dt>
+<dd><p>create an internal NeXus (hard) link in an HDF5 file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parent</strong> (<em>obj</em>) – parent group of source</p></li>
+<li><p><strong>sourceObject</strong> (<em>obj</em>) – existing HDF5 object</p></li>
+<li><p><strong>targetName</strong> (<em>str</em>) – HDF5 node path to be created,
+such as <code class="docutils literal notranslate"><span class="pre">/entry/data/data</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="spec2nexus.eznx.openGroup">
+<span class="sig-prename descclassname"><span class="pre">spec2nexus.eznx.</span></span><span class="sig-name descname"><span class="pre">openGroup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nx_class</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">attr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/eznx.html#openGroup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.eznx.openGroup" title="Permalink to this definition">#</a></dt>
+<dd><p>open or create the NeXus HDF5 group, return the object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parent</strong> (<em>obj</em>) – h5py parent object</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – valid NeXus group name to open or create</p></li>
+<li><p><strong>nxclass</strong> (<em>str</em>) – valid NeXus class name (base class or application definition)</p></li>
+<li><p><strong>attr</strong> (<em>dict</em>) – optional dictionary of attributes</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="spec2nexus.eznx.read_nexus_field">
+<span class="sig-prename descclassname"><span class="pre">spec2nexus.eznx.</span></span><span class="sig-name descname"><span class="pre">read_nexus_field</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">astype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/eznx.html#read_nexus_field"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.eznx.read_nexus_field" title="Permalink to this definition">#</a></dt>
+<dd><p>get a dataset from the HDF5 parent group</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parent</strong> (<em>obj</em>) – h5py parent object</p></li>
+<li><p><strong>dataset_name</strong> (<em>str</em>) – name of the dataset (NeXus field) to be read</p></li>
+<li><p><strong>astype</strong> (<em>obj</em>) – option to return as different data type</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="spec2nexus.eznx.read_nexus_group_fields">
+<span class="sig-prename descclassname"><span class="pre">spec2nexus.eznx.</span></span><span class="sig-name descname"><span class="pre">read_nexus_group_fields</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fields</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/eznx.html#read_nexus_group_fields"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.eznx.read_nexus_group_fields" title="Permalink to this definition">#</a></dt>
+<dd><p>return the fields in the NeXus group as a dict(name=dataset)</p>
+<p>This routine provides a mass way to read a directed list
+of datasets (NeXus fields) in an HDF5 group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parent</strong> (<em>obj</em>) – h5py parent object</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – name of the group containing the fields</p></li>
+<li><p><strong>fields</strong> (<em>[</em><em>name</em><em>]</em>) – list of field names to be read</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>dictionary of {name:dataset}</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>KeyError</strong> – if a field is not found</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="spec2nexus.eznx.write_dataset">
+<span class="sig-prename descclassname"><span class="pre">spec2nexus.eznx.</span></span><span class="sig-name descname"><span class="pre">write_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">attr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spec2nexus/eznx.html#write_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spec2nexus.eznx.write_dataset" title="Permalink to this definition">#</a></dt>
+<dd><p>write to the NeXus HDF5 dataset, create it if necessary, return the object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parent</strong> (<em>obj</em>) – h5py parent object</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – valid NeXus dataset name to write</p></li>
+<li><p><strong>data</strong> (<em>obj</em>) – the information to be written</p></li>
+<li><p><strong>attr</strong> (<em>dict</em>) – optional dictionary of attributes</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 </section>
 
@@ -437,10 +710,10 @@ It has this general structure (indentation shows HDF5 groups,
                 </div>
                 <div class="title"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.writer</span></code></div>
               </div>
-              <svg><use href="#svg-arrow-right"></use></svg>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
           <a class="prev-page" href="spec.html">
-              <svg><use href="#svg-arrow-right"></use></svg>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
@@ -476,7 +749,7 @@ It has this general structure (indentation shows HDF5 groups,
       <div class="toc-sticky toc-scroll">
         <div class="toc-title-container">
           <span class="toc-title">
-            Contents
+            On this page
           </span>
         </div>
         <div class="toc-tree-container">
@@ -486,7 +759,7 @@ It has this general structure (indentation shows HDF5 groups,
 <li><a class="reference internal" href="#how-to-use-spec2nexus-eznx">How to use <code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.eznx</span></code></a></li>
 <li><a class="reference internal" href="#nexus-hdf5-file-structure">NeXus HDF5 File Structure</a></li>
 <li><a class="reference internal" href="#source-code-methods">source code methods</a></li>
-<li><a class="reference internal" href="#source-code-documentation">source code documentation</a></li>
+<li><a class="reference internal" href="#module-spec2nexus.eznx">source code documentation</a></li>
 </ul>
 </li>
 </ul>
