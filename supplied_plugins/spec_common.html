@@ -5,10 +5,10 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="UIM plugin" href="uim.html" /><link rel="prev" title="Fallback plugin" href="fallback.html" />
 
-    <meta name="generator" content="sphinx-5.1.1, furo 2022.09.15"/>
-        <title>SPEC standard plugin - spec2nexus 2021.2.3 documentation</title>
+    <meta name="generator" content="sphinx-5.2.3, furo 2022.09.29"/>
+        <title>SPEC standard plugin - spec2nexus 2021.2.4rc1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=9ec31e2665bf879c1d47d93a8ec4893870ee1e45" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=d81277517bee4d6b0349d71bb2661d4890b5617c" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">spec2nexus 2021.2.3 documentation</div></a>
+      <a href="../index.html"><div class="brand">spec2nexus 2021.2.4rc1 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -135,7 +135,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.3 documentation</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.4rc1 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -247,7 +247,8 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="theme-toggle-container theme-toggle-content">
+          
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -255,7 +256,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -1440,8 +1441,163 @@ are M sets of data columns on each line.</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">SPEC standard plugin</a><ul>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_Comment"><code class="docutils literal notranslate"><span class="pre">SPEC_Comment</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_Comment.process"><code class="docutils literal notranslate"><span class="pre">SPEC_Comment.process()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_Comment.writer"><code class="docutils literal notranslate"><span class="pre">SPEC_Comment.writer()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_CountTime"><code class="docutils literal notranslate"><span class="pre">SPEC_CountTime</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_CountTime.process"><code class="docutils literal notranslate"><span class="pre">SPEC_CountTime.process()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_CountTime.writer"><code class="docutils literal notranslate"><span class="pre">SPEC_CountTime.writer()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_CounterMnemonics"><code class="docutils literal notranslate"><span class="pre">SPEC_CounterMnemonics</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_CounterMnemonics.postprocess"><code class="docutils literal notranslate"><span class="pre">SPEC_CounterMnemonics.postprocess()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_CounterMnemonics.process"><code class="docutils literal notranslate"><span class="pre">SPEC_CounterMnemonics.process()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_CounterMnemonics.writer"><code class="docutils literal notranslate"><span class="pre">SPEC_CounterMnemonics.writer()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_CounterNames"><code class="docutils literal notranslate"><span class="pre">SPEC_CounterNames</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_CounterNames.postprocess"><code class="docutils literal notranslate"><span class="pre">SPEC_CounterNames.postprocess()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_CounterNames.process"><code class="docutils literal notranslate"><span class="pre">SPEC_CounterNames.process()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_CounterNames.writer"><code class="docutils literal notranslate"><span class="pre">SPEC_CounterNames.writer()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_DataLine"><code class="docutils literal notranslate"><span class="pre">SPEC_DataLine</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_DataLine.match_key"><code class="docutils literal notranslate"><span class="pre">SPEC_DataLine.match_key()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_DataLine.postprocess"><code class="docutils literal notranslate"><span class="pre">SPEC_DataLine.postprocess()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_DataLine.process"><code class="docutils literal notranslate"><span class="pre">SPEC_DataLine.process()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_Date"><code class="docutils literal notranslate"><span class="pre">SPEC_Date</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_Date.process"><code class="docutils literal notranslate"><span class="pre">SPEC_Date.process()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_Date.writer"><code class="docutils literal notranslate"><span class="pre">SPEC_Date.writer()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_Epoch"><code class="docutils literal notranslate"><span class="pre">SPEC_Epoch</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_Epoch.process"><code class="docutils literal notranslate"><span class="pre">SPEC_Epoch.process()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_File"><code class="docutils literal notranslate"><span class="pre">SPEC_File</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_File.process"><code class="docutils literal notranslate"><span class="pre">SPEC_File.process()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_Geometry"><code class="docutils literal notranslate"><span class="pre">SPEC_Geometry</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_Geometry.postprocess"><code class="docutils literal notranslate"><span class="pre">SPEC_Geometry.postprocess()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_Geometry.process"><code class="docutils literal notranslate"><span class="pre">SPEC_Geometry.process()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_Geometry.writer"><code class="docutils literal notranslate"><span class="pre">SPEC_Geometry.writer()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_HKL"><code class="docutils literal notranslate"><span class="pre">SPEC_HKL</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_HKL.process"><code class="docutils literal notranslate"><span class="pre">SPEC_HKL.process()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_HKL.writer"><code class="docutils literal notranslate"><span class="pre">SPEC_HKL.writer()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_Labels"><code class="docutils literal notranslate"><span class="pre">SPEC_Labels</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_Labels.process"><code class="docutils literal notranslate"><span class="pre">SPEC_Labels.process()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_MCA"><code class="docutils literal notranslate"><span class="pre">SPEC_MCA</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_MCA.process"><code class="docutils literal notranslate"><span class="pre">SPEC_MCA.process()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_MCA_Array"><code class="docutils literal notranslate"><span class="pre">SPEC_MCA_Array</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_MCA_Array.postprocess"><code class="docutils literal notranslate"><span class="pre">SPEC_MCA_Array.postprocess()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_MCA_Array.process"><code class="docutils literal notranslate"><span class="pre">SPEC_MCA_Array.process()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_MCA_Calibration"><code class="docutils literal notranslate"><span class="pre">SPEC_MCA_Calibration</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_MCA_Calibration.process"><code class="docutils literal notranslate"><span class="pre">SPEC_MCA_Calibration.process()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_MCA_Calibration.writer"><code class="docutils literal notranslate"><span class="pre">SPEC_MCA_Calibration.writer()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_MCA_ChannelInformation"><code class="docutils literal notranslate"><span class="pre">SPEC_MCA_ChannelInformation</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_MCA_ChannelInformation.process"><code class="docutils literal notranslate"><span class="pre">SPEC_MCA_ChannelInformation.process()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_MCA_ChannelInformation.writer"><code class="docutils literal notranslate"><span class="pre">SPEC_MCA_ChannelInformation.writer()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_MCA_CountTime"><code class="docutils literal notranslate"><span class="pre">SPEC_MCA_CountTime</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_MCA_CountTime.process"><code class="docutils literal notranslate"><span class="pre">SPEC_MCA_CountTime.process()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_MCA_CountTime.writer"><code class="docutils literal notranslate"><span class="pre">SPEC_MCA_CountTime.writer()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_MCA_RegionOfInterest"><code class="docutils literal notranslate"><span class="pre">SPEC_MCA_RegionOfInterest</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_MCA_RegionOfInterest.process"><code class="docutils literal notranslate"><span class="pre">SPEC_MCA_RegionOfInterest.process()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_MCA_RegionOfInterest.writer"><code class="docutils literal notranslate"><span class="pre">SPEC_MCA_RegionOfInterest.writer()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_Monitor"><code class="docutils literal notranslate"><span class="pre">SPEC_Monitor</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_Monitor.process"><code class="docutils literal notranslate"><span class="pre">SPEC_Monitor.process()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_Monitor.writer"><code class="docutils literal notranslate"><span class="pre">SPEC_Monitor.writer()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_NormalizingFactor"><code class="docutils literal notranslate"><span class="pre">SPEC_NormalizingFactor</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_NormalizingFactor.process"><code class="docutils literal notranslate"><span class="pre">SPEC_NormalizingFactor.process()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_NormalizingFactor.writer"><code class="docutils literal notranslate"><span class="pre">SPEC_NormalizingFactor.writer()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_NumColumns"><code class="docutils literal notranslate"><span class="pre">SPEC_NumColumns</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_NumColumns.process"><code class="docutils literal notranslate"><span class="pre">SPEC_NumColumns.process()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_PositionerMnemonics"><code class="docutils literal notranslate"><span class="pre">SPEC_PositionerMnemonics</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_PositionerMnemonics.postprocess"><code class="docutils literal notranslate"><span class="pre">SPEC_PositionerMnemonics.postprocess()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_PositionerMnemonics.process"><code class="docutils literal notranslate"><span class="pre">SPEC_PositionerMnemonics.process()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_PositionerMnemonics.writer"><code class="docutils literal notranslate"><span class="pre">SPEC_PositionerMnemonics.writer()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_PositionerNames"><code class="docutils literal notranslate"><span class="pre">SPEC_PositionerNames</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_PositionerNames.process"><code class="docutils literal notranslate"><span class="pre">SPEC_PositionerNames.process()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_Positioners"><code class="docutils literal notranslate"><span class="pre">SPEC_Positioners</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_Positioners.postprocess"><code class="docutils literal notranslate"><span class="pre">SPEC_Positioners.postprocess()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_Positioners.process"><code class="docutils literal notranslate"><span class="pre">SPEC_Positioners.process()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_Positioners.writer"><code class="docutils literal notranslate"><span class="pre">SPEC_Positioners.writer()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_Scan"><code class="docutils literal notranslate"><span class="pre">SPEC_Scan</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_Scan.process"><code class="docutils literal notranslate"><span class="pre">SPEC_Scan.process()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_TemperatureSetPoint"><code class="docutils literal notranslate"><span class="pre">SPEC_TemperatureSetPoint</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_TemperatureSetPoint.process"><code class="docutils literal notranslate"><span class="pre">SPEC_TemperatureSetPoint.process()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_TemperatureSetPoint.writer"><code class="docutils literal notranslate"><span class="pre">SPEC_TemperatureSetPoint.writer()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_UserReserved"><code class="docutils literal notranslate"><span class="pre">SPEC_UserReserved</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_UserReserved.process"><code class="docutils literal notranslate"><span class="pre">SPEC_UserReserved.process()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_UserReserved.writer"><code class="docutils literal notranslate"><span class="pre">SPEC_UserReserved.writer()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_UserResults"><code class="docutils literal notranslate"><span class="pre">SPEC_UserResults</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_UserResults.process"><code class="docutils literal notranslate"><span class="pre">SPEC_UserResults.process()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.SPEC_UserResults.writer"><code class="docutils literal notranslate"><span class="pre">SPEC_UserResults.writer()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.combine_split_NM_lines"><code class="docutils literal notranslate"><span class="pre">combine_split_NM_lines()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.data_lines_postprocessing"><code class="docutils literal notranslate"><span class="pre">data_lines_postprocessing()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.plugins.spec_common.data_lines_writer"><code class="docutils literal notranslate"><span class="pre">data_lines_writer()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
@@ -1451,6 +1607,7 @@ are M sets of data columns on each line.</p>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/scripts/furo.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>

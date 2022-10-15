@@ -5,10 +5,10 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="specplot_gallery" href="specplot_gallery.html" /><link rel="prev" title="extractSpecScan" href="extractSpecScan.html" />
 
-    <meta name="generator" content="sphinx-5.1.1, furo 2022.09.15"/>
-        <title>specplot - spec2nexus 2021.2.3 documentation</title>
+    <meta name="generator" content="sphinx-5.2.3, furo 2022.09.29"/>
+        <title>specplot - spec2nexus 2021.2.4rc1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=9ec31e2665bf879c1d47d93a8ec4893870ee1e45" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=d81277517bee4d6b0349d71bb2661d4890b5617c" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">spec2nexus 2021.2.3 documentation</div></a>
+      <a href="index.html"><div class="brand">spec2nexus 2021.2.4rc1 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.3 documentation</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.4rc1 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -247,7 +247,8 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="theme-toggle-container theme-toggle-content">
+          
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -966,7 +967,67 @@ instance when you call this class many times in your program.</p>
 <li><a class="reference internal" href="#how-to-use-specplot">How to use <em>specplot</em></a></li>
 <li><a class="reference internal" href="#usage">Usage</a></li>
 <li><a class="reference internal" href="#help">Help</a><ul>
-<li><a class="reference internal" href="#module-spec2nexus.specplot">source code documentation</a></li>
+<li><a class="reference internal" href="#module-spec2nexus.specplot">source code documentation</a><ul>
+<li><a class="reference internal" href="#spec2nexus.specplot.HKLScanPlotter"><code class="docutils literal notranslate"><span class="pre">HKLScanPlotter</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.specplot.HKLScanPlotter.retrieve_plot_data"><code class="docutils literal notranslate"><span class="pre">HKLScanPlotter.retrieve_plot_data()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.specplot.ImageMaker"><code class="docutils literal notranslate"><span class="pre">ImageMaker</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.specplot.ImageMaker.data_file_name"><code class="docutils literal notranslate"><span class="pre">ImageMaker.data_file_name()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot.ImageMaker.data_is_newer_than_plot"><code class="docutils literal notranslate"><span class="pre">ImageMaker.data_is_newer_than_plot()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot.ImageMaker.make_image"><code class="docutils literal notranslate"><span class="pre">ImageMaker.make_image()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot.ImageMaker.plot_options"><code class="docutils literal notranslate"><span class="pre">ImageMaker.plot_options()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot.ImageMaker.plot_scan"><code class="docutils literal notranslate"><span class="pre">ImageMaker.plot_scan()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot.ImageMaker.plot_subtitle"><code class="docutils literal notranslate"><span class="pre">ImageMaker.plot_subtitle()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot.ImageMaker.plot_title"><code class="docutils literal notranslate"><span class="pre">ImageMaker.plot_title()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot.ImageMaker.plottable"><code class="docutils literal notranslate"><span class="pre">ImageMaker.plottable()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot.ImageMaker.retrieve_plot_data"><code class="docutils literal notranslate"><span class="pre">ImageMaker.retrieve_plot_data()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot.ImageMaker.set_plot_subtitle"><code class="docutils literal notranslate"><span class="pre">ImageMaker.set_plot_subtitle()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot.ImageMaker.set_plot_title"><code class="docutils literal notranslate"><span class="pre">ImageMaker.set_plot_title()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot.ImageMaker.set_timestamp"><code class="docutils literal notranslate"><span class="pre">ImageMaker.set_timestamp()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot.ImageMaker.set_x_log"><code class="docutils literal notranslate"><span class="pre">ImageMaker.set_x_log()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot.ImageMaker.set_x_title"><code class="docutils literal notranslate"><span class="pre">ImageMaker.set_x_title()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot.ImageMaker.set_y_log"><code class="docutils literal notranslate"><span class="pre">ImageMaker.set_y_log()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot.ImageMaker.set_y_title"><code class="docutils literal notranslate"><span class="pre">ImageMaker.set_y_title()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot.ImageMaker.set_z_log"><code class="docutils literal notranslate"><span class="pre">ImageMaker.set_z_log()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot.ImageMaker.timestamp"><code class="docutils literal notranslate"><span class="pre">ImageMaker.timestamp()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot.ImageMaker.x_log"><code class="docutils literal notranslate"><span class="pre">ImageMaker.x_log()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot.ImageMaker.x_title"><code class="docutils literal notranslate"><span class="pre">ImageMaker.x_title()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot.ImageMaker.y_log"><code class="docutils literal notranslate"><span class="pre">ImageMaker.y_log()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot.ImageMaker.y_title"><code class="docutils literal notranslate"><span class="pre">ImageMaker.y_title()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot.ImageMaker.z_log"><code class="docutils literal notranslate"><span class="pre">ImageMaker.z_log()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.specplot.LinePlotter"><code class="docutils literal notranslate"><span class="pre">LinePlotter</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.specplot.LinePlotter.make_image"><code class="docutils literal notranslate"><span class="pre">LinePlotter.make_image()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot.LinePlotter.plot_options"><code class="docutils literal notranslate"><span class="pre">LinePlotter.plot_options()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot.LinePlotter.plottable"><code class="docutils literal notranslate"><span class="pre">LinePlotter.plottable()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot.LinePlotter.retrieve_plot_data"><code class="docutils literal notranslate"><span class="pre">LinePlotter.retrieve_plot_data()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.specplot.MeshPlotter"><code class="docutils literal notranslate"><span class="pre">MeshPlotter</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.specplot.MeshPlotter.make_image"><code class="docutils literal notranslate"><span class="pre">MeshPlotter.make_image()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot.MeshPlotter.plot_options"><code class="docutils literal notranslate"><span class="pre">MeshPlotter.plot_options()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot.MeshPlotter.plottable"><code class="docutils literal notranslate"><span class="pre">MeshPlotter.plottable()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot.MeshPlotter.retrieve_plot_data"><code class="docutils literal notranslate"><span class="pre">MeshPlotter.retrieve_plot_data()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.specplot.NoDataToPlot"><code class="docutils literal notranslate"><span class="pre">NoDataToPlot</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot.NotPlottable"><code class="docutils literal notranslate"><span class="pre">NotPlottable</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot.ScanAborted"><code class="docutils literal notranslate"><span class="pre">ScanAborted</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot.Selector"><code class="docutils literal notranslate"><span class="pre">Selector</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.specplot.Selector.add"><code class="docutils literal notranslate"><span class="pre">Selector.add()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot.Selector.auto"><code class="docutils literal notranslate"><span class="pre">Selector.auto()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot.Selector.default"><code class="docutils literal notranslate"><span class="pre">Selector.default()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot.Selector.exists"><code class="docutils literal notranslate"><span class="pre">Selector.exists()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot.Selector.get"><code class="docutils literal notranslate"><span class="pre">Selector.get()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot.Selector.update"><code class="docutils literal notranslate"><span class="pre">Selector.update()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.specplot.UnexpectedObjectTypeError"><code class="docutils literal notranslate"><span class="pre">UnexpectedObjectTypeError</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot.openSpecFile"><code class="docutils literal notranslate"><span class="pre">openSpecFile()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -985,6 +1046,7 @@ instance when you call this class many times in your program.</p>
     <script src="_static/underscore.js"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/scripts/furo.js"></script>
     </body>
 </html>

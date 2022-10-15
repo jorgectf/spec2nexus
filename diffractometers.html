@@ -5,10 +5,10 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="spec2nexus.plugin" href="plugin_core.html" /><link rel="prev" title="spec2nexus.control_lines" href="control_lines.html" />
 
-    <meta name="generator" content="sphinx-5.1.1, furo 2022.09.15"/>
-        <title>spec2nexus.diffractometers - spec2nexus 2021.2.3 documentation</title>
+    <meta name="generator" content="sphinx-5.2.3, furo 2022.09.29"/>
+        <title>spec2nexus.diffractometers - spec2nexus 2021.2.4rc1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=9ec31e2665bf879c1d47d93a8ec4893870ee1e45" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=d81277517bee4d6b0349d71bb2661d4890b5617c" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">spec2nexus 2021.2.3 documentation</div></a>
+      <a href="index.html"><div class="brand">spec2nexus 2021.2.4rc1 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.3 documentation</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.4rc1 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -247,7 +247,8 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="theme-toggle-container theme-toggle-content">
+          
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -613,7 +614,58 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spec2nexus.diffractometers</span></code></a><ul>
-<li><a class="reference internal" href="#module-spec2nexus.diffractometers">source code documentation</a></li>
+<li><a class="reference internal" href="#module-spec2nexus.diffractometers">source code documentation</a><ul>
+<li><a class="reference internal" href="#spec2nexus.diffractometers.Diffractometer"><code class="docutils literal notranslate"><span class="pre">Diffractometer</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.diffractometers.Diffractometer.print_all"><code class="docutils literal notranslate"><span class="pre">Diffractometer.print_all()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.diffractometers.Diffractometer.print_brief"><code class="docutils literal notranslate"><span class="pre">Diffractometer.print_brief()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.diffractometers.DiffractometerGeometryCatalog"><code class="docutils literal notranslate"><span class="pre">DiffractometerGeometryCatalog</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.diffractometers.DiffractometerGeometryCatalog.geometries"><code class="docutils literal notranslate"><span class="pre">DiffractometerGeometryCatalog.geometries()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.diffractometers.DiffractometerGeometryCatalog.get"><code class="docutils literal notranslate"><span class="pre">DiffractometerGeometryCatalog.get()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.diffractometers.DiffractometerGeometryCatalog.has_geometry"><code class="docutils literal notranslate"><span class="pre">DiffractometerGeometryCatalog.has_geometry()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.diffractometers.DiffractometerGeometryCatalog.match"><code class="docutils literal notranslate"><span class="pre">DiffractometerGeometryCatalog.match()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.diffractometers.KeyDescriptionValue"><code class="docutils literal notranslate"><span class="pre">KeyDescriptionValue</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.diffractometers.KeyDescriptionValue.description"><code class="docutils literal notranslate"><span class="pre">KeyDescriptionValue.description</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.diffractometers.KeyDescriptionValue.key"><code class="docutils literal notranslate"><span class="pre">KeyDescriptionValue.key</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.diffractometers.KeyDescriptionValue.value"><code class="docutils literal notranslate"><span class="pre">KeyDescriptionValue.value</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.diffractometers.LatticeParameters2D"><code class="docutils literal notranslate"><span class="pre">LatticeParameters2D</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.diffractometers.LatticeParameters2D.a"><code class="docutils literal notranslate"><span class="pre">LatticeParameters2D.a</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.diffractometers.LatticeParameters2D.b"><code class="docutils literal notranslate"><span class="pre">LatticeParameters2D.b</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.diffractometers.LatticeParameters2D.gamma"><code class="docutils literal notranslate"><span class="pre">LatticeParameters2D.gamma</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.diffractometers.LatticeParameters3D"><code class="docutils literal notranslate"><span class="pre">LatticeParameters3D</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.diffractometers.LatticeParameters3D.a"><code class="docutils literal notranslate"><span class="pre">LatticeParameters3D.a</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.diffractometers.LatticeParameters3D.alpha"><code class="docutils literal notranslate"><span class="pre">LatticeParameters3D.alpha</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.diffractometers.LatticeParameters3D.b"><code class="docutils literal notranslate"><span class="pre">LatticeParameters3D.b</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.diffractometers.LatticeParameters3D.beta"><code class="docutils literal notranslate"><span class="pre">LatticeParameters3D.beta</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.diffractometers.LatticeParameters3D.c"><code class="docutils literal notranslate"><span class="pre">LatticeParameters3D.c</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.diffractometers.LatticeParameters3D.gamma"><code class="docutils literal notranslate"><span class="pre">LatticeParameters3D.gamma</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.diffractometers.Reflections2D"><code class="docutils literal notranslate"><span class="pre">Reflections2D</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.diffractometers.Reflections2D.angles"><code class="docutils literal notranslate"><span class="pre">Reflections2D.angles</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.diffractometers.Reflections2D.h"><code class="docutils literal notranslate"><span class="pre">Reflections2D.h</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.diffractometers.Reflections2D.k"><code class="docutils literal notranslate"><span class="pre">Reflections2D.k</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.diffractometers.Reflections2D.wavelength"><code class="docutils literal notranslate"><span class="pre">Reflections2D.wavelength</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.diffractometers.Reflections3D"><code class="docutils literal notranslate"><span class="pre">Reflections3D</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.diffractometers.Reflections3D.angles"><code class="docutils literal notranslate"><span class="pre">Reflections3D.angles</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.diffractometers.Reflections3D.h"><code class="docutils literal notranslate"><span class="pre">Reflections3D.h</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.diffractometers.Reflections3D.k"><code class="docutils literal notranslate"><span class="pre">Reflections3D.k</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.diffractometers.Reflections3D.l"><code class="docutils literal notranslate"><span class="pre">Reflections3D.l</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.diffractometers.Reflections3D.wavelength"><code class="docutils literal notranslate"><span class="pre">Reflections3D.wavelength</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.diffractometers.split_name_variation"><code class="docutils literal notranslate"><span class="pre">split_name_variation()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -630,6 +682,7 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/scripts/furo.js"></script>
     </body>
 </html>

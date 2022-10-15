@@ -5,10 +5,10 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Libraries" href="libraries.html" /><link rel="prev" title="specplot" href="specplot.html" />
 
-    <meta name="generator" content="sphinx-5.1.1, furo 2022.09.15"/>
-        <title>specplot_gallery - spec2nexus 2021.2.3 documentation</title>
+    <meta name="generator" content="sphinx-5.2.3, furo 2022.09.29"/>
+        <title>specplot_gallery - spec2nexus 2021.2.4rc1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=9ec31e2665bf879c1d47d93a8ec4893870ee1e45" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=d81277517bee4d6b0349d71bb2661d4890b5617c" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">spec2nexus 2021.2.3 documentation</div></a>
+      <a href="index.html"><div class="brand">spec2nexus 2021.2.4rc1 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.3 documentation</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.4rc1 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -247,7 +247,8 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="theme-toggle-container theme-toggle-content">
+          
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -649,7 +650,32 @@ last modified or None if not known</p>
 <li><a class="reference internal" href="#">specplot_gallery</a><ul>
 <li><a class="reference internal" href="#how-to-use-specplot-gallery-command-line">How to use <em>specplot_gallery</em>: command line</a></li>
 <li><a class="reference internal" href="#how-to-use-specplot-gallery-periodic-background-task-cron">How to use <em>specplot_gallery</em>: periodic background task (cron)</a></li>
-<li><a class="reference internal" href="#module-spec2nexus.specplot_gallery">source code documentation</a></li>
+<li><a class="reference internal" href="#module-spec2nexus.specplot_gallery">source code documentation</a><ul>
+<li><a class="reference internal" href="#spec2nexus.specplot_gallery.Cache_File_Mtime"><code class="docutils literal notranslate"><span class="pre">Cache_File_Mtime</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.specplot_gallery.Cache_File_Mtime.get"><code class="docutils literal notranslate"><span class="pre">Cache_File_Mtime.get()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot_gallery.Cache_File_Mtime.read"><code class="docutils literal notranslate"><span class="pre">Cache_File_Mtime.read()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot_gallery.Cache_File_Mtime.was_file_updated"><code class="docutils literal notranslate"><span class="pre">Cache_File_Mtime.was_file_updated()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot_gallery.Cache_File_Mtime.write"><code class="docutils literal notranslate"><span class="pre">Cache_File_Mtime.write()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.specplot_gallery.DirectoryNotFoundError"><code class="docutils literal notranslate"><span class="pre">DirectoryNotFoundError</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot_gallery.PathIsNotDirectoryError"><code class="docutils literal notranslate"><span class="pre">PathIsNotDirectoryError</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot_gallery.PlotSpecFileScans"><code class="docutils literal notranslate"><span class="pre">PlotSpecFileScans</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.specplot_gallery.PlotSpecFileScans.getBaseDir"><code class="docutils literal notranslate"><span class="pre">PlotSpecFileScans.getBaseDir()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot_gallery.PlotSpecFileScans.getPlotDir"><code class="docutils literal notranslate"><span class="pre">PlotSpecFileScans.getPlotDir()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot_gallery.PlotSpecFileScans.plot_all_scans"><code class="docutils literal notranslate"><span class="pre">PlotSpecFileScans.plot_all_scans()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot_gallery.PlotSpecFileScans.specFileUpdated"><code class="docutils literal notranslate"><span class="pre">PlotSpecFileScans.specFileUpdated()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.specplot_gallery.buildIndexHtml"><code class="docutils literal notranslate"><span class="pre">buildIndexHtml()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot_gallery.datePath"><code class="docutils literal notranslate"><span class="pre">datePath()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot_gallery.developer"><code class="docutils literal notranslate"><span class="pre">developer()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot_gallery.getSpecFileDate"><code class="docutils literal notranslate"><span class="pre">getSpecFileDate()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot_gallery.logger"><code class="docutils literal notranslate"><span class="pre">logger()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot_gallery.needToMakePlot"><code class="docutils literal notranslate"><span class="pre">needToMakePlot()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.specplot_gallery.timestamp"><code class="docutils literal notranslate"><span class="pre">timestamp()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -666,6 +692,7 @@ last modified or None if not known</p>
     <script src="_static/underscore.js"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/scripts/furo.js"></script>
     </body>
 </html>

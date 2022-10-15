@@ -5,10 +5,10 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="spec2nexus.eznx" href="eznx.html" /><link rel="prev" title="Libraries" href="libraries.html" />
 
-    <meta name="generator" content="sphinx-5.1.1, furo 2022.09.15"/>
-        <title>spec2nexus.spec - spec2nexus 2021.2.3 documentation</title>
+    <meta name="generator" content="sphinx-5.2.3, furo 2022.09.29"/>
+        <title>spec2nexus.spec - spec2nexus 2021.2.4rc1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=9ec31e2665bf879c1d47d93a8ec4893870ee1e45" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=d81277517bee4d6b0349d71bb2661d4890b5617c" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">spec2nexus 2021.2.3 documentation</div></a>
+      <a href="index.html"><div class="brand">spec2nexus 2021.2.4rc1 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.3 documentation</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.4rc1 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -247,7 +247,8 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="theme-toggle-container theme-toggle-content">
+          
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -1435,7 +1436,46 @@ with these control lines in order:</p>
 <li><a class="reference internal" href="#internal-use-only-do-not-modify">internal use only - do not modify</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#module-spec2nexus.spec">source code documentation</a></li>
+<li><a class="reference internal" href="#module-spec2nexus.spec">source code documentation</a><ul>
+<li><a class="reference internal" href="#spec2nexus.spec.DuplicateSpecScanNumber"><code class="docutils literal notranslate"><span class="pre">DuplicateSpecScanNumber</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.spec.NotASpecDataFile"><code class="docutils literal notranslate"><span class="pre">NotASpecDataFile</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.spec.SpecDataFile"><code class="docutils literal notranslate"><span class="pre">SpecDataFile</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.spec.SpecDataFile.dissect_file"><code class="docutils literal notranslate"><span class="pre">SpecDataFile.dissect_file()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.spec.SpecDataFile.getFirstScanNumber"><code class="docutils literal notranslate"><span class="pre">SpecDataFile.getFirstScanNumber()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.spec.SpecDataFile.getLastScanNumber"><code class="docutils literal notranslate"><span class="pre">SpecDataFile.getLastScanNumber()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.spec.SpecDataFile.getMaxScanNumber"><code class="docutils literal notranslate"><span class="pre">SpecDataFile.getMaxScanNumber()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.spec.SpecDataFile.getMinScanNumber"><code class="docutils literal notranslate"><span class="pre">SpecDataFile.getMinScanNumber()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.spec.SpecDataFile.getScan"><code class="docutils literal notranslate"><span class="pre">SpecDataFile.getScan()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.spec.SpecDataFile.getScanCommands"><code class="docutils literal notranslate"><span class="pre">SpecDataFile.getScanCommands()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.spec.SpecDataFile.getScanNumbers"><code class="docutils literal notranslate"><span class="pre">SpecDataFile.getScanNumbers()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.spec.SpecDataFile.getScanNumbersChronological"><code class="docutils literal notranslate"><span class="pre">SpecDataFile.getScanNumbersChronological()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.spec.SpecDataFile.read"><code class="docutils literal notranslate"><span class="pre">SpecDataFile.read()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.spec.SpecDataFile.refresh"><code class="docutils literal notranslate"><span class="pre">SpecDataFile.refresh()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.spec.SpecDataFile.update_available"><code class="docutils literal notranslate"><span class="pre">SpecDataFile.update_available</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.spec.SpecDataFileCouldNotOpen"><code class="docutils literal notranslate"><span class="pre">SpecDataFileCouldNotOpen</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.spec.SpecDataFileHeader"><code class="docutils literal notranslate"><span class="pre">SpecDataFileHeader</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.spec.SpecDataFileHeader.addH5writer"><code class="docutils literal notranslate"><span class="pre">SpecDataFileHeader.addH5writer()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.spec.SpecDataFileHeader.addPostProcessor"><code class="docutils literal notranslate"><span class="pre">SpecDataFileHeader.addPostProcessor()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.spec.SpecDataFileHeader.interpret"><code class="docutils literal notranslate"><span class="pre">SpecDataFileHeader.interpret()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.spec.SpecDataFileNotFound"><code class="docutils literal notranslate"><span class="pre">SpecDataFileNotFound</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.spec.SpecDataFileScan"><code class="docutils literal notranslate"><span class="pre">SpecDataFileScan</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.spec.SpecDataFileScan.addH5writer"><code class="docutils literal notranslate"><span class="pre">SpecDataFileScan.addH5writer()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.spec.SpecDataFileScan.addPostProcessor"><code class="docutils literal notranslate"><span class="pre">SpecDataFileScan.addPostProcessor()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.spec.SpecDataFileScan.add_interpreter_comment"><code class="docutils literal notranslate"><span class="pre">SpecDataFileScan.add_interpreter_comment()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.spec.SpecDataFileScan.get_interpreter_comments"><code class="docutils literal notranslate"><span class="pre">SpecDataFileScan.get_interpreter_comments()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.spec.SpecDataFileScan.get_macro_name"><code class="docutils literal notranslate"><span class="pre">SpecDataFileScan.get_macro_name()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.spec.SpecDataFileScan.interpret"><code class="docutils literal notranslate"><span class="pre">SpecDataFileScan.interpret()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.spec.UnknownSpecFilePart"><code class="docutils literal notranslate"><span class="pre">UnknownSpecFilePart</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.spec.is_spec_file"><code class="docutils literal notranslate"><span class="pre">is_spec_file()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.spec.is_spec_file_with_header"><code class="docutils literal notranslate"><span class="pre">is_spec_file_with_header()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -1454,6 +1494,7 @@ with these control lines in order:</p>
     <script src="_static/underscore.js"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/scripts/furo.js"></script>
     </body>
 </html>

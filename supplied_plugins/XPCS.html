@@ -5,10 +5,10 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="apstools SpecWriterCallback metadata plugin" href="apstools_specwriter.html" /><link rel="prev" title="spec2nexus.plugin" href="../plugin_core.html" />
 
-    <meta name="generator" content="sphinx-5.1.1, furo 2022.09.15"/>
-        <title>XPCS plugin - spec2nexus 2021.2.3 documentation</title>
+    <meta name="generator" content="sphinx-5.2.3, furo 2022.09.29"/>
+        <title>XPCS plugin - spec2nexus 2021.2.4rc1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=9ec31e2665bf879c1d47d93a8ec4893870ee1e45" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=d81277517bee4d6b0349d71bb2661d4890b5617c" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">spec2nexus 2021.2.3 documentation</div></a>
+      <a href="../index.html"><div class="brand">spec2nexus 2021.2.4rc1 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -135,7 +135,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
   
-  <span class="sidebar-brand-text">spec2nexus 2021.2.3 documentation</span>
+  <span class="sidebar-brand-text">spec2nexus 2021.2.4rc1 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -247,7 +247,8 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="theme-toggle-container theme-toggle-content">
+          
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -255,7 +256,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -446,8 +447,51 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">XPCS plugin</a><ul>
+<li><a class="reference internal" href="#spec2nexus.plugins.XPCS.XPCS_CCD"><code class="docutils literal notranslate"><span class="pre">XPCS_CCD</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.plugins.XPCS.XPCS_CCD.process"><code class="docutils literal notranslate"><span class="pre">XPCS_CCD.process()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.plugins.XPCS.XPCS_CCD.writer"><code class="docutils literal notranslate"><span class="pre">XPCS_CCD.writer()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.plugins.XPCS.XPCS_VA"><code class="docutils literal notranslate"><span class="pre">XPCS_VA</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.plugins.XPCS.XPCS_VA.process"><code class="docutils literal notranslate"><span class="pre">XPCS_VA.process()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.plugins.XPCS.XPCS_VA.writer"><code class="docutils literal notranslate"><span class="pre">XPCS_VA.writer()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.plugins.XPCS.XPCS_VD"><code class="docutils literal notranslate"><span class="pre">XPCS_VD</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.plugins.XPCS.XPCS_VD.process"><code class="docutils literal notranslate"><span class="pre">XPCS_VD.process()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.plugins.XPCS.XPCS_VD.writer"><code class="docutils literal notranslate"><span class="pre">XPCS_VD.writer()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.plugins.XPCS.XPCS_VE"><code class="docutils literal notranslate"><span class="pre">XPCS_VE</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.plugins.XPCS.XPCS_VE.process"><code class="docutils literal notranslate"><span class="pre">XPCS_VE.process()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.plugins.XPCS.XPCS_VE.writer"><code class="docutils literal notranslate"><span class="pre">XPCS_VE.writer()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spec2nexus.plugins.XPCS.XPCS_XPCS"><code class="docutils literal notranslate"><span class="pre">XPCS_XPCS</span></code></a><ul>
+<li><a class="reference internal" href="#spec2nexus.plugins.XPCS.XPCS_XPCS.process"><code class="docutils literal notranslate"><span class="pre">XPCS_XPCS.process()</span></code></a></li>
+<li><a class="reference internal" href="#spec2nexus.plugins.XPCS.XPCS_XPCS.writer"><code class="docutils literal notranslate"><span class="pre">XPCS_XPCS.writer()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
@@ -457,6 +501,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/scripts/furo.js"></script>
     </body>
 </html>
